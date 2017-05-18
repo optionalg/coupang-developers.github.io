@@ -1,6 +1,6 @@
 export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
   note: ``,
-
+  
   //don't modify documentInfo
   documentInfo: {
     category: `exchange-api`,   // input category ex) exchange-service-api
@@ -15,9 +15,9 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
       name: `교환상품 접수 확인`,
       anchorId: ``,
     },
-
+    
   },
-
+  
   apiInfo: {
     state: `draft`,      // draft, candidate, release, unstable, stable, deprecated
     lastUpdateDate: `2017-02-20`, // yyyy-mm-dd  ex> 2016-12-23
@@ -32,7 +32,7 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
     _warning: ``,
   },
   parameters: {
-    pathSegmentParameters:false,
+    pathSegmentParameters: false,
     queryStringParameters: false,
     bodyParameters: [
       {
@@ -84,8 +84,8 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
       {
         language: `http`,
         codeblock: {
-          "receiptId":"40362",
-          "vendorId":"A00010028"
+          "exchangeId": 40362,
+          "vendorId": "A00013264"
         }
       }
     ],

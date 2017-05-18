@@ -1,6 +1,6 @@
 export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
   note: ``,
-
+  
   //don't modify documentInfo
   documentInfo: {
     category: `exchange-api`,   // input category ex) exchange-service-api
@@ -15,7 +15,7 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
       name: `교환상품 접수 확인`,
       anchorId: ``,
     },
-
+    
   },
   apiMigrationInfo: {
     previousVersions: [
@@ -53,7 +53,7 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
     _warning: ``,
   },
   parameters: {
-    pathSegmentParameters:false,
+    pathSegmentParameters: false,
     queryStringParameters: false,
     bodyParameters: [
       {
@@ -105,8 +105,8 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
       {
         language: `http`,
         codeblock: {
-          "receiptId":"40362",
-          "vendorId":"A00010028"
+          "exchangeId": 40362,
+          "vendorId": "A00013264"
         }
       }
     ],

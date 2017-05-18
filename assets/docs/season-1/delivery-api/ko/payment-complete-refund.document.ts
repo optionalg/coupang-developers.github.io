@@ -1,6 +1,6 @@
 export const paymentCompleteRefundDocument = {
   note: ``,
-
+  
   //don't modify documentInfo
   documentInfo: {
     category: `cancel-api`,   // input category ex) exchange-service-api
@@ -15,9 +15,9 @@ export const paymentCompleteRefundDocument = {
       name: `결제완료 건 취소 처리`,
       anchorId: ``,
     },
-
+    
   },
-
+  
   apiInfo: {
     state: `draft`,      // draft, candidate, release, unstable, stable, deprecated
     lastUpdateDate: `2017-02-20`, // yyyy-mm-dd  ex> 2016-12-23
@@ -186,6 +186,13 @@ export const paymentCompleteRefundDocument = {
       {
         language: `http`,
         codeblock: {
+          "orderId": 28000005778875,
+          "vendorItemIds": [3124304579, 3124304580],
+          "receiptCounts": [1, 2],
+          "bigCancelCode": "CANERR",
+          "middleCancelCode": "CCTTER",
+          "vendorId": "A00013264",
+          "userId": "et5"
         }
       }
     ],
@@ -193,11 +200,11 @@ export const paymentCompleteRefundDocument = {
       "code": "200",
       "message": "",
       "data": {
-        "success" : true,
-        "cancelIds" : [
+        "success": true,
+        "cancelIds": [
           1234
         ],
-        "resultMessage" : "주문 강제 취소 처리를 완료하였습니다."
+        "resultMessage": "주문 강제 취소 처리를 완료하였습니다."
       }
     },
     _description: ``,
