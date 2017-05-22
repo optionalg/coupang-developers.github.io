@@ -71,7 +71,7 @@ export const lookupOrderListPerMinuteDocument = {
         _description: `검색 시작일시`,
         _relation: ``,
         _referenceInfo: `
-        if searchType equals time-frame parameter format is
+        if searchType equals timeFrame parameter format is
         yyyy-MM-dd'T'HH:mm(ISO-8601)
         ex)2015-12-14T14:16 ~ 2015-12-14T15:16
         위 조건을 초단위까지 고려하면 아래와 같습니다.
@@ -90,7 +90,7 @@ export const lookupOrderListPerMinuteDocument = {
         _description: `검색 종료일시`,
         _relation: ``,
         _referenceInfo: `
-        if searchType equals time-frame parameter format is
+        if searchType equals timeFrame parameter format is
         yyyy-MM-dd'T'HH:mm(ISO-8601)
         ex)2015-12-14T14:16 ~ 2015-12-14T15:16
         위 조건을 초단위까지 고려하면 아래와 같습니다.
@@ -151,7 +151,7 @@ export const lookupOrderListPerMinuteDocument = {
         _description: `다음 페이지 조회를 위한 token값`,
         _relation: ``,
         _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.`,
-        _warning: `if searchType equals time-frame this parameter is not supported`,
+        _warning: `if searchType equals timeFrame this parameter is not supported`,
         children: false
       },
       {
@@ -161,7 +161,7 @@ export const lookupOrderListPerMinuteDocument = {
         _description: `페이지당 최대 조회 요청 값`,
         _relation: ``,
         _referenceInfo: `default = 50`,
-        _warning: `if searchType equals time-frame this parameter is not supported`,
+        _warning: `if searchType equals timeFrame this parameter is not supported`,
         children: false
       },
       {
@@ -170,7 +170,7 @@ export const lookupOrderListPerMinuteDocument = {
         require: false,
         _description: `search type for order sheets results`,
         _relation: ``,
-        _referenceInfo: `if searchType equals time-frame you can search results by minutes,
+        _referenceInfo: `if searchType equals timeFrame you can search results by minutes,
         otherwise you can search paged results by days
         `,
         _warning: `this parameter is added in version 4`,
@@ -605,7 +605,7 @@ export const lookupOrderListPerMinuteDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets?searchType=time-frame&createdAtFrom=2015-12-14T14:16&createdAtTo=2015-12-14T14:17&status=ACCEPT`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets?searchType=timeFrame&createdAtFrom=2015-12-14T14:16&createdAtTo=2015-12-14T14:17&status=ACCEPT`,
     code: [
       {
         language: `http`,
