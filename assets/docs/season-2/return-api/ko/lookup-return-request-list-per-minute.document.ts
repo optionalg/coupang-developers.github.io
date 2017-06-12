@@ -26,8 +26,8 @@ export const lookupReturnRequestListPerMinuteDocument = {
         _relation: ``,
         _referenceInfo: ``,
         _warning: `Integrated search by day and minutes by add the parameter "searchType=timeFrame".<br>
-                   Search by day parameters : createdAtFrom,createdTo and status <br>
-                   Search by minutes parameters : createdAtFrom,createdTo, status, nextToken, maxPerPage and orderId`
+                   Search by day parameters : createdAtFrom,createdTo, status, nextToken, maxPerPage and orderId <br>
+                   Search by minutes parameters : createdAtFrom,createdTo and status`
       },
     ],
     nextVersions: [
@@ -123,33 +123,6 @@ export const lookupReturnRequestListPerMinuteDocument = {
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
-        children: false
-      },
-      {
-        name: `nextToken`,
-        require: false,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: `No need this parameter when search by minutes.`,
-        children: false
-      },
-      {
-        name: `maxPerPage`,
-        require: false,
-        _description: `Default 50, max 50.`,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: `No need this parameter when search by minutes.`,
-        children: false
-      },
-      {
-        name: `orderId`,
-        require: false,
-        _description: `Order ID.`,
-        _relation: ``,
-        _referenceInfo: `If status is null, then orderId is mandatory.`,
-        _warning: `No need this parameter when search by minutes.`,
         children: false
       }
     ],

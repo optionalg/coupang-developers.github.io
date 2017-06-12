@@ -52,7 +52,7 @@ export const applyProductCashbackDocument = {
 이 API는 동일한 캐시백 룰을 사용하는 옵션에 적용할수 있으며(승인완료 이후의 옵션들에 지정 가능) 캐시백 유형은 RATE, FIXED 및 FIXED_WITH_QUANTITY입니다.<br>
 
 *캐쉬백 기능은 쿠팡 사업개발팀과 계약서 작성 및 이용 관련 협의 후 사용 가능, bd@coupang.com으로 문의 부탁 드립니다.<br>
-각 캐시백 유형에 맞는 비즈니스 로직은 아래 테이블을 참조해 주십시오：
+각 캐시백 유형에 맞는 비즈니스 로직은 아래 테이블을 참조해 주십시오.：
 <table>
         <tr>
           <th>Value type</th>
