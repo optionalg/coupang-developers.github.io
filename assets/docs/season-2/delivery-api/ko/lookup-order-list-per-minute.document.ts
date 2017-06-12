@@ -34,7 +34,7 @@ export const lookupOrderListPerMinuteDocument = {
     previousVersions: [
       {
         apiName: `발주서 목록 조회(분단위 전체)`,
-        path: `/v2/providers/wing_api/apis/internal-api/v2/ordersheets/time-frame`,
+        path: `/v2/providers/wing_api/apis/internal-api/v2/ordersheets/timeFrame`,
         _description: ``, //`발주서 목록 조회 분단위 전체 조회`,
         _relation: ``,
         _referenceInfo: ``,
@@ -142,26 +142,6 @@ export const lookupOrderListPerMinuteDocument = {
         </table>
         `,
         _warning: ``,
-        children: false
-      },
-      {
-        name: `nextToken`,
-        type: `String`,
-        require: false,
-        _description: `다음 페이지 조회를 위한 token값`,
-        _relation: ``,
-        _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.`,
-        _warning: `if searchType equals timeFrame this parameter is not supported`,
-        children: false
-      },
-      {
-        name: `maxPerPage`,
-        type: `Number`,
-        require: false,
-        _description: `페이지당 최대 조회 요청 값`,
-        _relation: ``,
-        _referenceInfo: `default = 50`,
-        _warning: `if searchType equals timeFrame this parameter is not supported`,
         children: false
       },
       {

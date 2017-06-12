@@ -26,8 +26,8 @@ export const lookupReturnRequestListPerDayDocument = {
         _relation: ``,
         _referenceInfo: ``,
         _warning: `Integrated search by day and minutes by add the parameter "searchType=timeFrame".<br>
-                   Search by day parameters : createdAtFrom,createdTo and status <br>
-                   Search by minutes parameters : createdAtFrom,createdTo, status, nextToken, maxPerPage and orderId`
+                   Search by day parameters : createdAtFrom,createdTo, status, nextToken, maxPerPage and orderId <br>
+                   Search by minutes parameters : createdAtFrom,createdTo and status`
       },
     ],
     nextVersions: [
