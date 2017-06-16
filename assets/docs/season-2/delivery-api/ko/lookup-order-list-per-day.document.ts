@@ -161,7 +161,7 @@ export const lookupOrderListPerDayDocument = {
         _description: `다음 페이지 조회를 위한 token값`,
         _relation: ``,
         _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.`,
-        _warning: `if searchType equals time-frame this parameter is not supported`,
+        //_warning: `if searchType equals timeFrame this parameter is not supported`,
         children: false
       },
       {
@@ -171,7 +171,7 @@ export const lookupOrderListPerDayDocument = {
         _description: `페이지당 최대 조회 요청 값`,
         _relation: ``,
         _referenceInfo: `default = 50`,
-        _warning: `if searchType equals time-frame this parameter is not supported`,
+        //_warning: `if searchType equals timeFrame this parameter is not supported`,
         children: false
       },
       {

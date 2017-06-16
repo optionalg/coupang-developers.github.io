@@ -26,8 +26,8 @@ export const lookupReturnRequestListPerDayDocument = {
         _relation: ``,
         _referenceInfo: ``,
         _warning: `Integrated search by day and minutes by add the parameter "searchType=timeFrame".<br>
-                   Search by day parameters : createdAtFrom,createdTo and status <br>
-                   Search by minutes parameters : createdAtFrom,createdTo, status, nextToken, maxPerPage and orderId`
+                   Search by day parameters : createdAtFrom,createdTo, status, nextToken, maxPerPage and orderId <br>
+                   Search by minutes parameters : createdAtFrom,createdTo and status`
       },
     ],
     nextVersions: [
@@ -127,20 +127,22 @@ export const lookupReturnRequestListPerDayDocument = {
       },
       {
         name: `nextToken`,
+        type: `String`,
         require: false,
-        _description: ``,
+        _description: `다음 페이지 조회를 위한 token값`,
         _relation: ``,
-        _referenceInfo: ``,
-        _warning: `No need this parameter when search by minutes.`,
+        _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.`,
+        //_warning: `if searchType equals timeFrame this parameter is not supported`,
         children: false
       },
       {
         name: `maxPerPage`,
+        type: `Number`,
         require: false,
-        _description: `Default 50, max 50.`,
+        _description: `페이지당 최대 조회 요청 값`,
         _relation: ``,
-        _referenceInfo: ``,
-        _warning: `No need this parameter when search by minutes.`,
+        _referenceInfo: `default = 50`,
+        //_warning: `if searchType equals timeFrame this parameter is not supported`,
         children: false
       },
       {
@@ -149,7 +151,7 @@ export const lookupReturnRequestListPerDayDocument = {
         _description: `Order ID.`,
         _relation: ``,
         _referenceInfo: `If status is null, then orderId is mandatory.`,
-        _warning: `No need this parameter when search by minutes.`,
+        //_warning: `No need this parameter when search by minutes. `,
         children: false
       }
     ],
