@@ -118,7 +118,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
             </tr>
             <tr>
                 <td>UC</td>
-                <td>반품접수</td>
+                <td>반품접수111111</td>
             </tr>
           </table>`,
         _relation: ``,

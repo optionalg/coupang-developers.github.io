@@ -3,12 +3,20 @@
     "js": "vendor.99aa5ce0dd1abb63d6de.bundle.js"
   },
   "main": {
+<<<<<<< HEAD
     "js": "main.c336389ab1f8fb68b51a.bundle.js"
+=======
+    "js": "main.8d6f109e9cff28b32e12.bundle.js"
+>>>>>>> 7bb6e3c199e2e7e39af67edbd8700fb9cdac140f
   },
   "fa": {
-    "js": "fa.9391cc84dfa1835e4135.bundle.js"
+    "js": "fa.8e80a25bed875ac34568.bundle.js"
   },
   "polyfills": {
+<<<<<<< HEAD
     "js": "polyfills.cc4ce059c03978ea9c63.bundle.js"
+=======
+    "js": "polyfills.8b044e2e1d82b0e275bb.bundle.js"
+>>>>>>> 7bb6e3c199e2e7e39af67edbd8700fb9cdac140f
   }
 }
