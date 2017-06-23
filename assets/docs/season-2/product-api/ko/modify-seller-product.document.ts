@@ -1368,6 +1368,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
               "taxType": "TAX",
               "parallelImported": "NOT_PARALLEL_IMPORTED",
               "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+              "pccNeeded": "false",
               "externalVendorSku": null,
               "barcode": "9788932624860",
               "emptyBarcode": false,

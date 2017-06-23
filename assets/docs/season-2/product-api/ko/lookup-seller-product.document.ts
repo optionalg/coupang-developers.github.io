@@ -911,7 +911,18 @@ export const lookupSellerProductDocument = {
               _warning: ``,
               children: false
             }
-            ,
+          ,
+	          {
+	            name: `pccNeeded`,
+	            type: `Boolean`,
+	            require: true,
+	            _description: `PCC(개인통관부호) 필수/비필수 여부`,
+	            _relation: ``,
+	            _referenceInfo: `해외구매대행 상품의 경우 상품 PCC(개인통관번호) 필수/비필수 여부 기본값 : 비필수(false), true를 입력할 경우 구매시 고객이 개인통관부호를 반드시 입력해야하나 false일 경우 입력하지 않고 상품구매가 가능.`,
+	            _warning: ``,
+	            children: false
+	          }
+	      ,
             {
               name: `externalVendorSku`,
               type: `String`,
@@ -1388,6 +1399,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
             "taxType": "TAX",
             "parallelImported": "NOT_PARALLEL_IMPORTED",
             "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+            "pccNeeded": "false",
             "externalVendorSku": null,
             "barcode": "9788932624860",
             "emptyBarcode": false,
