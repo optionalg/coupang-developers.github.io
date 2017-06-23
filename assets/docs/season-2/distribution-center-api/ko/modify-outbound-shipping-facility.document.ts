@@ -258,9 +258,10 @@ z : 유효한 길이 4`,
             name: `deliveryCode`,
             type: `String`,
             require: true,
-            _description: `택배사 코드, 아래 테이블을 체크해 주십시오`,
+            _description: `택배사코드`,
             _relation: ``,
-            _referenceInfo: `<table class="table">
+            _referenceInfo: `취소선은 합병 또는 폐업한 택배사를 의미합니다.
+            <table class="table">
                <tr>
                   <th>CODE</th>
                   <th>NAME</th>
@@ -269,10 +270,10 @@ z : 유효한 길이 4`,
                   <td>HYUNDAI</td>
                   <td>롯데택배</td>
                 </tr>
-                <tr>
-                  <td>KGB</td>
-                  <td>로젠택배</td>
-                </tr>
+		        <tr>
+		          <td><del>KGB</del></td>
+		          <td><del>로젠택배[합병]</del></td>
+		        </tr>
                 <tr>
                   <td>EPOST</td>
                   <td>우체국</td>
@@ -301,10 +302,10 @@ z : 유효한 길이 4`,
                   <td>DONGBU</td>
                   <td>KG로지스</td>
                 </tr>
-                 <tr>
-                  <td>INNOGIS</td>
-                  <td>GTX로지스</td>
-                </tr>
+		        <tr>
+		          <td><del>INNOGIS</del></td>
+		          <td><del>GTX로지스[폐업]</del></td>
+		        </tr>
                 <tr>
                   <td>ILYANG</td>
                   <td>일양택배</td>

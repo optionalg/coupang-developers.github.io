@@ -159,7 +159,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `택배사코드`,
         _relation: ``,
-        _referenceInfo: `
+        _referenceInfo: `취소선은 합병 또는 폐업한 택배사를 의미합니다.
         <table class="table">
         <tr>
           <th>Parameter Name</th>
@@ -170,8 +170,8 @@ export const modifySellerProductDocument = {
           <td>롯데택배</td>
         </tr>
         <tr>
-          <td>KGB</td>
-          <td>로젠택배</td>
+          <td><del>KGB</del></td>
+          <td><del>로젠택배[합병]</del></td>
         </tr>
         <tr>
           <td>EPOST</td>
@@ -182,8 +182,8 @@ export const modifySellerProductDocument = {
           <td>한진택배</td>
         </tr>
         <tr>
-          <td>KOREX</td>
-          <td>대한통운</td>
+          <td><del>KOREX</del></td>
+          <td><del>대한통운[합병]</del></td>
         </tr>
         <tr>
           <td>CJGLS</td>
@@ -206,12 +206,8 @@ export const modifySellerProductDocument = {
           <td>KG로지스</td>
         </tr>
         <tr>
-          <td>INNOGIS</td>
-          <td>GTX로지스</td>
-        </tr>
-        <tr>
-          <td>KDEXP</td>
-          <td>경동택배</td>
+          <td><del>INNOGIS</del></td>
+          <td><del>GTX로지스[폐업]</del></td>
         </tr>
         <tr>
           <td>ILYANG</td>

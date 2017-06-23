@@ -25,8 +25,7 @@ namespace ns_sample_post
         private static string accessKey = "****";
         //replace with your own secretKey
         private static string secretKey = "****";
-        //replace with your own vendorId
-        private static string VENDOR_ID = "****";
+
 
         public void test(){
 
@@ -49,7 +48,6 @@ namespace ns_sample_post
                 request.Method = method;
 
                 request.ContentType = "application/json;charset=UTF-8";
-                request.Headers["X-Requested-By"] = VENDOR_ID;
                 request.Headers["Authorization"] = GetHmac(method,"");
 
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
@@ -172,8 +170,6 @@ namespace ns_sample_get
         private static string accessKey = "****";
         //replace with your own secretKey
         private static string secretKey = "****";
-        //replace with your own vendorId
-        private static string VENDOR_ID = "****";
         
         public void test(){
 
@@ -199,7 +195,6 @@ namespace ns_sample_get
                 request.Method = method;
 
                 request.ContentType = "application/json;charset=UTF-8";
-                request.Headers["X-Requested-By"] = VENDOR_ID;
                 request.Headers["Authorization"] = GetHmac(method,query);
 
                 var response = (HttpWebResponse)request.GetResponse();
@@ -310,8 +305,6 @@ namespace ns_sample_put
         private static string accessKey = "****";
         //replace with your own secretKey
         private static string secretKey = "****";
-        //replace with your own vendorId
-        private static string VENDOR_ID = "****";
 
         public void test(){
 
@@ -334,7 +327,6 @@ namespace ns_sample_put
                 request.Method = method;
 
                 request.ContentType = "application/json;charset=UTF-8";
-                request.Headers["X-Requested-By"] = VENDOR_ID;
                 request.Headers["Authorization"] = GetHmac(method,"");
 
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
@@ -456,8 +448,6 @@ namespace ns_sample_delete
         private static string accessKey = "****";
         //replace with your own secretKey
         private static string secretKey = "****";
-        //replace with your own vendorId
-        private static string VENDOR_ID = "****";
 
         public void test(){
 
@@ -477,7 +467,6 @@ namespace ns_sample_delete
                 request.Method = method;
 
                 request.ContentType = "application/json;charset=UTF-8";
-                request.Headers["X-Requested-By"] = VENDOR_ID;
                 request.Headers["Authorization"] = GetHmac(method,"");
 
                 var response = (HttpWebResponse)request.GetResponse();

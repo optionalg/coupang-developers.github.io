@@ -25,9 +25,6 @@ public class HmacProductCreation {
     private static final String ACCESS_KEY = "****";
     //replace with your own secretKey
     private static final String SECRET_KEY = "****";
-    //replace with your own vendorId
-    private static final String VENDOR_ID = "****";
-    
 
     public void test() {
         //params
@@ -61,7 +58,6 @@ public class HmacProductCreation {
             // set header, demonstarte how to use hmac signature here
             requestPost.addHeader("Authorization", authorization);
             /********************************************************/
-            requestPost.addHeader("X-Requested-By", VENDOR_ID);
             requestPost.addHeader("content-type", "application/json");
             requestPost.setEntity(params);
             CloseableHttpResponse response = null;
@@ -127,9 +123,6 @@ public class HmacProductCategorymeta {
     private static final String ACCESS_KEY = "****";
     //replace with your own secretKey
     private static final String SECRET_KEY = "****";
-    //replace with your own vendorId
-    private static final String VENDOR_ID = "****";
-    
 
     public void test() {
         //params
@@ -157,7 +150,6 @@ public class HmacProductCategorymeta {
             // set header, demonstarte how to use hmac signature here
             get.addHeader("Authorization", authorization);
             /********************************************************/
-            get.addHeader("X-Requested-By", VENDOR_ID);
             get.addHeader("content-type", "application/json");
             CloseableHttpResponse response = null;
             try {
@@ -225,9 +217,6 @@ public class HmacProductUpdate {
     private static final String ACCESS_KEY = "****";
     //replace with your own secretKey
     private static final String SECRET_KEY = "****";
-    //replace with your own vendorId
-    private static final String VENDOR_ID = "****";
-    
 
     public void test() {
         //params
@@ -453,7 +442,6 @@ public class HmacProductUpdate {
             // set header, demonstarte how to use hmac signature here
             requestPut.addHeader("Authorization", authorization);
             /********************************************************/
-            requestPut.addHeader("X-Requested-By", VENDOR_ID);
             requestPut.addHeader("content-type", "application/json");
             requestPut.setEntity(params);
             CloseableHttpResponse response = null;
@@ -521,9 +509,6 @@ public class HmacProductDelete {
     private static final String ACCESS_KEY = "****";
     //replace with your own secretKey
     private static final String SECRET_KEY = "****";
-    //replace with your own vendorId
-    private static final String VENDOR_ID = "****";
-    
 
     public void test() {
         //params
@@ -555,7 +540,6 @@ public class HmacProductDelete {
             // set header, demonstarte how to use hmac signature here
             requestDelete.addHeader("Authorization", authorization);
             /********************************************************/
-            requestDelete.addHeader("X-Requested-By", VENDOR_ID);
             requestDelete.addHeader("content-type", "application/json");
             //requestPut.setEntity(params);
             CloseableHttpResponse response = null;

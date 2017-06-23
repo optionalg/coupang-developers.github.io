@@ -222,8 +222,8 @@ export const lookupSellerProductDocument = {
           <td>롯데택배</td>
         </tr>
         <tr>
-          <td>KGB</td>
-          <td>로젠택배</td>
+          <td><del>KGB</del></td>
+          <td><del>로젠택배[합병]</del></td>
         </tr>
         <tr>
           <td>EPOST</td>
@@ -234,8 +234,8 @@ export const lookupSellerProductDocument = {
           <td>한진택배</td>
         </tr>
         <tr>
-          <td>KOREX</td>
-          <td>대한통운</td>
+          <td><del>KOREX</del></td>
+          <td><del>대한통운[합병]</del></td>
         </tr>
         <tr>
           <td>CJGLS</td>
@@ -258,12 +258,8 @@ export const lookupSellerProductDocument = {
           <td>KG로지스</td>
         </tr>
         <tr>
-          <td>INNOGIS</td>
-          <td>GTX로지스</td>
-        </tr>
-        <tr>
-          <td>KDEXP</td>
-          <td>경동택배</td>
+          <td><del>INNOGIS</del></td>
+          <td><del>GTX로지스[폐업]</del></td>
         </tr>
         <tr>
           <td>ILYANG</td>

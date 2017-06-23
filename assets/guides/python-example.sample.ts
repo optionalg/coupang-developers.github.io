@@ -21,8 +21,6 @@ message = datetime+method+path
 accesskey = "****"
 #replace with your own secretKey
 secretkey = "****"
-#replace with your own vendorId
-VENDOR_ID = "****"
 
 #********************************************************#
 #authorize, demonstrate how to generate hmac signature here
@@ -227,7 +225,6 @@ data = json.dumps(strjson).encode("utf-8")
 print('\nBEGIN REQUEST++++++++++++++++++++++++++++++++++++')
 req = urllib.request.Request(url)
 
-req.add_header("X-Requested-By",VENDOR_ID)
 req.add_header("Content-type","application/json;charset=UTF-8")
 req.add_header("Authorization",authorization)
 
@@ -273,8 +270,6 @@ message = datetime+method+path+query
 accesskey = "****"
 #replace with your own secretKey
 secretkey = "****"
-#replace with your own vendorId
-VENDOR_ID = "****"
 
 #********************************************************#
 #authorize, demonstrate how to generate hmac signature here
@@ -333,9 +328,6 @@ message = datetime+method+path
 accesskey = "****"
 #replace with your own secretKey
 secretkey = "****"
-#replace with your own vendorId
-VENDOR_ID = "****"
-
 
 #********************************************************#
 #authorize, demonstrate how to generate hmac signature here
@@ -540,7 +532,6 @@ data = json.dumps(strjson).encode("utf-8")
 
 req = urllib.request.Request(url)
 
-req.add_header("X-Requested-By",VENDOR_ID)
 req.add_header("Content-type","application/json;charset=UTF-8")
 req.add_header("Authorization",authorization)
 
@@ -587,8 +578,6 @@ message = datetime+method+path
 accesskey = "****"
 #replace with your own secretKey
 secretkey = "****"
-#replace with your own vendorId
-VENDOR_ID = "****"
 
 #********************************************************#
 #authorize, demonstrate how to generate hmac signature here
@@ -604,7 +593,6 @@ url = "https://api-gateway.coupang.com"+path
 
 req = urllib.request.Request(url)
 
-req.add_header("X-Requested-By",VENDOR_ID)
 req.add_header("Content-type","application/json;charset=UTF-8")
 req.add_header("Authorization",authorization)
 

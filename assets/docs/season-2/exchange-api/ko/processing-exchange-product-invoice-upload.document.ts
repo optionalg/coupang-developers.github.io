@@ -99,7 +99,7 @@ export const processingExchangeProductInvoiceUploadDocument = {
         require: true,
         _description: `굿스플로`,
         _relation: ``,
-        _referenceInfo: `택배사 코드<br>
+        _referenceInfo: `택배사 코드<br>취소선은 합병 또는 폐업한 택배사를 의미합니다.
   <table class="table">
     <tr>
         <th>Delivery Short Name</th>
@@ -107,19 +107,14 @@ export const processingExchangeProductInvoiceUploadDocument = {
         <th>Delivery Code</th>
     </tr>
     <tr>
-        <td>NONE</td>
-        <td>NONE</td>
-        <td>NA</td>
-    </tr>
-    <tr>
         <td>HYUNDAI</td>
-        <td>현대택배</td>
+        <td>롯데택배</td>
         <td>HYUNDAI</td>
     </tr>
     <tr>
-        <td>KGB</td>
-        <td>로젠택배</td>
-        <td>KGB</td>
+        <td><del>KGB</del></td>
+        <td><del>로젠택배[합병]</del></td>
+        <td><del>KGB</del></td>
     </tr>
     <tr>
         <td>EPOST</td>
@@ -132,9 +127,9 @@ export const processingExchangeProductInvoiceUploadDocument = {
         <td>HANJIN</td>
     </tr>
     <tr>
-        <td>KOREX</td>
-        <td>대한통운</td>
-        <td>KOREX</td>
+        <td><del>KOREX</del></td>
+        <td><del>대한통운[합병]</del></td>
+        <td><del>KOREX</del></td>
     </tr>
     <tr>
         <td>CJGLS</td>
@@ -144,12 +139,12 @@ export const processingExchangeProductInvoiceUploadDocument = {
     <tr>
         <td>KGBLS</td>
         <td>KGB택배</td>
-        <td>kdexp</td>
+        <td>KGBLS</td>
     </tr>
     <tr>
         <td>KDEXP</td>
         <td>경동택배</td>
-        <td>kdexp</td>
+        <td>KDEXP</td>
     </tr>
     <tr>
         <td>YELLOW</td>
@@ -163,7 +158,7 @@ export const processingExchangeProductInvoiceUploadDocument = {
     </tr>
     <tr>
         <td>INNOGIS</td>
-        <td>GTX로지스</td>
+        <td>GTX로지스[폐업]</td>
         <td>INNOGIS</td>
     </tr>
     <tr>

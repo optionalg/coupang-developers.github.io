@@ -22,9 +22,6 @@ public class HmacReturnbyday {
     private static final String ACCESS_KEY = "****";
     //replace with your own secretKey
     private static final String SECRET_KEY = "****";
-    //replace with your own vendorId
-    private static final String VENDOR_ID = "****";
-    
 
     public void test() {
         //params
@@ -55,7 +52,6 @@ public class HmacReturnbyday {
             // set header, demonstarte how to use hmac signature here
             get.addHeader("Authorization", authorization);
             /********************************************************/
-            get.addHeader("X-Requested-By", VENDOR_ID);
             get.addHeader("content-type", "application/json");
             CloseableHttpResponse response = null;
             try {
@@ -111,8 +107,7 @@ $message = $datetime.$method.$path.$query;
 $ACCESS_KEY = "****";
 //replace with your own secretKey
 $SECRET_KEY = "****";
-//replace with your own vendorId
-$VENDOR_ID =  "****";
+
 $algorithm = "HmacSHA256";
 
 $signature = hash_hmac('sha256', $message, $secretkey);
@@ -153,8 +148,6 @@ message = datetime+method+path+query
 
 accesskey = "0a3a0f34-7852-4ad8-9368-766290b8b1ab"
 secretkey = "7ffcdf980d908fe7ca3d642868e22f99f0306bf5"
-#replace with your own vendorId
-VENDOR_ID = "A00013264"
 
 signature=hmac.new(secretkey.encode('utf-8'),message.encode('utf-8'),hashlib.sha256).hexdigest()
 
@@ -227,8 +220,6 @@ namespace ns_sample_get
         private static string accessKey = "****";
         //replace with your own secretKey
         private static string secretKey = "****";
-        //replace with your own vendorId
-        private static string VENDOR_ID = "****";
         
         public void test(){
 
@@ -254,7 +245,6 @@ namespace ns_sample_get
                 request.Method = method;
 
                 request.ContentType = "application/json;charset=UTF-8";
-                request.Headers["X-Requested-By"] = VENDOR_ID;
                 request.Headers["Authorization"] = GetHmac(method,query);
 
                 var response = (HttpWebResponse)request.GetResponse();

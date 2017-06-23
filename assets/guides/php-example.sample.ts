@@ -13,8 +13,6 @@ $message = $datetime.$method.$path;
 $ACCESS_KEY = "****";
 //replace with your own secretKey
 $SECRET_KEY = "****";
-//replace with your own vendorId
-$VENDOR_ID =  "****";
 $algorithm = "HmacSHA256";
 
 $signature = hash_hmac('sha256', $message, $SECRET_KEY);
@@ -251,8 +249,6 @@ $message = $datetime.$method.$path.$query;
 $ACCESS_KEY = "****";
 //replace with your own secretKey
 $SECRET_KEY = "****";
-//replace with your own vendorId
-$VENDOR_ID =  "****";
 $algorithm = "HmacSHA256";
 
 $signature = hash_hmac('sha256', $message, $secretkey);
@@ -287,8 +283,6 @@ $message = $datetime.$method.$path;
 $ACCESS_KEY = "****";
 //replace with your own secretKey
 $SECRET_KEY = "****";
-//replace with your own vendorId
-$VENDOR_ID =  "****";
 $algorithm = "HmacSHA256";
 
 $signature = hash_hmac('sha256', $message, $SECRET_KEY);
@@ -526,8 +520,6 @@ $message = $datetime.$method.$path;
 $ACCESS_KEY = "****";
 //replace with your own secretKey
 $SECRET_KEY = "****";
-//replace with your own vendorId
-$VENDOR_ID =  "****";
 $algorithm = "HmacSHA256";
 
 $signature = hash_hmac('sha256', $message, $SECRET_KEY);
