@@ -122,8 +122,8 @@ export const invoiceUploadProcessingDocument = {
                   <td>롯데택배</td>
                 </tr>
                 <tr>
-                  <td><del>KGB</del></td>
-                  <td><del>로젠택배[합병]</del></td>
+                  <td>KGB</td>
+                  <td>로젠택배</td>
                 </tr>
                 <tr>
                   <td>EPOST</td>
@@ -153,10 +153,10 @@ export const invoiceUploadProcessingDocument = {
                   <td>DONGBU</td>
                   <td>KG로지스</td>
                 </tr>
-			    <tr>
-			        <td><del>INNOGIS</del></td>
-			        <td><del>GTX로지스[폐업]</del></td>
-			    </tr>
+      			    <tr>
+      			        <td><del>INNOGIS</del></td>
+      			        <td><del>GTX로지스[폐업]</del></td>
+      			    </tr>
                 <tr>
                   <td>ILYANG</td>
                   <td>일양택배</td>

@@ -174,6 +174,10 @@ export const modifySellerProductDocument = {
           <td><del>로젠택배[합병]</del></td>
         </tr>
         <tr>
+          <td>LOGEN</td>
+          <td>로젠택배</td>
+        </tr>
+        <tr>
           <td>EPOST</td>
           <td>우체국</td>
         </tr>

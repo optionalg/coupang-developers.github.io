@@ -131,8 +131,8 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         require: false,
         _description: `옵션아이디`,
         _relation: ``,
-        _referenceInfo: `1. 조회시작일과 조회종요일이 널인 경우, 이 파라미터를 사용해야만 해당 vendorItemId 아래의 모든 상담리스트 조회할수있습니다.<br>
-                   2. 조회시작일과 조회종요일 값 있을시  이 파라미터는 반드시 입력해야할 사항X <br>
+        _referenceInfo: `1. 조회시작일과 조회종료일이 널인 경우, 이 파라미터를 사용해야만 해당 vendorItemId 아래의 모든 상담리스트 조회할수있습니다.<br>
+                   2. 조회시작일과 조회종료일 값 있을시  이 파라미터는 반드시 입력해야할 사항X <br>
                    조회시작일과 종료일은 동일한 하루일수 없음; 해당 조회시작일과 종료일 기간의 모든 상담리스트를 조회할수있습니다.<br>
                    (inquiryEndAt - inquiryStartAt = 7d)`,
         _warning: ``,
@@ -150,9 +150,9 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
       {
         name: `pageSize`,
         require: false,
-        _description: `페이지 사이즈, 최대 페이지 사이즈는 50입니다.`,
+        _description: `페이지 사이즈, 최대 페이지 사이즈는 30입니다.`,
         _relation: ``,
-        _referenceInfo: `Default 10, max = 50 ,if pageSize is null, then will use the default value.`,
+        _referenceInfo: `Default 10, max = 30 ,if pageSize is null, then will use the default value.`,
         _warning: ``,
         children: false
       }

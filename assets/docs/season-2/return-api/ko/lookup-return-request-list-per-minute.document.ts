@@ -189,7 +189,17 @@ export const lookupReturnRequestListPerMinuteDocument = {
           type: `String`,
           _description: `취소유형`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `
+            <table class="table">
+              <tr>
+                  <th>code</th>
+                  <th>name</th>
+              </tr>
+              <tr>
+                  <td>RETURN</td>
+                  <td>반품</td>
+              </tr>
+         </table>`,
           _warning: ``,
           children: false
         },
@@ -370,14 +380,32 @@ export const lookupReturnRequestListPerMinuteDocument = {
           _description: `귀책타입`,
           _relation: ``,
           _referenceInfo: `
-          <ul>
-            <li>Coupang 과실</li>
-            <li>협력사 과실</li>
-            <li>고객 과실</li>
-            <li>물류 과실</li>
-            <li>일반</li>
-          </ul>`,
-          _warning: ``,
+          <table class="table">
+              <tr>
+                  <th>code</th>
+                  <th>name</th>
+              </tr>
+              <tr>
+                  <td>COUPANG</td>
+                  <td>Coupang 과실</td>
+              </tr>
+              <tr>
+                  <td>VENDOR</td>
+                  <td>협력사 과실</td>
+              </tr>
+              <tr>
+                  <td>CUSTOMER</td>
+                  <td>고객 과실</td>
+              </tr>
+              <tr>                  
+                  <td>WMS</td>
+                  <td>물류 과실</td>
+              </tr>
+              <tr>                  
+                  <td>GENERAL</td>
+                  <td>일반</td>
+              </tr>
+         </table>`,        
           children: false
         },
         {
@@ -395,12 +423,28 @@ export const lookupReturnRequestListPerMinuteDocument = {
           _description: `완료 확인 종류`,
           _relation: ``,
           _referenceInfo: `
-          <ul>
-            <li>미확인</li>
-            <li>파트너 확인</li>
-            <li>CS 대리확인</li>
-            <li>CS 손실 확인</li>
-          </ul>`,
+          <table class="table">
+              <tr>
+                  <th>code</th>
+                  <th>name</th>
+              </tr>
+              <tr>
+                  <td>VENDOR_CONFIRM</td>
+                  <td>파트너 확인</td>
+              </tr>
+              <tr>
+                  <td>UNDEFINED</td>
+                  <td>미확인</td>
+              </tr>
+              <tr>
+                  <td>CS_CONFIRM</td>
+                  <td>CS 대리확인</td>
+              </tr>
+              <tr>                  
+                  <td>CS_LOSS_CONFIRM</td>
+                  <td>CS 손실확인</td>
+              </tr>
+         </table>`,
           _warning: ``,
           children: false
         },
@@ -531,7 +575,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
           "receiptId": 365937,
           "orderId": 500004398,
           "paymentId": 700003957,
-          "receiptType": "반품",
+          "receiptType": "RETURN",
           "receiptStatus": "RELEASE_STOP_UNCHECKED",
           "createdAt": "2016-03-25T13:05:30",
           "modifiedAt": "2016-03-25T13:05:30",
@@ -545,10 +589,10 @@ export const lookupReturnRequestListPerMinuteDocument = {
           "returnDeliveryType": "연동택배",
           "releaseStopStatus": "미처리",
           "enclosePrice": 0,
-          "faultByType": "협력사 과실",
+          "faultByType": "VENDOR",
           "preRefund": false,
           "completeConfirmDate": "",
-          "completeConfirmType": "미확인",
+          "completeConfirmType": "UNDEFINED",
           "returnItems": [
             {
               "vendorItemPackageId": 0,

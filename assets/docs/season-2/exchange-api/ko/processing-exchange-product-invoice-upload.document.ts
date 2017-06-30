@@ -112,9 +112,9 @@ export const processingExchangeProductInvoiceUploadDocument = {
         <td>HYUNDAI</td>
     </tr>
     <tr>
-        <td><del>KGB</del></td>
-        <td><del>로젠택배[합병]</del></td>
-        <td><del>KGB</del></td>
+        <td>KGB</td>
+        <td>로젠택배</td>
+        <td>KGB</td>
     </tr>
     <tr>
         <td>EPOST</td>
@@ -157,9 +157,9 @@ export const processingExchangeProductInvoiceUploadDocument = {
         <td>DONGBU</td>
     </tr>
     <tr>
-        <td>INNOGIS</td>
-        <td>GTX로지스[폐업]</td>
-        <td>INNOGIS</td>
+        <td><del>INNOGIS</del></td>
+        <td><del>GTX로지스[폐업]</del></td>
+        <td><del>INNOGIS</del></td>
     </tr>
     <tr>
         <td>ILYANG</td>

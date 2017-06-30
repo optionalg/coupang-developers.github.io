@@ -92,7 +92,7 @@ export const lookupCustomerInquiryByProductDocument = {
       {
         name: `answeredType`,
         require: true,
-        _description: `답장 타이프`,
+        _description: `답변여부`,
         _relation: ``,
         _referenceInfo: `Allowed values : 'ANSWERED', 'NOANSWER', 'ALL'`,
         _warning: ``,
