@@ -502,6 +502,22 @@ export const lookupOrderListPerMinuteDocument = {
               _warning: ``,
               children: false
             }, {
+              name: `sellerProductItemName`,
+              type: `String`,
+              _description: `등록옵션명`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            }, {
+              name: `firstSellerProductItemName`,
+              type: `String`,
+              _description: `최초등록옵션명`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            }, {
               name: `estimatedShippingDate`,
               type: `String`,
               _description: `주문시 출고예정일`,
@@ -533,7 +549,7 @@ export const lookupOrderListPerMinuteDocument = {
               _referenceInfo: `optional / key:value 형태`,
               _warning: ``,
               children: false
-            },
+            }, 
           ]
         },
         {
