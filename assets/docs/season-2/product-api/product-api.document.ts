@@ -52,6 +52,7 @@ productApiDocs.ko.push(changePriceBasedOnDiscountRateByProductDocument);
 // Deprecated
 // productApiDocs.ko.push(lookupProductCertificationInformationDocument);
 productApiDocs.ko.push(applyProductCashbackDocument);
+productApiDocs.ko.push(lookupProductCashbackSettingsDocument);
 productApiDocs.ko.push(removeProductCashbackDocument);
 
 // productApiDocs.ko.push(lookupProductCashbackSettingsDocument);

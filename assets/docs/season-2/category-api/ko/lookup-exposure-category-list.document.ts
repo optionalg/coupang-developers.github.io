@@ -26,7 +26,10 @@ export const lookupExposureCategoryListDocument = {
     httpMethod: `GET`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/meta/display-categories`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/meta/display-categories`,
-    _description: `노출 카테고리 목록을 전체 조회한다.`,
+    _description: `노출 카테고리 목록을 전체 조회한다.<br>
+                   <a href="https://wing.coupang.com/excel/categories/download/file" download>
+	                  전체 카테고리 정보 Excel file 다운로드
+	              </a>`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,

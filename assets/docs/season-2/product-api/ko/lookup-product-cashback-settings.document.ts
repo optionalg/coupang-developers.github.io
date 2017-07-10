@@ -232,7 +232,7 @@ export const lookupProductCashbackSettingsDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00012697/products/items/cashback?ruleId=1&vendorItemId=3000000005`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00013264/products/items/cashback?ruleId=1&vendorItemId=3000000005`,
     code: [
       {
         language: `http`
@@ -243,7 +243,7 @@ export const lookupProductCashbackSettingsDocument = {
       "message": "OK",
       "data": {
         "vendorItemId": "3000000005",
-        "vendorId": "A00012697",
+        "vendorId": "A00013264",
         "valueType": "FIXED",
         "value": 1000,
         "startAt": "2016-12-29 09:43:54",
