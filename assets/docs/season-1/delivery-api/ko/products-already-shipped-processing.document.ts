@@ -23,7 +23,7 @@ export const productAlreadyShippedProcessingDocument = {
     lastUpdateDate: `2017-02-17`, // yyyy-mm-dd  ex> 2016-12-23
     developer: `Wiv`,
     domain: `https://api-gateway.coupang.com`,
-    httpMethod: `POST`,
+    httpMethod: `DELETE`,
     path: `/v2/providers/wing_api/apis/internal-api/v1/return/{receiptId}/release-stop`,
     HMACPath: `/v2/providers/wing_api/apis/internal-api/v1/return/{receiptId}/release-stop`,
     _description: `출고중지완료 상태로 변경한다.`,

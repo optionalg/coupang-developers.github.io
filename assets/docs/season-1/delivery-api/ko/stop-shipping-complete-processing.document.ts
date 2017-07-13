@@ -23,7 +23,7 @@ export const stopShippingCompleteProcessingDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     developer: `Wiv`,
     domain: `https://api-gateway.coupang.com`,
-    httpMethod: `DELETE `,
+    httpMethod: `POST `,
     path: `/v2/providers/wing_api/apis/internal-api/v1/return/{receiptId}/release-stop`,
     HMACPath: `/v2/providers/wing_api/apis/internal-api/v1/return/{receiptId}/release-stop`,
     _description: ``,
