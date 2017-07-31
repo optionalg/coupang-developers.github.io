@@ -6,7 +6,7 @@ export const createExchangeProductCoupangConfirmRequestDocument = {
     category: `exchange-api`,   // input category ex) exchange-service-api
     id: `create-exchange-product-coupang-confirm-request`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `create_exchange_product_coupang_confirm_request`,
-    name: `교환상품 쿠팡확인요청 생성`,       // use display name, i will change 'translation key'
+    name: `교환상품 쿠팡확인요청 테스트  생성`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -19,7 +19,7 @@ export const createExchangeProductCoupangConfirmRequestDocument = {
   },
 
   apiInfo: {
-    state: `draft`,      // draft, candidate, release, unstable, stable, deprecated
+    state: `release`,      // draft, candidate, release, unstable, stable, deprecated
     lastUpdateDate: `2017-02-20`, // yyyy-mm-dd  ex> 2016-12-23
     developer: `Nemo`,
     domain: `https://api-gateway.coupang.com`,

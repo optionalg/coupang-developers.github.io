@@ -1,5 +1,5 @@
 export const hmacExample = {
-  'java': `
+  java: `
 package com.coupang.openapi.returns;
 
 import com.coupang.openapi.sdk.Hmac;
@@ -92,7 +92,7 @@ public class HmacReturnbyday {
     }
 }
 `,
-  'php': `
+  php: `
 <?php
 date_default_timezone_set("GMT+0");
 
@@ -129,7 +129,7 @@ echo($result);
 
 ?>
 `,
-  'python': `
+  python: `
 import os
 import time
 import hmac, hashlib
@@ -192,7 +192,7 @@ else:
     body = resp.read().decode(resp.headers.get_content_charset())
     print(body)
 `,
-  'cs': `
+  cs: `
 using System;
 using System.Web;
 using System.Collections.Generic;

@@ -1248,6 +1248,10 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
                 <tr>
                   <th>TITLE</th>
                   <th>제목</th>
+                <tr>
+                  <th>HTML</th>
+                  <th>HTML</th>
+                </tr>
                 </tr>
                 </table>
                 `,
