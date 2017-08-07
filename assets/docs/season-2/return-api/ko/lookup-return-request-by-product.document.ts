@@ -274,22 +274,6 @@ export const lookupReturnByProductDocument = {
           _description: `출고중지처리상태`,
           _relation: ``,
           _referenceInfo: `
-            <ul>
-              <li>미처리</li>
-              <li>처리(이미출고)</li>
-              <li>처리(출고중지)</li>
-              <li>자동처리(이미출고)</li>
-              <li>비대상</li>
-            </ul>`,
-          _warning: ``,
-          children: false
-        },
-        {
-          name: `releaseStopStatus`,
-          type: `String`,
-          _description: `출고중지처리상태`,
-          _relation: ``,
-          _referenceInfo: `
           <ul>
             <li><span>미처리</span></li>
             <li>처리(이미출고)</li>
