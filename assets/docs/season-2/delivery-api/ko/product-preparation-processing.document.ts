@@ -27,11 +27,10 @@ export const productPreparationProcessingDocument = {
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets/acknowledgement`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets/acknowledgement`,
     _description: `ordersheet의 상태를 "상품준비중" 상태로 변경한다.
-상태변경을 요청한 ordersheet 중 취소건이 있으면 Partial Error를 리턴한다.
-즉, 요청한 전체 ordersheet가 성공해야 Success. <br/>
-※ 전체 결재 취소 시에 상품준비중 상태로 변경할 수 없습니다.
-부분 결재 취소 시에는 환불이 진행 중인 경우 상품준비중 처리 시 실패가 발생합니다. 환불이 완료된 시점에 나머지 상품을 상품준비중으로
-처리 가능합니다.` ,
+                   상태변경을 요청한 ordersheet 중 취소건이 있으면 Partial Error를 리턴한다.<br/>
+                   ※ 전체 결재 취소 또는 부분 결재 취소를 통해 환불이 진행중인 주문이 포함되어 있다면 해당 주문에 대해서는
+                   "배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요." 메세지가 반환됩니다.<br>
+                   환불이 완료된 시점에 취소 요청 상품 이외의 상품이 포함된 주문은 상품준비중으로 변경 가능합니다.` ,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -96,7 +95,10 @@ export const productPreparationProcessingDocument = {
   errorSpec: [
     {
       status: 200,
-      _description: `responseCode:99, resultMessage:배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요.`,
+      _description: `responseCode:99, resultMessage:배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요.    
+    	  (전체 결재 취소 또는 부분 결재 취소를 통해 환불이 진행중인 주문이 포함되어 있다면 해당 주문에 대해서는 "배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요." 메세지가 반환됩니다.
+    	  환불이 완료된 시점에 취소 요청 상품 이외의 상품이 포함된 주문은 상품준비중으로 변경 가능합니다.)
+    	  `,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``
