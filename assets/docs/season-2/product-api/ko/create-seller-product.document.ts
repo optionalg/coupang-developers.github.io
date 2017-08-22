@@ -85,6 +85,16 @@ export const createSellerProductDocument = {
         children: false
       },
       {
+          name: `displayProductName`,
+          type: `String`,
+          require: false,
+          _description: `노출상품명`,
+          _relation: ``,
+          _referenceInfo: `실제 쿠팡 판매페이지에서 노출될 상품명이나 실제 노출 시 변경될 수 있으며 브랜드, 제품명, 상품군의 변경에 의해 변경됩니다.`,
+          _warning: ``,
+          children: false
+      },
+      {
         name: `brand`,
         type: `String`,
         require: true,
@@ -93,6 +103,26 @@ export const createSellerProductDocument = {
         _referenceInfo: `브랜드명은 한글/영어 표준이름 입력`,
         _warning: ``,
         children: false
+      },
+      {
+          name: `generalProductName`,
+          type: `String`,
+          require: false,
+          _description: `제품명`,
+          _relation: ``,
+          _referenceInfo: `사이즈, 컬러등의 '옵션정보'를 포함하지 않은 상품의 고유명사 또는 모델명.`,
+          _warning: ``,
+          children: false
+      },
+      {
+            name: `productGroup`,
+            type: `String`,
+            require: false,
+            _description: `상품군`,
+            _relation: ``,
+            _referenceInfo: `상품의 그룹으로 노출카테고리의 최하위명을 참고하여 입력.`,
+            _warning: ``,
+            children: false
       },
       {
         name: `deliveryMethod`,
@@ -1064,7 +1094,8 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
             require: true,
             _description: `옵션목록(속성)`,
             _relation: ``,
-            _referenceInfo: `카테고리 기준으로 정해진 옵션 목록을 입력하는 객체. 필요한 만큼 반복 입력 가능, 동일한 타입명, 타입값을 갖는 속성 객체는 한번만 입력할 수 있음, 한개 이상 등록 필수`,
+            _referenceInfo: `카테고리 기준으로 정해진 옵션 목록을 입력하는 객체. 필요한 만큼 반복 입력 가능, 동일한 타입명, 타입값을 갖는 속성 객체는 한번만 입력할 수 있음, 한개 이상 등록 필수이며
+            	상품 등록 시 입력을 원하지 않는 필수값 이외의 속성은 attributes 목록에서 제거 또는 attributeValueName을 ""값으로 입력하여 전송`,
             _warning: ``,
             children: [
               {
@@ -1087,6 +1118,34 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
                 _referenceInfo: ``,
                 _warning: ``,
                 children: false
+              }
+              ,
+              {
+                  name: `exposed`,
+                  type: `String`,
+                  require: false,
+                  _description: `구매옵션/검색옵션 구분필드. 입력 여부와 상관없이 상품 등록 가능`,
+                  _relation: ``,
+                  _referenceInfo: `
+                  EXPOSED : 구매옵션<br/>
+                  NONE : 검색옵션
+                  `,
+                  _warning: ``,
+                  children: false
+                }
+              ,
+              {
+                  name: `editable`,
+                  type: `String`,
+                  require: false,
+                  _description: `수정 여부 구분필드. 입력 여부와 상관없이 상품 등록 가능`,
+                  _relation: ``,
+                  _referenceInfo: `
+                      true : 수정가능<br/>
+                      false : 수정불가
+                      `,
+                      _warning: ``,
+                  children: false
               }
             ]
           }
@@ -1306,32 +1365,35 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
       {
         language: `http`,
         codeblock: {
-          "displayCategoryCode": 3013,
-          "sellerProductName": "테스트 상품 등록",
-          "vendorId": "A00100542",
-          "saleStartedAt": "2016-10-12T00:00:00",
+          "displayCategoryCode": 79386,
+          "sellerProductName": "테스트 상품 등록_CJ제일제당 백설 찹쌀 호떡믹스_Python",
+          "vendorId": "A00013264",
+          "saleStartedAt": "2017-09-01T00:00:00",
           "saleEndedAt": "2099-01-01T23:59:59",
+          "displayProductName": "[displayProductName]고객 만족 CJ제일제당 백설 찹쌀 호떡믹스",
           "brand": "Stchodo",
+          "generalProductName": "[generalProductName]CJ제일제당 백설 찹쌀 호떡믹스",
+          "productGroup": "호떡믹스",
           "deliveryMethod": "SEQUENCIAL",
-          "deliveryCompanyCode": "HYUNDAI",
+          "deliveryCompanyCode": "KGB",
           "deliveryChargeType": "FREE_DELIVERY_OVER_9800",
           "deliveryCharge": "2500",
           "freeShipOverAmount": "9800",
           "deliveryChargeOnReturn": "0",
           "remoteAreaDeliverable": "N",
           "unionDeliveryType": "UNION_DELIVERY",
-          "returnCenterCode": "1000005036",
+          "returnCenterCode": "1000274592",
           "returnChargeName": "대표이름4",
-          "companyContactNumber": "02-1234-5678",
+          "companyContactNumber": "02-1234-678",
           "returnZipCode": "135-090",
           "returnAddress": "서울특별시 강남구 삼성동",
           "returnAddressDetail": "333",
-          "returnCharge": 2500,
+          "returnCharge": 5000,
           "returnChargeVendor": "N",
           "afterServiceInformation": "A/S안내 1544-1255",
           "afterServiceContactNumber": "1544-1255",
-          "outboundShippingPlaceCode": "43502",
-          "vendorUserId": "3pmtest01",
+          "outboundShippingPlaceCode": "74010",
+          "vendorUserId": "et5",
           "requested": false,
           "items": [
             {
@@ -1405,9 +1467,13 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
                 "noticeCategoryDetailName": "A/S 책임자와 전화번호",
                 "content": "상세페이지 참조"
               }],
-              "attributes": [{
-                "attributeTypeName": "사이즈",
-                "attributeValueName": "44"
+      		"attributes": [{
+    			"attributeTypeName": "색상",
+    			"attributeValueName": "GREY"
+    		  },
+			  {
+    			"attributeTypeName": "패션의류/잡화 사이즈",
+    			"attributeValueName": "44"
               }],
               "contents": [{
                 "contentsType": "TEXT",
@@ -1483,10 +1549,14 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
                 "noticeCategoryDetailName": "A/S 책임자와 전화번호",
                 "content": "상세페이지 참조"
               }],
-              "attributes": [{
-                "attributeTypeName": "사이즈",
-                "attributeValueName": "55"
-              }],
+        		"attributes": [{
+        			"attributeTypeName": "색상",
+        			"attributeValueName": "GREY"
+        		  },
+    			  {
+        			"attributeTypeName": "패션의류/잡화 사이즈",
+        			"attributeValueName": "55"
+                  }],
               "contents": [{
                 "contentsType": "TEXT",
                 "contentDetails": [{

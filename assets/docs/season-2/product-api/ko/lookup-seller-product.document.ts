@@ -151,6 +151,16 @@ export const lookupSellerProductDocument = {
           children: false
         },
         {
+            name: `displayProductName`,
+            type: `String`,
+            require: false,
+            _description: `노출상품명`,
+            _relation: ``,
+            _referenceInfo: `실제 쿠팡 판매페이지에서 노출될 상품명이나 실제 노출 시 변경될 수 있으며 브랜드, 제품명, 상품군의 변경에 의해 변경됩니다.`,
+            _warning: ``,
+            children: false
+        },
+        {
           name: `brand`,
           type: `String`,
           require: true,
@@ -159,6 +169,26 @@ export const lookupSellerProductDocument = {
           _referenceInfo: `브랜드명은 한글/영어 표준이름 입력`,
           _warning: ``,
           children: false
+        },
+        {
+            name: `generalProductName`,
+            type: `String`,
+            require: false,
+            _description: `제품명`,
+            _relation: ``,
+            _referenceInfo: `사이즈, 컬러등의 '옵션정보'를 포함하지 않은 상품의 고유명사 또는 모델명.`,
+            _warning: ``,
+            children: false
+        },
+        {
+              name: `productGroup`,
+              type: `String`,
+              require: false,
+              _description: `상품군`,
+              _relation: ``,
+              _referenceInfo: `상품의 그룹으로 노출카테고리의 최하위명을 참고하여 입력.`,
+              _warning: ``,
+              children: false
         },
         {
           name: `deliveryMethod`,
@@ -1155,7 +1185,8 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
               require: true,
               _description: `옵션목록(속성)`,
               _relation: ``,
-              _referenceInfo: `카테고리 기준으로 정해진 옵션 목록을 입력하는 객체. `,
+              _referenceInfo: `카테고리 기준으로 정해진 옵션을 입력하는 객체의 목록으로 판매요청 승인이전에는 입력한 옵션항목만 조회되며 승인 이후에는 해당 상품이 쿠팡 카탈로그 노출을 위해 권장는 옵션항목이 모두 조회되며 
+                               입력하지 않은 항목은 attributeValueName이 ""값 입니다.(Response Example 참조)`,
               _warning: ``,
               children: [
                 {
@@ -1181,17 +1212,31 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
                 }
                 ,
                 {
-                  name: `exposed`,
-                  type: `String`,
-                  require: true,
-                  _description: `구매옵션/검색옵션 구분필드`,
-                  _relation: ``,
-                  _referenceInfo: `
-                  EXPOSED : 구매옵션<br/>
-                  NONE : 검색옵션
-                  `,
-                  _warning: ``,
-                  children: false
+                    name: `exposed`,
+                    type: `String`,
+                    require: true,
+                    _description: `구매옵션/검색옵션 구분필드.`,
+                    _relation: ``,
+                    _referenceInfo: `
+                    EXPOSED : 구매옵션<br/>
+                    NONE : 검색옵션
+                    `,
+                    _warning: ``,
+                    children: false
+                  }
+                ,
+                {
+                    name: `editable`,
+                    type: `String`,
+                    require: true,
+                    _description: `수정 여부 구분필드.`,
+                    _relation: ``,
+                    _referenceInfo: `
+                        true : 수정가능<br/>
+                        false : 수정불가
+                        `,
+                        _warning: ``,
+                    children: false
                 }
               ]
             }
@@ -1378,151 +1423,284 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
       }
     ],
     response: {
-      "code": "SUCCESS",
-      "message": "",
-      "data": {
-        "sellerProductId": 7770,
-        "categoryId": 2158,
-        "productName": "신나는 작곡완성",
-        "vendorId": "A00011620",
-        "mdId": "yjkim94@",
-        "mdName": null,
-        "saleStartedAt": "2015-07-01T12:00:00",
-        "saleEndedAt": "2015-07-31T11:59:59",
-        "saleAgentCommissionType": "FIXED_RATE",
-        "brand": "",
-        "items": [
-          {
-            "sellerProductItemId": 4869645919,
-            "vendorItemId": null,
-            "itemName": "신나는 작곡완성",
-            "originalPrice": 5000,
-            "salePrice": 4500,
-            "supplyPrice": 4153,
-            "maximumBuyCount": 9999,
-            "maximumBuyForPerson": 0,
-            "unitCount": 0,
-            "freePriceType": "NO_FREE_PRICE",
-            "adultOnly": "EVERYONE",
-            "taxType": "TAX",
-            "parallelImported": "NOT_PARALLEL_IMPORTED",
-            "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-            "pccNeeded": "false",
-            "externalVendorSku": null,
-            "barcode": "9788932624860",
-            "emptyBarcode": false,
-            "emptyBarcodeReason": null,
-            "saleAgentCommission": 4,
-            "modelNo": "",
-            "extraProperties":{
-              "EXAMPLE_KEY1":"EXAMPLE_VALUE1",
-              "EXAMPLE_KEY2":"EXAMPLE_VALUE2",
-            },
-            "certifications":[
-              {
-                "certificationType": "PRESENTED_IN_DETAIL_PAGE",
-                "certificationCode": null
-              }
-            ],
-            "searchTags": [
-              "검색어1",
-              "검색어2"
-            ],
-            "images": [
-              {
-                "imageOrder": 0,
-                "imageType": "REPRESENTATION",
-                "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-                "vendorPath": "700x700.jpg"
-              }
-            ],
-            "notices": [
-              {
-                "noticeCategoryName": "서적",
-                "noticeCategoryDetailName": "도서명",
-                "content": "신나는 작곡완성"
-              },
-              {
-                "noticeCategoryName": "서적",
-                "noticeCategoryDetailName": "저자, 출판사",
-                "content": "삼X뮤X(삼X출판사)"
-              },
-              {
-                "noticeCategoryName": "서적",
-                "noticeCategoryDetailName": "크기(파일의 용량)",
-                "content": "188*254"
-              },
-              {
-                "noticeCategoryName": "서적",
-                "noticeCategoryDetailName": "쪽수",
-                "content": "64"
-              },
-              {
-                "noticeCategoryName": "서적",
-                "noticeCategoryDetailName": "제품 구성",
-                "content": "추가구성없음"
-              },
-              {
-                "noticeCategoryName": "서적",
-                "noticeCategoryDetailName": "출간일",
-                "content": "2005/02/20"
-              },
-              {
-                "noticeCategoryName": "서적",
-                "noticeCategoryDetailName": "목차 또는 책소개(아동용 학습 교재의 경우 사용연령을 포함)",
-                "content": "상품 상세설명 참조"
-              }
-            ],
-            "attributes": [
-              {
-                "attributeTypeName": "도서명",
-                "attributeValueName": "신나는 작곡완성"
-              }
-            ],
-            "contents": [
-              {
-                "contentsType": "TEXT",
-                "contentDetails": [
-                  {
-                    "content": "<html>  </html>",
-                    "detailType": "TEXT"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "requiredDocuments": [
-          {
-            "templateName": "기타인증서류",
-            "documentPath": "vendor_inventory/documents/2015/06/25/bd8813a7-4aff-4952-81fb-20f8b628cec4.jpg",
-            "vendorDocumentPath": "A_1.jpg"
-          }
-        ],
-        "manufacture": "yes24",
-        "deliveryCompanyCode": "ETC",
-        "deliveryChargeType": "CONDITIONAL_FREE",
-        "deliveryCharge": 2500,
-        "freeShipOverAmount": 9800,
-        "deliveryChargeOnReturn": 0,
-        "remoteAreaDeliverable": "Y",
-        "unionDeliveryType": "NOT_UNION_DELIVERY",
-        "returnCenterCode": "A00011620_1000000070",
-        "returnChargeName": "김XX",
-        "companyContactNumber": "02-589-XXXX",
-        "returnZipCode": "135-080",
-        "returnAddress": "서울 강남구 역삼동",
-        "returnAddressDetail": "736-X XX빌딩",
-        "returnCharge": 2000,
-        "exchangeType": "PRE",
-        "returnChargeVendor": "Y",
-        "afterServiceInformation": "경기도 파주시 XXXXX",
-        "afterServiceContactNumber": "1599-XXXX",
-        "outboundShippingPlaceCode": null,
-        "vendorUserId":"xxx",
-        "displayCategoryCode":"xxx"
-      }
-    },
+    	  "code": "SUCCESS",
+    	  "message": "",
+    	  "data": {
+    	    "sellerProductId": 83358541,
+    	    "sellerProductName": "테스트 상품 등록_CJ제일제당 백설 찹쌀 호떡믹스",
+    	    "displayCategoryCode": 79386,
+    	    "categoryId": 2492,
+    	    "productId": null,
+    	    "vendorId": "A00013264",
+    	    "mdId": "regina@",
+    	    "mdName": "이은정",
+    	    "saleStartedAt": "2017-09-01T00:00:00",
+    	    "saleEndedAt": "2099-01-01T23:59:59",
+    	    "displayProductName": "[displayProductName]고객 만족 CJ제일제당 백설 찹쌀 호떡믹스",
+    	    "brand": "Stchodo",
+    	    "generalProductName": "[generalProductName]CJ제일제당 백설 찹쌀 호떡믹스",
+    	    "productGroup": "호떡믹스",
+    	    "statusName": "임시저장",
+    	    "deliveryMethod": "SEQUENCIAL",
+    	    "deliveryCompanyCode": "KGB",
+    	    "deliveryChargeType": "FREE_DELIVERY_OVER_9800",
+    	    "deliveryCharge": 2500.00000,
+    	    "freeShipOverAmount": 9800.00000,
+    	    "deliveryChargeOnReturn": 0.00000,
+    	    "deliverySurcharge": null,
+    	    "remoteAreaDeliverable": "N",
+    	    "bundlePackingDelivery": null,
+    	    "unionDeliveryType": "UNION_DELIVERY",
+    	    "returnCenterCode": "1000274592",
+    	    "returnChargeName": "대표이름4",
+    	    "companyContactNumber": "02-1234-678",
+    	    "returnZipCode": "135-090",
+    	    "returnAddress": "서울특별시 강남구 삼성동",
+    	    "returnAddressDetail": "333",
+    	    "returnCharge": 5000.00000,
+    	    "exchangeType": "AFTER",
+    	    "returnChargeVendor": "N",
+    	    "afterServiceInformation": "A/S안내 1544-1255",
+    	    "afterServiceContactNumber": "1544-1255",
+    	    "outboundShippingPlaceCode": 74010,
+    	    "contributorType": "API_SELLER",
+    	    "vendorUserId": "et5",
+    	    "requested": false,
+    	    "items": [
+    	      {
+    	        "sellerProductItemId": 251612760,
+    	        "vendorItemId": null,
+    	        "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
+    	        "originalPrice": 13000.00000,
+    	        "salePrice": 10000.00000,
+    	        "supplyPrice": 8570.00000,
+    	        "maximumBuyCount": 9999,
+    	        "maximumBuyForPerson": 0,
+    	        "outboundShippingTimeDay": 2,
+    	        "maximumBuyForPersonPeriod": 1,
+    	        "unitCount": 1,
+    	        "adultOnly": "EVERYONE",
+    	        "freePriceType": null,
+    	        "taxType": "TAX",
+    	        "parallelImported": "NOT_PARALLEL_IMPORTED",
+    	        "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+    	        "externalVendorSku": "90726",
+    	        "pccNeeded": false,
+    	        "emptyBarcode": true,
+    	        "emptyBarcodeReason": "NOT_ISSUEED",
+    	        "barcode": "",
+    	        "saleAgentCommission": 10.00,
+    	        "modelNo": "",
+    	        "images": [
+    	          {
+    	            "imageOrder": 0,
+    	            "imageType": "REPRESENTATION",
+    	            "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
+    	            "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"
+    	          }
+    	        ],
+    	        "notices": [
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "제품 소재",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "색상",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "치수",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "제조자(수입자)",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "제조국",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "제조연월",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "품질보증기준",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "A/S 책임자와 전화번호",
+    	            "content": "상세페이지 참조"
+    	          }
+    	        ],
+    	        "attributes": [
+    	          {
+    	            "attributeTypeName": "색상",
+    	            "attributeValueName": "GREY",
+    	            "exposed": "EXPOSED",
+    	            "editable": false
+    	          },
+    	          {
+    	            "attributeTypeName": "패션의류/잡화 사이즈",
+    	            "attributeValueName": "44",
+    	            "exposed": "EXPOSED",
+    	            "editable": false
+    	          }
+    	        ],
+    	        "contents": [
+    	          {
+    	            "contentsType": "TEXT",
+    	            "contentDetails": [
+    	              {
+    	                "content": "<div>\n  &lt;\\/div&gt; \n <div> \n  <img src=\"http:\\/\\/www.babomall.com\\/bbsemarket\\/gimage\\/7005345_2014_04_09_10_02_25_111.jpg\"> \n  <div>\n    &lt;\\/html&gt; \n  </div> \n </div> \n</div>",
+    	                "detailType": "TEXT"
+    	              }
+    	            ]
+    	          }
+    	        ],
+    	        "certifications": [
+    	          
+    	        ],
+    	        "extraProperties": null,
+    	        "searchTags": [
+    	          
+    	        ]
+    	      },
+    	      {
+    	        "sellerProductItemId": 251612761,
+    	        "vendorItemId": null,
+    	        "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 55",
+    	        "originalPrice": 13000.00000,
+    	        "salePrice": 10000.00000,
+    	        "supplyPrice": 8570.00000,
+    	        "maximumBuyCount": 9999,
+    	        "maximumBuyForPerson": 0,
+    	        "outboundShippingTimeDay": 2,
+    	        "maximumBuyForPersonPeriod": 1,
+    	        "unitCount": 1,
+    	        "adultOnly": "EVERYONE",
+    	        "freePriceType": null,
+    	        "taxType": "TAX",
+    	        "parallelImported": "PARALLEL_IMPORTED",
+    	        "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+    	        "externalVendorSku": "90726",
+    	        "pccNeeded": false,
+    	        "emptyBarcode": true,
+    	        "emptyBarcodeReason": "NOT_ISSUEED",
+    	        "barcode": "",
+    	        "saleAgentCommission": 10.00,
+    	        "modelNo": "",
+    	        "images": [
+    	          {
+    	            "imageOrder": 0,
+    	            "imageType": "REPRESENTATION",
+    	            "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
+    	            "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"
+    	          }
+    	        ],
+    	        "notices": [
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "제품 소재",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "색상",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "치수",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "제조자(수입자)",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "제조국",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "제조연월",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "품질보증기준",
+    	            "content": "상세페이지 참조"
+    	          },
+    	          {
+    	            "noticeCategoryName": "의류",
+    	            "noticeCategoryDetailName": "A/S 책임자와 전화번호",
+    	            "content": "상세페이지 참조"
+    	          }
+    	        ],
+    	        "attributes": [
+    	          {
+    	            "attributeTypeName": "색상",
+    	            "attributeValueName": "GREY",
+    	            "exposed": "EXPOSED",
+    	            "editable": false
+    	          },
+    	          {
+    	            "attributeTypeName": "패션의류/잡화 사이즈",
+    	            "attributeValueName": "55",
+    	            "exposed": "EXPOSED",
+    	            "editable": false
+    	          }
+    	        ],
+    	        "contents": [
+    	          {
+    	            "contentsType": "TEXT",
+    	            "contentDetails": [
+    	              {
+    	                "content": "<div>\n  &lt;\\/div&gt; \n <div> \n  <img src=\"http:\\/\\/www.babomall.com\\/bbsemarket\\/gimage\\/7005345_2014_04_09_10_02_25_111.jpg\"> \n  <div>\n    &lt;\\/html&gt; \n  </div> \n </div> \n</div>",
+    	                "detailType": "TEXT"
+    	              }
+    	            ]
+    	          }
+    	        ],
+    	        "certifications": [
+    	          
+    	        ],
+    	        "extraProperties": {
+    	          "optuid": "18788597",
+    	          "GOODS_SEQ": "1"
+    	        },
+    	        "searchTags": [
+    	          
+    	        ]
+    	      }
+    	    ],
+    	    "requiredDocuments": [
+    	      
+    	    ],
+    	    "manufacture": "제조사"
+    	  }
+    	},
     _description: ``,
     _relation: ``,
     _referenceInfo: ``,

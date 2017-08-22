@@ -38,187 +38,193 @@ true=True
 false=False
 null = None
 strjson={
-    "displayCategoryCode": 79386,
-    "sellerProductName": "테스트 상품 등록_Kay_Python",
-    "vendorId": "A00013264",
-    "saleStartedAt": "2100-10-12T00:00:00",
-    "saleEndedAt": "2200-01-01T23:59:59",
-    "brand": "Stchodo",
-    "deliveryMethod": "SEQUENCIAL",
-    "deliveryCompanyCode": "HYUNDAI",
-    "deliveryChargeType": "FREE_DELIVERY_OVER_9800",
-    "deliveryCharge": "2500",
-    "freeShipOverAmount": "9800",
-    "deliveryChargeOnReturn": "0",
-    "remoteAreaDeliverable": "N",
-    "unionDeliveryType": "UNION_DELIVERY",
-    "returnCenterCode": "1000274592",
-    "returnChargeName": "대표이름4",
-    "companyContactNumber": "02-1234-678",
-    "returnZipCode": "135-090",
-    "returnAddress": "서울특별시 강남구 삼성동",
-    "returnAddressDetail": "333",
-    "returnCharge": 2500,
-    "returnChargeVendor": "N",
-    "afterServiceInformation": "A/S안내 1544-1255",
-    "afterServiceContactNumber": "1544-1255",
-    "outboundShippingPlaceCode": "63714",
-    "vendorUserId": "et5",
-    "requested": false,
-    "items": [
-      {
-        "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
-        "originalPrice": 13000,
-        "salePrice": 10000,
-        "maximumBuyCount": "9999",
-        "maximumBuyForPerson": "0",
-        "outboundShippingTimeDay": "2",
-        "maximumBuyForPersonPeriod": "1",
-        "unitCount": 1,
-        "freePriceType": "NO_FREE_PRICE",
-        "adultOnly": "EVERYONE",
-        "taxType": "TAX",
-        "parallelImported": "NOT_PARALLEL_IMPORTED",
-        "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-        "externalVendorSku": "90726",
-        "barcode": "",
-        "emptyBarcode": false,
-        "emptyBarcodeReason": null,
-        "modelNo": "",
-        "extraProperties": null,
-        "certifications": [],
-        "searchTags": null,
-        "images": [{
-          "imageOrder": 0,
-          "imageType": "REPRESENTATION",
-          "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-          "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
-        "notices": [{
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제품 소재",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "색상",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "치수",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조자(수입자)",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조국",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조연월",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "품질보증기준",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "A/S 책임자와 전화번호",
-          "content": "상세페이지 참조"
-        }],
-        "attributes": [{
-          "attributeTypeName": "색상",
-          "attributeValueName": "GREY"},
-      {
-          "attributeTypeName": "패션의류/잡화 사이즈",
-          "attributeValueName": "44"}],
-        "contents": [{
-          "contentsType": "TEXT",
-          "contentDetails": [{
-            "content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
-            "detailType": "TEXT"}]}]},
-      {
-        "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 55",
-        "originalPrice": 13000,
-        "salePrice": 10000,
-        "maximumBuyCount": "9999",
-        "maximumBuyForPerson": "0",
-        "outboundShippingTimeDay": "2",
-        "maximumBuyForPersonPeriod": "1",
-        "unitCount": 1,
-        "freePriceType": "NO_FREE_PRICE",
-        "adultOnly": "EVERYONE",
-        "taxType": "TAX",
-        "parallelImported": "NOT_PARALLEL_IMPORTED",
-        "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-        "externalVendorSku": "90726",
-        "barcode": "",
-        "emptyBarcode": false,
-        "emptyBarcodeReason": null,
-        "modelNo": "",
-        "extraProperties": null,
-        "certifications": [],
-        "searchTags": null,
-        "images": [{
-          "imageOrder": 0,
-          "imageType": "REPRESENTATION",
-          "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-          "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
-        "notices": [{
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제품 소재",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "색상",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "치수",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조자(수입자)",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조국",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조연월",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "품질보증기준",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "A/S 책임자와 전화번호",
-          "content": "상세페이지 참조"
-        }],
-        "attributes": [{
-          "attributeTypeName": "색상",
-          "attributeValueName": "RED"},
-      {
-          "attributeTypeName": "패션의류/잡화 사이즈",
-          "attributeValueName": "55"}],
-        "contents": [{
-          "contentsType": "TEXT",
-          "contentDetails": [{
-            "content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
-            "detailType": "TEXT"}]}]}
-],
-    "requiredDocuments": [],
-    "manufacture": "제조사" }
+	    "displayCategoryCode": 79386,
+	    "sellerProductName": "테스트 상품 등록_CJ제일제당 백설 찹쌀 호떡믹스_Python",
+	    "vendorId": "A00013264",
+	    "saleStartedAt": "2017-09-01T00:00:00",
+	    "saleEndedAt": "2099-01-01T23:59:59",
+	    "displayProductName": "[displayProductName]고객 만족 CJ제일제당 백설 찹쌀 호떡믹스",
+	    "brand": "Stchodo",
+	    "generalProductName": "[generalProductName]CJ제일제당 백설 찹쌀 호떡믹스",
+	    "productGroup": "호떡믹스",
+	    "deliveryMethod": "SEQUENCIAL",
+	    "deliveryCompanyCode": "KGB",
+	    "deliveryChargeType": "FREE_DELIVERY_OVER_9800",
+	    "deliveryCharge": "2500",
+	    "freeShipOverAmount": "9800",
+	    "deliveryChargeOnReturn": "0",
+	    "remoteAreaDeliverable": "N",
+	    "unionDeliveryType": "UNION_DELIVERY",
+	    "returnCenterCode": "1000274592",
+	    "returnChargeName": "대표이름4",
+	    "companyContactNumber": "02-1234-678",
+	    "returnZipCode": "135-090",
+	    "returnAddress": "서울특별시 강남구 삼성동",
+	    "returnAddressDetail": "333",
+	    "returnCharge": 5000,
+	    "returnChargeVendor": "N",
+	    "afterServiceInformation": "A/S안내 1544-1255",
+	    "afterServiceContactNumber": "1544-1255",
+	    "outboundShippingPlaceCode": "74010",
+	    "vendorUserId": "et5",
+	    "requested": false,
+	    "items": [
+	    	{
+	    		"itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
+	    		"originalPrice": 13000,
+	    		"salePrice": 10000,
+	    		"maximumBuyCount": "9999",
+	    		"maximumBuyForPerson": "0",
+	    		"outboundShippingTimeDay": "2",
+	    		"maximumBuyForPersonPeriod": "1",
+	    		"unitCount": 1,
+	    		"freePriceType": "NO_FREE_PRICE",
+	    		"adultOnly": "EVERYONE",
+	    		"taxType": "TAX",
+	    		"parallelImported": "NOT_PARALLEL_IMPORTED",
+	    		"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+	    		"pccNeeded": "true",
+	    		"externalVendorSku": "90726",
+	    		"barcode": "",
+	    		"emptyBarcode": false,
+	    		"emptyBarcodeReason": null,
+	    		"modelNo": "",
+	    		"extraProperties": null,
+	    		"certifications": [],
+	    		"searchTags": null,
+	    		"images": [{
+	    			"imageOrder": 0,
+	    			"imageType": "REPRESENTATION",
+	    			"cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
+	    			"vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
+	    		"notices": [{
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "제품 소재",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "색상",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "치수",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "제조자(수입자)",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "제조국",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "제조연월",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "품질보증기준",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "A/S 책임자와 전화번호",
+	    			"content": "상세페이지 참조"
+	    		}],
+	    		"attributes": [{
+	    			"attributeTypeName": "색상",
+	    			"attributeValueName": "GREY"},
+				{
+	    			"attributeTypeName": "패션의류/잡화 사이즈",
+	    			"attributeValueName": "44"}],
+	    		"contents": [{
+	    			"contentsType": "TEXT",
+	    			"contentDetails": [{
+	    				"content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
+	    				"detailType": "TEXT"}]}]},
+	    	{
+	    		"itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 55",
+	    		"originalPrice": 13000,
+	    		"salePrice": 10000,
+	    		"maximumBuyCount": "9999",
+	    		"maximumBuyForPerson": "0",
+	    		"outboundShippingTimeDay": "2",
+	    		"maximumBuyForPersonPeriod": "1",
+	    		"unitCount": 1,
+	    		"freePriceType": "NO_FREE_PRICE",
+	    		"adultOnly": "EVERYONE",
+	    		"taxType": "TAX",
+	    		"parallelImported": "PARALLEL_IMPORTED",
+	    		"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+	    		"pccNeeded": "true",
+	    		"externalVendorSku": "90726",
+	    		"barcode": "",
+	    		"emptyBarcode": false,
+	    		"emptyBarcodeReason": null,
+	    		"modelNo": "",
+	    		"extraProperties": null,
+	    		"certifications": [],
+	    		"searchTags": null,
+	    		"images": [{
+	    			"imageOrder": 0,
+	    			"imageType": "REPRESENTATION",
+	    			"cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
+	    			"vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
+	    		"notices": [{
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "제품 소재",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "색상",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "치수",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "제조자(수입자)",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "제조국",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "제조연월",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "품질보증기준",
+	    			"content": "상세페이지 참조"
+	    		}, {
+	    			"noticeCategoryName": "의류",
+	    			"noticeCategoryDetailName": "A/S 책임자와 전화번호",
+	    			"content": "상세페이지 참조"
+	    		}],
+	    		"extraProperties": {"GOODS_SEQ":"1","optuid":"18788597"},
+	    		"attributes": [{
+	    			"attributeTypeName": "색상",
+	    			"attributeValueName": "GREY"},
+				{
+	    			"attributeTypeName": "패션의류/잡화 사이즈",
+	    			"attributeValueName": "55"}],
+	    		"contents": [{
+	    			"contentsType": "TEXT",
+	    			"contentDetails": [{
+	    				"content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
+	    				"detailType": "TEXT"}]}]}
+	],
+	    "requiredDocuments": [],
+	    "manufacture": "제조사" }
 
 data = json.dumps(strjson).encode("utf-8")
 
@@ -345,188 +351,194 @@ true=True
 false=False
 null = None
 strjson={
-    "sellerProductId": 36865493,
-    "displayCategoryCode": 79386,
-    "sellerProductName": "테스트 상품 수정_Kay1_Python",
-    "vendorId": "A00013264",
-    "saleStartedAt": "2016-10-12T00:00:00",
-    "saleEndedAt": "2099-01-01T23:59:59",
-    "brand": "Stchodo",
-    "deliveryMethod": "SEQUENCIAL",
-    "deliveryCompanyCode": "HYUNDAI",
-    "deliveryChargeType": "FREE_DELIVERY_OVER_9800",
-    "deliveryCharge": "2500",
-    "freeShipOverAmount": "9800",
-    "deliveryChargeOnReturn": "0",
-    "remoteAreaDeliverable": "N",
-    "unionDeliveryType": "UNION_DELIVERY",
-    "returnCenterCode": "1000274592",
-    "returnChargeName": "대표이름4",
-    "companyContactNumber": "02-1234-678",
-    "returnZipCode": "135-090",
-    "returnAddress": "서울특별시 강남구 삼성동",
-    "returnAddressDetail": "333",
-    "returnCharge": 2500,
-    "returnChargeVendor": "N",
-    "afterServiceInformation": "A/S안내 1544-1255",
-    "afterServiceContactNumber": "1544-1255",
-    "outboundShippingPlaceCode": "63714",
-    "vendorUserId": "et5",
-    "requested": false,
-    "items": [
-      {
-        "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
-        "originalPrice": 13000,
-        "salePrice": 10000,
-        "maximumBuyCount": "9999",
-        "maximumBuyForPerson": "0",
-        "outboundShippingTimeDay": "2",
-        "maximumBuyForPersonPeriod": "1",
-        "unitCount": 1,
-        "freePriceType": "NO_FREE_PRICE",
-        "adultOnly": "EVERYONE",
-        "taxType": "TAX",
-        "parallelImported": "NOT_PARALLEL_IMPORTED",
-        "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-        "externalVendorSku": "90726",
-        "barcode": "",
-        "emptyBarcode": false,
-        "emptyBarcodeReason": null,
-        "modelNo": "",
-        "extraProperties": null,
-        "certifications": [],
-        "searchTags": null,
-        "images": [{
-          "imageOrder": 0,
-          "imageType": "REPRESENTATION",
-          "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-          "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
-        "notices": [{
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제품 소재",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "색상",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "치수",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조자(수입자)",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조국",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조연월",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "품질보증기준",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "A/S 책임자와 전화번호",
-          "content": "상세페이지 참조"
-        }],
-        "attributes": [{
-          "attributeTypeName": "색상",
-          "attributeValueName": "GREY"},
-          {
-            "attributeTypeName": "패션의류/잡화 사이즈",
-            "attributeValueName": "44"}],
-        "contents": [{
-          "contentsType": "TEXT",
-          "contentDetails": [{
-            "content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
-            "detailType": "TEXT"}]}]},
-      {
-        "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 55",
-        "originalPrice": 13000,
-        "salePrice": 10000,
-        "maximumBuyCount": "9999",
-        "maximumBuyForPerson": "0",
-        "outboundShippingTimeDay": "2",
-        "maximumBuyForPersonPeriod": "1",
-        "unitCount": 1,
-        "freePriceType": "NO_FREE_PRICE",
-        "adultOnly": "EVERYONE",
-        "taxType": "TAX",
-        "parallelImported": "NOT_PARALLEL_IMPORTED",
-        "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-        "externalVendorSku": "90726",
-        "barcode": "",
-        "emptyBarcode": false,
-        "emptyBarcodeReason": null,
-        "modelNo": "",
-        "extraProperties": null,
-        "certifications": [],
-        "searchTags": null,
-        "images": [{
-          "imageOrder": 0,
-          "imageType": "REPRESENTATION",
-          "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-          "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
-        "notices": [{
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제품 소재",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "색상",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "치수",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조자(수입자)",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조국",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "제조연월",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "품질보증기준",
-          "content": "상세페이지 참조"
-        }, {
-          "noticeCategoryName": "의류",
-          "noticeCategoryDetailName": "A/S 책임자와 전화번호",
-          "content": "상세페이지 참조"
-        }],
-        "attributes": [{
-          "attributeTypeName": "색상",
-          "attributeValueName": "RED"},
-          {
-            "attributeTypeName": "패션의류/잡화 사이즈",
-            "attributeValueName": "55"}],
-        "contents": [{
-          "contentsType": "TEXT",
-          "contentDetails": [{
-            "content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
-            "detailType": "TEXT"}]}]}
-    ],
-    "requiredDocuments": [],
-    "manufacture": "제조사"}
+		"sellerProductId": 83358541,
+		"displayCategoryCode": 79386,
+		"sellerProductName": "테스트 상품 등록_CJ제일제당 백설 찹쌀 호떡믹스_Python",
+		"vendorId": "A00013264",
+		"saleStartedAt": "2017-09-01T00:00:00",
+		"saleEndedAt": "2099-01-01T23:59:59",
+		"displayProductName": "[displayProductName]고객 만족 CJ제일제당 백설 찹쌀 호떡믹스",
+		"brand": "Stchodo",
+		"generalProductName": "[generalProductName]CJ제일제당 백설 찹쌀 호떡믹스",
+		"productGroup": "호떡믹스",
+		"deliveryMethod": "SEQUENCIAL",
+		"deliveryCompanyCode": "KGB",
+		"deliveryChargeType": "FREE_DELIVERY_OVER_9800",
+		"deliveryCharge": "2500",
+		"freeShipOverAmount": "9800",
+		"deliveryChargeOnReturn": "0",
+		"remoteAreaDeliverable": "N",
+		"unionDeliveryType": "UNION_DELIVERY",
+		"returnCenterCode": "1000274592",
+		"returnChargeName": "대표이름4",
+		"companyContactNumber": "02-1234-678",
+		"returnZipCode": "135-090",
+		"returnAddress": "서울특별시 강남구 삼성동",
+		"returnAddressDetail": "333",
+		"returnCharge": 5000,
+		"returnChargeVendor": "N",
+		"afterServiceInformation": "A/S안내 1544-1255",
+		"afterServiceContactNumber": "1544-1255",
+		"outboundShippingPlaceCode": "74010",
+		"vendorUserId": "et5",
+		"requested": false,
+		"items": [
+			{
+				"itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
+				"originalPrice": 13000,
+				"salePrice": 10000,
+				"maximumBuyCount": "9999",
+				"maximumBuyForPerson": "0",
+				"outboundShippingTimeDay": "2",
+				"maximumBuyForPersonPeriod": "1",
+				"unitCount": 1,
+				"freePriceType": "NO_FREE_PRICE",
+				"adultOnly": "EVERYONE",
+				"taxType": "TAX",
+				"parallelImported": "NOT_PARALLEL_IMPORTED",
+				"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+				"pccNeeded": "true",
+				"externalVendorSku": "90726",
+				"barcode": "",
+				"emptyBarcode": false,
+				"emptyBarcodeReason": null,
+				"modelNo": "",
+				"extraProperties": null,
+				"certifications": [],
+				"searchTags": null,
+				"images": [{
+					"imageOrder": 0,
+					"imageType": "REPRESENTATION",
+					"cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
+					"vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
+				"notices": [{
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "제품 소재",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "색상",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "치수",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "제조자(수입자)",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "제조국",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "제조연월",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "품질보증기준",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "A/S 책임자와 전화번호",
+					"content": "상세페이지 참조"
+				}],
+				"attributes": [{
+					"attributeTypeName": "색상",
+					"attributeValueName": "GREY"},
+					{
+						"attributeTypeName": "패션의류/잡화 사이즈",
+						"attributeValueName": "44"}],
+				"contents": [{
+					"contentsType": "TEXT",
+					"contentDetails": [{
+						"content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
+						"detailType": "TEXT"}]}]},
+			{
+				"itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 55",
+				"originalPrice": 13000,
+				"salePrice": 10000,
+				"maximumBuyCount": "9999",
+				"maximumBuyForPerson": "0",
+				"outboundShippingTimeDay": "2",
+				"maximumBuyForPersonPeriod": "1",
+				"unitCount": 1,
+				"freePriceType": "NO_FREE_PRICE",
+				"adultOnly": "EVERYONE",
+				"taxType": "TAX",
+				"parallelImported": "PARALLEL_IMPORTED",
+				"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+				"pccNeeded": "true",
+				"externalVendorSku": "90726",
+				"barcode": "",
+				"emptyBarcode": false,
+				"emptyBarcodeReason": null,
+				"modelNo": "",
+				"extraProperties": null,
+				"certifications": [],
+				"searchTags": null,
+				"images": [{
+					"imageOrder": 0,
+					"imageType": "REPRESENTATION",
+					"cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
+					"vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
+				"notices": [{
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "제품 소재",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "색상",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "치수",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "제조자(수입자)",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "제조국",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "제조연월",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "품질보증기준",
+					"content": "상세페이지 참조"
+				}, {
+					"noticeCategoryName": "의류",
+					"noticeCategoryDetailName": "A/S 책임자와 전화번호",
+					"content": "상세페이지 참조"
+				}],
+				"extraProperties": {"GOODS_SEQ": "1", "optuid": "18788597"},
+				"attributes": [{
+					"attributeTypeName": "색상",
+					"attributeValueName": "GREY"},
+					{
+						"attributeTypeName": "패션의류/잡화 사이즈",
+						"attributeValueName": "55"}],
+				"contents": [{
+					"contentsType": "TEXT",
+					"contentDetails": [{
+						"content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
+						"detailType": "TEXT"}]}]}
+		],
+		"requiredDocuments": [],
+		"manufacture": "제조사"}
 
 data = json.dumps(strjson).encode("utf-8")
 
@@ -570,7 +582,7 @@ os.environ['TZ'] = 'GMT+0'
 
 datetime=time.strftime('%y%m%d')+'T'+time.strftime('%H%M%S')+'Z'
 method = "DELETE"
-path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/36865493"
+path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/83358541"
 
 message = datetime+method+path
 

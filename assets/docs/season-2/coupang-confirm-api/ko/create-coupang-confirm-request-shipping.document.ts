@@ -108,7 +108,7 @@ export const createCoupangConfirmRequestShippingDocument = {
             name: `attachments`,
             type: `Array`,
             require: true,
-            _description: `첨부 파일`,
+            _description: `첨부 파일을 함께 접수할 때 파일 정보로서 첨부파일 필수 여부는 각각의 업체별로 쿠팡 내부에서 첵크합니다.`,
             _relation: ``,
             _referenceInfo: `첨부 파일 이름&첨부 파일 경로`,
             _warning: ``,

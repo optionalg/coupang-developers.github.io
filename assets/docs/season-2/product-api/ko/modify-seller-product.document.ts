@@ -99,6 +99,16 @@ export const modifySellerProductDocument = {
         children: false
       },
       {
+          name: `displayProductName`,
+          type: `String`,
+          require: false,
+          _description: `노출상품명`,
+          _relation: ``,
+          _referenceInfo: `실제 쿠팡 판매페이지에서 노출될 상품명이나 실제 노출 시 변경될 수 있으며 브랜드, 제품명, 상품군의 변경에 의해 변경됩니다.`,
+          _warning: ``,
+          children: false
+      },
+      {
         name: `brand`,
         type: `String`,
         require: true,
@@ -107,6 +117,26 @@ export const modifySellerProductDocument = {
         _referenceInfo: `브랜드명은 한글/영어 표준이름 입력`,
         _warning: ``,
         children: false
+      },
+      {
+          name: `generalProductName`,
+          type: `String`,
+          require: false,
+          _description: `제품명`,
+          _relation: ``,
+          _referenceInfo: `사이즈, 컬러등의 '옵션정보'를 포함하지 않은 상품의 고유명사 또는 모델명.`,
+          _warning: ``,
+          children: false
+      },
+      {
+            name: `productGroup`,
+            type: `String`,
+            require: false,
+            _description: `상품군`,
+            _relation: ``,
+            _referenceInfo: `상품의 그룹으로 노출카테고리의 최하위명을 참고하여 입력.`,
+            _warning: ``,
+            children: false
       },
       {
         name: `deliveryMethod`,
@@ -1092,7 +1122,8 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
             require: true,
             _description: `옵션목록(속성)`,
             _relation: ``,
-            _referenceInfo: `카테고리 기준으로 정해진 옵션 목록을 입력하는 객체. 필요한 만큼 반복 입력 가능, 동일한 타입명, 타입값을 갖는 속성 객체는 한번만 입력할 수 있음, 한개 이상 등록 필수`,
+            _referenceInfo: `카테고리 기준으로 정해진 옵션을 입력하는 객체의 목록으로 
+                             상품 수정 시 입력을 원하지 않는 필수값 이외의 속성은 attributes 목록에서 제거 또는 또는 attributeValueName을 ""값으로 입력하여 전송`,
             _warning: ``,
             children: [
               {
@@ -1115,6 +1146,34 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
                 _referenceInfo: ``,
                 _warning: ``,
                 children: false
+              }
+              ,
+              {
+                  name: `exposed`,
+                  type: `String`,
+                  require: false,
+                  _description: `구매옵션/검색옵션 구분필드. 입력 여부와 상관없이 상품 수정 가능`,
+                  _relation: ``,
+                  _referenceInfo: `
+                  EXPOSED : 구매옵션<br/>
+                  NONE : 검색옵션
+                  `,
+                  _warning: ``,
+                  children: false
+                }
+              ,
+              {
+                  name: `editable`,
+                  type: `String`,
+                  require: false,
+                  _description: `수정 여부 구분필드. 입력 여부와 상관없이 상품 수정 가능`,
+                  _relation: ``,
+                  _referenceInfo: `
+                      true : 수정가능<br/>
+                      false : 수정불가
+                      `,
+                      _warning: ``,
+                  children: false
               }
             ]
           }
@@ -1335,57 +1394,63 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
         language: `http`,
         codeblock: {
           "sellerProductId": 7803,
-          "displayCategoryCode": 3001,
-          "sellerProductName": "신나는 작곡완성",
-          "vendorId": "A00011620",
-          "saleStartedAt": "2015-07-01T12:00:00",
-          "saleEndedAt": "2015-07-31T11:59:59",
-          "brand": "",
-          "deliveryMethod":"SEQUENCIAL",
-          "deliveryCompanyCode": "ETC",
-          "deliveryChargeType": "CONDITIONAL_FREE",
-          "deliveryCharge": 2500,
-          "freeShipOverAmount": 9800,
-          "deliveryChargeOnReturn": 0,
-          "remoteAreaDeliverable": "Y",
-          "unionDeliveryType": "NOT_UNION_DELIVERY",
-          "returnCenterCode": "A00011620_1000000070",
-          "returnChargeName": "김XX",
-          "companyContactNumber": "02-589-XXXX",
-          "returnZipCode": "135-080",
-          "returnAddress": "서울 강남구 역삼동",
-          "returnAddressDetail": "736-X XX빌딩",
-          "returnCharge": 2000,
-          "exchangeType": "PRE",
-          "returnChargeVendor": "Y",
-          "afterServiceInformation": "경기도 파주시",
-          "afterServiceContactNumber": "1599-XXXX",
-          "vendorUserId": "A00011620",
+          "displayCategoryCode": 79386,
+          "sellerProductName": "테스트 상품 등록_CJ제일제당 백설 찹쌀 호떡믹스_Python",
+          "vendorId": "A00013264",
+          "saleStartedAt": "2017-09-01T00:00:00",
+          "saleEndedAt": "2099-01-01T23:59:59",
+          "displayProductName": "[displayProductName]고객 만족 CJ제일제당 백설 찹쌀 호떡믹스",
+          "brand": "Stchodo",
+          "generalProductName": "[generalProductName]CJ제일제당 백설 찹쌀 호떡믹스",
+          "productGroup": "호떡믹스",
+          "deliveryMethod": "SEQUENCIAL",
+          "deliveryCompanyCode": "KGB",
+          "deliveryChargeType": "FREE_DELIVERY_OVER_9800",
+          "deliveryCharge": "2500",
+          "freeShipOverAmount": "9800",
+          "deliveryChargeOnReturn": "0",
+          "remoteAreaDeliverable": "N",
+          "unionDeliveryType": "UNION_DELIVERY",
+          "returnCenterCode": "1000274592",
+          "returnChargeName": "대표이름4",
+          "companyContactNumber": "02-1234-678",
+          "returnZipCode": "135-090",
+          "returnAddress": "서울특별시 강남구 삼성동",
+          "returnAddressDetail": "333",
+          "returnCharge": 5000,
+          "returnChargeVendor": "N",
+          "afterServiceInformation": "A/S안내 1544-1255",
+          "afterServiceContactNumber": "1544-1255",
+          "outboundShippingPlaceCode": "74010",
+          "vendorUserId": "et5",
+          "requested": true,
           "items": [
             {
               "sellerProductItemId": 4869645952,
-              "itemName": "신나는 작곡완성",
-              "originalPrice": 5000,
-              "salePrice": 4500,
-              "supplyPrice": 4153,
-              "maximumBuyCount": 9999,
-              "maximumBuyForPerson": 0,
-              "unitCount": 0,
+              "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
+              "originalPrice": 13000,
+              "salePrice": 10000,
+              "maximumBuyCount": "9999",
+              "maximumBuyForPerson": "0",
+              "outboundShippingTimeDay": "2",
+              "maximumBuyForPersonPeriod": "1",
+              "unitCount": 1,
               "freePriceType": "NO_FREE_PRICE",
               "adultOnly": "EVERYONE",
               "taxType": "TAX",
               "parallelImported": "NOT_PARALLEL_IMPORTED",
               "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
               "pccNeeded": "false",
-              "externalVendorSku": null,
-              "barcode": "9788932624860",
+              "externalVendorSku": "90726",
+              "barcode": "",
               "emptyBarcode": false,
               "emptyBarcodeReason": null,
-              "saleAgentCommission": 4,
               "modelNo": "",
-              "extraProperties":{
-                "EXAMPLE_KEY1":"EXAMPLE_VALUE1",
-                "EXAMPLE_KEY2":"EXAMPLE_VALUE2",
+              "extraProperties": {
+                "coupangSalePrice": 5000,
+                "onlineSalePriceForBooks": 10000,
+                "transactionType": "manufacturer",
+                "businessType": "Beauty"
               },
               "certifications":[
                 {
@@ -1397,57 +1462,57 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
                 "검색어1",
                 "검색어2"
               ],
-              "images": [
-                {
+              "images": [{
                   "imageOrder": 0,
                   "imageType": "REPRESENTATION",
                   "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-                  "vendorPath": "700x700.jpg"
-                }
-              ],
-              "notices": [
-                {
-                  "noticeCategoryName": "서적",
-                  "noticeCategoryDetailName": "도서명",
-                  "content": "신나는 작곡완성"
-                },
-                {
-                  "noticeCategoryName": "서적",
-                  "noticeCategoryDetailName": "저자, 출판사",
-                  "content": "삼X뮤X(삼X출판사)"
-                },
-                {
-                  "noticeCategoryName": "서적",
-                  "noticeCategoryDetailName": "크기(파일의 용량)",
-                  "content": "188*254"
-                },
-                {
-                  "noticeCategoryName": "서적",
-                  "noticeCategoryDetailName": "쪽수",
-                  "content": "64"
-                },
-                {
-                  "noticeCategoryName": "서적",
-                  "noticeCategoryDetailName": "제품 구성",
-                  "content": "추가구성없음"
-                },
-                {
-                  "noticeCategoryName": "서적",
-                  "noticeCategoryDetailName": "출간일",
-                  "content": "2005/02/20"
-                },
-                {
-                  "noticeCategoryName": "서적",
-                  "noticeCategoryDetailName": "목차 또는 책소개(아동용 학습 교재의 경우 사용연령을 포함)",
-                  "content": "상품 상세설명 참조"
-                }
-              ],
-              "attributes": [
-                {
-                  "attributeTypeName": "도서명",
-                  "attributeValueName": "신나는 작곡완성"
-                }
-              ],
+                  "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"
+                }],
+                "notices": [{
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "제품 소재",
+                  "content": "상세페이지 참조"
+                }, {
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "색상",
+                  "content": "상세페이지 참조"
+                }, {
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "치수",
+                  "content": "상세페이지 참조"
+                }, {
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "제조자(수입자)",
+                  "content": "상세페이지 참조"
+                }, {
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "제조국",
+                  "content": "상세페이지 참조"
+                }, {
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
+                  "content": "상세페이지 참조"
+                }, {
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "제조연월",
+                  "content": "상세페이지 참조"
+                }, {
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "품질보증기준",
+                  "content": "상세페이지 참조"
+                }, {
+                  "noticeCategoryName": "의류",
+                  "noticeCategoryDetailName": "A/S 책임자와 전화번호",
+                  "content": "상세페이지 참조"
+                }],
+        		"attributes": [{
+      			"attributeTypeName": "색상",
+      			"attributeValueName": "GREY"
+      		  },
+  			  {
+      			"attributeTypeName": "패션의류/잡화 사이즈",
+      			"attributeValueName": "44"
+                }],
               "contents": [
                 {
                   "contentsType": "TEXT",
