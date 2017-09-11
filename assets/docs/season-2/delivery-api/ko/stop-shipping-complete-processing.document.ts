@@ -31,7 +31,7 @@ export const stopShippingCompleteProcessingDocument = {
     nextVersions: [
       {
         apiName: `출고중지완료 처리`,
-        path: `/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
+        path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
@@ -45,8 +45,8 @@ export const stopShippingCompleteProcessingDocument = {
     developer: `Wiv`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `PATCH `,
-    path: `/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
-    HMACPath: `/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
+    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
+    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
     _description: ``,
     _relation: ``,
     _referenceInfo: ``,

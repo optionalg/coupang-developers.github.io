@@ -71,8 +71,6 @@ export const changeSaleStatusToResumptionByProductDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
       }
     ],
     response: {

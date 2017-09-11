@@ -78,7 +78,6 @@ export const changePriceBasedOnDiscountRateByProductDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {}
       }
     ],
     response: {

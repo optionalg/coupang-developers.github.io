@@ -71,8 +71,6 @@ export const changeSaleStatusToStopByProduct = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
       }
     ],
     response: {

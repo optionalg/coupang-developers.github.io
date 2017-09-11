@@ -78,9 +78,7 @@ export const changeQuantityByProductDocument = {
     endpoint: ``,
     code: [
       {
-        language: `http`,
-        codeblock: {
-        }
+        language: `http`
       }
     ],
     response: {

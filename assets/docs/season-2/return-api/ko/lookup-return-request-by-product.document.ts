@@ -151,11 +151,11 @@ export const lookupReturnByProductDocument = {
               </tr>
               <tr>
                   <td>RELEASE_STOP_UNCHECKED</td>
-                  <td>출고중지요청 미확인)</td>
+                  <td>출고중지요청</td>
               </tr>
               <tr>
                   <td>RETURNS_UNCHECKED</td>
-                  <td>반품접수 미확인</td>
+                  <td>반품접수</td>
               </tr>
               <tr>
                   <td>VENDOR_WAREHOUSE_CONFIRM</td>

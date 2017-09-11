@@ -94,7 +94,7 @@ export const deleteSellerProductDocument = {
     response: {
       "code": "SUCCESS",
       "message": "삭제되었습니다",
-      "data": 7803
+      "data": "7770"
     },
     _description: ``,
     _relation: ``,

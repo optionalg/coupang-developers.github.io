@@ -1351,7 +1351,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
     },
     {
       name: `data`,
-      type: `String`,
+      type: `Long`,
       _description: `업체상품아이디`,
       _relation: ``,
       _referenceInfo: `생성된 업체상품아이디`,
@@ -1577,7 +1577,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
       "data": {
         "code": "SUCCESS",
         "message": "",
-        "data": "7770"
+        "data": 7770
       }
     },
     _description: ``,

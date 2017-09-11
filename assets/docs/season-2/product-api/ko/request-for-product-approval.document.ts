@@ -86,8 +86,8 @@ export const requestForProductApprovalDocument = {
     ],
     response: {
       "code": "SUCCESS",
-      "message": "7835 승인 요청되었습니다. 승인 내용에 문제가 있을 경우 승인 요청이 처리되지 않을 수 있습니다.",
-      "data": 7835
+      "message": "7770 승인 요청되었습니다. 승인 내용에 문제가 있을 경우 승인 요청이 처리되지 않을 수 있습니다.",
+      "data": "7770"
     },
     _description: ``,
     _relation: ``,

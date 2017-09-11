@@ -31,7 +31,7 @@ export const productAlreadyShippedProcessingDocument = {
     nextVersions: [
       {
         apiName: `이미출고 처리`,
-        path: `/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
+        path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
@@ -45,8 +45,8 @@ export const productAlreadyShippedProcessingDocument = {
     developer: `Wiv`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `PATCH`,
-    path: `/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
-    HMACPath: `/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
+    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
+    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
     _description: `출고중지완료 상태로 변경한다.`,
     _relation: ``,
     _referenceInfo: ``,

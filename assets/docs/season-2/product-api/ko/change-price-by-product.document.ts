@@ -90,10 +90,9 @@ true : 가격 변경 비율 제한 불필요.<br/>
     endpoint: ``,
     code: [
       {
-        language: `http`,
-        codeblock: {
-        }
+        language: `http`
       }
+      
     ],
     response: {
       "code": "SUCCESS",

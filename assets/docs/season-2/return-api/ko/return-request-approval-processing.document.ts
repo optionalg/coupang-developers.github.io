@@ -44,7 +44,7 @@ export const returnRequestApprovalProcessingDocument = {
     lastUpdateDate: `2017-2-10`, // yyyy-mm-dd  ex> 2016-12-23
     developer: `Wiv`,
     domain: `https://api-gateway.coupang.com`,
-    httpMethod: `POST`,
+    httpMethod: `PATCH`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/approval`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/approval`,
     _description: `반품요청 승인`,
