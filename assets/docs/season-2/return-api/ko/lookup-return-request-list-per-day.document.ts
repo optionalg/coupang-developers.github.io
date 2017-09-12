@@ -574,53 +574,160 @@ export const lookupReturnRequestListPerDayDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00012697/returnRequests?createdAtFrom=2016-03-01&createdAtTo=2016-03-31&status=UC`,
+    endpoint: `https://api-gateway.coupang.com:443/v2/providers/openapi/apis/api/v4/vendors/A00127960/returnRequests?maxPerPage=20&createdAtFrom=2017-08-27&createdAtTo=2017-09-03&status=UC`,
     code: [
       {
         language: `http`,
       }
     ],
     response: {
-      "code": "200",
-      "message": "OK",
-      "data": [
-        {
-          "receiptId": 365937,
-          "orderId": 500004398,
-          "paymentId": 700003957,
-          "receiptType": "RETURN",
-          "receiptStatus": "RELEASE_STOP_UNCHECKED",
-          "createdAt": "2016-03-25T13:05:30",
-          "modifiedAt": "2016-03-25T13:05:30",
-          "requesterName": "임송이",
-          "requesterPhoneNumber": "010-****-4043",
-          "cancelReasonCategory1": "고객변심",
-          "cancelReasonCategory2": "단순변심(사유없음)",
-          "cancelReason": "테스트",
-          "cancelCountSum": 1,
-          "returnDeliveryId": 40453,
-          "returnDeliveryType": "연동택배",
-          "releaseStopStatus": "미처리",
-          "enclosePrice": 0,
-          "faultByType": "VENDOR",
-          "preRefund": false,
-          "completeConfirmDate": "",
-          "completeConfirmType": "UNDEFINED",
-          "returnItems": [
+          "code": 200,
+          "message": "OK",
+          "data": [
             {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "객지/한씨연대기/삼포 가는 길/섬섬옥수/몰개월의 새",
-              "vendorItemId": 3000001893,
-              "vendorItemName": "객지/한씨연대기/삼포 가는 길/섬섬옥수/몰개월의 새 1",
-              "purchaseCount": 1,
-              "cancelCount": 1,
-              "shipmentBoxId": 197267583,
-              "sellerProductId": 130,
-              "sellerProductName": "객지/한씨연대기/삼포 가는 길/섬섬옥수/몰개월의 새 1"
+              "receiptId": 50229613,
+              "orderId": 28000008707838,
+              "paymentId": 28000009486604,
+              "receiptType": "RETURN",
+              "receiptStatus": "RETURNS_UNCHECKED",
+              "createdAt": "2017-09-02T22:52:42",
+              "modifiedAt": "2017-09-02T22:52:42",
+              "requesterName": "구*숙",
+              "requesterPhoneNumber": "0503-****-3560",
+              "cancelReasonCategory1": "고객변심",
+              "cancelReasonCategory2": "단순변심(사유없음)",
+              "cancelReason": "",
+              "cancelCountSum": 1,
+              "returnDeliveryId": 20234047,
+              "returnDeliveryType": "연동택배",
+              "releaseStopStatus": "처리(이미출고)",
+              "enclosePrice": 0,
+              "faultByType": "VENDOR",
+              "preRefund": false,
+              "completeConfirmDate": "",
+              "completeConfirmType": "UNDEFINED",
+              "returnItems": [
+                {
+                  "vendorItemPackageId": 0,
+                  "vendorItemPackageName": "스파오(SPAO) (#)시원하고 편안한 캉캉 롱스커트",
+                  "vendorItemId": 3187044096,
+                  "vendorItemName": "스파오(SPAO) (#)시원하고 편안한 캉캉 롱스커트, (19)Black, S",
+                  "purchaseCount": 1,
+                  "cancelCount": 1,
+                  "shipmentBoxId": 434119941,
+                  "sellerProductId": 57623797,
+                  "sellerProductName": "스파오 (#)시원하고 편안한 캉캉 롱스커트,(19)Black S"
+                }
+              ],
+              "returnDeliveryDtos": [
+                {
+                  "deliveryCompanyCode": "CJGLS",
+                  "deliveryInvoiceNo": ""
+                }
+              ]
+            },
+            {
+              "receiptId": 50203804,
+              "orderId": 26000008536134,
+              "paymentId": 26000009289336,
+              "receiptType": "RETURN",
+              "receiptStatus": "RETURNS_UNCHECKED",
+              "createdAt": "2017-09-02T11:36:02",
+              "modifiedAt": "2017-09-02T11:36:02",
+              "requesterName": "이*진",
+              "requesterPhoneNumber": "0503-****-6341",
+              "cancelReasonCategory1": "상품불량",
+              "cancelReasonCategory2": "사용중 제품결함",
+              "cancelReason": "단 이틀 착용하였는데 초침이 궤도를 이탈하였습니다 ㅡ., ㅡ",
+              "cancelCountSum": 1,
+              "returnDeliveryId": 20227073,
+              "returnDeliveryType": "연동택배",
+              "releaseStopStatus": "비대상",
+              "enclosePrice": 0,
+              "faultByType": "VENDOR",
+              "preRefund": false,
+              "completeConfirmDate": "",
+              "completeConfirmType": "UNDEFINED",
+              "returnItems": [
+                {
+                  "vendorItemPackageId": 0,
+                  "vendorItemPackageName": "라템 KEY OF LOVE WATCH (AG2G6302LA)",
+                  "vendorItemId": 3136499833,
+                  "vendorItemName": "라템 KEY OF LOVE WATCH (AG2G6302LA), 골드",
+                  "purchaseCount": 1,
+                  "cancelCount": 1,
+                  "shipmentBoxId": 431114431,
+                  "sellerProductId": 40230613,
+                  "sellerProductName": "라템 KEY OF LOVE WATCH (AG2G6302LA),골드"
+                }
+              ],
+              "returnDeliveryDtos": [
+                {
+                  "deliveryCompanyCode": "CJGLS",
+                  "deliveryInvoiceNo": ""
+                },
+                {
+                  "deliveryCompanyCode": "CJGLS",
+                  "deliveryInvoiceNo": null
+                },
+                {
+                  "deliveryCompanyCode": "CJGLS",
+                  "deliveryInvoiceNo": "840806808800"
+                },
+                {
+                  "deliveryCompanyCode": "CJGLS",
+                  "deliveryInvoiceNo": null
+                }
+              ]
+            },
+            {
+              "receiptId": 50201937,
+              "orderId": 6000008625134,
+              "paymentId": 6000009340358,
+              "receiptType": "RETURN",
+              "receiptStatus": "RETURNS_UNCHECKED",
+              "createdAt": "2017-09-02T10:48:29",
+              "modifiedAt": "2017-09-02T10:48:29",
+              "requesterName": "서*희",
+              "requesterPhoneNumber": "0503-****-6778",
+              "cancelReasonCategory1": "고객변심",
+              "cancelReasonCategory2": "단순변심(사유없음)",
+              "cancelReason": "신랑이 맘에 안든데요",
+              "cancelCountSum": 1,
+              "returnDeliveryId": 20226438,
+              "returnDeliveryType": "연동택배",
+              "releaseStopStatus": "비대상",
+              "enclosePrice": 0,
+              "faultByType": "CUSTOMER",
+              "preRefund": false,
+              "completeConfirmDate": "",
+              "completeConfirmType": "UNDEFINED",
+              "returnItems": [
+                {
+                  "vendorItemPackageId": 0,
+                  "vendorItemPackageName": "슈펜(SHOOPEN) SUPER FLEX 모던 로퍼 (BYSL7S36)",
+                  "vendorItemId": 3127006595,
+                  "vendorItemName": "슈펜(SHOOPEN) SUPER FLEX 모던 로퍼 (BYSL7S36), 09 BLACK, 260MM",
+                  "purchaseCount": 1,
+                  "cancelCount": 1,
+                  "shipmentBoxId": 431901185,
+                  "sellerProductId": 36981198,
+                  "sellerProductName": "슈펜 SUPER FLEX 모던 로퍼 (BYSL7S36),09 BLACK 260MM"
+                }
+              ],
+              "returnDeliveryDtos": [
+                {
+                  "deliveryCompanyCode": "CJGLS",
+                  "deliveryInvoiceNo": ""
+                },
+                {
+                  "deliveryCompanyCode": "CJGLS",
+                  "deliveryInvoiceNo": "840807127473 "
+                }
+              ]
             }
-          ]
-        }
-      ]
+          ],
+          "nextToken": ""
     },
     _description: ``,
     _relation: ``,
