@@ -138,7 +138,7 @@ export const createSellerProductDocument = {
         </tr>
         <tr>
           <td>SEQUENCIAL</td>
-          <td>순차배송</td>
+          <td>일반배송<br>(순차배송)</td>
         </tr>
         <tr>
           <td>VENDOR_DIRECT</td>
