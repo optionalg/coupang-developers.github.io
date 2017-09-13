@@ -24,8 +24,8 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
     developer: `Jamin`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `POST`,
-    path: `/v2/providers/greatwall_api/apis/api/v1/exchange/receive-confirmations`,
-    HMACPath: `/v2/providers/greatwall_api/apis/api/v1/exchange/receive-confirmations`,
+    path: `/v2/providers/wing_api/apis/internal-api/v1/exchange/receive-confirmations`,
+    HMACPath: `/v2/providers/wing_api/apis/internal-api/v1/exchange/receive-confirmations`,
     _description: `고객님이 반송한 상품을 접수한후 셀러는 이 API를 통해서 교환상품 접수 확인 상태로 변경합니다`,
     _relation: ``,
     _referenceInfo: ``,
@@ -79,7 +79,7 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/greatwall_api/apis/api/v1/exchange/receive-confirmations`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/wing_api/apis/internal-api/v1/exchange/receive-confirmations`,
     code: [
       {
         language: `http`,

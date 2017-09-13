@@ -21,7 +21,7 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
     previousVersions: [
       {
         apiName: `교환요청상품 입고 확인처리`,
-        path: `/v2/providers/greatwall_api/apis/api/v1/exchange/receive-confirmations`,
+        path: `/v2/providers/wing_api/apis/internal-api/v1/exchange/receive-confirmations`,
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
