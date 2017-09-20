@@ -71,7 +71,7 @@ export const lookupReturnShippingFacilityDocument = {
         _description: `벤더아이디`,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `This parameter is required for v2 version, you needn't use it for v4 version`,
+        _warning: `v2버젼 사용시에만 사용되는 Parameter로 v4버젼에서는 필요없음.`,
         children: false
       },
       {
@@ -79,7 +79,7 @@ export const lookupReturnShippingFacilityDocument = {
         require: false,
         _description: `페이지 수`,
         _relation: ``,
-        _referenceInfo: `기본값 1, pageNum가 널일경우 기본값을 입력해 주십시오.`,
+        _referenceInfo: `기본값 1, pageNum가 널일경우 기본값이 적용됩니다.`,
         _warning: ``,
         children: false,
       },
@@ -88,7 +88,7 @@ export const lookupReturnShippingFacilityDocument = {
         require: false,
         _description: `페이지당 최대 건수는 50입니다`,
         _relation: ``,
-        _referenceInfo: `기본값 10, max = 50, pageSize가 널일경우 기본값을 입력해 주십시오.`,
+        _referenceInfo: `기본값 10, max = 50, pageSize가 널일경우 기본값이 적용됩니다.`,
         _warning: ``,
         children: false,
       },
@@ -146,7 +146,7 @@ export const lookupReturnShippingFacilityDocument = {
           type: `String`,
           _description: `반품지 이름`,
           _relation: ``,
-          _referenceInfo: `optional / "null"인 경우, 반품지이름은 변하지 않습니다`,
+          _referenceInfo: ``,
           _warning: ``,
           children: false
         },
@@ -162,9 +162,9 @@ export const lookupReturnShippingFacilityDocument = {
         {
           name: `deliverName`,
           type: `String`,
-          _description: `택배사 이름`,
+          _description: `택배사명`,
           _relation: ``,
-          _referenceInfo: `optional`,
+          _referenceInfo: ``,
           _warning: ``,
           children: false
         },
@@ -173,7 +173,7 @@ export const lookupReturnShippingFacilityDocument = {
           type: `String`,
           _description: `굿스플로 상태`,
           _relation: ``,
-          _referenceInfo: `optional`,
+          _referenceInfo: ``,
           _warning: ``,
           children: false
         },
@@ -182,7 +182,7 @@ export const lookupReturnShippingFacilityDocument = {
           type: `String`,
           _description: `에러 메시지`,
           _relation: ``,
-          _referenceInfo: `optional`,
+          _referenceInfo: ``,
           _warning: ``,
           children: false
         },
@@ -191,7 +191,7 @@ export const lookupReturnShippingFacilityDocument = {
           type: `String`,
           _description: `생성 날자`,
           _relation: ``,
-          _referenceInfo: `optional`,
+          _referenceInfo: ``,
           _warning: ``,
           children: false
         },

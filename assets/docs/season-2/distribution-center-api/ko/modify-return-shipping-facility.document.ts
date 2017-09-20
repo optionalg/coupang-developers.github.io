@@ -132,15 +132,11 @@ export const modifyReturnShippingFacilityDocument = {
             </tr>
             <tr>
                 <td>true</td>
-                <td>유효한 주소</td>
+                <td>사용함</td>
             </tr>
             <tr>
                 <td>false</td>
-                <td>무효한 주소</td>
-            </tr>
-            <tr>
-                <td>other values</td>
-                <td>모든 주소</td>
+                <td>사용안함</td>
             </tr>
            </table>
         `,
@@ -174,11 +170,11 @@ export const modifyReturnShippingFacilityDocument = {
               </tr>
               <tr>
                   <td>JIBUN</td>
-                  <td>Only one Address</td>
+                  <td>지번주소.1개의 주소만 등록시는 JIBUN으로 등록</td>
               </tr>
               <tr>
                   <td>JIBUN/ROADNAME</td>
-                  <td>Two or more addresses, at lease one type is JIBUN</td>
+                  <td>지번주소/도로명주소. 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
               </tr>
            </table>
             `,
@@ -199,7 +195,7 @@ export const modifyReturnShippingFacilityDocument = {
             name: `phoneNumber2`,
             type: `String`,
             require: false,
-            _description: `전화번호 (포맷 : phoneNumber1과 같습니다)`,
+            _description: `전화번호 (포맷 : companyContactNumber와 동일)`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,

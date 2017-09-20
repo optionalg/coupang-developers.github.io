@@ -111,7 +111,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
         {
           name: `deliverName`,
           type: `String`,
-          _description: `택배사 이름`,
+          _description: `택배사명`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,

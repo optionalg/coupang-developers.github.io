@@ -89,17 +89,17 @@ export const createReturnShippingFacilityDocument = {
       {
         name: `shippingPlaceName`,
         type: `String`,
-        require: false,
+        require: true,
         _description: `반품지 이름`,
         _relation: ``,
-        _referenceInfo: `"null"인 경우, 반품지이름은 변하지 않습니다`,
+        _referenceInfo: ``,
         _warning: ``,
         children: false
       },
       {
         name: `goodsflowInfoOpenApiDto`,
         type: `Object`,
-        require: false,
+        require: true,
         _description: `상품정보`,
         _relation: ``,
         _referenceInfo: ``,
@@ -119,7 +119,7 @@ export const createReturnShippingFacilityDocument = {
             name: `deliverName`,
             type: `String`,
             require: false,
-            _description: `택배사 이름`,
+            _description: `택배사명`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -129,7 +129,7 @@ export const createReturnShippingFacilityDocument = {
             name: `contractNumber`,
             type: `String`,
             require: true,
-            _description: `계약 번호`,
+            _description: `택배사 계약코드`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -139,7 +139,7 @@ export const createReturnShippingFacilityDocument = {
             name: `contractCustomerNumber`,
             type: `String`,
             require: false,
-            _description: `계약된 고객님수량`,
+            _description: `업체코드`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -294,11 +294,11 @@ export const createReturnShippingFacilityDocument = {
               </tr>
               <tr>
                   <td>JIBUN</td>
-                  <td>Only one Address</td>
+                  <td>지번주소.1개의 주소만 등록시는 JIBUN으로 등록</td>
               </tr>
               <tr>
                   <td>JIBUN/ROADNAME</td>
-                  <td>Two or more addresses, at lease one type is JIBUN</td>
+                  <td>지번주소/도로명주소. 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
               </tr>
            </table>
             `,
@@ -319,7 +319,7 @@ export const createReturnShippingFacilityDocument = {
             name: `phoneNumber2`,
             type: `String`,
             require: false,
-            _description: `전화번호 (포맷 : phoneNumber1과 같습니다)`,
+            _description: `전화번호 (포맷 : companyContactNumber와 동일)`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -421,18 +421,18 @@ export const createReturnShippingFacilityDocument = {
             "deliverCode":"DONGBU",
             "contractNumber":"85500067",
             "contractCustomerNumber":"1231299920",
-            "vendorCreditFee05kg":"1",
-            "vendorCreditFee10kg":"1",
-            "vendorCreditFee20kg":"1",
-            "vendorCashFee05kg":"1",
-            "vendorCashFee10kg":"2",
-            "vendorCashFee20kg":"2",
-            "consumerCashFee05kg":"2",
-            "consumerCashFee10kg":"2",
-            "consumerCashFee20kg":"3",
-            "returnFee05kg":"1",
-            "returnFee10kg":"2",
-            "returnFee20kg":"3"
+            "vendorCreditFee05kg":"2500",
+            "vendorCreditFee10kg":"2500",
+            "vendorCreditFee20kg":"2500",
+            "vendorCashFee05kg":"2500",
+            "vendorCashFee10kg":"2500",
+            "vendorCashFee20kg":"2500",
+            "consumerCashFee05kg":"2500",
+            "consumerCashFee10kg":"2500",
+            "consumerCashFee20kg":"2500",
+            "returnFee05kg":"2500",
+            "returnFee10kg":"2500",
+            "returnFee20kg":"2500"
 
           },
           "placeAddresses":[{
