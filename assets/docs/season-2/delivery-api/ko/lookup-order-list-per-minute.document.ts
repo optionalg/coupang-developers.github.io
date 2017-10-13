@@ -601,7 +601,7 @@ export const lookupOrderListPerMinuteDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets?searchType=timeFrame&createdAtFrom=2015-12-14T14:16&createdAtTo=2015-12-14T14:17&status=ACCEPT`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00000000/ordersheets?createdAtFrom=2017-09-29T00:00&createdAtTo=2017-09-29T23:59&searchType=timeFrame&status=DEPARTURE`,
     code: [
       {
         language: `http`,
@@ -609,389 +609,131 @@ export const lookupOrderListPerMinuteDocument = {
       }
     ],
     response: {
-      "code": "200",
-      "message": "OK",
-      "data": [
+  "code": 200,
+  "message": "OK",
+  "data": [
+    {
+      "shipmentBoxId": 445500520,
+      "orderId": 16000009357207,
+      "orderedAt": "2017-09-29T12:26:27",
+      "orderer": {
+        "name": "조*자",
+        "email": "wh*****@ha",
+        "safeNumber": "0502-**-2104"
+      },
+      "paidAt": "2017-09-29T12:26:27",
+      "status": "DEPARTURE",
+      "shippingPrice": 2500,
+      "remotePrice": null,
+      "remoteArea": false,
+      "parcelPrintMessage": "직접 받고 부재 시 문 앞",
+      "splitShipping": false,
+      "ableSplitShipping": false,
+      "receiver": {
+        "name": "조*자",
+        "safeNumber": "0502-**-2104",
+        "addr1": "경기도 안산시 단원구",
+        "addr2": "911동**호",
+        "postCode": "153-39"
+      },
+      "orderItems": [
         {
-          "shipmentBoxId": 102392027,
-          "orderId": 500000693,
-          "orderedAt": "2015-12-14T14:16:18",
-          "orderer": {
-            "name": "김문근",
-            "email": "mg*****@co",
-            "safeNumber": "0501-111-2222"
+          "vendorItemPackageId": 0,
+          "vendorItemPackageName": "펠릭스키즈 오비 잰드 스키니 데님",
+          "productId": 18414855,
+          "vendorItemId": 3122348137,
+          "vendorItemName": "펠릭스키즈 오비 잰드 스키니 데님, 60 BLUE, 140호",
+          "shippingCount": 1,
+          "salesPrice": 5000,
+          "orderPrice": 5000,
+          "discountPrice": null,
+          "externalVendorSkuCode": "170201141084",
+          "etcInfoHeader": null,
+          "etcInfoValue": null,
+          "sellerProductId": 35055028,
+          "sellerProductName": "펠릭스키즈 고무줄허리 스키니 청바지 (FXTJ7SG1)",
+          "sellerProductItemName": "60 BLUE 140호",
+          "firstSellerProductItemName": "60 BLUE/140호",
+          "cancelCount": 0,
+          "holdCountForCancel": 0,
+          "estimatedShippingDate": "2017-10-16",
+          "plannedShippingDate": "",
+          "invoiceNumberUploadDate": "",
+          "extraProperties": {
+            
           },
-          "paidAt": "2015-12-14T14:16:18",
-          "status": "ACCEPT",
-          "shippingPrice": 3500,
-          "parcelPrintMessage": null,
-          "splitShipping": false,
-          "ableSplitShipping": true,
-          "receiver": {
-            "name": "test",
-            "safeNumber": "0501-111-2222",
-            "addr1": "addr1",
-            "addr2": "addr2",
-            "postCode": "427-070"
-          },
-          "orderItems": [
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000168,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀4",
-              "shippingCount": 1,
-              "salesPrice": 9999,
-              "orderPrice": 9999,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            },
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000171,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀7",
-              "shippingCount": 1,
-              "salesPrice": 20000,
-              "orderPrice": 20000,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            }
-          ],
-          "overseaShippingInfoDto": {
-            "personalCustomsClearanceCode": null,
-            "ordererSsn": "",
-            "ordererPhoneNumber": ""
-          }
-        },
-        {
-          "shipmentBoxId": 102392028,
-          "orderId": 500000694,
-          "orderedAt": "2015-12-14T14:16:24",
-          "orderer": {
-            "name": "김문근",
-            "email": "mg*****@co",
-            "safeNumber": "0501-111-2222"
-          },
-          "paidAt": "2015-12-14T14:16:24",
-          "status": "ACCEPT",
-          "shippingPrice": 0,
-          "parcelPrintMessage": null,
-          "splitShipping": false,
-          "ableSplitShipping": true,
-          "receiver": {
-            "name": "test",
-            "safeNumber": "0501-111-2222",
-            "addr1": "addr1",
-            "addr2": "addr2",
-            "postCode": "427-070"
-          },
-          "orderItems": [
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-배추김치",
-              "productId": 2429,
-              "vendorItemId": 3000000174,
-              "vendorItemName": "하와이-테스트-쇼핑-배추김치3",
-              "shippingCount": 1,
-              "salesPrice": 14500,
-              "orderPrice": 14500,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            },
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-배추김치",
-              "productId": 2429,
-              "vendorItemId": 3000000175,
-              "vendorItemName": "하와이-테스트-쇼핑-배추김치4",
-              "shippingCount": 1,
-              "salesPrice": 3500,
-              "orderPrice": 3500,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            }
-          ],
-          "overseaShippingInfoDto": {
-            "personalCustomsClearanceCode": null,
-            "ordererSsn": "",
-            "ordererPhoneNumber": ""
-          }
-        },
-        {
-          "shipmentBoxId": 102392030,
-          "orderId": 500000696,
-          "orderedAt": "2015-12-14T14:16:35",
-          "orderer": {
-            "name": "김문근",
-            "email": "mg*****@co",
-            "safeNumber": "0501-111-2222"
-          },
-          "paidAt": "2015-12-14T14:16:35",
-          "status": "ACCEPT",
-          "shippingPrice": 3500,
-          "parcelPrintMessage": null,
-          "splitShipping": false,
-          "ableSplitShipping": true,
-          "receiver": {
-            "name": "test",
-            "safeNumber": "0501-111-2222",
-            "addr1": "addr1",
-            "addr2": "addr2",
-            "postCode": "427-070"
-          },
-          "orderItems": [
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000167,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀3",
-              "shippingCount": 1,
-              "salesPrice": 10000,
-              "orderPrice": 10000,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            },
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000168,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀4",
-              "shippingCount": 1,
-              "salesPrice": 9999,
-              "orderPrice": 9999,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            }
-          ],
-          "overseaShippingInfoDto": {
-            "personalCustomsClearanceCode": null,
-            "ordererSsn": "",
-            "ordererPhoneNumber": ""
-          }
-        },
-        {
-          "shipmentBoxId": 102392031,
-          "orderId": 500000697,
-          "orderedAt": "2015-12-14T14:16:41",
-          "orderer": {
-            "name": "김문근",
-            "email": "mg*****@co",
-            "safeNumber": "0501-111-2222"
-          },
-          "paidAt": "2015-12-14T14:16:41",
-          "status": "ACCEPT",
-          "shippingPrice": 2500,
-          "parcelPrintMessage": null,
-          "splitShipping": false,
-          "ableSplitShipping": true,
-          "receiver": {
-            "name": "test",
-            "safeNumber": "0501-111-2222",
-            "addr1": "addr1",
-            "addr2": "addr2",
-            "postCode": "427-070"
-          },
-          "orderItems": [
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000170,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀6",
-              "shippingCount": 1,
-              "salesPrice": 3700,
-              "orderPrice": 3700,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            },
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000171,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀7",
-              "shippingCount": 1,
-              "salesPrice": 20000,
-              "orderPrice": 20000,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            }
-          ],
-          "overseaShippingInfoDto": {
-            "personalCustomsClearanceCode": null,
-            "ordererSsn": "",
-            "ordererPhoneNumber": ""
-          }
-        },
-        {
-          "shipmentBoxId": 102392033,
-          "orderId": 500000699,
-          "orderedAt": "2015-12-14T14:16:54",
-          "orderer": {
-            "name": "김문근",
-            "email": "mg*****@co",
-            "safeNumber": "0501-111-2222"
-          },
-          "paidAt": "2015-12-14T14:16:54",
-          "status": "ACCEPT",
-          "shippingPrice": 3000,
-          "parcelPrintMessage": null,
-          "splitShipping": false,
-          "ableSplitShipping": false,
-          "receiver": {
-            "name": "test",
-            "safeNumber": "0501-111-2222",
-            "addr1": "addr1",
-            "addr2": "addr2",
-            "postCode": "427-070"
-          },
-          "orderItems": [
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000172,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀8",
-              "shippingCount": 1,
-              "salesPrice": 6000,
-              "orderPrice": 6000,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            }
-          ],
-          "overseaShippingInfoDto": {
-            "personalCustomsClearanceCode": null,
-            "ordererSsn": "",
-            "ordererPhoneNumber": ""
-          }
-        },
-        {
-          "shipmentBoxId": 102392034,
-          "orderId": 500000699,
-          "orderedAt": "2015-12-14T14:16:54",
-          "orderer": {
-            "name": "김문근",
-            "email": "mg*****@co",
-            "safeNumber": "0501-111-2222"
-          },
-          "paidAt": "2015-12-14T14:16:54",
-          "status": "ACCEPT",
-          "shippingPrice": 2500,
-          "parcelPrintMessage": null,
-          "splitShipping": false,
-          "ableSplitShipping": true,
-          "receiver": {
-            "name": "test",
-            "safeNumber": "0501-111-2222",
-            "addr1": "addr1",
-            "addr2": "addr2",
-            "postCode": "427-070"
-          },
-          "orderItems": [
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000170,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀6",
-              "shippingCount": 1,
-              "salesPrice": 3700,
-              "orderPrice": 3700,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            },
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-기저귀",
-              "productId": 2428,
-              "vendorItemId": 3000000171,
-              "vendorItemName": "하와이-테스트-쇼핑-기저귀7",
-              "shippingCount": 1,
-              "salesPrice": 20000,
-              "orderPrice": 20000,
-              "externalVendorSkuCode": null,
-              "etcInfoHeader": null,
-              "etcInfoValue": null,
-              "sellerProductName": "",
-              "estimatedShippingDate": "2015-12-16",
-              "plannedShippingDate": "",
-              "invoiceNumberUploadDate": "",
-              "extraProperties": {}
-            }
-          ],
-          "overseaShippingInfoDto": {
-            "personalCustomsClearanceCode": null,
-            "ordererSsn": "",
-            "ordererPhoneNumber": ""
-          }
+          "pricingBadge": false,
+          "canceled": false
         }
-      ]
+      ],
+      "overseaShippingInfoDto": {
+        "personalCustomsClearanceCode": "",
+        "ordererSsn": "",
+        "ordererPhoneNumber": ""
+      }
     },
+    {
+      "shipmentBoxId": 445508132,
+      "orderId": 11000009302390,
+      "orderedAt": "2017-09-29T13:01:47",
+      "orderer": {
+        "name": "김*현",
+        "email": "po*****@na",
+        "safeNumber": "0502-**-2849"
+      },
+      "paidAt": "2017-09-29T13:01:47",
+      "status": "DEPARTURE",
+      "shippingPrice": 2500,
+      "remotePrice": null,
+      "remoteArea": false,
+      "parcelPrintMessage": "직접 받고 부재 시 문 앞",
+      "splitShipping": false,
+      "ableSplitShipping": false,
+      "receiver": {
+        "name": "김*현",
+        "safeNumber": "0502-**-2849",
+        "addr1": "서울특별시 양천구 목4동",
+        "addr2": "78*",
+        "postCode": "158-818"
+      },
+      "orderItems": [
+        {
+          "vendorItemPackageId": 0,
+          "vendorItemPackageName": "스탭키즈 슬럽 7부 배기 팬츠 SITM17F71",
+          "productId": 24925943,
+          "vendorItemId": 3175264015,
+          "vendorItemName": "스탭키즈 슬럽 7부 배기 팬츠 SITM17F71, 78 NAVY, 120호",
+          "shippingCount": 1,
+          "salesPrice": 5000,
+          "orderPrice": 5000,
+          "discountPrice": null,
+          "externalVendorSkuCode": "170616287977",
+          "etcInfoHeader": null,
+          "etcInfoValue": null,
+          "sellerProductId": 53977772,
+          "sellerProductName": "스탭키즈 슬럽 7부 배기 팬츠 SITM17F71",
+          "sellerProductItemName": "78 NAVY 120호",
+          "firstSellerProductItemName": "78 NAVY/120호",
+          "cancelCount": 0,
+          "holdCountForCancel": 0,
+          "estimatedShippingDate": "2017-10-16",
+          "plannedShippingDate": "",
+          "invoiceNumberUploadDate": "",
+          "extraProperties": {
+            
+          },
+          "pricingBadge": false,
+          "canceled": false
+        }
+      ],
+      "overseaShippingInfoDto": {
+        "personalCustomsClearanceCode": "",
+        "ordererSsn": "",
+        "ordererPhoneNumber": ""
+      }
+    }
+  ]
+},
     _description: ``,
     _relation: ``,
     _referenceInfo: ``,

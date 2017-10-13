@@ -631,7 +631,7 @@ export const lookupOrderListPerDayDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A000000001/ordersheets?createdAtFrom=2015-10-07&createdAtTo=2015-10-27&maxPerPage=2&status=DEPARTURE`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00000000/ordersheets?createdAtFrom=2017-10-10&createdAtTo=2017-10-11&maxPerPage=2&status=INSTRUCT`,
     code: [
       {
         language: `http`,
@@ -639,92 +639,132 @@ export const lookupOrderListPerDayDocument = {
       }
     ],
     response: {
-      "code": "200",
-      "message": "OK",
-      "data": [
+  "code": 200,
+  "message": "OK",
+  "data": [
+    {
+      "shipmentBoxId": 448531493,
+      "orderId": 22000009546234,
+      "orderedAt": "2017-10-10T10:20:16",
+      "orderer": {
+        "name": "신*희",
+        "email": "eu*****@na",
+        "safeNumber": "0503-**-5464"
+      },
+      "paidAt": "2017-10-10T10:20:16",
+      "status": "INSTRUCT",
+      "shippingPrice": 2500,
+      "remotePrice": null,
+      "remoteArea": false,
+      "parcelPrintMessage": "문 앞",
+      "splitShipping": false,
+      "ableSplitShipping": false,
+      "receiver": {
+        "name": "신*희",
+        "safeNumber": "0503-**-5464",
+        "addr1": "경기 오산시 가수동 **아파트",
+        "addr2": "109동 *호",
+        "postCode": "447-700"
+      },
+      "orderItems": [
         {
-          "receiptId": 363667,
-          "orderId": 817,
-          "paymentId": 2450,
-          "receiptType": "반품",
-          "receiptStatus": "RELEASE_STOP_UNCHECKED",
-          "createdAt": "2015-12-09T12:17:37",
-          "modifiedAt": "2015-12-09T12:17:37",
-          "requesterName": "test",
-          "requesterPhoneNumber": "0503-123-1111",
-          "cancelReasonCategory1": "고객변심",
-          "cancelReasonCategory2": "유효기간 후 취소요청",
-          "cancelReason": "ㅋㅋㅋ",
-          "cancelCountSum": 2,
-          "returnDeliveryId": 36524,
-          "returnDeliveryType": "연동택배",
-          "releaseStopStatus": "미처리",
-          "enclosePrice": 0,
-          "faultByType": "협력사 과실",
-          "preRefund": false,
-          "completeConfirmDate": "",
-          "completeConfirmType": "미확인",
-          "returnItems": [
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "Daniel Diaper",
-              "vendorItemId": 3000000000,
-              "vendorItemName": "Daniel Diaper 1단계",
-              "purchaseCount": 1,
-              "cancelCount": 1,
-              "shipmentBoxId": 102390936,
-              "sellerProductName": ""
-            },
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "Daniel Diaper",
-              "vendorItemId": 3000000001,
-              "vendorItemName": "Daniel Diaper 2단계",
-              "purchaseCount": 2,
-              "cancelCount": 1,
-              "shipmentBoxId": 102390936,
-              "sellerProductName": ""
-            }
-          ]
-        },
-        {
-          "receiptId": 363590,
-          "orderId": 500000261,
-          "paymentId": 700000182,
-          "receiptType": "반품",
-          "receiptStatus": "RETURNS_UNCHECKED",
-          "createdAt": "2015-12-02T10:59:51",
-          "modifiedAt": "2015-12-02T10:59:51",
-          "requesterName": "김문근",
-          "requesterPhoneNumber": "0503-123-1111",
-          "cancelReasonCategory1": "고객변심",
-          "cancelReasonCategory2": "단순변심(사유없음)",
-          "cancelReason": "1",
-          "cancelCountSum": 1,
-          "returnDeliveryId": 36514,
-          "returnDeliveryType": "수기관리",
-          "releaseStopStatus": "비대상",
-          "enclosePrice": 0,
-          "faultByType": "고객 과실",
-          "preRefund": false,
-          "completeConfirmDate": "",
-          "completeConfirmType": "미확인",
-          "returnItems": [
-            {
-              "vendorItemPackageId": 0,
-              "vendorItemPackageName": "하와이-테스트-쇼핑-배추김치",
-              "vendorItemId": 3000000175,
-              "vendorItemName": "하와이-테스트-쇼핑-배추김치4",
-              "purchaseCount": 1,
-              "cancelCount": 1,
-              "shipmentBoxId": 102391886,
-              "sellerProductName": ""
-            }
-          ]
+          "vendorItemPackageId": 0,
+          "vendorItemPackageName": "인디고뱅크키즈 기모 테잎배색 트레이닝 팬츠 IKTM17WG1",
+          "productId": 31846051,
+          "vendorItemId": 3242596358,
+          "vendorItemName": "인디고뱅크키즈 기모 테잎배색 트레이닝 팬츠 IKTM17WG1, 07 DARK GREY, 160호",
+          "shippingCount": 1,
+          "salesPrice": 19900,
+          "orderPrice": 19900,
+          "discountPrice": null,
+          "externalVendorSkuCode": "170816368810",
+          "etcInfoHeader": null,
+          "etcInfoValue": null,
+          "sellerProductId": 80240831,
+          "sellerProductName": "인디고뱅크키즈 A5 기모 배색츄키니 IKTM17WG1",
+          "sellerProductItemName": "07 DARK GREY 160호",
+          "firstSellerProductItemName": "07 DARK GREY/160호",
+          "cancelCount": 0,
+          "holdCountForCancel": 0,
+          "estimatedShippingDate": "2017-10-16",
+          "plannedShippingDate": "",
+          "invoiceNumberUploadDate": "",
+          "extraProperties": {
+            
+          },
+          "pricingBadge": false,
+          "canceled": false
         }
       ],
-      "nextToken": "2"
+      "overseaShippingInfoDto": {
+        "personalCustomsClearanceCode": "",
+        "ordererSsn": "",
+        "ordererPhoneNumber": ""
+      }
     },
+    {
+      "shipmentBoxId": 448537989,
+      "orderId": 22000009546630,
+      "orderedAt": "2017-10-10T10:35:04",
+      "orderer": {
+        "name": "김*숙",
+        "email": "hs*****@na",
+        "safeNumber": "0503-**-5013"
+      },
+      "paidAt": "2017-10-10T10:35:04",
+      "status": "INSTRUCT",
+      "shippingPrice": 0,
+      "remotePrice": null,
+      "remoteArea": false,
+      "parcelPrintMessage": "직접 받고 부재 시 문 앞",
+      "splitShipping": false,
+      "ableSplitShipping": false,
+      "receiver": {
+        "name": "김*숙",
+        "safeNumber": "0503-**-5013",
+        "addr1": "경기도 고양시 일산동구 백석동 **아파트",
+        "addr2": "303-*",
+        "postCode": "104-48"
+      },
+      "orderItems": [
+        {
+          "vendorItemPackageId": 0,
+          "vendorItemPackageName": "리틀브렌 후드달이 구스 경량 점퍼 LBJD17WG5",
+          "productId": 34047877,
+          "vendorItemId": 3261300431,
+          "vendorItemName": "리틀브렌 후드달이 구스 경량 점퍼 LBJD17WG5, 04 MIDDLE MELANGE GR, 170호",
+          "shippingCount": 1,
+          "salesPrice": 49900,
+          "orderPrice": 49900,
+          "discountPrice": null,
+          "externalVendorSkuCode": "170824416510",
+          "etcInfoHeader": null,
+          "etcInfoValue": null,
+          "sellerProductId": 87037167,
+          "sellerProductName": "리틀브렌 후드달이 구스 경량 점퍼 LBJD17WG5",
+          "sellerProductItemName": "04 MIDDLE MELANGE GR 170호",
+          "firstSellerProductItemName": "04 MIDDLE MELANGE GR/170호",
+          "cancelCount": 0,
+          "holdCountForCancel": 0,
+          "estimatedShippingDate": "2017-10-16",
+          "plannedShippingDate": "",
+          "invoiceNumberUploadDate": "",
+          "extraProperties": {
+            
+          },
+          "pricingBadge": false,
+          "canceled": false
+        }
+      ],
+      "overseaShippingInfoDto": {
+        "personalCustomsClearanceCode": "",
+        "ordererSsn": "",
+        "ordererPhoneNumber": ""
+      }
+    }
+  ],
+  "nextToken": "448537989"
+},
     _description: ``,
     _relation: ``,
     _referenceInfo: ``,
