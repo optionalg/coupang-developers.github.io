@@ -25,7 +25,8 @@ export const lookupCustomerInquiryByProductDocument = {
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `In both version APIs, the search period changed from 1day to 7days.`
+        //_warning: `In both version APIs, the search period changed from 1day to 7days.`
+        _warning: `v2 version의 최대 조회 기간은 1일 입니다. ex)inquiryStartAt=2017-10-12&inquiryEndAt=2017-10-13`
       },
     ],
     nextVersions: [
@@ -48,12 +49,12 @@ export const lookupCustomerInquiryByProductDocument = {
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/onlineInquiries`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/onlineInquiries`,
     _description: `고객과 셀러간의 Q&A를 조회합니다.셀러는 이 API를 사용하여 판매중인 제품에 대한 상담을 조회 할 수 있습니다.<br>
-                   a. 옵션아이디와 일별조회 모두 값이 있을 경우, 해당 옵션아이디와 조회 기간내의 모든 상담을 조회 할 수 있습니다.<br>
+                   a. 옵션아이디와 조회기간 모두 값이 있을 경우, 해당 옵션아이디와 조회 기간내의 모든 상담을 조회 할 수 있습니다.<br>
                    b. 옵션아이디만 값이 있을 경우, 해당 옵션아디의 상담만 조회 할 수 있습니다.<br>
-                   c. 일별조회만 값이 있을 경우, 해당 조회 기간내의 삼담만 조회 할 수 있습니다.`,
+                   c. 조회기간만 값이 있을 경우, 해당 조회 기간내의 상담만 조회 할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `v4 version 최대 조회 기간 7일까지 설정가능합니다. ex)inquiryStartAt=2017-10-07&inquiryEndAt=2017-10-13`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -92,9 +93,27 @@ export const lookupCustomerInquiryByProductDocument = {
       {
         name: `answeredType`,
         require: true,
-        _description: `답변여부`,
+        _description: `
+          <table class="table">
+            <tr>
+                <th>Parameter Name</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>ALL</td>
+                <td>전체보기</td>
+            </tr>
+            <tr>
+                <td>ANSWERED</td>
+                <td>답변완료</td>
+            </tr>
+            <tr>
+                <td>NOANSWER</td>
+                <td>미답변</td>
+            </tr>
+          </table>`,
         _relation: ``,
-        _referenceInfo: `Allowed values : 'ANSWERED', 'NOANSWER', 'ALL'`,
+        _referenceInfo: ``,
         _warning: ``,
         children: false
       },
@@ -105,8 +124,7 @@ export const lookupCustomerInquiryByProductDocument = {
         _relation: ``,
         _referenceInfo: `1. 조회시작일과 종료일이 널인 경우, 이 파라미터를 사용하셔야만 해당 옵션아이디의 상담을 조회 할 수 있습니다.<br>
                          2. 조회시작일과 종료일이 값 있을 경우, 이 파라미터는 옵셔널입니다.<br>
-                         조회시작일과 종료일은 동일한 하루일수 없습니다; 해당 조회 기간내의 상담만 조회 할 수 있습니다.
-                         (inquiryEndAt - inquiryStartAt <= 7day)`,
+                         조회시작일과 종료일은 동일한 하루일수 없습니다; 해당 조회 기간내의 상담만 조회 할 수 있습니다.`,
         _warning: ``,
         children: false
       },
@@ -115,16 +133,17 @@ export const lookupCustomerInquiryByProductDocument = {
         require: false,
         _description: `현재 페이지`,
         _relation: ``,
-        _referenceInfo: `Default 1,if pageNum is null, then use the default value.`,
+        //_referenceInfo: `Default 1,if pageNum is null, then use the default value.`,
+        _referenceInfo: `Default 1,pageNum가 null일 경우에는 default값이 적용됩니다.`,
         _warning: ``,
         children: false
       },
       {
         name: `pageSize`,
         require: false,
-        _description: `최대 페이지 당 상담수는 50입니다`,
+        _description: `최대 페이지`,
         _relation: ``,
-        _referenceInfo: `Default 10, max = 50,if pageSize is null, then use the default value.`,
+        _referenceInfo: `Default 10, max = 50,pageSize가 null일 경우에는 default값이 적용됩니다.`,
         _warning: ``,
         children: false
       },
@@ -221,6 +240,15 @@ export const lookupCustomerInquiryByProductDocument = {
               _warning: ``,
               children: false,
             },
+            {
+                name: `orderIds`,
+                type: `List`,
+                _description: `주문 번호`,
+                _relation: ``,
+                _referenceInfo: `[16000009476673]`,
+                _warning: ``,
+                children: false,
+              },
             {
               name: `buyerEmail`,
               type: `String`,
@@ -354,6 +382,7 @@ export const lookupCustomerInquiryByProductDocument = {
             "vendorItemId": 3100000204,
             "content": "productId딜에 달린 24시간 이내 상품문의2.",
             "inquiryAt": "2015-05-27 09:38:32",
+            "orderIds": null,
             "buyerEmail": "aka***@na",
             "commentDtoList": [
               {
@@ -378,6 +407,9 @@ export const lookupCustomerInquiryByProductDocument = {
             "vendorItemId": 3100000204,
             "content": "productId딜에 달린 1달 이내 상품문의2.",
             "inquiryAt": "2015-05-24 01:38:32",
+            "orderIds": [
+                16000009476673
+              ],
             "buyerEmail": "aka***@na",
             "commentDtoList": [
               {
@@ -395,6 +427,9 @@ export const lookupCustomerInquiryByProductDocument = {
             "vendorItemId": 3000006137,
             "content": "productInquiryHelpful 테스트 문의",
             "inquiryAt": "2015-05-18 17:37:39",
+            "orderIds": [
+                15000009153437
+              ],
             "buyerEmail": "aka***@na",
             "commentDtoList": []
           }
