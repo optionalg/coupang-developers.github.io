@@ -21,11 +21,11 @@ export const customerServiceCenterEnquiryResponseDocument = {
     previousVersions: [
       {
         apiName: `상담에대한회신(셀러 -> 쿠팡)`,
-        path: `/v2/providers/wing_api/apis/internal-api/v1/customer-service/coupang/replies/{counselingId}`,
+        path: `/v2/providers/wing_api/apis/internal-api/v1/customer-service/coupang/replies/{inquiryId}`,
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `Replaced counselingId with inquiryId, they have the same business meaning.`
+        _warning: `v1의 counselingId에서 inquiryId로 변경되었지만 동일한 의미입니다.`
       },
     ],
     nextVersions: [
@@ -68,7 +68,7 @@ export const customerServiceCenterEnquiryResponseDocument = {
         require: true,
         _description: `Inquiry ID`,
         _relation: ``,
-        _referenceInfo: `이 파라미터는 셀러가 어느 질문을 대답해야할지를 가르킴니다.<br>우선  /v4/vendors/{vendorId}/callCenterInquiries API 를 사용하여 이 값을 받으십시오.`,
+        _referenceInfo: `이 파라미터는 셀러가 어느 질문을 대답해야할지를 나타냅니다.<br>우선  /v4/vendors/{vendorId}/callCenterInquiries API 를 사용하여 이 값을 받으십시오.`,
         _warning: ``,
       }
     ],
@@ -100,7 +100,7 @@ export const customerServiceCenterEnquiryResponseDocument = {
         require: false,
         _description: `답변 내용`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `답변 내용 중 줄넘김을 위해서는 \\n를 사용하시기 바랍니다.`,
         _warning: ``,
         children: false
       },
@@ -143,10 +143,10 @@ export const customerServiceCenterEnquiryResponseDocument = {
       {
         language: `http`,
         codeblock: {
-          "content":"test api gateway",
-          "vendorId":"A00010028",
-          "replyBy":"wanger",
-          "inquiryId":"1007837444"
+        	"vendorId":"A00010028",
+        	"inquiryId":"1007837444",
+        	"content":"안녕하세요\n주문 확인 부탁드립니다.\n수고하세요.",
+        	"replyBy":"wanger"
         }
       }
     ],

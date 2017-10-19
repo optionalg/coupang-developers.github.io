@@ -25,8 +25,9 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `In V4 API, removed the counselingId,customerEmail and customerPhoneNumber from the request parameter.<br>
-        And replaced counselingId with inquiryId, they have the same business meaning.The search period changed from 1day to 7days.`
+        //_warning: `In V4 API, removed the counselingId,customerEmail and customerPhoneNumber from the request parameter.<br>
+        //And replaced counselingId with inquiryId, they have the same business meaning.The search period changed from 1day to 7days.`
+        _warning: `v2 version의 최대 조회 기간은 1일 입니다. ex)inquiryStartAt=2017-10-12&inquiryEndAt=2017-10-13`
       },
     ],
     nextVersions: [
@@ -49,12 +50,12 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries`,
     _description: `쿠팡 콜센터 문의를 조회합니다. 이 API를 이용하여 고객님이 특정 상품에 대해 쿠팡 고객센터 또는 셀러콜센터에 접수한 상담을 조회 할 수 있습니다.<br>
-                   a. 옵션아이디와 시간간격 있을시 해당 옵션아이디와 기간내의 상담을 조회할수있습니다<br>
-                   b. 옵션아이디만 있을시 해당 옵션아이디내의 상담을 조회할수있습니다<br>
-                   c. 시간간격만 있을시 해당 기간내의 상담을 조회할수있습니다`,
+    	a. 옵션아이디와 조회기간 모두 값이 있을 경우, 해당 옵션아이디와 조회 기간내의 모든 상담을 조회 할 수 있습니다.<br>
+        b. 옵션아이디만 값이 있을 경우, 해당 옵션아디의 상담만 조회 할 수 있습니다.<br>
+        c. 조회기간만 값이 있을 경우, 해당 조회 기간내의 상담만 조회 할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `v4 version 최대 조회 기간 7일까지 설정가능합니다. ex)inquiryStartAt=2017-10-07&inquiryEndAt=2017-10-13`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -77,15 +78,15 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         _warning: ``,
         children: false
       },
-      {
-        name: `CounselingId`,
-        require: false,
-        _description: `Counseling id`,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: `This parameter doesn't need in V4 API`,
-        children: false
-      },
+//      {
+//        name: `CounselingId`,
+//        require: false,
+//        _description: `Counseling id`,
+//        _relation: ``,
+//        _referenceInfo: ``,
+//        _warning: `This parameter doesn't need in V4 API`,
+//        children: false
+//      },
       {
         name: `inquiryStartAt`,
         require: false,
@@ -120,10 +121,34 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
       {
         name: `partnerCounselingStatus`,
         require: true,
-        _description: `allowed input values : none , requestAnswer , answered`,
+        //_description: `allowed input values : none , requestAnswer , answered`,
+          _description: `
+          <table class="table">
+            <tr>
+                <th>Parameter Name</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>NONE</td>
+                <td>전체</td>
+            </tr>
+            <tr>
+                <td>ANSWER</td>
+                <td>답변완료</td>
+            </tr>
+            <tr>
+                <td>NO_ANSWER</td>
+                <td>답변대기</td>
+            </tr>
+            <tr>
+            	<td>TRANSFER</td>
+            	<td>상담완료(업체이관)</td>
+        </tr>
+          </table>`,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `In V4 API, the allowed value changed from "NONE , ANSWER , NO_ANSWER ,TRANSFER" to "none, requestAnswer, answered"`,
+        //_warning: `In V4 API, the allowed value changed from "NONE , ANSWER , NO_ANSWER ,TRANSFER" to "none, requestAnswer, answered"`,
+        _warning: ``,
         children: false
       },
       {
@@ -141,18 +166,18 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
       {
         name: `pageNum`,
         require: false,
-        _description: `페이지 넘버`,
+        _description: `현재 페이지`,
         _relation: ``,
-        _referenceInfo: `Default 1, if pageNum is null, then will use the default value.`,
+        _referenceInfo: `Default 1,pageNum가 null일 경우에는 default값이 적용됩니다.`,
         _warning: ``,
         children: false
       },
       {
         name: `pageSize`,
         require: false,
-        _description: `페이지 사이즈, 최대 페이지 사이즈는 30입니다.`,
+        _description: `페이지 사이즈`,
         _relation: ``,
-        _referenceInfo: `Default 10, max = 30 ,if pageSize is null, then will use the default value.`,
+        _referenceInfo: `Default 10, max = 30 ,pageSize가 null일 경우에는 default값이 적용됩니다.`,
         _warning: ``,
         children: false
       }
@@ -184,7 +209,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
       type: `Object`,
       _description: `결과`,
       _relation: ``,
-      _referenceInfo: `결과 내용`,
+      _referenceInfo: ``,
       _warning: ``,
       children: [
         {
@@ -209,7 +234,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
               type: `String`,
               _description: `답변여부`,
               _relation: ``,
-              _referenceInfo: `상품`,
+              _referenceInfo: `requestAnswe 또는 answered`,
               _warning: ``,
               children: false,
             },
@@ -323,14 +348,14 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
               children: false,
             },
             {
-              name: `orderId`,
-              type: `Number`,
-              _description: `주문번호`,
-              _relation: ``,
-              _referenceInfo: ``,
-              _warning: ``,
-              children: false,
-            },
+                name: `orderId`,
+                type: `Long`,
+                _description: `주문 번호`,
+                _relation: ``,
+                _referenceInfo: `19000009511537`,
+                _warning: ``,
+                children: false,
+              },
             {
               name: `orderDate`,
               type: `String`,
@@ -380,7 +405,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
             {
               name: `currentPage`,
               type: `Number`,
-              _description: `현재 페이지 번호`,
+              _description: `현재 페이지`,
               _relation: ``,
               _referenceInfo: `default=1`,
               _warning: ``,
@@ -398,7 +423,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
             {
               name: `totalElements`,
               type: `Number`,
-              _description: `총 결과수`,
+              _description: `총 문의수`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -407,7 +432,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
             {
               name: `countPerPage`,
               type: `Number`,
-              _description: `페이지 당 요소 수량`,
+              _description: `페이지 당 문의 수`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -419,7 +444,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00010028/callCenterInquiries?vendorId=A00010028&inquiryStartAt=2017-03-08&inquiryEndAt=2017-03-09&partnerCounselingStatus=none&pageNum=1&pageSize=10`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00010028/callCenterInquiries?vendorId=A00010028&inquiryStartAt=2017-03-08&inquiryEndAt=2017-03-09&partnerCounselingStatus=NONE&pageNum=1&pageSize=10`,
     code: [
       {
         language: `http`
@@ -432,7 +457,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         "content": [
           {
             "inquiryId": 1007837450,
-            "csPartnerCounselingStatus": "none",
+            "csPartnerCounselingStatus": "requestAnswer",
             "vendorItemId": [
               3000000151
             ],
@@ -451,7 +476,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
           },
           {
             "inquiryId": 1007837449,
-            "csPartnerCounselingStatus": "none",
+            "csPartnerCounselingStatus": "requestAnswer",
             "vendorItemId": [
               3000000151
             ],
@@ -470,7 +495,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
           },
           {
             "inquiryId": 1007837445,
-            "csPartnerCounselingStatus": "none",
+            "csPartnerCounselingStatus": "answered",
             "vendorItemId": [
               3000000151
             ],
@@ -489,7 +514,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
           },
           {
             "inquiryId": 1007837444,
-            "csPartnerCounselingStatus": "none",
+            "csPartnerCounselingStatus": "answered",
             "vendorItemId": [
               3000000151
             ],

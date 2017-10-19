@@ -25,7 +25,7 @@ export const customerEnquiryResponseDocument = {
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `n both version APIs the parameter counselingId changed to inquiryId. And format the response body to more standard.`
+        _warning: `v1의 counselingId에서 inquiryId로 변경되었지만 동일한 의미입니다. `
       },
     ],
     nextVersions: [
@@ -59,7 +59,7 @@ export const customerEnquiryResponseDocument = {
         require: true,
         _description: `Inquiry ID`,
         _relation: ``,
-        _referenceInfo: `이 파라미터는 셀러가 어느 질문을 대답해야할지를 가르킴니다.<br>우선 customer service inquiry API를 사용하여 이 값을 받으십시오.`,
+        _referenceInfo: `이 파라미터는 셀러가 어느 질문을 대답해야할지를 나타냅니다.<br>우선 customer service inquiry API를 사용하여 이 값을 받으십시오.`,
         _warning: ``,
       },
       {
@@ -73,48 +73,37 @@ export const customerEnquiryResponseDocument = {
     ],
     queryStringParameters: false,
     bodyParameters: [
-      {
-        name: `cSAddComment`,
-        type: `Object`,
-        require: true,
-        _description: `상세한 답변내용(코멘트&질문에 응답한 셀러 이름도 포함됨)`,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``,
-        children: [
-          {
+        {
             name: `content`,
             type: `String`,
             require: true,
-            _description: `답변내용`,
+            _description: `답변 내용.`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `답변 내용 중 줄넘김을 위해서는 \\n를 사용하시기 바랍니다.`,
             _warning: ``,
             children: false
           },
           {
-            name: `vendorId`,
-            type: `String`,
-            require: true,
-            _description: `벤더 아이디`,
-            _relation: ``,
-            _referenceInfo: ``,
-            _warning: ``,
-            children: false
+              name: `vendorId`,
+              type: `String`,
+              require: true,
+              _description: `벤더 아이디`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
           },
           {
-            name: `replyBy`,
-            type: `String`,
-            require: false,
-            _description: `응답자 혹은 벤더 아이디`,
-            _relation: ``,
-            _referenceInfo: ``,
-            _warning: ``,
-            children: false
-          },
-        ]
-      },
-    ]
+              name: `replyBy`,
+              type: `String`,
+              require: false,
+              _description: `응답자 혹은 벤더 아이디`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+          }
+      ]
   },
   errorSpec: false,
   responseSpec: [
@@ -143,7 +132,7 @@ export const customerEnquiryResponseDocument = {
       {
         language: `http`,
         codeblock: {
-          "content":"just do it",
+          "content":"안녕하세요\n블랙색상이 주문량이 많아 입고 지연중입니다.\n19일 입고예정으로 확인됩니다.",
           "vendorId":"A00010028",
           "replyBy":"wanger"
         }

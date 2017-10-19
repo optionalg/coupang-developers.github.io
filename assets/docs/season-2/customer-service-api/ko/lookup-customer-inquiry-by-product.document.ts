@@ -141,7 +141,7 @@ export const lookupCustomerInquiryByProductDocument = {
       {
         name: `pageSize`,
         require: false,
-        _description: `최대 페이지`,
+        _description: `페이지 사이즈`,
         _relation: ``,
         _referenceInfo: `Default 10, max = 50,pageSize가 null일 경우에는 default값이 적용됩니다.`,
         _warning: ``,
