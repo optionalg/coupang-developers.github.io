@@ -508,7 +508,31 @@ export const lookupOrderBookDocument = {
               _referenceInfo: `key:value 형태`,
               _warning: ``,
               children: false
-            },    
+            }, {
+              name: `pricingBadge`,
+              type: `Boolean`,
+              _description: `최저가 상품 여부`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            }, {
+              name: `usedProduct`,
+              type: `Boolean`,
+              _description: `중고 상품 여부`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            }, {
+              name: `canceled`,
+              type: `Boolean`,
+              _description: `주문 취소 여부`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            }, 
           ]
         },
         {
@@ -603,7 +627,12 @@ export const lookupOrderBookDocument = {
             "estimatedShippingDate": "2015-12-15",
             "plannedShippingDate": "",
             "invoiceNumberUploadDate": "",
-            "extraProperties": {}
+            "extraProperties": {
+             
+             },
+            "pricingBadge": false,
+            "usedProduct": false,
+            "canceled": false
           }
         ],
         "overseaShippingInfoDto": {

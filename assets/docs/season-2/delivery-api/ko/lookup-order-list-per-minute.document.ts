@@ -549,7 +549,31 @@ export const lookupOrderListPerMinuteDocument = {
               _referenceInfo: `optional / key:value 형태`,
               _warning: ``,
               children: false
-            }, 
+            }, {
+              name: `pricingBadge`,
+              type: `Boolean`,
+              _description: `최저가 상품 여부`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            }, {
+              name: `usedProduct`,
+              type: `Boolean`,
+              _description: `중고 상품 여부`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            }, {
+              name: `canceled`,
+              type: `Boolean`,
+              _description: `주문 취소 여부`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },
           ]
         },
         {
@@ -663,6 +687,7 @@ export const lookupOrderListPerMinuteDocument = {
             
           },
           "pricingBadge": false,
+          "usedProduct": false,
           "canceled": false
         }
       ],
@@ -723,6 +748,7 @@ export const lookupOrderListPerMinuteDocument = {
             
           },
           "pricingBadge": false,
+          "usedProduct": false,
           "canceled": false
         }
       ],
