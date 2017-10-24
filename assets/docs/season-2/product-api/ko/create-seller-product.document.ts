@@ -1427,8 +1427,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
               "images": [{
                 "imageOrder": 0,
                 "imageType": "REPRESENTATION",
-                "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-                "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"
+                "vendorPath": "http://www.garak24.com/data/goods/201710/19231727large.jpg"
               }],
               "notices": [{
                 "noticeCategoryName": "의류",
@@ -1509,8 +1508,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
               "images": [{
                 "imageOrder": 0,
                 "imageType": "REPRESENTATION",
-                "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-                "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"
+                "vendorPath": "http://www.garak24.com/data/goods/201710/19231727large.jpg"
               }],
               "notices": [{
                 "noticeCategoryName": "의류",

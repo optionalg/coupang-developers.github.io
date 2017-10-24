@@ -12,6 +12,7 @@ import {changePriceByProductDocument} from "./ko/change-price-by-product.documen
 import {changeSaleStatusToResumptionByProductDocument} from "./ko/change-sale-status-to-resumption-by-product.document";
 import {changeSaleStatusToStopByProduct} from "./ko/change-sale-status-to-stop-by-product.document";
 import {changePriceBasedOnDiscountRateByProductDocument} from "./ko/change-price-based-on-discount-rate-by-product.document";
+import {changeBestPriceGuaranteedByProductDocument} from "./ko/change-best-price-guaranteed-by-product.document";
 import {lookupExposureProductListPagingDocument} from "./ko/lookup-exposure-product-list-paging.document";
 import {lookupProductCertificationInformationDocument} from "./ko/lookup-product-certification-information.document";
 import {createOutboundShippingFacilityDocument} from "./ko/create-outbound-shipping-facility.document";
@@ -48,6 +49,7 @@ productApiDocs.ko.push(changePriceByProductDocument);
 productApiDocs.ko.push(changeSaleStatusToResumptionByProductDocument);
 productApiDocs.ko.push(changeSaleStatusToStopByProduct);
 productApiDocs.ko.push(changePriceBasedOnDiscountRateByProductDocument);
+productApiDocs.ko.push(changeBestPriceGuaranteedByProductDocument);
 
 // Deprecated
 // productApiDocs.ko.push(lookupProductCertificationInformationDocument);

@@ -957,6 +957,17 @@ export const lookupSellerProductDocument = {
 	            children: false
 	          }
 	      ,
+               {
+                name: `bestPriceGuaranteed3P`,
+                type: `Boolean`,
+                require: true,
+                _description: `최저가 보장 여부`,
+                _relation: ``,
+                _referenceInfo: `true/false`,
+                _warning: ``,
+                children: false
+              }
+         ,                          
             {
               name: `externalVendorSku`,
               type: `String`,
@@ -1486,6 +1497,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
     	        "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
     	        "externalVendorSku": "90726",
     	        "pccNeeded": false,
+                "bestPriceGuaranteed3P": false,
     	        "emptyBarcode": true,
     	        "emptyBarcodeReason": "NOT_ISSUEED",
     	        "barcode": "",
@@ -1598,6 +1610,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
     	        "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
     	        "externalVendorSku": "90726",
     	        "pccNeeded": false,
+                "bestPriceGuaranteed3P": false,
     	        "emptyBarcode": true,
     	        "emptyBarcodeReason": "NOT_ISSUEED",
     	        "barcode": "",

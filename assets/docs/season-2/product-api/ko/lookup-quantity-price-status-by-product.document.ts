@@ -108,6 +108,15 @@ export const lookupQuantityPriceStatusByProductDocument = {
           _referenceInfo: `true/false`,
           _warning: ``,
           children: false,
+        },
+        {
+          name: `bestPriceGuaranteed3P`,
+          type: `Boolean`,
+          _description: `최저가 보장 여부`,
+          _relation: ``,
+          _referenceInfo: `true/false`,
+          _warning: ``,
+          children: false,
         }
       ]
     }
@@ -128,7 +137,8 @@ export const lookupQuantityPriceStatusByProductDocument = {
         "sellerItemId": 3000000000,
         "amountInStock": 0,
         "salePrice": 32000,
-        "onSale": true
+        "onSale": true,
+        "bestPriceGuaranteed3P": false
       }
     },
     _description: ``,

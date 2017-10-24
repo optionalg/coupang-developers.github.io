@@ -169,7 +169,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         _description: `현재 페이지`,
         _relation: ``,
         _referenceInfo: `Default 1,pageNum가 null일 경우에는 default값이 적용됩니다.`,
-        _warning: ``,
+        _warning: `v2 version의 경우 파라메터 이름이 page 입니다.`,
         children: false
       },
       {

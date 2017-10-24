@@ -513,7 +513,7 @@ export const lookupOrderBookDocument = {
               type: `Boolean`,
               _description: `최저가 상품 여부`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `true/false`,
               _warning: ``,
               children: false
             }, {
@@ -521,7 +521,7 @@ export const lookupOrderBookDocument = {
               type: `Boolean`,
               _description: `중고 상품 여부`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `true/false`,
               _warning: ``,
               children: false
             }, {
@@ -529,7 +529,7 @@ export const lookupOrderBookDocument = {
               type: `Boolean`,
               _description: `주문 취소 여부`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `true/false`,
               _warning: ``,
               children: false
             }, 
