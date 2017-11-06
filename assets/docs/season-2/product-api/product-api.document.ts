@@ -49,7 +49,7 @@ productApiDocs.ko.push(changePriceByProductDocument);
 productApiDocs.ko.push(changeSaleStatusToResumptionByProductDocument);
 productApiDocs.ko.push(changeSaleStatusToStopByProduct);
 productApiDocs.ko.push(changePriceBasedOnDiscountRateByProductDocument);
-productApiDocs.ko.push(changeBestPriceGuaranteedByProductDocument);
+//productApiDocs.ko.push(changeBestPriceGuaranteedByProductDocument);
 
 // Deprecated
 // productApiDocs.ko.push(lookupProductCertificationInformationDocument);

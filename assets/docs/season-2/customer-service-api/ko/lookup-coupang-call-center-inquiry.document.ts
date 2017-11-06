@@ -51,7 +51,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries`,
     _description: `쿠팡 콜센터 문의를 조회합니다. 이 API를 이용하여 고객님이 특정 상품에 대해 쿠팡 고객센터 또는 셀러콜센터에 접수한 상담을 조회 할 수 있습니다.<br>
     	a. 옵션아이디와 조회기간 모두 값이 있을 경우, 해당 옵션아이디와 조회 기간내의 모든 상담을 조회 할 수 있습니다.<br>
-        b. 옵션아이디만 값이 있을 경우, 해당 옵션아디의 상담만 조회 할 수 있습니다.<br>
+        b. 옵션아이디만 값이 있을 경우, 해당 옵션아이디의 상담만 조회 할 수 있습니다.<br>
         c. 조회기간만 값이 있을 경우, 해당 조회 기간내의 상담만 조회 할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,

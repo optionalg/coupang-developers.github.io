@@ -50,7 +50,7 @@ export const lookupCustomerInquiryByProductDocument = {
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/onlineInquiries`,
     _description: `고객과 셀러간의 Q&A를 조회합니다.셀러는 이 API를 사용하여 판매중인 제품에 대한 상담을 조회 할 수 있습니다.<br>
                    a. 옵션아이디와 조회기간 모두 값이 있을 경우, 해당 옵션아이디와 조회 기간내의 모든 상담을 조회 할 수 있습니다.<br>
-                   b. 옵션아이디만 값이 있을 경우, 해당 옵션아디의 상담만 조회 할 수 있습니다.<br>
+                   b. 옵션아이디만 값이 있을 경우, 해당 옵션아이디의 상담만 조회 할 수 있습니다.<br>
                    c. 조회기간만 값이 있을 경우, 해당 조회 기간내의 상담만 조회 할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
