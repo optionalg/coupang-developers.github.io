@@ -27,14 +27,12 @@ export const lookupOrderListPerDayDocument = {
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets`,
     _description: `
-    발주서 목록을 하루단위 페이징 형태로 조회합니다.
-    ex)(2017-02-01 ~ 2017-02-03)
-    페이지당 row사이즈 조정은 maxPerPage 파라미터를 통해 가능하며
-    다음페이지는 nextToken을 이용하여 얻을 수 있습니다.
+    발주서 목록을 하루단위 페이징 형태로 조회합니다.ex)(2017-02-01 ~ 2017-02-03)<br>
+    페이지당 row사이즈 조정은 maxPerPage 파라미터를 통해 가능하며 다음페이지는 nextToken을 이용하여 얻을 수 있습니다.
     `,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `v2 version과 v4 version의 조회결과가 동일하지 않습니다. v4 version에만 추가된 항목들이 있으니 아래 Response Spec을 참조하시기 바랍니다.`
   },
   apiMigrationInfo: {
     previousVersions: [
@@ -180,10 +178,10 @@ export const lookupOrderListPerDayDocument = {
         require: false,
         _description: `search type for order sheets results`,
         _relation: ``,
-        _referenceInfo: `if searchType equals time-frame you can search results by minutes,
-        otherwise you can search paged results by days
+        _referenceInfo: `searchType=timeFrame이면 발주서 목록 조회(분단위 전체)로 수행되며,
+        그외에는 발주서 목록 조회(일단위 페이징)으로 수행됩니다.
         `,
-        _warning: `this parameter is added in version 4`,
+        _warning: `searchType parameter는 v4 version에만 사용됩니다.`,
         children: false
       }
     ],
@@ -341,6 +339,24 @@ export const lookupOrderListPerDayDocument = {
           children: false
         },
         {
+            name: `remotePrice`,
+            type: `Number`,
+            _description: `도서산간배송비`,
+            _relation: ``,
+            _referenceInfo: ``,
+            _warning: ``,
+            children: false
+           }, 
+           {
+            name: `remoteArea`,
+            type: `Boolean`,
+            _description: `도서산간여부`,
+            _relation: ``,
+            _referenceInfo: ``,
+            _warning: ``,
+            children: false
+         },      
+        {
           name: `parcelPrintMessage`,
           type: `String`,
           _description: `배송메세지`,
@@ -491,7 +507,17 @@ export const lookupOrderListPerDayDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }, {
+            }, 
+            {
+                name: `discountPrice`,
+                type: `Number`,
+                _description: `할인 가격`,
+                _relation: ``,
+                _referenceInfo: ``,
+                _warning: ``,
+                children: false
+            },            
+            {
               name: `externalVendorSkuCode`,
               type: `String`,
               _description: `external code`,
@@ -507,15 +533,26 @@ export const lookupOrderListPerDayDocument = {
               _referenceInfo: `optional`,
               _warning: ``,
               children: false
-            }, {
+            }, 
+            {
               name: `etcInfoValue`,
               type: `String`,
               _description: `상품별 개별 입력 항목에 대한 사용자의 입력값`,
               _relation: ``,
               _referenceInfo: `optional`,
-              _warning: ``,
+              _warning: `필드는 존재하나 값이 없는 상태입니다. 필요시에는 아래의 etcInfoValues를 사용하시기 바랍니다.`,
               children: false
-            }, {
+            },
+            {
+              name: `etcInfoValues`,
+              type: `Array`,
+              _description: `상품별 개별 입력 항목에 대한 사용자의 입력값 리스트`,
+              _relation: ``,
+              _referenceInfo: `optional`,
+              _warning: `v4 version으로만 조회가능`,
+              children: false
+            },  
+            {
               name: `sellerProductId`,
               type: `Number`,
               _description: `업체상품 아이디`,
@@ -547,7 +584,26 @@ export const lookupOrderListPerDayDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }, {
+            }, 
+            {
+              name: `cancelCount`,
+              type: `Number`,
+              _description: `취소수량`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },
+            {
+              name: `holdCountForCancel`,
+              type: `Number`,
+              _description: `환불대기수량`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },            
+            {
               name: `estimatedShippingDate`,
               type: `String`,
               _description: `주문시 출고예정일`,
@@ -580,30 +636,46 @@ export const lookupOrderListPerDayDocument = {
               _warning: ``,
               children: false
             }, {
-              name: `pricingBadge`,
-              type: `Boolean`,
-              _description: `최저가 상품 여부`,
-              _relation: ``,
-              _referenceInfo: `true/false`,
-              _warning: ``,
-              children: false
-            }, {
-              name: `usedProduct`,
-              type: `Boolean`,
-              _description: `중고 상품 여부`,
-              _relation: ``,
-              _referenceInfo: `true/false`,
-              _warning: ``,
-              children: false
-            }, {
-              name: `canceled`,
-              type: `Boolean`,
-              _description: `주문 취소 여부`,
-              _relation: ``,
-              _referenceInfo: `true/false`,
-              _warning: ``,
-              children: false
-            },
+                name: `pricingBadge`,
+                type: `Boolean`,
+                _description: `최저가 상품 여부`,
+                _relation: ``,
+                _referenceInfo: `true/false`,
+                _warning: `v4 version으로만 조회가능`,
+                children: false
+              }, {
+                name: `usedProduct`,
+                type: `Boolean`,
+                _description: `중고 상품 여부`,
+                _relation: ``,
+                _referenceInfo: `true/false`,
+                _warning: `v4 version으로만 조회가능`,
+                children: false
+              }, {
+                  name: `confirmDate`,
+                  type: `String`,
+                  _description: `구매확정일자`,
+                  _relation: ``,
+                  _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+                  _warning: `v4 version으로만 조회가능`,
+                  children: false
+              }, {
+                  name: `deliveryChargeTypeName`,
+                  type: `String`,
+                  _description: `배송비구분`,
+                  _relation: ``,
+                  _referenceInfo: `유료, 무료`,
+                  _warning: `v4 version으로만 조회가능`,
+                  children: false
+              }, {
+                name: `canceled`,
+                type: `Boolean`,
+                _description: `주문 취소 여부`,
+                _relation: ``,
+                _referenceInfo: `true/false`,
+                _warning: ``,
+                children: false
+              },
           ]
         },
         {
@@ -641,7 +713,53 @@ export const lookupOrderListPerDayDocument = {
             },
           ]
         },
-
+        //v4 version에 추가된 항목들(20171110)...../////////
+        {
+            name: `deliveryCompanyName`,
+            type: `String`,
+            _description: `택배사`,
+            _relation: ``,
+            _referenceInfo: `CJ 대한통운,한진택배`,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+            name: `invoiceNumber`,
+            type: `String`,
+            _description: `운송장번호`,
+            _relation: ``,
+            _referenceInfo: ``,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+            name: `inTrasitDateTime`,
+            type: `String`,
+            _description: `출고일(발송일)`,
+            _relation: ``,
+            _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+              name: `deliveredDate`,
+              type: `String`,
+              _description: `배송완료일`,
+              _relation: ``,
+              _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+              _warning: `v4 version으로만 조회가능`,
+              children: false
+            },
+            {
+                name: `refer`,
+                type: `String`,
+                _description: `결제위치`,
+                _relation: ``,
+                _referenceInfo: `아이폰앱,안드로이드앱,PC웹`,
+                _warning: `v4 version으로만 조회가능`,
+                children: false
+             }
+        ///////////////////////////////////
       ]
     },
     {
@@ -676,7 +794,7 @@ export const lookupOrderListPerDayDocument = {
         "safeNumber": "0503-**-5464"
       },
       "paidAt": "2017-10-10T10:20:16",
-      "status": "INSTRUCT",
+      "status": "FINAL_DELIVERY",
       "shippingPrice": 2500,
       "remotePrice": null,
       "remoteArea": false,
@@ -704,6 +822,7 @@ export const lookupOrderListPerDayDocument = {
           "externalVendorSkuCode": "170816368810",
           "etcInfoHeader": null,
           "etcInfoValue": null,
+          "etcInfoValues": ["추가메시지1","추가메시지2"],
           "sellerProductId": 80240831,
           "sellerProductName": "인디고뱅크키즈 A5 기모 배색츄키니 IKTM17WG1",
           "sellerProductItemName": "07 DARK GREY 160호",
@@ -718,6 +837,8 @@ export const lookupOrderListPerDayDocument = {
           },
           "pricingBadge": false,
           "usedProduct": false,
+          "confirmDate": "2017-10-25 00:10:33",
+          "deliveryChargeTypeName": "유료",
           "canceled": false
         }
       ],
@@ -725,7 +846,12 @@ export const lookupOrderListPerDayDocument = {
         "personalCustomsClearanceCode": "",
         "ordererSsn": "",
         "ordererPhoneNumber": ""
-      }
+      },
+      "deliveryCompanyName": "CJ 대한통운",
+      "invoiceNumber": "340010913442",
+      "inTrasitDateTime": "2017-10-16 22:08:04",
+      "deliveredDate": "2017-10-17 17:17:52",
+      "refer": "안드로이드앱"     
     },
     {
       "shipmentBoxId": 448537989,
@@ -737,7 +863,7 @@ export const lookupOrderListPerDayDocument = {
         "safeNumber": "0503-**-5013"
       },
       "paidAt": "2017-10-10T10:35:04",
-      "status": "INSTRUCT",
+      "status": "FINAL_DELIVERY",
       "shippingPrice": 0,
       "remotePrice": null,
       "remoteArea": false,
@@ -765,6 +891,7 @@ export const lookupOrderListPerDayDocument = {
           "externalVendorSkuCode": "170824416510",
           "etcInfoHeader": null,
           "etcInfoValue": null,
+          "etcInfoValues": ["추가메시지1","추가메시지2"],
           "sellerProductId": 87037167,
           "sellerProductName": "리틀브렌 후드달이 구스 경량 점퍼 LBJD17WG5",
           "sellerProductItemName": "04 MIDDLE MELANGE GR 170호",
@@ -779,6 +906,8 @@ export const lookupOrderListPerDayDocument = {
           },
           "pricingBadge": false,
           "usedProduct": false,
+          "confirmDate": "2017-10-25 02:10:27",
+          "deliveryChargeTypeName": "무료",
           "canceled": false
         }
       ],
@@ -786,7 +915,12 @@ export const lookupOrderListPerDayDocument = {
         "personalCustomsClearanceCode": "",
         "ordererSsn": "",
         "ordererPhoneNumber": ""
-      }
+      },
+      "deliveryCompanyName": "CJ 대한통운",
+      "invoiceNumber": "340010912565",
+      "inTrasitDateTime": "2017-10-16 22:08:04",
+      "deliveredDate": "2017-10-17 20:42:23",
+      "refer": "안드로이드앱"
     }
   ],
   "nextToken": "448537989"

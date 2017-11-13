@@ -29,7 +29,7 @@ export const lookupOrderBookDocument = {
     _description: `발주서 단건 조회`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `v2 version과 v4 version의 조회결과가 동일하지 않습니다. v4 version에만 추가된 항목들이 있으니 아래 Response Spec을 참조하시기 바랍니다.`
   },
   apiMigrationInfo: {
     previousVersions: [
@@ -67,9 +67,9 @@ export const lookupOrderBookDocument = {
         name: `shipmentBoxId`,
         require: true,
         _description: `shipmentBoxId`,
-        _relation: `이 파라미터는 GET /v2/providers/wing_api/apis/internal-api/v2/ordersheets  API를 통해 얻을 수 있습니다.`,
+        _relation: `본 파라미터는 발주서 목록 조회 분단위 및 일단위를 통해 조회한 발주서 정보에 포함되어 있습니다.`,
         _referenceInfo: ``,
-        _warning: `shipmentBoxId must be a number.`
+        _warning: `shipmentBoxId는 Number type입니다.`
       }
     ],
     queryStringParameters: false,
@@ -232,6 +232,24 @@ export const lookupOrderBookDocument = {
           children: false
         },
         {
+          name: `remotePrice`,
+          type: `Number`,
+          _description: `도서산간배송비`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+         }, 
+         {
+          name: `remoteArea`,
+          type: `Boolean`,
+          _description: `도서산간여부`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+         },          
+        {
           name: `parcelPrintMessage`,
           type: `String`,
           _description: `배송메세지`,
@@ -253,24 +271,6 @@ export const lookupOrderBookDocument = {
           name: `ableSplitShipping`,
           type: `Boolean`,
           _description: `분리배송가능여부`,
-          _relation: ``,
-          _referenceInfo: ``,
-          _warning: ``,
-          children: false
-        },
-        {
-          name: `remoteArea`,
-          type: `Boolean`,
-          _description: `도서산간여여부`,
-          _relation: ``,
-          _referenceInfo: ``,
-          _warning: ``,
-          children: false
-        },
-        {
-          name: `remotePrice`,
-          type: `Number`,
-          _description: `도서산간배송비`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -412,6 +412,15 @@ export const lookupOrderBookDocument = {
               children: false
             },
             {
+                name: `discountPrice`,
+                type: `Number`,
+                _description: `할인 가격`,
+                _relation: ``,
+                _referenceInfo: ``,
+                _warning: ``,
+                children: false
+            },
+            {
               name: `externalVendorSkuCode`,
               type: `String`,
               _description: `external code`,
@@ -425,7 +434,7 @@ export const lookupOrderBookDocument = {
               type: `String`,
               _description: `상품별 개별 입력 항목`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `optional`,
               _warning: ``,
               children: false
             },
@@ -434,10 +443,19 @@ export const lookupOrderBookDocument = {
               type: `String`,
               _description: `상품별 개별 입력 항목에 대한 사용자의 입력값`,
               _relation: ``,
-              _referenceInfo: ``,
-              _warning: ``,
+              _referenceInfo: `optional`,
+              _warning: `필드는 존재하나 값이 없는 상태입니다. 필요시에는 아래의 etcInfoValues를 사용하시기 바랍니다.`,
               children: false
             },
+            {
+              name: `etcInfoValues`,
+              type: `Array`,
+              _description: `상품별 개별 입력 항목에 대한 사용자의 입력값 리스트`,
+              _relation: ``,
+              _referenceInfo: `optional`,
+              _warning: `v4 version으로만 조회가능`,
+              children: false
+             },            
             {
               name: `sellerProductId`,
               type: `Number`,
@@ -473,6 +491,24 @@ export const lookupOrderBookDocument = {
               _warning: ``,
               children: false
             },
+            {
+              name: `cancelCount`,
+              type: `Number`,
+              _description: `취소수량`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },
+            {
+              name: `holdCountForCancel`,
+              type: `Number`,
+              _description: `환불대기수량`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },     
             {
               name: `estimatedShippingDate`,
               type: `String`,
@@ -514,7 +550,7 @@ export const lookupOrderBookDocument = {
               _description: `최저가 상품 여부`,
               _relation: ``,
               _referenceInfo: `true/false`,
-              _warning: ``,
+              _warning: `v4 version으로만 조회가능`,
               children: false
             }, {
               name: `usedProduct`,
@@ -522,8 +558,24 @@ export const lookupOrderBookDocument = {
               _description: `중고 상품 여부`,
               _relation: ``,
               _referenceInfo: `true/false`,
-              _warning: ``,
+              _warning: `v4 version으로만 조회가능`,
               children: false
+            }, {
+                name: `confirmDate`,
+                type: `String`,
+                _description: `구매확정일자`,
+                _relation: ``,
+                _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+                _warning: `v4 version으로만 조회가능`,
+                children: false
+            }, {
+                name: `deliveryChargeTypeName`,
+                type: `String`,
+                _description: `배송비구분`,
+                _relation: ``,
+                _referenceInfo: `유료, 무료`,
+                _warning: `v4 version으로만 조회가능`,
+                children: false
             }, {
               name: `canceled`,
               type: `Boolean`,
@@ -532,7 +584,7 @@ export const lookupOrderBookDocument = {
               _referenceInfo: `true/false`,
               _warning: ``,
               children: false
-            }, 
+            }
           ]
         },
         {
@@ -572,6 +624,53 @@ export const lookupOrderBookDocument = {
             }
           ]
         },
+        //v4 version에 추가된 항목들(20171110)...../////////
+        {
+            name: `deliveryCompanyName`,
+            type: `String`,
+            _description: `택배사`,
+            _relation: ``,
+            _referenceInfo: `CJ 대한통운,한진택배`,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+            name: `invoiceNumber`,
+            type: `String`,
+            _description: `운송장번호`,
+            _relation: ``,
+            _referenceInfo: ``,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+            name: `inTrasitDateTime`,
+            type: `String`,
+            _description: `출고일(발송일)`,
+            _relation: ``,
+            _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+              name: `deliveredDate`,
+              type: `String`,
+              _description: `배송완료일`,
+              _relation: ``,
+              _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+              _warning: `v4 version으로만 조회가능`,
+              children: false
+            },
+            {
+                name: `refer`,
+                type: `String`,
+                _description: `결제위치`,
+                _relation: ``,
+                _referenceInfo: `아이폰앱,안드로이드앱,PC웹`,
+                _warning: `v4 version으로만 조회가능`,
+                children: false
+             }
+        ///////////////////////////////////  
       ]
     }
   ],
@@ -589,42 +688,49 @@ export const lookupOrderBookDocument = {
       "data": {
         "shipmentBoxId": 102392001,
         "orderId": 500000596,
-        "orderedAt": "2015-12-11T09:23:55",
+        "orderedAt": "2017-10-06T22:59:37",
         "orderer": {
           "name": "김문근",
           "email": "mg*****@co",
           "safeNumber": "0501-111-2222"
         },
-        "paidAt": "2015-12-11T09:23:55",
-        "status": "DEPARTURE",
+        "paidAt": "2017-10-06T22:59:37",
+        "status": "FINAL_DELIVERY",
         "shippingPrice": 2500,
+        "remotePrice": 0,
+        "remoteArea": false,        
         "parcelPrintMessage": null,
         "splitShipping": false,
         "ableSplitShipping": false,
-        "remoteArea": false,
-        "remotePrice": 0,
         "receiver": {
           "name": "test",
           "safeNumber": "0501-111-2222",
           "addr1": "addr1",
           "addr2": "addr2",
-          "postCode": "427-070"
+          "postCode": "284-60"
         },
         "orderItems": [
           {
             "vendorItemPackageId": 0,
-            "vendorItemPackageName": "하와이-테스트-쇼핑-배추김치",
+            "vendorItemPackageName": "러비더비 섬유향수 보솔레이",
             "productId": 2429,
             "vendorItemId": 3000000177,
-            "vendorItemName": "하와이-테스트-쇼핑-배추김치6",
-            "shippingCount": 3,
-            "salesPrice": 6666,
-            "orderPrice": 19998,
-            "externalVendorSkuCode": null,
+            "vendorItemName": "러비더비 섬유향수 보솔레이, 500ml",
+            "shippingCount": 1,
+            "salesPrice": 14000,
+            "orderPrice": 14000,
+            "discountPrice": null,
+            "externalVendorSkuCode": "800022867",
             "etcInfoHeader": null,
             "etcInfoValue": null,
-            "sellerProductName": "",
-            "estimatedShippingDate": "2015-12-15",
+            "etcInfoValues": ["추가메시지1","추가메시지2"],
+            "sellerProductId": 26758514,
+            "sellerProductName": "[러비더비] 대용량 섬유향수 보솔레이 500ml",
+            "sellerProductItemName": "01_보솔레이 500ml",
+            "firstSellerProductItemName": "01_보솔레이 500ml",
+            "cancelCount": 0,
+            "holdCountForCancel": 0,
+            "estimatedShippingDate": "2017-10-12",
             "plannedShippingDate": "",
             "invoiceNumberUploadDate": "",
             "extraProperties": {
@@ -632,6 +738,8 @@ export const lookupOrderBookDocument = {
              },
             "pricingBadge": false,
             "usedProduct": false,
+            "confirmDate": "2017-10-18 18:10:28",
+            "deliveryChargeTypeName": "무료",
             "canceled": false
           }
         ],
@@ -639,7 +747,12 @@ export const lookupOrderBookDocument = {
           "personalCustomsClearanceCode": null,
           "ordererSsn": "",
           "ordererPhoneNumber": ""
-        }
+        },
+        "deliveryCompanyName": "CJ 대한통운",
+        "invoiceNumber": "337398446274",
+        "inTrasitDateTime": "2017-10-11 19:04:45",
+        "deliveredDate": "2017-10-13 19:34:50",
+        "refer": "PC웹"       
       }
     },
     _description: ``,

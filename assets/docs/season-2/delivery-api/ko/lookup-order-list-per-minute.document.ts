@@ -25,10 +25,12 @@ export const lookupOrderListPerMinuteDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets`,
-    _description: `발주서 목록 조회 분단위 전체 조회`,
+    _description: `
+    발주서 목록을 24시간 이내의 분단위 구간으로 조회합니다.ex)(2017-02-01T00:01~2017-02-01T23:59)<br>
+    `,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `v2 version과 v4 version의 조회결과가 동일하지 않습니다. v4 version에만 추가된 항목들이 있으니 아래 Response Spec을 참조하시기 바랍니다.`
   },
   apiMigrationInfo: {
     previousVersions: [
@@ -150,10 +152,10 @@ export const lookupOrderListPerMinuteDocument = {
         require: false,
         _description: `search type for order sheets results`,
         _relation: ``,
-        _referenceInfo: `if searchType equals timeFrame you can search results by minutes,
-        otherwise you can search paged results by days
+        _referenceInfo: `searchType=timeFrame이면 발주서 목록 조회(분단위 전체)로 수행되며,
+        그외에는 발주서 목록 조회(일단위 페이징)으로 수행됩니다.
         `,
-        _warning: `this parameter is added in version 4`,
+        _warning: `searchType parameter는 v4 version에만 사용됩니다.`,
         children: false
       }
     ],
@@ -311,6 +313,24 @@ export const lookupOrderListPerMinuteDocument = {
           children: false
         },
         {
+          name: `remotePrice`,
+          type: `Number`,
+          _description: `도서산간배송비`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        }, 
+        {
+          name: `remoteArea`,
+          type: `Boolean`,
+          _description: `도서산간여부`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        },      
+        {
           name: `parcelPrintMessage`,
           type: `String`,
           _description: `배송메세지`,
@@ -461,7 +481,17 @@ export const lookupOrderListPerMinuteDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }, {
+            }, 
+            {
+              name: `discountPrice`,
+              type: `Number`,
+              _description: `할인 가격`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },             
+            {
               name: `externalVendorSkuCode`,
               type: `String`,
               _description: `external code`,
@@ -477,15 +507,26 @@ export const lookupOrderListPerMinuteDocument = {
               _referenceInfo: `optional`,
               _warning: ``,
               children: false
-            }, {
+            }, 
+            {
               name: `etcInfoValue`,
               type: `String`,
               _description: `상품별 개별 입력 항목에 대한 사용자의 입력값`,
               _relation: ``,
               _referenceInfo: `optional`,
-              _warning: ``,
+              _warning: `필드는 존재하나 값이 없는 상태입니다. 필요시에는 아래의 etcInfoValues를 사용하시기 바랍니다.`,
               children: false
-            }, {
+            },
+            {
+              name: `etcInfoValues`,
+              type: `Array`,
+              _description: `상품별 개별 입력 항목에 대한 사용자의 입력값 리스트`,
+              _relation: ``,
+              _referenceInfo: `optional`,
+              _warning: `v4 version으로만 조회가능`,
+              children: false
+            },  
+            {
               name: `sellerProductId`,
               type: `Number`,
               _description: `업체상품 아이디`,
@@ -517,7 +558,26 @@ export const lookupOrderListPerMinuteDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }, {
+            },
+            {
+              name: `cancelCount`,
+              type: `Number`,
+              _description: `취소수량`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },
+            {
+              name: `holdCountForCancel`,
+              type: `Number`,
+              _description: `환불대기수량`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },              
+            {
               name: `estimatedShippingDate`,
               type: `String`,
               _description: `주문시 출고예정일`,
@@ -555,7 +615,7 @@ export const lookupOrderListPerMinuteDocument = {
               _description: `최저가 상품 여부`,
               _relation: ``,
               _referenceInfo: `true/false`,
-              _warning: ``,
+              _warning: `v4 version으로만 조회가능`,
               children: false
             }, {
               name: `usedProduct`,
@@ -563,7 +623,23 @@ export const lookupOrderListPerMinuteDocument = {
               _description: `중고 상품 여부`,
               _relation: ``,
               _referenceInfo: `true/false`,
-              _warning: ``,
+              _warning: `v4 version으로만 조회가능`,
+              children: false
+            }, {
+              name: `confirmDate`,
+              type: `String`,
+              _description: `구매확정일자`,
+              _relation: ``,
+              _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+              _warning: `v4 version으로만 조회가능`,
+              children: false
+            }, {
+              name: `deliveryChargeTypeName`,
+              type: `String`,
+              _description: `배송비구분`,
+              _relation: ``,
+              _referenceInfo: `유료, 무료`,
+              _warning: `v4 version으로만 조회가능`,
               children: false
             }, {
               name: `canceled`,
@@ -611,7 +687,53 @@ export const lookupOrderListPerMinuteDocument = {
             },
           ]
         },
-
+        //v4 version에 추가된 항목들(20171110)...../////////
+        {
+            name: `deliveryCompanyName`,
+            type: `String`,
+            _description: `택배사`,
+            _relation: ``,
+            _referenceInfo: `CJ 대한통운,한진택배`,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+            name: `invoiceNumber`,
+            type: `String`,
+            _description: `운송장번호`,
+            _relation: ``,
+            _referenceInfo: ``,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+            name: `inTrasitDateTime`,
+            type: `String`,
+            _description: `출고일(발송일)`,
+            _relation: ``,
+            _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+            _warning: `v4 version으로만 조회가능`,
+            children: false
+          },
+          {
+              name: `deliveredDate`,
+              type: `String`,
+              _description: `배송완료일`,
+              _relation: ``,
+              _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
+              _warning: `v4 version으로만 조회가능`,
+              children: false
+            },
+            {
+                name: `refer`,
+                type: `String`,
+                _description: `결제위치`,
+                _relation: ``,
+                _referenceInfo: `아이폰앱,안드로이드앱,PC웹`,
+                _warning: `v4 version으로만 조회가능`,
+                children: false
+             }
+        ///////////////////////////////////
       ]
     },
     {
@@ -636,130 +758,147 @@ export const lookupOrderListPerMinuteDocument = {
   "code": 200,
   "message": "OK",
   "data": [
-    {
-      "shipmentBoxId": 445500520,
-      "orderId": 16000009357207,
-      "orderedAt": "2017-09-29T12:26:27",
-      "orderer": {
-        "name": "조*자",
-        "email": "wh*****@ha",
-        "safeNumber": "0502-**-2104"
-      },
-      "paidAt": "2017-09-29T12:26:27",
-      "status": "DEPARTURE",
-      "shippingPrice": 2500,
-      "remotePrice": null,
-      "remoteArea": false,
-      "parcelPrintMessage": "직접 받고 부재 시 문 앞",
-      "splitShipping": false,
-      "ableSplitShipping": false,
-      "receiver": {
-        "name": "조*자",
-        "safeNumber": "0502-**-2104",
-        "addr1": "경기도 안산시 단원구",
-        "addr2": "911동**호",
-        "postCode": "153-39"
-      },
-      "orderItems": [
-        {
-          "vendorItemPackageId": 0,
-          "vendorItemPackageName": "펠릭스키즈 오비 잰드 스키니 데님",
-          "productId": 18414855,
-          "vendorItemId": 3122348137,
-          "vendorItemName": "펠릭스키즈 오비 잰드 스키니 데님, 60 BLUE, 140호",
-          "shippingCount": 1,
-          "salesPrice": 5000,
-          "orderPrice": 5000,
-          "discountPrice": null,
-          "externalVendorSkuCode": "170201141084",
-          "etcInfoHeader": null,
-          "etcInfoValue": null,
-          "sellerProductId": 35055028,
-          "sellerProductName": "펠릭스키즈 고무줄허리 스키니 청바지 (FXTJ7SG1)",
-          "sellerProductItemName": "60 BLUE 140호",
-          "firstSellerProductItemName": "60 BLUE/140호",
-          "cancelCount": 0,
-          "holdCountForCancel": 0,
-          "estimatedShippingDate": "2017-10-16",
-          "plannedShippingDate": "",
-          "invoiceNumberUploadDate": "",
-          "extraProperties": {
-            
-          },
-          "pricingBadge": false,
-          "usedProduct": false,
-          "canceled": false
-        }
-      ],
-      "overseaShippingInfoDto": {
-        "personalCustomsClearanceCode": "",
-        "ordererSsn": "",
-        "ordererPhoneNumber": ""
-      }
-    },
-    {
-      "shipmentBoxId": 445508132,
-      "orderId": 11000009302390,
-      "orderedAt": "2017-09-29T13:01:47",
-      "orderer": {
-        "name": "김*현",
-        "email": "po*****@na",
-        "safeNumber": "0502-**-2849"
-      },
-      "paidAt": "2017-09-29T13:01:47",
-      "status": "DEPARTURE",
-      "shippingPrice": 2500,
-      "remotePrice": null,
-      "remoteArea": false,
-      "parcelPrintMessage": "직접 받고 부재 시 문 앞",
-      "splitShipping": false,
-      "ableSplitShipping": false,
-      "receiver": {
-        "name": "김*현",
-        "safeNumber": "0502-**-2849",
-        "addr1": "서울특별시 양천구 목4동",
-        "addr2": "78*",
-        "postCode": "158-818"
-      },
-      "orderItems": [
-        {
-          "vendorItemPackageId": 0,
-          "vendorItemPackageName": "스탭키즈 슬럽 7부 배기 팬츠 SITM17F71",
-          "productId": 24925943,
-          "vendorItemId": 3175264015,
-          "vendorItemName": "스탭키즈 슬럽 7부 배기 팬츠 SITM17F71, 78 NAVY, 120호",
-          "shippingCount": 1,
-          "salesPrice": 5000,
-          "orderPrice": 5000,
-          "discountPrice": null,
-          "externalVendorSkuCode": "170616287977",
-          "etcInfoHeader": null,
-          "etcInfoValue": null,
-          "sellerProductId": 53977772,
-          "sellerProductName": "스탭키즈 슬럽 7부 배기 팬츠 SITM17F71",
-          "sellerProductItemName": "78 NAVY 120호",
-          "firstSellerProductItemName": "78 NAVY/120호",
-          "cancelCount": 0,
-          "holdCountForCancel": 0,
-          "estimatedShippingDate": "2017-10-16",
-          "plannedShippingDate": "",
-          "invoiceNumberUploadDate": "",
-          "extraProperties": {
-            
-          },
-          "pricingBadge": false,
-          "usedProduct": false,
-          "canceled": false
-        }
-      ],
-      "overseaShippingInfoDto": {
-        "personalCustomsClearanceCode": "",
-        "ordererSsn": "",
-        "ordererPhoneNumber": ""
-      }
-    }
-  ]
-},
+	    {
+	      "shipmentBoxId": 448531493,
+	      "orderId": 22000009546234,
+	      "orderedAt": "2017-10-10T10:20:16",
+	      "orderer": {
+	        "name": "신*희",
+	        "email": "eu*****@na",
+	        "safeNumber": "0503-**-5464"
+	      },
+	      "paidAt": "2017-10-10T10:20:16",
+	      "status": "FINAL_DELIVERY",
+	      "shippingPrice": 2500,
+	      "remotePrice": null,
+	      "remoteArea": false,
+	      "parcelPrintMessage": "문 앞",
+	      "splitShipping": false,
+	      "ableSplitShipping": false,
+	      "receiver": {
+	        "name": "신*희",
+	        "safeNumber": "0503-**-5464",
+	        "addr1": "경기 오산시 가수동 **아파트",
+	        "addr2": "109동 *호",
+	        "postCode": "447-700"
+	      },
+	      "orderItems": [
+	        {
+	          "vendorItemPackageId": 0,
+	          "vendorItemPackageName": "인디고뱅크키즈 기모 테잎배색 트레이닝 팬츠 IKTM17WG1",
+	          "productId": 31846051,
+	          "vendorItemId": 3242596358,
+	          "vendorItemName": "인디고뱅크키즈 기모 테잎배색 트레이닝 팬츠 IKTM17WG1, 07 DARK GREY, 160호",
+	          "shippingCount": 1,
+	          "salesPrice": 19900,
+	          "orderPrice": 19900,
+	          "discountPrice": null,
+	          "externalVendorSkuCode": "170816368810",
+	          "etcInfoHeader": null,
+	          "etcInfoValue": null,
+	          "etcInfoValues": ["추가메시지1","추가메시지2"],
+	          "sellerProductId": 80240831,
+	          "sellerProductName": "인디고뱅크키즈 A5 기모 배색츄키니 IKTM17WG1",
+	          "sellerProductItemName": "07 DARK GREY 160호",
+	          "firstSellerProductItemName": "07 DARK GREY/160호",
+	          "cancelCount": 0,
+	          "holdCountForCancel": 0,
+	          "estimatedShippingDate": "2017-10-16",
+	          "plannedShippingDate": "",
+	          "invoiceNumberUploadDate": "",
+	          "extraProperties": {
+	            
+	          },
+	          "pricingBadge": false,
+	          "usedProduct": false,
+	          "confirmDate": "2017-10-25 00:10:33",
+	          "deliveryChargeTypeName": "유료",
+	          "canceled": false
+	        }
+	      ],
+	      "overseaShippingInfoDto": {
+	        "personalCustomsClearanceCode": "",
+	        "ordererSsn": "",
+	        "ordererPhoneNumber": ""
+	      },
+	      "deliveryCompanyName": "CJ 대한통운",
+	      "invoiceNumber": "340010913442",
+	      "inTrasitDateTime": "2017-10-16 22:08:04",
+	      "deliveredDate": "2017-10-17 17:17:52",
+	      "refer": "안드로이드앱"     
+	    },
+	    {
+	      "shipmentBoxId": 448537989,
+	      "orderId": 22000009546630,
+	      "orderedAt": "2017-10-10T10:35:04",
+	      "orderer": {
+	        "name": "김*숙",
+	        "email": "hs*****@na",
+	        "safeNumber": "0503-**-5013"
+	      },
+	      "paidAt": "2017-10-10T10:35:04",
+	      "status": "FINAL_DELIVERY",
+	      "shippingPrice": 0,
+	      "remotePrice": null,
+	      "remoteArea": false,
+	      "parcelPrintMessage": "직접 받고 부재 시 문 앞",
+	      "splitShipping": false,
+	      "ableSplitShipping": false,
+	      "receiver": {
+	        "name": "김*숙",
+	        "safeNumber": "0503-**-5013",
+	        "addr1": "경기도 고양시 일산동구 백석동 **아파트",
+	        "addr2": "303-*",
+	        "postCode": "104-48"
+	      },
+	      "orderItems": [
+	        {
+	          "vendorItemPackageId": 0,
+	          "vendorItemPackageName": "리틀브렌 후드달이 구스 경량 점퍼 LBJD17WG5",
+	          "productId": 34047877,
+	          "vendorItemId": 3261300431,
+	          "vendorItemName": "리틀브렌 후드달이 구스 경량 점퍼 LBJD17WG5, 04 MIDDLE MELANGE GR, 170호",
+	          "shippingCount": 1,
+	          "salesPrice": 49900,
+	          "orderPrice": 49900,
+	          "discountPrice": null,
+	          "externalVendorSkuCode": "170824416510",
+	          "etcInfoHeader": null,
+	          "etcInfoValue": null,
+	          "etcInfoValues": ["추가메시지1","추가메시지2"],
+	          "sellerProductId": 87037167,
+	          "sellerProductName": "리틀브렌 후드달이 구스 경량 점퍼 LBJD17WG5",
+	          "sellerProductItemName": "04 MIDDLE MELANGE GR 170호",
+	          "firstSellerProductItemName": "04 MIDDLE MELANGE GR/170호",
+	          "cancelCount": 0,
+	          "holdCountForCancel": 0,
+	          "estimatedShippingDate": "2017-10-16",
+	          "plannedShippingDate": "",
+	          "invoiceNumberUploadDate": "",
+	          "extraProperties": {
+	            
+	          },
+	          "pricingBadge": false,
+	          "usedProduct": false,
+	          "confirmDate": "2017-10-25 02:10:27",
+	          "deliveryChargeTypeName": "무료",
+	          "canceled": false
+	        }
+	      ],
+	      "overseaShippingInfoDto": {
+	        "personalCustomsClearanceCode": "",
+	        "ordererSsn": "",
+	        "ordererPhoneNumber": ""
+	      },
+	      "deliveryCompanyName": "CJ 대한통운",
+	      "invoiceNumber": "340010912565",
+	      "inTrasitDateTime": "2017-10-16 22:08:04",
+	      "deliveredDate": "2017-10-17 20:42:23",
+	      "refer": "안드로이드앱"
+	    }
+	  ],
+	  "nextToken": "448537989"
+	},
     _description: ``,
     _relation: ``,
     _referenceInfo: ``,
