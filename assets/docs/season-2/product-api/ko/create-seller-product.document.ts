@@ -982,7 +982,7 @@ export const createSellerProductDocument = {
             require: false,
             _description: `검색어`,
             _relation: ``,
-            _referenceInfo: `필요한 만큼 반복입력가능. ['검색어1','검색어2']`,
+            _referenceInfo: `필요한 만큼 반복입력가능. ["검색어1","검색어2"]`,
             _warning: ``,
             children: false
           }
@@ -1423,7 +1423,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
                 "businessType": "Beauty"
               },
               "certifications": [],
-              "searchTags": null,
+              "searchTags": ["검색어1","검색어2"],
               "images": [{
                 "imageOrder": 0,
                 "imageType": "REPRESENTATION",
@@ -1504,7 +1504,7 @@ DETAIL : 기타이미지 (정사각형: 최소 500 x 500px ~ 최대 5000 x 5000p
               "modelNo": "",
               "extraProperties": null,            
               "certifications": [],
-              "searchTags": null,
+              "searchTags": ["검색어1","검색어2"],
               "images": [{
                 "imageOrder": 0,
                 "imageType": "REPRESENTATION",

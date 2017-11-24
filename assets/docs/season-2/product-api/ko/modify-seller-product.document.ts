@@ -1010,7 +1010,7 @@ export const modifySellerProductDocument = {
             require: false,
             _description: `검색어`,
             _relation: ``,
-            _referenceInfo: `필요한 만큼 반복입력가능. ['검색어1','검색어2']`,
+            _referenceInfo: `필요한 만큼 반복입력가능. ["검색어1","검색어2"]`,
             _warning: ``,
             children: false
           }
