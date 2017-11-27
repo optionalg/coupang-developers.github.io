@@ -422,11 +422,7 @@ export const lookupAllSettlementInfoDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-          "startTime": "2017-01-11 00:00:00",
-          "endTime": "2017-01-12 00:00:00",
-          "maxPerPage": 50
-        }
+        codeblock: null
       }
     ],
     response: {

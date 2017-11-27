@@ -149,8 +149,7 @@ export const lookupProductModifyHistoryDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

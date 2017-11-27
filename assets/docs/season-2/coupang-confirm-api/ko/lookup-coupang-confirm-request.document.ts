@@ -573,8 +573,7 @@ export const lookupCoupangConfirmRequestDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

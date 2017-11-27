@@ -188,7 +188,7 @@ export const lookupDeliveryModifyHistoryDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {}
+        codeblock: null
       }
     ],
     response: {

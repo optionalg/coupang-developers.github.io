@@ -679,7 +679,7 @@ export const lookupOrderBookDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {}
+        codeblock: null
       }
     ],
     response: {

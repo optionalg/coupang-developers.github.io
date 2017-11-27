@@ -387,8 +387,7 @@ export const lookupSettlementInfoByOrderIdDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

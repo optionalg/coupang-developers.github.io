@@ -189,11 +189,7 @@ export const lookupExposureProductListPagingDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-          "code": "SUCCESS",
-          "message": "",
-          "data": true
-        }
+        codeblock: null
       }
     ],
     response: {

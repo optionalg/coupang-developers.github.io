@@ -98,8 +98,7 @@ export const lookupSubcategoryListDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

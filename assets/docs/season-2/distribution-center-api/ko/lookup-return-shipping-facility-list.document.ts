@@ -99,8 +99,7 @@ export const lookupReturnShippingFacilityListDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

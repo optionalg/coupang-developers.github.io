@@ -143,11 +143,7 @@ export const lookupExposureCategoryDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-          "code": "SUCCESS",
-          "message": "",
-          "data": true
-        }
+        codeblock: null
       }
     ],
     response: {

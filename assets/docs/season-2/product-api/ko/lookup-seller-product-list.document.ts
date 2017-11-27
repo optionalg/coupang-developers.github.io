@@ -99,8 +99,7 @@ export const lookupSellerProductListDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

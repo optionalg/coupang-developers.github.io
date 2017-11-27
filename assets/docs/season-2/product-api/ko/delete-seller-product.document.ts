@@ -87,9 +87,7 @@ export const deleteSellerProductDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
-      }
+       }
     ],
     response: {
       "code": "SUCCESS",

@@ -207,8 +207,7 @@ export const lookupProductSummaryDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

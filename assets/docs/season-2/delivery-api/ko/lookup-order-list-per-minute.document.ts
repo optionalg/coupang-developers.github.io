@@ -751,7 +751,7 @@ export const lookupOrderListPerMinuteDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {}
+        codeblock: null
       }
     ],
     response: {

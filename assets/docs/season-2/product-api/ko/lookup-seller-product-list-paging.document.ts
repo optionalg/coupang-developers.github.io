@@ -149,16 +149,6 @@ export const lookupSellerProductListPagingDocument = {
 > 2015-12-17T12:28:38 과 같이 입력하면, 2015-12-17T12:28:38 ~ 2015-12-18T12:28:37 과 같이 조회됨`,
         _warning: ``,
         children: false
-      },
-      {
-        name: `vendorItemId`,
-        type: `Number`,
-        require: false,
-        _description: `옵션아이디`,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``,
-        children: false
       }
     ]
   },
@@ -342,8 +332,7 @@ export const lookupSellerProductListPagingDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

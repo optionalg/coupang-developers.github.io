@@ -777,7 +777,7 @@ export const lookupOrderListPerDayDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {}
+        codeblock: null
       }
     ],
     response: {

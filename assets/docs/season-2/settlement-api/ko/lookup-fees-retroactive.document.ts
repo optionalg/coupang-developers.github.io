@@ -286,12 +286,7 @@ index, 첫 페이지 호출시 0 입력)`,
     code: [
       {
         language: `http`,
-        codeblock: {
-          "vendorId": "A00012697",
-          "recognitionDate": "2016-09-18",
-          "nextToken": "0",
-          "maxPerPage": 50
-        }
+        codeblock: null
       }
     ],
     response: {

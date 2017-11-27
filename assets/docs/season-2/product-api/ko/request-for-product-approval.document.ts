@@ -80,9 +80,7 @@ export const requestForProductApprovalDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
-      }
+       }
     ],
     response: {
       "code": "SUCCESS",

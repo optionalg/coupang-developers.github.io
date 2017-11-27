@@ -126,8 +126,7 @@ export const lookupQuantityPriceStatusByProductDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {

@@ -1810,8 +1810,7 @@ export const lookupChangeRequestListDocument = {
     code: [
       {
         language: `http`,
-        codeblock: {
-        }
+        codeblock: null
       }
     ],
     response: {
