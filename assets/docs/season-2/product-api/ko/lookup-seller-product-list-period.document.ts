@@ -24,8 +24,8 @@ export const lookupSellerProductListPeriodDocument = {
     developer: ``,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `GET`,
-    path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/time-frame?vendorId={vendorId}&createdAtFrom={createdAtFrom}&createdAtTo={createdAtTo}`,
-    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/time-frame?vendorId={vendorId}&createdAtFrom={createdAtFrom}&createdAtTo={createdAtTo}`,
+    path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/time-frame`,
+    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/time-frame`,
     _description: `업체상품 목록을 생성일시 기준으로 조회한다.`,
     _relation: ``,
     _referenceInfo: ``,
@@ -223,7 +223,7 @@ export const lookupSellerProductListPeriodDocument = {
     }
   ],
   sample: {
-    endpoint: ``,
+    endpoint: `https://api-gateway.coupang.com/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/time-frame?vendorId={vendorId}&createdAtFrom={createdAtFrom}&createdAtTo={createdAtTo}`,
     code: [
       {
         language: `http`,
