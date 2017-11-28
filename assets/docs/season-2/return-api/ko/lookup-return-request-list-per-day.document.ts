@@ -562,6 +562,34 @@ export const lookupReturnRequestListPerDayDocument = {
           ]
         },
         {
+          name: `returnDeliveryDtos`,
+          type: `Array`,
+          _description: `회수 운송장 정보`,
+          _relation: ``,
+          _referenceInfo: `receiptId 별로 복수 개의 회수 운송장정보가 발생할 수 있음`,
+          _warning: ``,
+          children: [
+            {
+              name: `deliveryCompanyCode`,
+              type: ` String`,
+              _description: `회수 택배사코드`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },
+            {
+              name: `deliveryInvoiceNo`,
+              type: `String`,
+              _description: `회수 운송장번호`,
+              _relation: ``,
+              _referenceInfo: `회수 운송장번호 값이 "" 또는 null일 경우 무시`,
+              _warning: ``,
+              children: false
+            }
+          ]
+        },
+        {
           name: `nextToken`,
           type: `String`,
           _description: `다음 호출시 필요한 토큰값`,
