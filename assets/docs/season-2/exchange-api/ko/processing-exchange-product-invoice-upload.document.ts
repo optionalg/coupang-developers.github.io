@@ -94,7 +94,7 @@ export const processingExchangeProductInvoiceUploadDocument = {
         children: false
       },
       {
-        name: `goodsflowDeliveryCode`,
+        name: `goodsDeliveryCode`,
         type: `String`,
         require: true,
         _description: `굿스플로`,
@@ -403,14 +403,14 @@ export const processingExchangeProductInvoiceUploadDocument = {
             "exchangeId":"100000170",
             "vendorId":"A00010028",
             "shipmentBoxId":"197277127",
-            "goodsDeliveryCode":"coupangls",
+            "goodsDeliveryCode":"CJGLS",
             "invoiceNumber":"123456431"
           },
           {
             "exchangeId":"100000170",
             "vendorId":"A00010028",
             "shipmentBoxId":"197277128",
-            "goodsDeliveryCode":"coupangls",
+            "goodsDeliveryCode":"EPOST",
             "invoiceNumber":"123456432"
           }
         ]
