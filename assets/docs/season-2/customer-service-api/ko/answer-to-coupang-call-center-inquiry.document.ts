@@ -25,7 +25,8 @@ export const customerServiceCenterEnquiryResponseDocument = {
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `v1의 counselingId에서 inquiryId로 변경되었지만 동일한 의미입니다.`
+        _warning: `<strong>쿠팡 콜센터 문의답변 v1의 사용률이 지난 3개월동안 0%를 나타내어 2017년으로 지원이 종료됩니다.<br>
+                   v1을 사용중이신 판매자분들이 있다면 v4로 변경하여 사용하시기 바랍니다.</strong>`
       },
     ],
     nextVersions: [
@@ -47,11 +48,10 @@ export const customerServiceCenterEnquiryResponseDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries/{inquiryId}/replies`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries/{inquiryId}/replies`,
-    _description: `셀러가 쿠팡 콜센터를 통해 접수된 질문에 대해 이 API를 이용하여 답변합니다.<br>
-                   Note: API 한번 호출시, 단 하나의 질문만 대답할수 있습니다. 쿠팡의 질문에 대답하기전에 customer service inquiry api를 사용하여 inquiryId (inquiryId =question Id)를 받으십시오.`,
+    _description: `셀러가 쿠팡 콜센터를 통해 접수된 질문에 대해 이 API를 이용하여 답변합니다.<br>`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `API 한번 호출시, 단 하나의 질문만 대답할수 있습니다. 쿠팡 콜센터 문의조회 api를 사용하여 inquiryId를 확인 후 답변하시기 바랍니다.`,
   },
   parameters: {
     pathSegmentParameters: [
