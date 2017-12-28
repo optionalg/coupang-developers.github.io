@@ -70,6 +70,18 @@ export const businessFaq = [
         _relationInfo: ``,
         _warning: ``,
       },
+      {
+        subcategory: ``,
+        id: `7`,
+        anchorId: ``,
+        question: `쿠팡 오픈 API 키 발급이 안됩니다.`,
+        _description: `http://developers.coupang.com/guides/getting-started#obtaining_an_openapi_key 에서 자세한 키 발급 방법을 확인해주시기 바랍니다.
+1 .약관 동의 처리를 정상적으로 마치셨는지 확인 부탁드리며 
+2. 브라우저를 현재 사용하고 계시는 브라우저와 다른 것을 사용하셔서 시도해 주시기 바랍니다.`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
     ]
   },
   {
@@ -243,30 +255,52 @@ WING 또는 API를 통해 주문별 배송상태, 매출내역, 정산예정일 
         id: `5`,
         anchorId: ``,
         question: `해외구매대행 상품을 등록할 때 인보이스 영수증이 없으면 어떻게 해야 합니까?`,
-        _description: `"고객이 안심하고 상품을 살 수 있도록, 해외구매대행 상품을 판매하려면 인보이스 영수증이 있어야 합니다. 만약 상품을 등록하는 시점이 인보이스 영수증이 발행되기 전이라면, '인보이스 구매 후 첨부.txt' 메모장 파일을 임시로 첨부하세요. 추후 인보이스 영수증이 발행되면 그때 해당 영수증을 등록하시기 바랍니다.
+        _description: `고객이 안심하고 상품을 살 수 있도록, 해외구매대행 상품을 판매하려면 인보이스 영수증이 있어야 합니다. 만약 상품을 등록하는 시점이 인보이스 영수증이 발행되기 전이라면, '인보이스 구매 후 첨부.txt' 메모장 파일을 임시로 첨부하세요. 추후 인보이스 영수증이 발행되면 그때 해당 영수증을 등록하시기 바랍니다.
 
-쿠팡은 해외구매대행 상품의 인보이스 영수증 등록 여부를 수시로 확인하고 있으며, 영수증 등록이 되지 않은 상품을 블라인드 처리할 수 있습니다."`,
+<br/>쿠팡은 해외구매대행 상품의 인보이스 영수증 등록 여부를 수시로 확인하고 있으며, 영수증 등록이 되지 않은 상품을 블라인드 처리할 수 있습니다.`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      {
+        subcategory: ``,
+        id: `6`,
+        anchorId: ``,
+        question: `판매요청 시 상품 승인 시 시간이 너무 오래 걸립니다.`,
+        _description: `상품등록 후 판매요청 시 보통 15분 이내에 승인이 이루어지지만 상품을 대량 등록하시는 판매자 분들의 경우 별도의 승인 처리를 하고 있어 시간이 다소 소요될 수 있습니다.  비정상적으로 하루 이상 승인이 늦어질 경우 온라인 게시판(상품관리 분류 선택) 또는 판매자 콜센터(1600-9879)로 문의주시기 바랍니다.`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      {
+        subcategory: ``,
+        id: `7`,
+        anchorId: ``,
+        question: `구비서류가 필수인 카테고리는 어떻게 알 수 있나요?`,
+        _description: `카테고리 메타 정보 조회 API를 사용하시면
+/targets/wing/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/{displayCategoryCode}
+<br/>아래 데이터의 조회가 가능합니다.
+<br/>기타 인증 서류가 MANDATORY인 카테고리인 경우는 인증서류를 필수로 등록해야 하며
+병행수입시는 수입신고필증, 해외구매대행 선택시는 인보이스영수증을 필수로 등록하시면 됩니다.
+<br/>"requiredDocumentNames": [
+<br/> {
+<br/>   "templateName": "기타인증서류",
+<br/>   "required": "OPTIONAL"
+<br/> },
+<br/> {
+<br/>   "templateName": "수입신고필증(병행수입 선택시)",
+<br/>   "required": "MANDATORY_PARALLEL_IMPORTED"
+<br/> },
+<br/> {
+<br/>   "templateName": "인보이스영수증(해외구매대행 선택시)",
+<br/>   "required": "MANDATORY_OVERSEAS_PURCHASED"
+<br/> }
+<br/>],
+`,
         _referenceInfo: ``,
         _relationInfo: ``,
         _warning: ``,
       },
     ]
   },
-  // {
-  //   epic: `business`,
-  //   epicViewValue: `Business`,
-  //   category: `general`,
-  //   categoryViewValue: ``,
-  //   dataList: [
-  //     {
-  //       subcategory: ``,
-  //       id: ``,
-  //       anchorId: ``,
-  //       question: ``,
-  //       _description: ``,
-  //       _referenceInfo: ``,
-  //       _relationInfo: ``,
-  //     },
-  //   ]
-  // },
 ];
