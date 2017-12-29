@@ -102,7 +102,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
           <table class="table">
             <tr>
                 <th>code</th>
-                <th>message</th>
+                <th>description</th>
             </tr>
             <tr>
                 <td>RU</td>
@@ -185,23 +185,23 @@ export const lookupReturnRequestListPerMinuteDocument = {
           children: false
         },
         {
-          name: `receiptType`,
-          type: `String`,
-          _description: `취소유형`,
-          _relation: ``,
-          _referenceInfo: `
-            <table class="table">
-              <tr>
-                  <th>code</th>
-                  <th>name</th>
-              </tr>
-              <tr>
-                  <td>RETURN</td>
-                  <td>반품</td>
-              </tr>
-         </table>`,
-          _warning: ``,
-          children: false
+            name: `receiptType`,
+            type: `String`,
+            _description: `취소유형`,
+            _relation: ``,
+            _referenceInfo: `
+              <table class="table">
+                <tr>
+                    <th>v2</th>
+                    <th>v4</th>
+                </tr>
+                <tr>
+                    <td>반품</td>
+                    <td>RETURN</td>
+                </tr>
+           </table>`,
+           _warning: `※ v2와 v4 각 version별로 값에 차이가 있습니다.`,
+            children: false
         },
         {
           name: `receiptStatus`,
@@ -212,7 +212,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
           <table class="table">
               <tr>
                   <th>code</th>
-                  <th>name</th>
+                  <th>description</th>
               </tr>
               <tr>
                   <td>RELEASE_STOP_UNCHECKED</td>
@@ -359,38 +359,39 @@ export const lookupReturnRequestListPerMinuteDocument = {
           children: false
         },
         {
-          name: `faultByType`,
-          type: `String`,
-          _description: `귀책타입`,
-          _relation: ``,
-          _referenceInfo: `
-          <table class="table">
-              <tr>
-                  <th>code</th>
-                  <th>name</th>
-              </tr>
-              <tr>
-                  <td>COUPANG</td>
-                  <td>Coupang 과실</td>
-              </tr>
-              <tr>
-                  <td>VENDOR</td>
-                  <td>협력사 과실</td>
-              </tr>
-              <tr>
-                  <td>CUSTOMER</td>
-                  <td>고객 과실</td>
-              </tr>
-              <tr>                  
-                  <td>WMS</td>
-                  <td>물류 과실</td>
-              </tr>
-              <tr>                  
-                  <td>GENERAL</td>
-                  <td>일반</td>
-              </tr>
-         </table>`,        
-          children: false
+            name: `faultByType`,
+            type: `String`,
+            _description: `귀책타입`,
+            _relation: ``,
+            _referenceInfo: `
+            <table class="table">
+                <tr>
+                    <th>v2</th>
+                    <th>v4</th>
+                </tr>
+                <tr>
+                    <td>Coupang 과실</td>
+                    <td>COUPANG</td>
+                </tr>
+                <tr>
+                    <td>협력사 과실</td>
+                    <td>VENDOR</td>
+                </tr>
+                <tr>
+                    <td>고객 과실</td>
+                    <td>CUSTOMER</td>
+                </tr>
+                <tr>                  
+                    <td>물류 과실</td>
+                    <td>WMS</td>
+                </tr>
+                <tr>                  
+                    <td>일반</td>
+                    <td>GENERAL</td>
+                </tr>
+           </table>`,
+            _warning: `※ v2와 v4 각 version별로 값에 차이가 있습니다.`,
+            children: false
         },
         {
           name: `preRefund`,
@@ -402,35 +403,35 @@ export const lookupReturnRequestListPerMinuteDocument = {
           children: false
         },
         {
-          name: `completeConfirmType`,
-          type: `String`,
-          _description: `완료 확인 종류`,
-          _relation: ``,
-          _referenceInfo: `
-          <table class="table">
-              <tr>
-                  <th>code</th>
-                  <th>name</th>
-              </tr>
-              <tr>
-                  <td>VENDOR_CONFIRM</td>
-                  <td>파트너 확인</td>
-              </tr>
-              <tr>
-                  <td>UNDEFINED</td>
-                  <td>미확인</td>
-              </tr>
-              <tr>
-                  <td>CS_CONFIRM</td>
-                  <td>CS 대리확인</td>
-              </tr>
-              <tr>                  
-                  <td>CS_LOSS_CONFIRM</td>
-                  <td>CS 손실확인</td>
-              </tr>
-         </table>`,
-          _warning: ``,
-          children: false
+            name: `completeConfirmType`,
+            type: `String`,
+            _description: `완료 확인 종류`,
+            _relation: ``,
+            _referenceInfo: `
+            <table class="table">
+                <tr>
+                    <th>v2</th>
+                    <th>v4</th>
+                </tr>
+                <tr>
+                    <td>파트너 확인</td>
+                    <td>VENDOR_CONFIRM</td>
+                </tr>
+                <tr>
+                    <td>미확인</td>
+                    <td>UNDEFINED</td>
+                </tr>
+                <tr>
+                    <td>CS 대리확인</td>
+                    <td>CS_CONFIRM</td>
+                </tr>
+                <tr>                  
+                    <td>CS 손실확인</td>
+                    <td>CS_LOSS_CONFIRM</td>
+                </tr>
+           </table>`,
+           _warning: `※ v2와 v4 각 version별로 값에 차이가 있습니다.`,
+            children: false
         },
         {
           name: `completeConfirmDate`,
