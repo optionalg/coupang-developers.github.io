@@ -18,7 +18,7 @@ import java.io.IOException;
 public class HmacProductCreation {
 	
 	//replace prod url when you need
-    private static final String HOST = "api-gateway-it-ext.coupang.com";
+    private static final String HOST = "api-gateway.coupang.com";
     private static final int PORT = 443;
     private static final String SCHEMA = "https";
     //replace with your own accessKey
@@ -116,7 +116,7 @@ import java.io.IOException;
 public class HmacProductCategorymeta {
 	
 	//replace prod url when you need
-    private static final String HOST = "api-gateway-it-ext.coupang.com";
+    private static final String HOST = "api-gateway.coupang.com";
     private static final int PORT = 443;
     private static final String SCHEMA = "https";
     //replace with your own accessKey
@@ -210,7 +210,7 @@ import java.io.IOException;
 public class HmacProductUpdate {	
 	
 	//replace prod url when you need
-    private static final String HOST = "api-gateway-it-ext.coupang.com";
+    private static final String HOST = "api-gateway.coupang.com";
     private static final int PORT = 443;
     private static final String SCHEMA = "https";
     //replace with your own accessKey
@@ -310,7 +310,7 @@ import java.io.IOException;
 public class HmacProductDelete {
 	
 	//replace prod url when you need
-    private static final String HOST = "api-gateway-it-ext.coupang.com";
+    private static final String HOST = "api-gateway.coupang.com";
     private static final int PORT = 443;
     private static final String SCHEMA = "https";
     //replace with your own accessKey

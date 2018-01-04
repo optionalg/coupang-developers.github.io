@@ -237,7 +237,7 @@ export const modifySellerProductDocument = {
         </tr>
         <tr>
           <td>DONGBU</td>
-          <td>KG로지스</td>
+          <td>드림택배(구 KG로지스)</td>
         </tr>
         <tr>
           <td><del>INNOGIS</del></td>

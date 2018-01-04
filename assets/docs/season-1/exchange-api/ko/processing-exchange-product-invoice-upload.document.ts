@@ -129,7 +129,7 @@ export const processingExchangeProductInvoiceUploadDocument = {
     </tr>
     <tr>
         <td>DONGBU</td>
-        <td>KG로지스</td>
+        <td>드림택배(구 KG로지스)</td>
         <td>DONGBU</td>
     </tr>
     <tr>

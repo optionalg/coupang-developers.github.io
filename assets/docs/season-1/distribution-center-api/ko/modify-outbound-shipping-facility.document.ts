@@ -269,7 +269,7 @@ z : 유효한 길이 4`,
                 </tr>
                 <tr>
                   <td>DONGBU</td>
-                  <td>KG로지스</td>
+                  <td>드림택배(구 KG로지스)</td>
                 </tr>
                  <tr>
                   <td>INNOGIS</td>

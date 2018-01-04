@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class HmacReturnbyday {
 
-    private static final String HOST = "api-gateway-it-ext.coupang.com";
+    private static final String HOST = "api-gateway.coupang.com";
     private static final int PORT = 443;
     private static final String SCHEMA = "https";
     //replace with your own accessKey
@@ -115,7 +115,7 @@ $signature = hash_hmac('sha256', $message, $secretkey);
 $authorization  = "CEA algorithm=HmacSHA256, access-key=".$accesskey.", signed-date=".$datetime.", signature=".$signature;
 
 //replace prod url when you need
-$url = 'https://api-gateway-it-ext.coupang.com'.$path.'?'.$query;=
+$url = 'https://api-gateway.coupang.com'.$path.'?'.$query;=
 
 $curl = curl_init();        
 curl_setopt($curl, CURLOPT_URL, $url);

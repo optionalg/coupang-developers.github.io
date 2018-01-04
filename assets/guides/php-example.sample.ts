@@ -20,7 +20,7 @@ $signature = hash_hmac('sha256', $message, $SECRET_KEY);
 $authorization  = "CEA algorithm=HmacSHA256, access-key=".$ACCESS_KEY.", signed-date=".$datetime.", signature=".$signature;
 
 //replace prod url when you need
-$url = 'https://api-gateway-it-ext.coupang.com'.$path;
+$url = 'https://api-gateway.coupang.com'.$path;
 
 $strjson='
 	{
@@ -307,7 +307,7 @@ $signature = hash_hmac('sha256', $message, $secretkey);
 $authorization  = "CEA algorithm=HmacSHA256, access-key=".$accesskey.", signed-date=".$datetime.", signature=".$signature;
 
 //replace prod url when you need
-$url = 'https://api-gateway-it-ext.coupang.com'.$path.'?'.$query;
+$url = 'https://api-gateway.coupang.com'.$path.'?'.$query;
 
 $curl = curl_init();        
 curl_setopt($curl, CURLOPT_URL, $url);
@@ -341,7 +341,7 @@ $signature = hash_hmac('sha256', $message, $SECRET_KEY);
 $authorization  = "CEA algorithm=HmacSHA256, access-key=".$ACCESS_KEY.", signed-date=".$datetime.", signature=".$signature;
 
 //replace prod url when you need
-$url = 'https://api-gateway-it-ext.coupang.com'.$path;
+$url = 'https://api-gateway.coupang.com'.$path;
 
 $strjson='
 	{
@@ -572,7 +572,7 @@ $signature = hash_hmac('sha256', $message, $SECRET_KEY);
 $authorization  = "CEA algorithm=HmacSHA256, access-key=".$ACCESS_KEY.", signed-date=".$datetime.", signature=".$signature;
 
 //replace prod url when you need
-$url = 'https://api-gateway-it-ext.coupang.com'.$path;
+$url = 'https://api-gateway.coupang.com'.$path;
 
 $curl = curl_init();        
 curl_setopt($curl, CURLOPT_URL, $url);
