@@ -286,7 +286,6 @@ export const invoiceUploadProcessingDocument = {
                   <td>2FastsExpress</td>
                 </tr>
               </table>
-
             `,
             _warning: ``,
             children: false

@@ -215,10 +215,10 @@ export const createOutboundShippingFacilityDocument = {
             name: `deliveryCode`,
             type: `String`,
             require: true,
-            _description: `택배사코드`,
+            _description: `택배사 코드<br>취소선은 합병 또는 폐업한 택배사를 의미합니다.`,
             _relation: ``,
-            _referenceInfo: `취소선은 합병 또는 폐업한 택배사를 의미합니다.
-            <table class="table">
+            _referenceInfo: `
+              <table class="table">
                <tr>
                   <th>CODE</th>
                   <th>NAME</th>
@@ -240,8 +240,8 @@ export const createOutboundShippingFacilityDocument = {
                   <td>한진택배</td>
                 </tr>
                 <tr>
-                  <td>KOREX</td>
-                  <td>대한통운</td>
+                    <td><del>KOREX</del></td>
+                    <td><del>대한통운[합병]</del></td>
                 </tr>
                 <tr>
                   <td>CJGLS</td>
@@ -259,10 +259,10 @@ export const createOutboundShippingFacilityDocument = {
                   <td>DONGBU</td>
                   <td>드림택배(구 KG로지스)</td>
                 </tr>
-		        <tr>
-		          <td><del>INNOGIS</del></td>
-		          <td><del>GTX로지스[폐업]</del></td>
-		        </tr>
+                    <tr>
+                        <td><del>INNOGIS</del></td>
+                        <td><del>GTX로지스[폐업]</del></td>
+                    </tr>
                 <tr>
                   <td>ILYANG</td>
                   <td>일양택배</td>
@@ -391,7 +391,8 @@ export const createOutboundShippingFacilityDocument = {
                   <td>TWOFASTEXP</td>
                   <td>2FastsExpress</td>
                 </tr>
-              </table>`,
+              </table>
+            `,
             _warning: ``,
             children: false
           },

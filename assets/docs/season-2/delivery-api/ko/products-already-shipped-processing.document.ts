@@ -271,7 +271,8 @@ export const productAlreadyShippedProcessingDocument = {
                   <td>TWOFASTEXP</td>
                   <td>2FastsExpress</td>
                 </tr>
-              </table>`,
+              </table>
+            `,
         _warning: ``,
         children: false
       }, {
