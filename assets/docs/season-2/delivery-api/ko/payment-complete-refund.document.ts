@@ -124,9 +124,11 @@ export const paymentCompleteRefundDocument = {
             <li>CCTTER // 재고 연동 오류 : 재고 문제로 취소가 발생하는 경우</li>
             <li>CCPNER // 제휴사이트 오류 : 주소 문제로 고객 배송지 생성 불가시 취소 되는 오류</li>
             <li>CCPRER // 가격등재오류 : 양사간 상품 가격오류 발생시 취소 되는 오류</li>
-            <li>CCSSER // 시스템오류 : 쿠팡 주문이 yes24를 통해서 정상적으로 생성되지 않은 경우 강제로 취소되는 오류</li>
           </ul>`,
-        _warning: ``,
+        _warning: `
+           <ul>
+            <li>CCSSER // 시스템오류  2018년 1월 15일에 삭제되는 코드 입니다. 이 경우 해당 코드 전송 시 오류가 발생합니다.</li>
+          </ul>`,
         children: false
       },
       {
