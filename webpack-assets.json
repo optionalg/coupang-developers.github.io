@@ -3,12 +3,12 @@
     "js": "vendor.012d39e1a4e63fe04d03.bundle.js"
   },
   "main": {
-    "js": "main.a92302b5392311912672.bundle.js"
+    "js": "main.0a906ceac8ce85c60dbd.bundle.js"
   },
   "fa": {
     "js": "fa.0d110b9f5bdf4373d750.bundle.js"
   },
   "polyfills": {
-    "js": "polyfills.1d9e789f3c9f2f12cf79.bundle.js"
+    "js": "polyfills.cbb7e661c03ed40cc848.bundle.js"
   }
 }
