@@ -529,102 +529,116 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00010028/callCenterInquiries?vendorId=A00010028&inquiryStartAt=2017-03-08&inquiryEndAt=2017-03-09&partnerCounselingStatus=NONE&pageNum=1&pageSize=10`,
-    code: [
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00010028/callCenterInquiries?inquiryStartAt=2018-01-07&inquiryEndAt=2018-01-08&vendorId=A00010028&partnerCounselingStatus=NONE&pageSize=2&pageNum=1`,
+   code: [
       {
         language: `http`
       }
     ],
     response: {
-      "code": "200",
-      "message": "OK",
-      "data": {
-        "content": [
-          {
-            "inquiryId": 1007837450,
-            "csPartnerCounselingStatus": "requestAnswer",
-            "vendorItemId": [
-              3000000151
+          "code": 200,
+          "message": "OK",
+          "data": {
+            "content": [
+              {
+                "inquiryId": 1015668177,
+                "csPartnerCounselingStatus": "answered",
+                "inquiryStatus": "progress",
+                "vendorItemId": [
+                  3285906659
+                ],
+                "itemName": "스파오(SPAO) 인조가죽 A라인 4부 스커트 SPWH749G22, (49)Khaki, L",
+                "content": "상담이력",
+                "answeredAt": "2018-01-08 16:56:16",
+                "replies": [
+                  {
+                    "receptionistName": "AA몰",
+                    "receptionist": "10000058",
+                    "replyAt": "2018-01-08 16:44:27",
+                    "content": "[판매자이관]\n◼주문번호: 10000011255416\n◼아이템: 스파오(SPAO) 인조가죽 A라인 4부 스커트 SPWH749G22, (49)Khaki, L\n◼고객명/연락처: <<이은옥/010-4520-8801>>\n◼문의내용: 고객 상품 반송하였다고 합니다.   반송장은 경비실에 맡겨서 모른다고 합니다.\n입고 확인후 환불 처리 부탁 드립니다.\n",
+                    "answerId": 1027082307,
+                    "parentAnswerId": 0,
+                    "partnerTransferStatus": "answered",
+                    "partnerTransferCompleteReason": "NONE",
+                    "answerType": "csAgent",
+                    "needAnswer": false
+                  },
+                  {
+                    "receptionistName": "AA몰",
+                    "receptionist": "elandmall",
+                    "replyAt": "2018-01-08 16:56:16",
+                    "content": "안녕하세요, \r\nAA몰입니다.\r\n\r\n1/3일 입고 된것으로 확인됩니다.\r\n\r\n3영업일이 정상 검수기간으로 시일이 소요되기에 양해 바랍니다.\r\n\r\n감사합니다.\r\n",
+                    "answerId": 1027083739,
+                    "parentAnswerId": 0,
+                    "partnerTransferStatus": null,
+                    "partnerTransferCompleteReason": "NONE",
+                    "answerType": "vendor",
+                    "needAnswer": false
+                  }
+                ],
+                "inquiryAt": "2018-01-08 16:43:42",
+                "buyerEmail": "zl*****@na",
+                "buyerPhone": "010-****-8801",
+                "orderId": 10000011255416,
+                "orderDate": "2017-12-25 22:23:44",
+                "receiptCategory": "기타문의>기타>전상담사통화요청",
+                "saleStartedAt": "2017-12-12",
+                "saleEndedAt": "2099-12-30"
+              },
+              {
+                "inquiryId": 1015664934,
+                "csPartnerCounselingStatus": "answered",
+                "inquiryStatus": "progress",
+                "vendorItemId": [
+                  3361159025
+                ],
+                "itemName": "스파오(SPAO) 몬스터주식회사 맨투맨 (디즈니)_D/GYAY SPMB74VC19, (17)Dark Gray, S",
+                "content": "상담이력",
+                "answeredAt": "2018-01-08 16:16:02",
+                "replies": [
+                  {
+                    "receptionistName": "AA몰",
+                    "receptionist": "D002236",
+                    "replyAt": "2018-01-08 15:56:11",
+                    "content": "[입고완료이관]     \nㅁ 고객명: 이용환\nㅁ 주문번호:10000011241320\nㅁ 반송장번호: 840958324544  CJ대한통운\nㅁ 입고일자: 12/30\n반송장조회 결과 입고완료로 확인됩니다.     \n★환불승인★ 부탁드립니다.     \n반품입고후 3영업일이 경과되면 환불 자동승인처리가     \n되오니, 입고 상품의 문제발생 시 쿠팡확인요청으로     \n이의제기를 등록해주셔야 합니다.",
+                    "answerId": 1027076645,
+                    "parentAnswerId": 0,
+                    "partnerTransferStatus": "answered",
+                    "partnerTransferCompleteReason": "NONE",
+                    "answerType": "csAgent",
+                    "needAnswer": false
+                  },
+                  {
+                    "receptionistName": "AA몰",
+                    "receptionist": "elandmall",
+                    "replyAt": "2018-01-08 16:16:02",
+                    "content": "안녕하세요, \r\nAA몰입니다.\r\n\r\n담당부서측으로 내용 전달 완료 하였습니다.\r\n\r\n금일 내 확인될시 환불진행 하겠으나 , 평균 2영업일 소요되기에 익일까지 양해 바랍니다.\r\n\r\n감사합니다.\r\n",
+                    "answerId": 1027079048,
+                    "parentAnswerId": 0,
+                    "partnerTransferStatus": null,
+                    "partnerTransferCompleteReason": "NONE",
+                    "answerType": "vendor",
+                    "needAnswer": false
+                  }
+                ],
+                "inquiryAt": "2018-01-08 15:55:32",
+                "buyerEmail": "jr*****@na",
+                "buyerPhone": "010-****-2763",
+                "orderId": 10000011241320,
+                "orderDate": "2017-12-25 10:07:33",
+                "receiptCategory": "취소/반품 후단관리>회수확인>고객반송확인",
+                "saleStartedAt": "2017-12-12",
+                "saleEndedAt": "2099-12-30"
+              }
             ],
-            "itemName": "하<와>이-\"테\t스트\"- 쇼`핑-'기저귀1'",
-            "content": "[통합이관]\n◼주문번호: 25000000000090\n◼아이템: 하&lt;와&gt;이-&quot;테\t스트&quot;- 쇼`핑-&#39;기저귀1&#39;\n◼문의자: 대상 아님\n◼문의내용: \n◼요청내용: ",
-            "answeredAt": null,
-            "replies": [],
-            "inquiryAt": "2017-03-09 17:35:02",
-            "buyerEmail": "cacacoo@coupang.com",
-            "buyerPhone": "010-5232-4251",
-            "orderId": 25000000000090,
-            "orderDate": "2017-01-25 16:42:50",
-            "receiptCategory": "배송문의>배송불량>상품누락(재배송 요청)",
-            "saleStartedAt": "2015-10-29",
-            "saleEndedAt": "2030-12-31"
-          },
-          {
-            "inquiryId": 1007837449,
-            "csPartnerCounselingStatus": "requestAnswer",
-            "vendorItemId": [
-              3000000151
-            ],
-            "itemName": "하<와>이-\"테\t스트\"- 쇼`핑-'기저귀1'",
-            "content": "발신번호:&lt;&lt;010-5232-4251&gt;&gt;\nㅈㅁㄹㄷㅈㅁㄹㄷ",
-            "answeredAt": null,
-            "replies": [],
-            "inquiryAt": "2017-03-09 17:31:11",
-            "buyerEmail": "cacacoo@coupang.com",
-            "buyerPhone": "010-5232-4251",
-            "orderId": 25000000000090,
-            "orderDate": "2017-01-25 16:42:50",
-            "receiptCategory": "배송지시 이후 반품문의>상품불량 반품>사용중결함 반품",
-            "saleStartedAt": "2015-10-29",
-            "saleEndedAt": "2030-12-31"
-          },
-          {
-            "inquiryId": 1007837445,
-            "csPartnerCounselingStatus": "answered",
-            "vendorItemId": [
-              3000000151
-            ],
-            "itemName": "하<와>이-\"테\t스트\"- 쇼`핑-'기저귀1'",
-            "content": "[고객IN]\n◼아이템: 하&lt;와&gt;이-&quot;테\t스트&quot;- 쇼`핑-&#39;기저귀1&#39;\n◼문의자: &lt;&lt;이태훈(회원(본인))&gt;&gt;\n◼문의내용: \n◼안내 및 처리사항: ",
-            "answeredAt": null,
-            "replies": [],
-            "inquiryAt": "2017-03-09 16:52:30",
-            "buyerEmail": "taylor@coupang.com",
-            "buyerPhone": "010-3639-9486",
-            "orderId": 20000000000004,
-            "orderDate": "2016-07-27 09:47:50",
-            "receiptCategory": "쇼핑상품문의>쇼핑상품상세문의>AS방법문의",
-            "saleStartedAt": "2015-10-29",
-            "saleEndedAt": "2030-12-31"
-          },
-          {
-            "inquiryId": 1007837444,
-            "csPartnerCounselingStatus": "answered",
-            "vendorItemId": [
-              3000000151
-            ],
-            "itemName": "하<와>이-\"테\t스트\"- 쇼`핑-'기저귀1'",
-            "content": "[고객IN]\n◼아이템: 하&lt;와&gt;이-&quot;테\t스트&quot;- 쇼`핑-&#39;기저귀1&#39;\n◼문의자: &lt;&lt;이태훈(회원(본인))&gt;&gt;\n◼문의내용: \n◼안내 및 처리사항: ",
-            "answeredAt": null,
-            "replies": [],
-            "inquiryAt": "2017-03-09 16:28:52",
-            "buyerEmail": "taylor@coupang.com",
-            "buyerPhone": "010-3639-9486",
-            "orderId": 20000000000004,
-            "orderDate": "2016-07-27 09:47:50",
-            "receiptCategory": "쇼핑상품문의>쇼핑상품상세문의>AS방법문의",
-            "saleStartedAt": "2015-10-29",
-            "saleEndedAt": "2030-12-31"
+            "pagination": {
+              "currentPage": 1,
+              "totalPages": 7,
+              "totalElements": 13,
+              "countPerPage": 2
+            }
           }
-        ],
-        "pagination": {
-          "currentPage": 1,
-          "totalPages": 1,
-          "totalElements": 4,
-          "countPerPage": 10
-        }
-      }
-    },
+        },
     _description: ``,
     _relation: ``,
     _referenceInfo: ``,
