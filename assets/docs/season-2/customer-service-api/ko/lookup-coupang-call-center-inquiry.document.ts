@@ -230,6 +230,15 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
               children: false,
             },
             {
+              name: `inquiryStatus`,
+              type: `String`,
+              _description: `문의상태`,
+              _relation: ``,
+              _referenceInfo: `progress 또는 complete`,
+              _warning: ``,
+              children: false,
+            },
+            {
               name: `csPartnerCounselingStatus`,
               type: `String`,
               _description: `답변여부`,
@@ -282,6 +291,82 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: [
+                {
+                  name: `answerId`,
+                  type: `Number`,
+                  _description: `답변 ID`,
+                  _relation: ``,
+                  _referenceInfo: ``,
+                  _warning: ``,
+                  children: false,
+                },
+                {
+                  name: `parentAnswerId`,
+                  type: `Number`,
+                  _description: `부모 이관글 ID`,
+                  _relation: ``,
+                  _referenceInfo: ``,
+                  _warning: ``,
+                  children: false,
+                },
+                {
+                  name: `partnerTransferStatus`,
+                  type: `String`,
+                  _description: `판매자 이관 상태`,
+                  _relation: ``,
+                  _referenceInfo: `none(대상 아님) 또는 requestAnswer(답변 요청) 또는 answered(답변 완료)`,
+                  _warning: ``,
+                  children: false,
+                },
+                {
+                  name: `partnerTransferCompleteReason`,
+                  type: `String`,
+                  _description: `판매자이관글 완료사유`,
+                  _relation: ``,
+                  _referenceInfo: `
+                      <table class="table">
+                        <tr>
+                            <th>CODE</th>
+                            <th>NAME</th>
+                        </tr>
+                        <tr>
+                            <td>NONE</td>
+                            <td>없음</td>
+                        </tr>
+                        <tr>
+                            <td>DISPUTE_PROCESS</td>
+                            <td>직권처리</td>
+                        </tr>
+                        <tr>
+                            <td>DISPUTE_PROCESS_COMPLETE</td>
+                            <td>판매자확인</td>
+                        </tr>
+                        <tr>
+                            <td>CANCEL</td>
+                            <td>이관취소</td>
+                    </tr>
+                      </table>`,
+                  _warning: ``,
+                  children: false,
+                },
+                {
+                  name: `answerType`,
+                  type: `String`,
+                  _description: `작성자 타입`,
+                  _relation: ``,
+                  _referenceInfo: `csAgent (상담사) 또는 vendor (판매자)`,
+                  _warning: ``,
+                  children: false,
+                },
+                {
+                  name: `needAnswer`,
+                  type: `Boolean`,
+                  _description: `답변 필요여부`,
+                  _relation: ``,
+                  _referenceInfo: `true 또는 false`,
+                  _warning: ``,
+                  children: false,
+                },
                 {
                   name: `receptionistName`,
                   type: `String`,

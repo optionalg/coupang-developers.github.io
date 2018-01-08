@@ -113,6 +113,16 @@ export const customerServiceCenterEnquiryResponseDocument = {
         _referenceInfo: ``,
         _warning: ``,
         children: false
+      },
+       {
+        name: `parentAnswerId`,
+        type: `Number`,
+        require: false,
+        _description: `부모이관글 ID`,
+        _relation: ``,
+        _referenceInfo: `콜센터 문의 조회에서 나온 answerId (답변ID) 를 넣으셔야 됩니다.`,
+        _warning: ``,
+        children: false
       }
     ]
   },
@@ -146,7 +156,8 @@ export const customerServiceCenterEnquiryResponseDocument = {
         	"vendorId":"A00010028",
         	"inquiryId":"1007837444",
         	"content":"안녕하세요\n주문 확인 부탁드립니다.\n수고하세요.",
-        	"replyBy":"wanger"
+        	"replyBy":"wanger",
+            "parentAnswerId":"1023208324" 
         }
       }
     ],
