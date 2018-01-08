@@ -127,7 +127,7 @@ export const paymentCompleteRefundDocument = {
           </ul>`,
         _warning: `
            <ul>
-            <li>CCSSER // 시스템오류  2018년 1월 15일에 삭제되는 코드 입니다. 이 경우 해당 코드 전송 시 오류가 발생합니다.</li>
+            <li>CCSSER // 시스템오류 : 2018년 1월 15일에 삭제되는 코드 입니다. 이 경우 해당 코드 전송 시 오류가 발생합니다.</li>
           </ul>`,
         children: false
       },
