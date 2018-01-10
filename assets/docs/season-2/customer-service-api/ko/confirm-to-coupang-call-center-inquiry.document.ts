@@ -24,7 +24,7 @@ export const custormerServiceCenterInquireConfirmDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries/{inquiryId}/confirms`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries/{inquiryId}/confirms`,
-    _description: `쿠팡이 상담완료한 업체이관 건으로 셀러의 확인이 필요한 상태일때  이 API를 이용하여 확인합니다.<br>`,
+    _description: `쿠팡이 상담완료한 업체이관 건으로 판매자의 확인이 필요한 상태(미확인 상태)일 때  이 API를 이용하여 확인 처리합니다.<br>`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -84,7 +84,6 @@ export const custormerServiceCenterInquireConfirmDocument = {
     }
   ],
   sample: {
-   // endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00010028/callCenterInquiries/1007837444/replies`,
        endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00010028/callCenterInquiries/1007837444/confirms`,
     code: [
       {

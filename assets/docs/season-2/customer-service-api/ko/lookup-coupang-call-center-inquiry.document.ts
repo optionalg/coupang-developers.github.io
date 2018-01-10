@@ -122,7 +122,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         name: `partnerCounselingStatus`,
         require: true,
         //_description: `allowed input values : none , requestAnswer , answered`,
-          _description: `
+          _description: `처리상태
           <table class="table">
             <tr>
                 <th>Parameter Name</th>
@@ -138,11 +138,11 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
             </tr>
             <tr>
                 <td>NO_ANSWER</td>
-                <td>답변대기</td>
+                <td>미답변 : 판매자의 답변이 필요한 상태 </td>
             </tr>
             <tr>
             	<td>TRANSFER</td>
-            	<td>상담완료(업체이관)</td>
+            	<td>미확인 : 쿠팡이 상담완료한 업체이관 건으로 판매자의 확인이 필요한 상태</td>
         </tr>
           </table>`,
         _relation: ``,
@@ -243,7 +243,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
               type: `String`,
               _description: `답변여부`,
               _relation: ``,
-              _referenceInfo: `requestAnswe 또는 answered`,
+              _referenceInfo: `requestAnswer 또는 answered`,
               _warning: ``,
               children: false,
             },
