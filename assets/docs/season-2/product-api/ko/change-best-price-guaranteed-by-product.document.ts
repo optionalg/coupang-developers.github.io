@@ -6,7 +6,7 @@ export const changeBestPriceGuaranteedByProductDocument = {
     category: `product-api`,   // input category ex) exchange-service-api
     id: `change-best-price-guaranteed-by-product`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `change-best-price-guaranteed-by-product`,
-    name: `상품 아이템별 최저가 보장 변경`,       // use display name, i will change 'translation key'
+    name: `상품 아이템별 최저가 보장 변경(쿠뤠잇)`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -26,7 +26,7 @@ export const changeBestPriceGuaranteedByProductDocument = {
     httpMethod: `PUT`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorId}/{vendorItemId}/best-price-guaranteed-3p/{bestPriceGuaranteed3P}`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorId}/{vendorItemId}/best-price-guaranteed-3p/{bestPriceGuaranteed3P}`,
-    _description: `상품 아이템별 최저가 보장 여부를 변경한다. 이 기능은 업체상품 신청 후 승인이 완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있다.`,
+    _description: `상품 아이템별 최저가 보장 여부를 변경한다. 이 기능은 쿠뤠잇 자격을 얻은 판매자가 상품등록 후 승인이 완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -59,7 +59,29 @@ export const changeBestPriceGuaranteedByProductDocument = {
     queryStringParameters: false,
     bodyParameters: false
   },
-  errorSpec: false,
+    errorSpec: [
+    {
+      status: 400,
+      _description: `해당 판매자는 쿠뤠잇 변경이 허가되지 않았습니다. 쿠뤠잇을 사용하고 싶으신 경우 판매자 콜센터(sellerhelp@coupang.com)로 연락해주세요.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },
+    {
+      status: 400,
+      _description: `해당 카테고리는 쿠뤠잇을 설정할 수 없습니다.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },
+    {
+      status: 400,
+      _description: `중고상품에는 쿠뤠잇을 적용할 수 없습니다`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    }
+  ],
   responseSpec: [
     {
       name: `code`,
@@ -88,8 +110,7 @@ export const changeBestPriceGuaranteedByProductDocument = {
       }
     ],
     response: {
-      "code": "SUCCESS",
-      "message": "최저가 보장여부 변경을 완료했습니다."
+        "code":"SUCCESS","message":"쿠뤠잇 변경을 완료했습니다.","data":null
     },
     _description: ``,
     _relation: ``,
