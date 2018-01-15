@@ -711,6 +711,17 @@ export const lookupSellerProductDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
+            },
+            {
+              name: `vendorItemId`,
+              type: `Number`,
+              require: true,
+              _description: `옵션아이디`,
+              _relation: ``,
+              _referenceInfo: `임시저장 상태일 경우 값이 null 입니다.
+                                      상품 승인완료 시에 값이 표시됩니다. `,
+              _warning: ``,
+              children: false
             }
             ,
             {
