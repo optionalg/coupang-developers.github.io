@@ -954,7 +954,8 @@ export const createSellerProductDocument = {
                 require: false,
                 _description: `인증정보Type`,
                 _relation: ``,
-                _referenceInfo: `카테고리 메타정보 조회 API를 통해 등록가능한 Type을 구할 수 있다.`,
+                _referenceInfo: `카테고리 메타정보 조회 API를 통해 등록가능한 Type을 구할 수 있다.<br/>
+                                        인증대상이 아닌 카테고리일 경우 : NOT_REQUIRED`,
                 _warning: ``,
                 children: false
               }
@@ -1469,7 +1470,10 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                     "businessType": "Beauty"
                   },
                   "certifications": [
-                    
+                     {
+                        "certificationType": "NOT_REQUIRED",
+                        "certificationCode": ""
+                      }
                   ],
                   "searchTags": [
                     "검색어1",
@@ -1582,7 +1586,10 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                   "modelNo": "",
                   "extraProperties": null,
                   "certifications": [
-                    
+                      {
+                        "certificationType": "NOT_REQUIRED",
+                        "certificationCode": ""
+                      }
                   ],
                   "searchTags": [
                     "검색어1",

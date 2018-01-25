@@ -90,7 +90,12 @@ strjson={
 	    		"emptyBarcodeReason": null,
 	    		"modelNo": "",
 	    		"extraProperties": null,
-	    		"certifications": [],
+	    		"certifications": [
+                          {
+                            "certificationType": "NOT_REQUIRED",
+                            "certificationCode": ""
+                          }
+                        ],
 	    		"searchTags": null,
 	    		"images": [{
 	    			"imageOrder": 0,
@@ -166,7 +171,12 @@ strjson={
 	    		"emptyBarcodeReason": null,
 	    		"modelNo": "",
 	    		"extraProperties": null,
-	    		"certifications": [],
+	    		"certifications": [
+                          {
+                            "certificationType": "NOT_REQUIRED",
+                            "certificationCode": ""
+                          }
+                        ],
 	    		"searchTags": null,
 	    		"images": [{
 	    			"imageOrder": 0,

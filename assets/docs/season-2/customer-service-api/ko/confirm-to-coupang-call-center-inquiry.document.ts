@@ -1,4 +1,4 @@
-export const custormerServiceCenterInquireConfirmDocument = {
+export const customerServiceCenterInquireConfirmDocument = {
   note: ``,
 
   //don't modify documentInfo

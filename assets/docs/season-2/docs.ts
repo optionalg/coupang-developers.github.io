@@ -8,6 +8,7 @@ import {returnProductCoupangConfirmApiDocs} from "./return-product-coupang-confi
 import {settlementApiDocs} from "./settlement-api/settlement-api.document";
 import {stopShippingApiDocs} from "./stop-shipping-api/stop-shiping-api.document";
 import {coupangConfirmApiDocs} from "./coupang-confirm-api/coupang-confirm-api.document";
+import {couponApiDocs} from "./coupon-api/coupon-api.document";
 
 const data = [];
 data.push(cancelApiDocs);
@@ -20,6 +21,7 @@ data.push(returnProductCoupangConfirmApiDocs);
 data.push(settlementApiDocs);
 data.push(stopShippingApiDocs);
 data.push(coupangConfirmApiDocs);
+data.push(couponApiDocs);
 
 export const docs = {
   ko:[],

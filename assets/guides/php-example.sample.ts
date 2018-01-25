@@ -77,7 +77,10 @@ $strjson='
 		      "modelNo": "",
 		      "extraProperties": null,
 		      "certifications": [
-		        
+                          {
+                            "certificationType": "NOT_REQUIRED",
+                            "certificationCode": ""
+                          }
 		      ],
 		      "searchTags": null,
 		      "images": [
@@ -179,7 +182,10 @@ $strjson='
 		      "modelNo": "",
 		      "extraProperties": null,
 		      "certifications": [
-		        
+                  {
+                    "certificationType": "NOT_REQUIRED",
+                    "certificationCode": ""
+                  }		        
 		      ],
 		      "searchTags": null,
 		      "images": [
