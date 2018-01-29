@@ -163,7 +163,7 @@ export const exchangeRequestDenyProcessingDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/exchangeRequests/{exchangeId}/rejection`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00123456/exchangeRequests/100000070/rejection`,
     code: [
       {
         language: `http`,

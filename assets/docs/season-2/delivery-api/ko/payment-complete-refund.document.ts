@@ -212,7 +212,7 @@ export const paymentCompleteRefundDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/{orderId}/refunds`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00123456/orders/28000005778875/refunds`,
     code: [
       {
         language: `http`,
@@ -222,7 +222,7 @@ export const paymentCompleteRefundDocument = {
           "receiptCounts": [1, 2],
           "bigCancelCode": "CANERR",
           "middleCancelCode": "CCTTER",
-          "vendorId": "A00013264",
+          "vendorId": "A00123456",
           "userId": "et5"
         }
       }

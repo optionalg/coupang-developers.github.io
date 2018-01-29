@@ -122,16 +122,16 @@ export const processingExchangeProductInvoiceUploadDocument = {
                   <td>한진택배</td>
                 </tr>
                 <tr>
-                    <td><del>KOREX</del></td>
-                    <td><del>대한통운[합병]</del></td>
-                </tr>
-                <tr>
                   <td>CJGLS</td>
                   <td>CJ대한통운</td>
                 </tr>
                 <tr>
-                  <td>KGBLS</td>
-                  <td>KGB택배</td>
+                    <td><del>KOREX</del></td>
+                    <td><del>대한통운[합병]</del></td>
+                </tr>
+                <tr>
+                  <td><del>KGBLS</del></td>
+                  <td><del>KGB택배</del></td>
                 </tr>
                 <tr>
                   <td>KDEXP</td>
@@ -202,8 +202,8 @@ export const processingExchangeProductInvoiceUploadDocument = {
                   <td>쿠팡자체배송</td>
                 </tr>
                 <tr>
-                  <td>IQS</td>
-                  <td>굿스포스트</td>
+                  <td><del>IQS</del></td>
+                  <td><del>굿스포스트</del></td>
                 </tr>
                 <tr>
                   <td>EMS</td>
@@ -347,7 +347,7 @@ export const processingExchangeProductInvoiceUploadDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/exchangeRequests/{exchangeId}/invoices`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00010028/exchangeRequests/100000170/invoices`,
     code: [
       {
         language: `http`,

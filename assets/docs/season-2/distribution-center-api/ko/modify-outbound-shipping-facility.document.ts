@@ -283,16 +283,16 @@ z : 유효한 길이 4`,
                   <td>한진택배</td>
                 </tr>
                 <tr>
-                    <td><del>KOREX</del></td>
-                    <td><del>대한통운[합병]</del></td>
-                </tr>
-                <tr>
                   <td>CJGLS</td>
                   <td>CJ대한통운</td>
                 </tr>
                 <tr>
-                  <td>KGBLS</td>
-                  <td>KGB택배</td>
+                    <td><del>KOREX</del></td>
+                    <td><del>대한통운[합병]</del></td>
+                </tr>
+                <tr>
+                  <td><del>KGBLS</del></td>
+                  <td><del>KGB택배</del></td>
                 </tr>
                 <tr>
                   <td>KDEXP</td>
@@ -363,8 +363,8 @@ z : 유효한 길이 4`,
                   <td>쿠팡자체배송</td>
                 </tr>
                 <tr>
-                  <td>IQS</td>
-                  <td>굿스포스트</td>
+                  <td><del>IQS</del></td>
+                  <td><del>굿스포스트</del></td>
                 </tr>
                 <tr>
                   <td>EMS</td>

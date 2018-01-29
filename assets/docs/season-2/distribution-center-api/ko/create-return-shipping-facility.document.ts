@@ -111,8 +111,40 @@ export const createReturnShippingFacilityDocument = {
             require: true,
             _description: `택배사 코드`,
             _relation: ``,
-            _referenceInfo: ``,
-            _warning: ``,
+            _referenceInfo: `
+              <table class="table">
+               <tr>
+                  <th>CODE</th>
+                  <th>NAME</th>
+                </tr>
+                <tr>
+                  <td>HYUNDAI</td>
+                  <td>롯데택배</td>
+                </tr>
+                <tr>
+                  <td>KGB</td>
+                  <td>로젠택배</td>
+                </tr>
+                <tr>
+                  <td>EPOST</td>
+                  <td>우체국</td>
+                </tr>
+                <tr>
+                  <td>HANJIN</td>
+                  <td>한진택배</td>
+                </tr>
+                <tr>
+                  <td>CJGLS</td>
+                  <td>CJ대한통운</td>
+                </tr>
+          
+                <tr>
+                  <td>DONGBU</td>
+                  <td>드림택배</td>
+                </tr>
+              </table>
+            `,
+            _warning: `위 택배사들만 반품지 택배사로 등록가능합니다.`,
             children: false
           },
           {

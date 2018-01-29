@@ -227,12 +227,12 @@ export const productPreparationProcessingDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets/acknowledgement`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00123456/ordersheets/acknowledgement`,
     code: [
       {
         language: `http`,
         codeblock: {
-          "vendorId": "TESTVENDORID",
+          "vendorId": "A00123456",
           "shipmentBoxIds": [1234719731, 1234719732]
         }
       }

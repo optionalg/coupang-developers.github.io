@@ -100,7 +100,7 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/exchangeRequests/{exchangeId}/receiveConfirmation`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00013264/exchangeRequests/40362/receiveConfirmation`,
     code: [
       {
         language: `http`,
