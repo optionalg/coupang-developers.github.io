@@ -399,7 +399,7 @@ export const modifySellerProductDocument = {
         </tr>
         </table>
         `,
-        _warning: ``,
+        _warning: `상품 아이템별 최저가 보장(쿠뤳잇)이 설정된 상품은 유료배송으로 변경 적용할 수 없습니다.먼저 옵션들의 쿠뤠잇 해제 후 변경해야 합니다.`,
         children: false
       }
       ,
@@ -1372,6 +1372,13 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
       _description: `UNAUTHORIZATION`,
       _relation: ``,
       _referenceInfo: `Illegal authentication header.`,
+      _warning: ``
+    },
+    {
+      status: 400,
+      _description: `쿠뤠잇을 적용한 옵션이 있으면 유료배송을 적용할 수 없습니다.`,
+      _relation: ``,
+      _referenceInfo: ``,
       _warning: ``
     }
   ],

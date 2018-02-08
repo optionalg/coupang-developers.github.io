@@ -26,9 +26,10 @@ export const changeBestPriceGuaranteedByProductDocument = {
     httpMethod: `PUT`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorId}/{vendorItemId}/best-price-guaranteed-3p/{bestPriceGuaranteed3P}`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorId}/{vendorItemId}/best-price-guaranteed-3p/{bestPriceGuaranteed3P}`,
-    _description: `상품 아이템별 최저가 보장 여부를 변경한다. 이 기능은 쿠뤠잇 자격을 얻은 판매자가 상품등록 후 승인이 완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있다.`,
+    _description: `상품 아이템별 최저가 보장 여부를 변경한다.<br>
+                   등록 후 승인이 완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있습니다.`,
     _relation: ``,
-    _referenceInfo: ``,
+    _referenceInfo: `주의: 본 기능은 쿠뤠잇 자격을 얻은 판매자가 판매자점수 우수 판매자이면서, 배송비 무료배송 또는 9800원 이상 무료배송(기본  배송료 2500원 미만)으로 등록한 상품에 적용이 가능합니다.`,
     _warning: ``,
   },
   parameters: {
@@ -77,6 +78,20 @@ export const changeBestPriceGuaranteedByProductDocument = {
     {
       status: 400,
       _description: `중고상품에는 쿠뤠잇을 적용할 수 없습니다`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },
+    {
+      status: 400,
+      _description: `무료배송 혹은 9800원 이상 무료배송의 경우에만 쿠뤠잇을 등록할 수 있습니다.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },
+    {
+      status: 400,
+      _description: `쿠뤠잇 상품에는 2500원을 초과하는 배송비를 설정할 수 없습니다.`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``
