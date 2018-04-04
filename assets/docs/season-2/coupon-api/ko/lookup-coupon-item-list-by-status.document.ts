@@ -52,6 +52,8 @@ export const  lookupCouponItemListByStatusDocument = {
             _warning: ``,
             children: false,
         },
+    ],
+    queryStringParameters: [
         {
             name: `status`,
             type: `String`,
@@ -92,8 +94,7 @@ export const  lookupCouponItemListByStatusDocument = {
             _warning: ``,
             children: false,
         },
-    ],
-    queryStringParameters: false,
+  ],
   },
   errorSpec: [
   ],
@@ -145,7 +146,7 @@ export const  lookupCouponItemListByStatusDocument = {
     },   
     {
       name: `data`,
-      type: `Array`,
+      type: `Object`,
       _description: `쿠폰 아이템 정보 리스트 데이터`,
       _relation: ``,
       _referenceInfo: ``,
@@ -293,7 +294,7 @@ export const  lookupCouponItemListByStatusDocument = {
     }  
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com//v2/providers/fms/apis/api/v1/vendors/A00000001/coupons/99/items?status=APPLIED`,
+    endpoint: `https://api-gateway.coupang.com//v2/providers/fms/apis/api/v1/vendors/A00000001/coupons/99/items?status=APPLIED&page=1&size=10&sort=desc`,
     code: [
       {
         language: `http`,

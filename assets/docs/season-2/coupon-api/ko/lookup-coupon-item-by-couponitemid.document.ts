@@ -62,6 +62,8 @@ export const  lookupCouponItemByCouponitemidDocument = {
             _warning: ``,
             children: false,
         },
+    ],
+    queryStringParameters: [
         {
             name: `type`,
             type: `String`,
@@ -72,9 +74,7 @@ export const  lookupCouponItemByCouponitemidDocument = {
             _warning: ``,
             children: false,
         },
-    ],
-    queryStringParameters: false,
-  
+  ],
   },
   errorSpec: [
   ],
@@ -126,7 +126,7 @@ export const  lookupCouponItemByCouponitemidDocument = {
     },   
     {
       name: `data`,
-      type: `Array`,
+      type: `Object`,
       _description: `쿠폰 아이템 정보 리스트 데이터`,
       _relation: ``,
       _referenceInfo: ``,
@@ -142,7 +142,7 @@ export const  lookupCouponItemByCouponitemidDocument = {
       },
         {
           name: `content`,
-          type: `Array`,
+          type: `Object`,
           _description: `쿠폰 아이템 리스트`,
           _relation: ``,
           _referenceInfo: ``,
@@ -227,48 +227,11 @@ export const  lookupCouponItemByCouponitemidDocument = {
         {
           name: `Pagination`,
           type: `Array`,
-          _description: `페이징`,
+          _description: `단건 조회로 페이징 없음`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
-          children: [
-            {
-                name: `countPerPage`,
-                type: `Number`,
-                _description: `페이지별 데이터 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 10, 20, 30`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `currentPage`,
-                type: `Number`,
-                _description: `현재 페이지`,
-                _relation: ``,
-                _referenceInfo: `예) 1`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `totalPages`,
-                type: `Number`,
-                _description: `토탈 페이지 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 1000`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `totalElements`,
-                type: `Number`,
-                _description: `전체 데이터 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 1000`,
-                _warning: ``,
-                children: false
-            },
-            ]
+          children: false
           }
         ]
     }  

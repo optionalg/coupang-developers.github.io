@@ -1,12 +1,12 @@
-export const  lookupCouponListByStatusDocument = {
+export const  lookupCouponListByOrderIdDocument = {
   note: ``,
 
   //don't modify documentInfo
   documentInfo: {
     category: `coupon-api`,   // input category ex) exchange-service-api
-    id: `lookup-coupon-list-by-status`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
-    anchorId: `lookup_coupon_list_by_status`,
-    name: `쿠폰목록 상태별 조회`,       // use display name, i will change 'translation key'
+    id: `lookup-coupon-list-by-order-id`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
+    anchorId: `lookup-coupon-list-by-order-id`,
+    name: `주문번호로 프로모션 정보 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -23,9 +23,9 @@ export const  lookupCouponListByStatusDocument = {
     developer: `Settlement`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `GET`,
-    path: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/coupons`,
-    HMACPath: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/coupons`,
-    _description: `생성된 쿠폰을 쿠폰상태별로 조회하기 위한 API입니다.`,
+    path: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/{orderId}/coupons`,
+    HMACPath: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/{orderId}/coupons`,
+    _description: `주문번호로 쿠폰 정보를 조회하기 위한 API입니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -42,52 +42,21 @@ export const  lookupCouponListByStatusDocument = {
             _warning: ``,
             children: false,
         },
-    ],
-    queryStringParameters: [
         {
-            name: `status`,
-            type: `String`,
+            name: `orderId`,
+            type: `Number`,
             require: true,
-            _description: `쿠폰 상태(STANDBY, APPLIED, PAUSED, EXPIRED, DETACHED)`,
+            _description: `주문 번호`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
             children: false,
         },
-        {
-            name: `page`,
-            type: `Number`,
-            require:false,
-            _description: `페이지. 기본값 1`,
-            _relation: ``,
-            _referenceInfo: `다음 페이지를 호출하기 위한 키값. 첫 페이지 호출시에는 넣지 않거나 '1' 입력`,
-            _warning: ``,
-            children: false,
-        },
-        {
-            name: `size`,
-            type: `Number`,
-            require: false,
-            _description: `페이지 당 건수`,
-            _relation: ``,
-            _referenceInfo: ``,
-            _warning: ``,
-            children: false,
-        },
-        {
-            name: `sort`,
-            type: `Array`,
-            require: false,
-            _description: `정렬값 (asc, desc) `,
-            _relation: ``,
-            _referenceInfo: `기본값 ascending`,
-            _warning: ``,
-            children: false,
-        },
-  ],
+    ],
+    queryStringParameters: false,
   },
   errorSpec: [
-  ],
+],
   responseSpec: [
     {
       name: `code`,
@@ -137,7 +106,7 @@ export const  lookupCouponListByStatusDocument = {
     {
       name: `data`,
       type: `Object`,
-      _description: `쿠폰 리스트 데이터`,
+      _description: `쿠폰정보 데이터`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -153,34 +122,25 @@ export const  lookupCouponListByStatusDocument = {
         {
           name: `content`,
           type: `Array`,
-          _description: `쿠폰 리스트`,
+          _description: `쿠폰정보 데이터`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
           children: [{
             name: `contractId`,
             type: `Number`,
-            _description: `계약 아이디`,
+            _description: `업체의 계약서 아이디`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `예) 1, 2`,
             _warning: ``,
             children: false
-          }, 
-         {
-            name: `vendorContractId`,
-            type: `Number`,
-            _description: `업체의 계약서 코드(쿠팡 관리 코드)`,
-            _relation: ``,
-            _referenceInfo: `예) -1, 1, 2`,
-            _warning: ``,
-            children: false
-          },     
+          },
           {
             name: `couponId`,
             type: `Number`,
-            _description: `쿠폰 아이디(Wing의 쿠폰 번호)`,
+            _description: `쿠폰 ID`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `예) 75, 80`,
             _warning: ``,
             children: false
           },
@@ -189,11 +149,11 @@ export const  lookupCouponListByStatusDocument = {
             type: `Number`,
             _description: `할인율`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `예) 100.0, 20.0`,
             _warning: ``,
             children: false
           },
-          {
+         {
             name: `endAt`,
             type: `String`,
             _description: `유효종료일`,
@@ -254,7 +214,7 @@ export const  lookupCouponListByStatusDocument = {
                 </tr>
                 <tr>
                     <td>EXPIRED</td>
-                    <td>사용종료</td>    
+                    <td>사용종료</td>  
                 </tr>
                 <tr>
                     <td>DETACHED</td>
@@ -273,117 +233,72 @@ export const  lookupCouponListByStatusDocument = {
             _warning: ``,
             children: false
           },
+          {
+            name: `vendorItemId`,
+            type: `Number`,
+            _description: `옵션 ID`,
+            _relation: ``,
+            _referenceInfo: `예) 3223826213`,
+            _warning: ``,
+            children: false
+          },
           ]
          },
-        {
-          name: `Pagination`,
-          type: `Array`,
-          _description: `페이징`,
-          _relation: ``,
-          _referenceInfo: ``,
-          _warning: ``,
-          children: [
-            {
-                name: `countPerPage`,
-                type: `Number`,
-                _description: `페이지별 데이터 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 10, 20, 30`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `currentPage`,
-                type: `Number`,
-                _description: `현재 페이지`,
-                _relation: ``,
-                _referenceInfo: `예) 1`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `totalPages`,
-                type: `Number`,
-                _description: `토탈 페이지 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 1000`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `totalElements`,
-                type: `Number`,
-                _description: `전체 데이터 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 1000`,
-                _warning: ``,
-                children: false
-            },
-            ]
-          }
-        ]
-    }  
+	     {
+	        name: `Pagination`,
+	        type: `null`,
+	        _description: `단건 조회로 페이징 없음`,
+	        _relation: ``,
+	        _referenceInfo: ``,
+	        _warning: ``,
+	        children: false
+	     } 
+	   ]
+    }   
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/fms/apis/api/v2/vendors/A00000001/coupons?status=APPLIED&page=1&size=10&sort=desc`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/fms/apis/api/v2/vendors/A00013264/8000000000294/coupons`,
     code: [
       {
         language: `http`,
         codeblock: null
       }
     ],
-    response:{
-  "code": 200,
-  "message": "OK",
-  "httpStatus": 200,
-  "httpStatusMessage": "OK",
-  "errorMessage": "",
-  "data": {
-    "success": true,
-    "content": [
+    response: {
+          "code": 200,
+          "message": "OK",
+          "httpStatus": 200,
+          "httpStatusMessage": "OK",
+          "errorMessage": "",
+          "data": {
+            "success": true,
+            "content": [
               {
-                "contractId": 63,
-                "vendorContractId": null,
-                "promotionName": null,
-                "couponId": 2246326,
-                "status": "APPLIED",
+                "vendorItemId": 5500016112,
+                "contractId": 10,
+                "promotionName": "99%",
+                "couponId": 91,
+                "status": "PAUSED",
                 "type": "RATE",
-                "maxDiscountPrice": 40000,
-                "discount": 30.0,
-                "startAt": "2018-04-03 15:00:00",
-                "endAt": "2018-04-05 23:59:00"
+                "maxDiscountPrice": 1000000,
+                "discount": 99.0,
+                "startAt": "2017-11-22 00:00:00",
+                "endAt": "2017-11-23 23:59:00"
               },
               {
-                "contractId": 63,
-                "vendorContractId": null,
-                "promotionName": null,
-                "couponId": 2245939,
-                "status": "APPLIED",
+                "vendorItemId": 53000439458,
+                "contractId": 7,
+                "promotionName": "자유계약 원피스 폭탄 세일 시즌 1",
+                "couponId": 65,
+                "status": "PAUSED",
                 "type": "RATE",
-                "maxDiscountPrice": 30000,
-                "discount": 20.0,
-                "startAt": "2018-04-02 18:37:00",
-                "endAt": "2018-04-05 23:59:00"
-              },
-              {
-                "contractId": 63,
-                "vendorContractId": null,
-                "promotionName": null,
-                "couponId": 2121942,
-                "status": "APPLIED",
-                "type": "RATE",
-                "maxDiscountPrice": 10000,
-                "discount": 5.0,
-                "startAt": "2018-03-30 00:01:00",
-                "endAt": "2018-04-06 23:59:00"
+                "maxDiscountPrice": 1000,
+                "discount": 10.0,
+                "startAt": "2017-09-22 00:00:00",
+                "endAt": "2017-09-23 23:59:00"
               }
             ],
-            "pagination": {
-              "currentPage": 1,
-              "countPerPage": 10,
-              "totalPages": 1,
-              "totalElements": 3
-            }
+            "pagination": null
           }
         },
     _description: ``,

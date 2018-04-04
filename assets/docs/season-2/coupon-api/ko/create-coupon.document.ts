@@ -19,13 +19,13 @@ export const  createCouponDocument = {
   },
   apiInfo: {
     state: `release`,      // draft, candidate, release, unstable, stable, deprecated
-    lastUpdateDate: `2017-08-30`, // yyyy-mm-dd  ex> 2016-12-23
+    lastUpdateDate: `2018-04-02`, // yyyy-mm-dd  ex> 2016-12-23
     developer: `Settlement`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `POST`,
-    path: `/v2/providers/fms/apis/api/v1/vendors/{vendorId}/coupons`,
-    HMACPath: `/v2/providers/fms/apis/api/v1/vendors/{vendorId}/coupons`,
-    _description: `계약에 기반한 신규 쿠폰 생성을 위한 API입니다. 본 API는 비동기방식으로 프로세스에 대한 요청 만을 수행하고 있어
+    path: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/coupons`,
+    HMACPath: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/coupons`,
+    _description: `계약아이디(contractId)에 기반한 신규 쿠폰 생성을 위한 API입니다. 본 API는 비동기방식으로 프로세스에 대한 요청 만을 수행하고 있어
 <br/>실제 API 수행 결과값은 응답으로 받은 "requestedId" 값을 가지고 요청상태 확인 API를 통해서 확인 가능합니다.`,
     _relation: ``,
     _referenceInfo: ``,
@@ -103,6 +103,16 @@ export const  createCouponDocument = {
         _description: `유효종료일`,
         _relation: ``,
         _referenceInfo: `종료일은 계약 기간을 넘을수 없으며, 해당연도의 12월31일 00:00:00까지 지정 가능`,
+        _warning: ``,
+        children: false
+      },
+     {
+        name: `type`,
+        type: `String`,
+        require: true,
+        _description: `할인방식`,
+        _relation: ``,
+        _referenceInfo: `RATE(정률할인), FIXED_WITH_QUANTITY(수량별 정액할인), PRICE(정액할인)`,
         _warning: ``,
         children: false
       },
@@ -201,7 +211,7 @@ export const  createCouponDocument = {
     },   
     {
       name: `data`,
-      type: `Array`,
+      type: `Object`,
       _description: `수행 성공 여부 데이터`,
       _relation: ``,
       _referenceInfo: ``,
@@ -217,7 +227,7 @@ export const  createCouponDocument = {
       },
         {
           name: `content`,
-          type: `Array`,
+          type: `Object`,
           _description: `처리 상태를 조회할 수 있는 요청아이디 데이터`,
           _relation: ``,
           _referenceInfo: ``,
@@ -241,67 +251,31 @@ export const  createCouponDocument = {
             children: false
           }]
          },
-        {
-          name: `Pagination`,
-          type: `Array`,
-          _description: `페이징`,
-          _relation: ``,
-          _referenceInfo: ``,
-          _warning: ``,
-          children: [
-            {
-                name: `countPerPage`,
-                type: `Number`,
-                _description: `페이지별 데이터 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 10, 20, 30`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `currentPage`,
-                type: `Number`,
-                _description: `현재 페이지`,
-                _relation: ``,
-                _referenceInfo: `예) 1`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `totalPages`,
-                type: `Number`,
-                _description: `토탈 페이지 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 1000`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `totalElements`,
-                type: `Number`,
-                _description: `전체 데이터 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 1000`,
-                _warning: ``,
-                children: false
-            },
-            ]
-          }
+	     {
+	          name: `Pagination`,
+	          type: `null`,
+	          _description: `페이징 없음`,
+	          _relation: ``,
+	          _referenceInfo: ``,
+	          _warning: ``,
+	          children: false
+         }
         ]
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/fms/apis/api/v1/vendors/A00000001/coupons`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/fms/apis/api/v2/vendors/A00000001/coupons`,
     code: [
       {
         language: `http`,
         codeblock: {
-                "contractId": "2",
-                "name": "신규 프로모션 생성",
-                "maxDiscountPrice": "10000",
-                "discount": "20",
-                "startAt": "2017-08-05 00:00:00",
-                "endAt": "2017-09-05 00:00:00"
+            "contractId": "10",
+            "name": "newCoupon 20180328",
+            "maxDiscountPrice": "1000",
+            "discount": "10",
+            "startAt": "2017-12-08 00:00:00",
+            "endAt": "2017-12-09 00:00:00",
+            "type": "PRICE"
         }
       }
     ],
@@ -314,12 +288,12 @@ export const  createCouponDocument = {
           "data": {
             "success": true,
             "content": {
-              "requestedId": "1542675975663862164",
+              "requestedId": "123543582159745830895",
               "success": true
             },
             "pagination": null
           }
-    },
+        },
     _description: ``,
     _relation: ``,
     _referenceInfo: ``,

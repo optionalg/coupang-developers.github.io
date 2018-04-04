@@ -273,6 +273,10 @@ export const processingExchangeProductInvoiceUploadDocument = {
                   <td>TWOFASTEXP</td>
                   <td>2FastsExpress</td>
                 </tr>
+                <tr>
+                  <td>ECMS</td>
+                  <td>ECMS익스프레스</td>
+                </tr>
               </table>
             `,
         _warning: ``,

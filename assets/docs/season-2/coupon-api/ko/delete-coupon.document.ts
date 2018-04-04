@@ -53,6 +53,8 @@ export const  deleteCouponDocument = {
             _warning: ``,
             children: false,
         },
+    ],
+    queryStringParameters: [
         {
             name: `action`,
             type: `String`,
@@ -63,7 +65,7 @@ export const  deleteCouponDocument = {
             _warning: ``,
             children: false,
         }
-    ],
+  ],
   },
   errorSpec: [
  ],
@@ -115,7 +117,7 @@ export const  deleteCouponDocument = {
     },   
     {
       name: `data`,
-      type: `Array`,
+      type: `Object`,
       require: false,
       _description: `수행 성공 여부 데이터`,
       _relation: ``,
@@ -132,7 +134,7 @@ export const  deleteCouponDocument = {
       },
         {
           name: `content`,
-          type: `Array`,
+          type: `Object`,
           require: true,
           _description: `처리 상태를 조회할 수 있는 요청아이디 데이터`,
           _relation: ``,
@@ -157,52 +159,15 @@ export const  deleteCouponDocument = {
             children: false
           }]
          },
-        {
-          name: `Pagination`,
-          type: `Array`,
-          _description: `페이징`,
-          _relation: ``,
-          _referenceInfo: ``,
-          _warning: ``,
-          children: [
-            {
-                name: `countPerPage`,
-                type: `Number`,
-                _description: `페이지별 데이터 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 10, 20, 30`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `currentPage`,
-                type: `Number`,
-                _description: `현재 페이지`,
-                _relation: ``,
-                _referenceInfo: `예) 1`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `totalPages`,
-                type: `Number`,
-                _description: `토탈 페이지 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 1000`,
-                _warning: ``,
-                children: false
-            },
-            {
-                name: `totalElements`,
-                type: `Number`,
-                _description: `전체 데이터 Count`,
-                _relation: ``,
-                _referenceInfo: `예) 1000`,
-                _warning: ``,
-                children: false
-            },
-            ]
-          }
+	     {
+	        name: `Pagination`,
+	        type: `null`,
+	        _description: `페이징 없음`,
+	        _relation: ``,
+	        _referenceInfo: ``,
+	        _warning: ``,
+	        children: false
+        }
         ]
     }
   ],

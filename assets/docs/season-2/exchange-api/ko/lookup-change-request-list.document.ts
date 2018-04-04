@@ -363,12 +363,86 @@ export const lookupChangeRequestListDocument = {
         {
           name: `reason`,
           type: `String`,
-          _description: `교환접수사유`,
+          _description: `교환접수사유 `,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: `더 이상 사용하지 않는 필드`,
+          children: false
+        },
+        {
+          name: `reasonCode`,
+          type: `String`,
+          _description: `교환사유코드`,
+          _relation: ``,
+          _referenceInfo: `
+                <table class="table">
+                    <tr>
+                        <th>reasonCode</th>
+                        <th>codeName</th>
+                        <th>reasonCodeText</th>
+                    </tr>
+                    <tr>
+                        <td>DEFECT</td>
+                        <td>결함</td>
+                        <td>불량 / 상품에 결함이 있음</td>
+                     </tr>
+                     <tr>
+                        <td>WRONGITEM</td>
+                        <td>오배송</td>
+                        <td>다른 상품이 배송 됨(오배송)</td>
+                     </tr>
+                     <tr>
+                        <td>OMISSION</td>
+                        <td>누락</td>
+                        <td>구성품 / 부속품 등이 누락됨</td>
+                    </tr>
+                    <tr>
+                        <td>OPTIONCHANGE</td>
+                        <td>옵션변경</td>
+                        <td>색상/사이즈 변경하고 싶음</td>
+                    </tr>
+                    <tr>
+                        <td>ETC</td>
+                        <td>기타</td>
+                        <td>기타</td>
+                    </tr>
+                    <tr>
+                        <td>BROKEN</td>
+                        <td>파손</td>
+                        <td>상품이 파손되어 배송됨</td>
+                    </tr>
+                    <tr>
+                        <td>ADDRESSCHANGE</td>
+                        <td>배송지변경</td>
+                        <td>배송지변경</td>
+                    </tr>
+                    <tr>
+                        <td>LOST</td>
+                        <td>상품분실</td>
+                        <td>상품 분실로 인한 미수령</td>
+                    </tr>
+                 </table>`,
+          _warning: ``,
+          children: false
+        },
+        {
+          name: `reasonCodeText`,
+          type: `String`,
+          _description: `교환사유설명`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
           children: false
         },
+        {
+          name: `reasonEtcDetail`,
+          type: `String`,
+          _description: `교환사유상세설명`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        },        
         {
           name: `cancelReason`,
           type: `String`,
@@ -1806,7 +1880,7 @@ export const lookupChangeRequestListDocument = {
     }
   ],
   sample: {
-    endpoint:`https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00127960/exchangeRequests?createdAtFrom=2017-09-23T00:00:00&createdAtTo=2017-09-26T23:59:59&status=PROGRESS`,
+    endpoint:`https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00000001/exchangeRequests?createdAtFrom=2018-03-05T00:00:00&createdAtTo=2018-03-10T23:59:59&status=PROGRESS`,
     code: [
       {
         language: `http`,
@@ -1814,288 +1888,298 @@ export const lookupChangeRequestListDocument = {
       }
     ],
     response: {
-      "code": 200,
-      "message": "OK",
-      "data": [
+  "code": 200,
+  "message": "OK",
+  "data": [
+    {
+      "exchangeId": 101268974,
+      "orderId": 11000013144262,
+      "vendorId": "A00127960",
+      "orderDeliveryStatusCode": "FINAL_DELIVERY",
+      "exchangeStatus": "PROGRESS",
+      "referType": "WEB_MOBILE",
+      "faultType": "VENDOR",
+      "exchangeAmount": 0,
+      "reason": null,
+      "reasonCode": "WRONGITEM",
+      "reasonCodeText": "다른 상품이 배송 됨(오배송)",
+      "reasonEtcDetail": "베이지색 주문했는데 브라운이 왔습니다",
+      "cancelReason": null,
+      "createdByType": "CUSTOMER",
+      "createdAt": "2018-03-05T10:54:41",
+      "modifiedByType": "TRACKING",
+      "modifiedAt": "2018-03-05T10:54:41",
+      "exchangeItemDtoV1s": [
         {
-          "exchangeId": 100702179,
-          "orderId": 6000009115059,
-          "vendorId": "A00127960",
-          "orderDeliveryStatusCode": "FINAL_DELIVERY",
-          "exchangeStatus": "PROGRESS",
-          "referType": "WEB_MOBILE",
-          "faultType": "VENDOR",
-          "exchangeAmount": 0,
-          "reason": null,
-          "cancelReason": null,
-          "createdByType": "CUSTOMER",
-          "createdAt": "2017-09-23T11:29:44",
-          "modifiedByType": "TRACKING",
-          "modifiedAt": "2017-09-23T11:29:44",
-          "exchangeItemDtoV1s": [
-            {
-              "exchangeItemId": 1142609,
-              "orderItemId": 3126500806,
-              "orderItemUnitPrice": 24950,
-              "orderItemName": null,
-              "orderPackageId": null,
-              "orderPackageName": null,
-              "targetItemId": 3126500806,
-              "targetItemUnitPrice": 24950,
-              "targetItemName": "로엠(ROEM) 케이프형 플라워 블라우스 RMBL724RQ4, (59)Navy, 85",
-              "targetPackageId": -1,
-              "targetPackageName": "",
-              "quantity": 1,
-              "orderItemDeliveryComplete": null,
-              "orderItemReturnComplete": null,
-              "targetItemDeliveryComplete": null,
-              "createdAt": "2017-09-23T11:29:44",
-              "modifiedAt": "2017-09-26T05:20:18",
-              "originalShipmentBoxId": 441950582
-            }
-          ],
-          "exchangeAddressDtoV1": {
-            "exchangeAddressId": 1124947,
-            "returnCustomerName": "홍*숙",
-            "returnAddressZipCode": "10909",
-            "returnAddress": "경기도 파주시 ** 43",
-            "returnAddressDetail": "현대드림모터스 ( 야당동 )",
-            "returnPhone": null,
-            "returnMobile": "01**0828",
-            "returnMemo": null,
-            "deliveryCustomerName": "홍*숙",
-            "deliveryAddressZipCode": "10909",
-            "deliveryAddress": "경기도 파주시 ** 43",
-            "deliveryAddressDetail": "현대드림모터스 ( 야당동 )",
-            "deliveryPhone": null,
-            "deliveryMobile": "01**0828",
-            "deliveryMemo": null,
-            "createdAt": "2017-09-23T11:29:44",
-            "modifiedAt": "2017-09-23T11:29:44",
-            "exchangeId": 100702179
-          },
-          "deliveryInvoiceGroupDtos": [
-            {
-              "shipmentBoxId": 444348642,
-              "boxPrice": 0,
-              "orderId": 6000009115059,
-              "orderType": "NORMAL",
-              "customerType": "regular",
-              "bundleType": null,
-              "extraMessage": null,
-              "shippingDeliveryType": null,
-              "deliveryInvoiceDtos": [
-                {
-                  "invoiceNumber": null,
-                  "estimatedDeliveryDate": "2017-10-12T14:59:59",
-                  "deliveredDate": null,
-                  "statusModifiedAt": "2017-09-26T05:26:12",
-                  "invoiceNumberUploadDate": null,
-                  "statusCode": "INSTRUCT",
-                  "deliverCode": "NONE",
-                  "isMainShipmentInvoice": false,
-                  "parcelType": null,
-                  "invoiceVendorItemDtos": [
-                    {
-                      "vendorItemId": 3126500806,
-                      "quantity": 1,
-                      "promiseDeliveryDate": "2017-10-12T14:59:59",
-                      "hasAdditionalItem": false,
-                      "estimatedShippingDate": "2017-10-11T14:59:59"
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "deliveryStatus": "CompleteDirection",
-          "collectStatus": "CompleteCollect",
-          "collectCompleteDate": "2017-09-26T05:20:18",
-          "collectInformationsDto": {
-            "returnType": "EXCHANGE_RETURN",
-            "expectedReturnDate": "2017-09-28T11:29:44",
-            "returndeliveryItemDtos": [
-              {
-                "vendorItemId": 3126500806,
-                "statusCode": "RETURN_SEND_READY",
-                "returnCount": null,
-                "releaseStatus": "RELEASED",
-                "paymentReturnDeliveryMapId": 25863897,
-                "paymentItemId": 1,
-                "modifiedBy": "108105925",
-                "moodifiedAt": "2017-09-23T11:29:44",
-                "createdBy": "108105925",
-                "createdAt": "2017-09-23T11:29:44",
-                "count": 1,
-                "confirmType": null,
-                "collectStatus": "RETURN"
-              }
-            ],
-            "returndeliveryDestinationDto": {
-              "vendorZipCode": "312-14",
-              "vendorPhone": "1899-6500",
-              "vendorName": "(주)**몰)",
-              "vendorMobile": "",
-              "vendorAddressDetail": "**통합 물류센터 지하1층",
-              "vendorAddress": "충청남도 천안시 동남구 풍세면 풍세산단3로 111 ()",
-              "safetyNumberStatus": "ENABLE",
-              "safetyNumberId": 180575619,
-              "safetyNumber": "05025852098",
-              "returnDeliveryId": null,
-              "returnCenterCode": "1000276167",
-              "receiptId": null,
-              "orderedByMobile": null,
-              "orderId": 6000009115059,
-              "message": null,
-              "customerZipCode": "109-09",
-              "customerPhone": "01043170828",
-              "customerName": "홍*숙",
-              "customerMobile": "01043170828",
-              "customerAddressDetail": "현대드림모터스 ( 야당동 )",
-              "customerAddress": "경기도 파주시 ** 43"
-            }
-          },
-          "returnDeliveryDtos": [
-            {
-              "deliveryCompanyCode": "CJGLS",
-              "deliveryInvoiceNo": "840833901655"
-            }
-          ],
-          "successable": false,
-          "orderDeliveryStatusLabel": "FINAL_DELIVERY",
-          "exchangeStatusLabel": "PROGRESS",
-          "referTypeLabel": "WEB_MOBILE",
-          "faultTypeLabel": "VENDOR",
-          "createdByTypeLabel": "CUSTOMER",
-          "modifiedByTypeLabel": "CUSTOMER",
-          "deliveryInvoiceModifiable": false,
-          "rejectable": false
-        },
-        {
-          "exchangeId": 100702705,
-          "orderId": 32000009025336,
-          "vendorId": "A00127960",
-          "orderDeliveryStatusCode": "FINAL_DELIVERY",
-          "exchangeStatus": "PROGRESS",
-          "referType": "WEB_MOBILE",
-          "faultType": "VENDOR",
-          "exchangeAmount": 0,
-          "reason": null,
-          "cancelReason": null,
-          "createdByType": "CUSTOMER",
-          "createdAt": "2017-09-24T02:10:15",
-          "modifiedByType": "TRACKING",
-          "modifiedAt": "2017-09-24T02:10:15",
-          "exchangeItemDtoV1s": [
-            {
-              "exchangeItemId": 1143145,
-              "orderItemId": 3186090527,
-              "orderItemUnitPrice": 9900,
-              "orderItemName": null,
-              "orderPackageId": null,
-              "orderPackageName": null,
-              "targetItemId": 3186090527,
-              "targetItemUnitPrice": 9900,
-              "targetItemName": "후아유(WHO.A.U) 공용 프린팅 오버핏 맨투맨 (printing overfit mtm), (62)Hunter, LARGE (US:M)",
-              "targetPackageId": -1,
-              "targetPackageName": "",
-              "quantity": 1,
-              "orderItemDeliveryComplete": null,
-              "orderItemReturnComplete": null,
-              "targetItemDeliveryComplete": null,
-              "createdAt": "2017-09-24T02:10:15",
-              "modifiedAt": "2017-09-24T02:10:15",
-              "originalShipmentBoxId": 442465568
-            }
-          ],
-          "exchangeAddressDtoV1": {
-            "exchangeAddressId": 1125473,
-            "returnCustomerName": "김*자",
-            "returnAddressZipCode": "12798",
-            "returnAddress": "경기도 광주시 오포읍 **맨션",
-            "returnAddressDetail": "1동 402호",
-            "returnPhone": null,
-            "returnMobile": "010**5930",
-            "returnMemo": null,
-            "deliveryCustomerName": "김*자",
-            "deliveryAddressZipCode": "12798",
-            "deliveryAddress": "경기도 광주시 오포읍 **맨션",
-            "deliveryAddressDetail": "1동 402호",
-            "deliveryPhone": null,
-            "deliveryMobile": "01***930",
-            "deliveryMemo": null,
-            "createdAt": "2017-09-24T02:10:15",
-            "modifiedAt": "2017-09-24T02:10:15",
-            "exchangeId": 100702705
-          },
-          "deliveryInvoiceGroupDtos": [
-            
-          ],
-          "deliveryStatus": "BeforeDirection",
-          "collectStatus": "Collecting",
-          "collectCompleteDate": null,
-          "collectInformationsDto": {
-            "returnType": "EXCHANGE_RETURN",
-            "expectedReturnDate": "2017-09-28T02:10:15",
-            "returndeliveryItemDtos": [
-              {
-                "vendorItemId": 3186090527,
-                "statusCode": "RETURN_SEND_READY",
-                "returnCount": null,
-                "releaseStatus": "RELEASED",
-                "paymentReturnDeliveryMapId": 25868489,
-                "paymentItemId": 1,
-                "modifiedBy": "108300735",
-                "moodifiedAt": "2017-09-24T02:10:15",
-                "createdBy": "108300735",
-                "createdAt": "2017-09-24T02:10:15",
-                "count": 1,
-                "confirmType": null,
-                "collectStatus": "RETURN"
-              }
-            ],
-            "returndeliveryDestinationDto": {
-              "vendorZipCode": "312-14",
-              "vendorPhone": "1899-6500",
-              "vendorName": "(주)***몰)",
-              "vendorMobile": "",
-              "vendorAddressDetail": "****통합 물류센터 지하1층",
-              "vendorAddress": "충청남도 천안시 동남구 풍세면 풍세산단3로 111 ()",
-              "safetyNumberStatus": "ENABLE",
-              "safetyNumberId": 180716150,
-              "safetyNumber": "05024731339",
-              "returnDeliveryId": null,
-              "returnCenterCode": "1000276167",
-              "receiptId": null,
-              "orderedByMobile": null,
-              "orderId": 32000009025336,
-              "message": null,
-              "customerZipCode": "127-98",
-              "customerPhone": "0***930",
-              "customerName": "김*자",
-              "customerMobile": "01****930",
-              "customerAddressDetail": "1동 402호",
-              "customerAddress": "경기도 광주시 오포읍 **맨션"
-            }
-          },
-          "returnDeliveryDtos": [
-            {
-              "deliveryCompanyCode": "CJGLS",
-              "deliveryInvoiceNo": "611373805580"
-            }
-          ],
-          "successable": false,
-          "orderDeliveryStatusLabel": "FINAL_DELIVERY",
-          "exchangeStatusLabel": "PROGRESS",
-          "referTypeLabel": "WEB_MOBILE",
-          "faultTypeLabel": "VENDOR",
-          "createdByTypeLabel": "CUSTOMER",
-          "modifiedByTypeLabel": "CUSTOMER",
-          "deliveryInvoiceModifiable": false,
-          "rejectable": false
+          "exchangeItemId": 1765111,
+          "orderItemId": 3476137875,
+          "orderItemUnitPrice": 35900,
+          "orderItemName": null,
+          "orderPackageId": null,
+          "orderPackageName": null,
+          "targetItemId": 3476137875,
+          "targetItemUnitPrice": 35900,
+          "targetItemName": "후아유(WHO.A.U) 벙커Ⅰ 레터 백팩 / WHAK82104C, (35)Beige, FREE",
+          "targetPackageId": -1,
+          "targetPackageName": "",
+          "quantity": 1,
+          "orderItemDeliveryComplete": null,
+          "orderItemReturnComplete": null,
+          "targetItemDeliveryComplete": null,
+          "createdAt": "2018-03-05T10:54:41",
+          "modifiedAt": "2018-03-05T10:54:41",
+          "originalShipmentBoxId": 519998364
         }
       ],
-      "nextToken": ""
+      "exchangeAddressDtoV1": {
+        "exchangeAddressId": 1691712,
+        "returnCustomerName": "이***",
+        "returnAddressZipCode": "431-0*",
+        "returnAddress": "경기도 안양시 동안구 평촌동",
+        "returnAddressDetail": "꿈마을건영아파트 *",
+        "returnPhone": null,
+        "returnMobile": "010-****-****",
+        "returnMemo": null,
+        "deliveryCustomerName": "이인용",
+        "deliveryAddressZipCode": "431-0*",
+        "deliveryAddress": "경기도 안양시 동안구 평촌동",
+        "deliveryAddressDetail": "꿈마을건영아파트 *",
+        "deliveryPhone": null,
+        "deliveryMobile": "010-****-****",
+        "deliveryMemo": null,
+        "createdAt": "2018-03-05T10:54:41",
+        "modifiedAt": "2018-03-05T10:54:41",
+        "exchangeId": 101268974
+      },
+      "deliveryInvoiceGroupDtos": [
+        
+      ],
+      "deliveryStatus": "BeforeDirection",
+      "collectStatus": "Collecting",
+      "collectCompleteDate": null,
+      "collectInformationsDto": {
+        "returnType": "EXCHANGE_RETURN",
+        "expectedReturnDate": "2018-03-08T10:54:41",
+        "returndeliveryItemDtos": [
+          {
+            "vendorItemId": 3476137875,
+            "statusCode": "RETURN_SEND_READY",
+            "returnCount": null,
+            "releaseStatus": "RELEASED",
+            "paymentReturnDeliveryMapId": 29713264,
+            "paymentItemId": 1,
+            "modifiedBy": "104132490",
+            "moodifiedAt": "2018-03-05T10:54:41",
+            "createdBy": "104132490",
+            "createdAt": "2018-03-05T10:54:41",
+            "count": 1,
+            "confirmType": null,
+            "collectStatus": "RETURN"
+          }
+        ],
+        "returndeliveryDestinationDto": {
+          "vendorZipCode": "312-14",
+          "vendorPhone": "1899-6500",
+          "vendorName": "(주)*몰)",
+          "vendorMobile": "",
+          "vendorAddressDetail": "** 물류센터 지하1층",
+          "vendorAddress": "충청남도 천안시 동남구 풍세면 * ()",
+          "safetyNumberStatus": "DISABLE",
+          "safetyNumberId": 245668944,
+          "safetyNumber": "050382470825",
+          "returnDeliveryId": null,
+          "returnCenterCode": "1000276167",
+          "receiptId": null,
+          "orderedByMobile": null,
+          "orderId": 11000013144262,
+          "message": null,
+          "customerZipCode": "14101",
+          "customerPhone": "010*",
+          "customerName": "이**",
+          "customerMobile": "010*",
+          "customerAddressDetail": "꿈마을건영아파트 *",
+          "customerAddress": "경기도 안양시 동안구 평촌동"
+        }
+      },
+      "returnDeliveryDtos": [
+        {
+          "deliveryCompanyCode": "CJGLS",
+          "deliveryInvoiceNo": ""
+        }
+      ],
+      "orderDeliveryStatusLabel": "FINAL_DELIVERY",
+      "exchangeStatusLabel": "PROGRESS",
+      "referTypeLabel": "WEB_MOBILE",
+      "faultTypeLabel": "VENDOR",
+      "createdByTypeLabel": "CUSTOMER",
+      "rejectable": false,
+      "modifiedByTypeLabel": "CUSTOMER",
+      "deliveryInvoiceModifiable": false,
+      "successable": false
+    },
+    {
+      "exchangeId": 101284720,
+      "orderId": 3000013258427,
+      "vendorId": "A00127960",
+      "orderDeliveryStatusCode": "FINAL_DELIVERY",
+      "exchangeStatus": "PROGRESS",
+      "referType": "WEB_MOBILE",
+      "faultType": "VENDOR",
+      "exchangeAmount": 0,
+      "reason": null,
+      "reasonCode": "OMISSION",
+      "reasonCodeText": "구성품 / 부속품 등이 누락됨",
+      "reasonEtcDetail": "배송되지 않았어요 확인해주세요",
+      "cancelReason": null,
+      "createdByType": "CUSTOMER",
+      "createdAt": "2018-03-08T16:42:11",
+      "modifiedByType": "TRACKING",
+      "modifiedAt": "2018-03-08T16:42:11",
+      "exchangeItemDtoV1s": [
+        {
+          "exchangeItemId": 1784732,
+          "orderItemId": 3288964806,
+          "orderItemUnitPrice": 4900,
+          "orderItemName": null,
+          "orderPackageId": null,
+          "orderPackageName": null,
+          "targetItemId": 3288964806,
+          "targetItemUnitPrice": 4900,
+          "targetItemName": "펠릭스키즈 펠릭스 시그니쳐 맨투맨 FXMS178N3, 30 YELLOW, 100호",
+          "targetPackageId": -1,
+          "targetPackageName": "",
+          "quantity": 1,
+          "orderItemDeliveryComplete": null,
+          "orderItemReturnComplete": null,
+          "targetItemDeliveryComplete": null,
+          "createdAt": "2018-03-08T16:42:11",
+          "modifiedAt": "2018-03-08T16:42:11",
+          "originalShipmentBoxId": 522552456
+        },
+        {
+          "exchangeItemId": 1784733,
+          "orderItemId": 3288975565,
+          "orderItemUnitPrice": 4900,
+          "orderItemName": null,
+          "orderPackageId": null,
+          "orderPackageName": null,
+          "targetItemId": 3288975565,
+          "targetItemUnitPrice": 4900,
+          "targetItemName": "펠릭스키즈 펠릭스 시그니쳐 맨투맨 FXMS178N3, 30 YELLOW, 120호",
+          "targetPackageId": -1,
+          "targetPackageName": "",
+          "quantity": 1,
+          "orderItemDeliveryComplete": null,
+          "orderItemReturnComplete": null,
+          "targetItemDeliveryComplete": null,
+          "createdAt": "2018-03-08T16:42:11",
+          "modifiedAt": "2018-03-08T16:42:11",
+          "originalShipmentBoxId": 522552456
+        }
+      ],
+      "exchangeAddressDtoV1": {
+        "exchangeAddressId": 1707458,
+        "returnCustomerName": "김혜은",
+        "returnAddressZipCode": "18488",
+        "returnAddress": "경기도 화성시 동탄면 동탄대로9길 20",
+        "returnAddressDetail": "Lh26단지 *",
+        "returnPhone": null,
+        "returnMobile": "010-****-****",
+        "returnMemo": null,
+        "deliveryCustomerName": "김**",
+        "deliveryAddressZipCode": "18488",
+        "deliveryAddress": "경기도 화성시 동탄면 동탄대로9길 20",
+        "deliveryAddressDetail": "Lh26단지 *",
+        "deliveryPhone": null,
+        "deliveryMobile": "010-****-****",
+        "deliveryMemo": null,
+        "createdAt": "2018-03-08T16:42:11",
+        "modifiedAt": "2018-03-08T16:42:11",
+        "exchangeId": 101284720
+      },
+      "deliveryInvoiceGroupDtos": [
+        
+      ],
+      "deliveryStatus": "BeforeDirection",
+      "collectStatus": "Collecting",
+      "collectCompleteDate": null,
+      "collectInformationsDto": {
+        "returnType": "EXCHANGE_RETURN",
+        "expectedReturnDate": "2018-03-13T16:42:11",
+        "returndeliveryItemDtos": [
+          {
+            "vendorItemId": 3288975565,
+            "statusCode": "RETURN_SEND_READY",
+            "returnCount": null,
+            "releaseStatus": "RELEASED",
+            "paymentReturnDeliveryMapId": 29829105,
+            "paymentItemId": 1,
+            "modifiedBy": "56373890",
+            "moodifiedAt": "2018-03-08T16:42:11",
+            "createdBy": "56373890",
+            "createdAt": "2018-03-08T16:42:11",
+            "count": 1,
+            "confirmType": null,
+            "collectStatus": "RETURN"
+          },
+          {
+            "vendorItemId": 3288964806,
+            "statusCode": "RETURN_SEND_READY",
+            "returnCount": null,
+            "releaseStatus": "RELEASED",
+            "paymentReturnDeliveryMapId": 29829106,
+            "paymentItemId": 1,
+            "modifiedBy": "56373890",
+            "moodifiedAt": "2018-03-08T16:42:11",
+            "createdBy": "56373890",
+            "createdAt": "2018-03-08T16:42:11",
+            "count": 1,
+            "confirmType": null,
+            "collectStatus": "RETURN"
+          }
+        ],
+        "returndeliveryDestinationDto": {
+          "vendorZipCode": "312-14",
+          "vendorPhone": "1899-6500",
+          "vendorName": "(주)**몰)",
+          "vendorMobile": "010-9203-8248",
+          "vendorAddressDetail": "**물류센터 4층 이커머스BD",
+          "vendorAddress": "충청남도 천안시 동남구 *()",
+          "safetyNumberStatus": "ENABLE",
+          "safetyNumberId": 247397194,
+          "safetyNumber": "0502987****",
+          "returnDeliveryId": null,
+          "returnCenterCode": "1000274320",
+          "receiptId": null,
+          "orderedByMobile": null,
+          "orderId": 3000013258427,
+          "message": null,
+          "customerZipCode": "18488",
+          "customerPhone": "010********",
+          "customerName": "김혜은",
+          "customerMobile": "010********",
+          "customerAddressDetail": "Lh26단지 ***",
+          "customerAddress": "경기도 화성시 동탄면 동탄대로9길 20"
+        }
+      },
+      "returnDeliveryDtos": [
+        {
+          "deliveryCompanyCode": "CJGLS",
+          "deliveryInvoiceNo": ""
+        }
+      ],
+      "orderDeliveryStatusLabel": "FINAL_DELIVERY",
+      "exchangeStatusLabel": "PROGRESS",
+      "referTypeLabel": "WEB_MOBILE",
+      "faultTypeLabel": "VENDOR",
+      "createdByTypeLabel": "CUSTOMER",
+      "rejectable": false,
+      "modifiedByTypeLabel": "CUSTOMER",
+      "deliveryInvoiceModifiable": false,
+      "successable": false
+    }
+  ],
+  "nextToken": ""
 },
     _description: ``,
     _relation: ``,

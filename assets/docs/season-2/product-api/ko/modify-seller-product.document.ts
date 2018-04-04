@@ -363,6 +363,10 @@ export const modifySellerProductDocument = {
                   <td>TWOFASTEXP</td>
                   <td>2FastsExpress</td>
                 </tr>
+                <tr>
+                  <td>ECMS</td>
+                  <td>ECMS익스프레스</td>
+                </tr>
               </table>
             `,
         _warning: ``,
@@ -1336,7 +1340,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
             require: false,
             _description: `구비서류 쿠팡CDN경로`,
             _relation: ``,
-            _referenceInfo: `documentPath 와 vendorDocumentPath 중 하나 필수`,
+            _referenceInfo: `documentPath 와 vendorDocumentPath 중 하나 필수<br>최대 길이 : 150자`,
             _warning: ``,
             children: false
           }
@@ -1347,7 +1351,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
             require: false,
             _description: `구비서류벤더경로`,
             _relation: ``,
-            _referenceInfo: `구비서류 경로, http://로 시작하는 경로일 경우 자동 다운로드하여 쿠팡 CDN에 추가됨. documentPath 와 vendorDocumentPath 중 하나 필수`,
+            _referenceInfo: `구비서류 경로, http://로 시작하는 경로일 경우 자동 다운로드하여 쿠팡 CDN에 추가됨. documentPath 와 vendorDocumentPath 중 하나 필수<br>최대 길이 : 150자`,
             _warning: ``,
             children: false
           }

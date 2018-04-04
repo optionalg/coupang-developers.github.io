@@ -1,12 +1,12 @@
-export const  lookupBudgetStatusDocument = {
+export const  lookupContractListDocument = {
   note: ``,
 
   //don't modify documentInfo
   documentInfo: {
     category: `coupon-api`,   // input category ex) exchange-service-api
-    id: `lookup-budget-status`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
-    anchorId: `lookup_budget_status`,
-    name: `예산현황 조회`,       // use display name, i will change 'translation key'
+    id: `lookup-contract-list`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
+    anchorId: `lookup-contract-list`,
+    name: `계약서 목록 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -23,10 +23,9 @@ export const  lookupBudgetStatusDocument = {
     developer: `Settlement`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `GET`,
-    path: `/v2/providers/fms/apis/api/v1/vendors/{vendorId}/budgets`,
-    HMACPath: `/v2/providers/fms/apis/api/v1/vendors/{vendorId}/budgets`,
-    _description: `현재 설정된 모든 계약의 쿠폰 예산을 조회하기 위한 API입니다.
-<br/>쿠폰의 사용을 위한 예산은 각각의 계약 조건에 따라 각 월별로 설정이 되기에 계약 및 조회를 원하는 월별로  조회가 가능합니다.`,
+    path: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/contract/list`,
+    HMACPath: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/contract/list`,
+    _description: `현재 설정된 모든 계약의 목록을 조회하기 위한 API로 계약기반(CONTRACT_BASED)과 자유계약기반(NON_CONTRACT_BASED) 타입 모두 조회됩니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -41,26 +40,6 @@ export const  lookupBudgetStatusDocument = {
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
-            children: false,
-        },
-        {
-            name: `contractId`,
-            type: `Number`,
-            require: false,
-            _description: `업체의 계약서 아이디`,
-            _relation: ``,
-            _referenceInfo: ``,
-            _warning: ``,
-            children: false,
-        },
-        {
-            name: `targetMonth`,
-            type: `String`,
-            require: false,
-            _description: `조회하고자 하는 예산월 `,
-            _relation: ``,
-            _referenceInfo: `yyyy-MM`,
-            _warning: `contractId와 targetMonth를 입력하지 않으면 조회하는 해당월에 해당하는 모든 계약이 조회됨.`,
             children: false,
         }
     ],
@@ -117,7 +96,7 @@ export const  lookupBudgetStatusDocument = {
     {
       name: `data`,
       type: `Array`,
-      _description: `예산 현황 리스트 데이터`,
+      _description: `계약서 목록 데이터`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -133,7 +112,7 @@ export const  lookupBudgetStatusDocument = {
         {
           name: `content`,
           type: `Array`,
-          _description: `예산현황 리스트`,
+          _description: `계약서 목록`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -147,38 +126,101 @@ export const  lookupBudgetStatusDocument = {
             children: false
           },
           {
-            name: `targetMonth`,
-            type: `String`,
-            _description: `조회하고자 하는 예산월`,
+            name: `vendorContractId`,
+            type: `Number`,
+            _description: `업체의 계약서 코드(쿠팡 관리 코드)`,
             _relation: ``,
-            _referenceInfo: `예) 2017-08`,
+            _referenceInfo: `예) -1, 1, 2`,
             _warning: ``,
             children: false
           },
           {
-            name: `vendorShareRatio`,
+            name: `sellerId`,
+            type: `String`,
+            _description: `업체 ID`,
+            _relation: ``,
+            _referenceInfo: `예) A00013264`,
+            _warning: ``,
+            children: false
+          },          
+          {
+            name: `sellerShareRatio`,
             type: `Number`,
-            _description: `분담율(%) : 해당 계약서에 명시된 쿠팡과의 분담율`,
+            _description: `해당 계약서에 명시된 업체 분담율(%)`,
             _relation: ``,
             _referenceInfo: `예) 100.0`,
             _warning: ``,
             children: false
           },
-         {
-            name: `totalBudgetAmount`,
+          {
+            name: `coupangShareRatio`,
             type: `Number`,
-            _description: `해당월의 설정된 총 예산`,
+            _description: `해당 계약서에 명시된 쿠팡 분담율(%)`,
             _relation: ``,
-            _referenceInfo: `예) 1000000`,
+            _referenceInfo: `예) 100.0`,
             _warning: ``,
             children: false
           },
-         {
-            name: `usedBudgetAmount`,
+          {
+            name: `gmvRatio`,
             type: `Number`,
-            _description: `해당월의 사용된 예산`,
+            _description: `월별 매출 비율, 월별 예산을 쿠팡에서의 매출을 기반으로 자동 생성`,
             _relation: ``,
-            _referenceInfo: `예) 50.00`,
+            _referenceInfo: `예) 100.0`,
+            _warning: ``,
+            children: false
+          },
+          {
+            name: `start`,
+            type: `String`,
+            _description: `시작일시`,
+            _relation: ``,
+            _referenceInfo: `예) 2018-01-22 00:00:00`,
+            _warning: ``,
+            children: false
+          },
+          {
+            name: `end`,
+            type: `String`,
+            _description: `종료일시`,
+            _relation: ``,
+            _referenceInfo: `예) 2018-12-31 23:59:59`,
+            _warning: ``,
+            children: false
+          },         
+         {
+            name: `type`,
+            type: `String`,
+            _description: `계약 유형`,
+            _relation: ``,
+            _referenceInfo: `예) CONTRACT_BASED, NON_CONTRACT_BASED`,
+            _warning: ``,
+            children: false
+         }, 
+         {
+	        name: `usedBudget`,
+	        type: `Boolean`,
+	        _description: `예산제한 사용 여부`,
+	        _relation: ``,
+	        _referenceInfo: `예) true, false`,
+	        _warning: `현재는 사용되지 않는 필드이며 true가 기본값입니다.`,
+	        children: false
+	    },
+        {
+            name: `modifiedAt`,
+            type: `String`,
+            _description: `최종 수정 일시`,
+            _relation: ``,
+            _referenceInfo: `예) 2017-09-25 11:40:01`,
+            _warning: ``,
+            children: false
+         },          
+         {
+            name: `modifiedBy`,
+            type: `String`,
+            _description: `최종 수정자 ID`,
+            _relation: ``,
+            _referenceInfo: ``,
             _warning: ``,
             children: false
           },
@@ -234,7 +276,7 @@ export const  lookupBudgetStatusDocument = {
     }   
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/fms/apis/api/v1/vendors/A00000001/budgets?contractId=2&targetMonth=2017-08`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/fms/apis/api/v2/vendors/{vendorId}/contract/list`,
     code: [
       {
         language: `http`,
@@ -242,25 +284,60 @@ export const  lookupBudgetStatusDocument = {
       }
     ],
     response: {
-          "code": 200,
-          "message": "OK",
-          "httpStatus": 200,
-          "httpStatusMessage": "OK",
-          "errorMessage": "",
-          "data": {
-            "success": true,
-            "content": [
-              {
-                "contractId": 2,
-                "targetMonth": "2017-08",
-                "vendorShareRatio": 100.0,
-                "totalBudgetAmount": 1000000,
-                "usedBudgetAmount": 50.00
-              }
-            ],
-            "pagination": null
-          }
-    },
+    	  "code": 200,
+    	  "message": "OK",
+    	  "httpStatus": 200,
+    	  "httpStatusMessage": "OK",
+    	  "errorMessage": "",
+    	  "data": {
+    	    "success": true,
+    	    "content": [
+    	      {
+    	        "contractId": 1,
+    	        "vendorContractId": 2,
+    	        "sellerId": "A00013264",
+    	        "sellerShareRatio": 100.0,
+    	        "coupangShareRatio": 0.0,
+    	        "gmvRatio": 10,
+    	        "start": "2017-03-01 00:00:00",
+    	        "end": "2017-12-31 23:59:59",
+    	        "type": "CONTRACT_BASED",
+    	        "useBudget": true,
+    	        "modifiedAt": "2017-09-21 10:57:07",
+    	        "modifiedBy": "pronimance"
+    	      },
+    	      {
+    	        "contractId": 15,
+    	        "vendorContractId": -1,
+    	        "sellerId": "A00013264",
+    	        "sellerShareRatio": 100.0,
+    	        "coupangShareRatio": 0.0,
+    	        "gmvRatio": 0,
+    	        "start": "2017-09-25 11:40:01",
+    	        "end": "2999-12-31 23:59:59",
+    	        "type": "NON_CONTRACT_BASED",
+    	        "useBudget": true,
+    	        "modifiedAt": "2017-09-25 11:40:01",
+    	        "modifiedBy": "bcho"
+    	      },
+    	      {
+    	        "contractId": 9962,
+    	        "vendorContractId": 7,
+    	        "sellerId": "A00013264",
+    	        "sellerShareRatio": 100.0,
+    	        "coupangShareRatio": 0.0,
+    	        "gmvRatio": 100,
+    	        "start": "2018-01-22 00:00:00",
+    	        "end": "2018-12-31 23:59:59",
+    	        "type": "CONTRACT_BASED",
+    	        "useBudget": true,
+    	        "modifiedAt": "2018-01-22 16:07:10",
+    	        "modifiedBy": "allie"
+    	      }
+    	    ],
+    	    "pagination": null
+    	  }
+    	},
     _description: ``,
     _relation: ``,
     _referenceInfo: ``,
