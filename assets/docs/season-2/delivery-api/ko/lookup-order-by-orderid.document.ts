@@ -1,12 +1,12 @@
-export const lookupOrderBookDocument = {
+export const lookupOrderDocumentByorderId = {
   note: ``,
 
   //don't modify documentInfo
   documentInfo: {
     category: `delivery-api`,   // input category ex) exchange-service-api
-    id: `lookup-order-book`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
-    anchorId: `lookup_order_book`,
-    name: `발주서 단건 조회(shipmentBoxId)`,       // use display name, i will change 'translation key'
+    id: `lookup-order-by-orderid`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
+    anchorId: `lookup-order-by-orderid`,
+    name: `발주서 단건 조회(orderId)`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: `2017-02-09`, // yyyy-mm-dd  ex> 2016-12-23
@@ -24,34 +24,12 @@ export const lookupOrderBookDocument = {
     developer: `Wiv`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `GET`,
-    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets/{shipmentBoxId}`,
-    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets/{shipmentBoxId}`,
-    _description: `shipmentBoxId를 이용하여 발주서 단건을 조회하는 API입니다.`,
+    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/{orderId}/ordersheets`,
+    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/{orderId}/ordersheets`,
+    _description: `orderId를 이용하여 발주서 단건을 조회하는 API입니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `v2 version과 v4 version의 조회결과가 동일하지 않습니다. v4 version에만 추가된 항목들이 있으니 아래 Response Spec을 참조하시기 바랍니다.`
-  },
-  apiMigrationInfo: {
-    previousVersions: [
-      {
-        apiName: `배송상태 변경 히스토리 조회`,
-        path: `/v2/providers/wing_api/apis/internal-api/v2/ordersheets/{shipmentBoxId}`,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      },
-    ],
-    nextVersions: [
-      {
-        apiName: ``,
-        path: ``,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      }
-    ]
+    _warning: ``
   },
   parameters: {
     pathSegmentParameters: [
@@ -64,12 +42,12 @@ export const lookupOrderBookDocument = {
         _warning: ``
       },
       {
-        name: `shipmentBoxId`,
+        name: `orderId`,
         require: true,
-        _description: `shipmentBoxId`,
+        _description: `orderId`,
         _relation: `본 파라미터는 발주서 목록 조회 분단위 및 일단위를 통해 조회한 발주서 정보에 포함되어 있습니다.`,
         _referenceInfo: ``,
-        _warning: `shipmentBoxId는 Number type입니다.`
+        _warning: `orderId는 Number type입니다.`
       }
     ],
     queryStringParameters: false,
@@ -453,7 +431,7 @@ export const lookupOrderBookDocument = {
               _description: `상품별 개별 입력 항목에 대한 사용자의 입력값 리스트`,
               _relation: ``,
               _referenceInfo: `optional`,
-              _warning: `v4 version으로만 조회가능`,
+              _warning: ``,
               children: false
              },            
             {
@@ -550,7 +528,7 @@ export const lookupOrderBookDocument = {
               _description: `최저가 상품 여부`,
               _relation: ``,
               _referenceInfo: `true/false`,
-              _warning: `v4 version으로만 조회가능`,
+              _warning: ``,
               children: false
             }, {
               name: `usedProduct`,
@@ -558,7 +536,7 @@ export const lookupOrderBookDocument = {
               _description: `중고 상품 여부`,
               _relation: ``,
               _referenceInfo: `true/false`,
-              _warning: `v4 version으로만 조회가능`,
+              _warning: ``,
               children: false
             }, {
                 name: `confirmDate`,
@@ -566,7 +544,7 @@ export const lookupOrderBookDocument = {
                 _description: `구매확정일자`,
                 _relation: ``,
                 _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
-                _warning: `v4 version으로만 조회가능`,
+                _warning: ``,
                 children: false
             }, {
                 name: `deliveryChargeTypeName`,
@@ -574,7 +552,7 @@ export const lookupOrderBookDocument = {
                 _description: `배송비구분`,
                 _relation: ``,
                 _referenceInfo: `유료, 무료`,
-                _warning: `v4 version으로만 조회가능`,
+                _warning: ``,
                 children: false
             }, {
               name: `canceled`,
@@ -631,7 +609,7 @@ export const lookupOrderBookDocument = {
             _description: `택배사`,
             _relation: ``,
             _referenceInfo: `CJ 대한통운,한진택배`,
-            _warning: `v4 version으로만 조회가능`,
+            _warning: ``,
             children: false
           },
           {
@@ -640,7 +618,7 @@ export const lookupOrderBookDocument = {
             _description: `운송장번호`,
             _relation: ``,
             _referenceInfo: ``,
-            _warning: `v4 version으로만 조회가능`,
+            _warning: ``,
             children: false
           },
           {
@@ -649,7 +627,7 @@ export const lookupOrderBookDocument = {
             _description: `출고일(발송일)`,
             _relation: ``,
             _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
-            _warning: `v4 version으로만 조회가능`,
+            _warning: ``,
             children: false
           },
           {
@@ -658,7 +636,7 @@ export const lookupOrderBookDocument = {
               _description: `배송완료일`,
               _relation: ``,
               _referenceInfo: `yyyy-MM-dd HH:mm:ss`,
-              _warning: `v4 version으로만 조회가능`,
+              _warning: ``,
               children: false
             },
             {
@@ -667,7 +645,7 @@ export const lookupOrderBookDocument = {
                 _description: `결제위치`,
                 _relation: ``,
                 _referenceInfo: `아이폰앱,안드로이드앱,PC웹`,
-                _warning: `v4 version으로만 조회가능`,
+                _warning: ``,
                 children: false
              }
         ///////////////////////////////////  
@@ -675,7 +653,7 @@ export const lookupOrderBookDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00000001/ordersheets/102392001`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00013264/500000596/ordersheets`,
     code: [
       {
         language: `http`,

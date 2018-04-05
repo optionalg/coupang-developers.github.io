@@ -1,6 +1,7 @@
 import {lookupOrderListPerDayDocument} from "./ko/lookup-order-list-per-day.document";
 import {lookupOrderListPerMinuteDocument} from "./ko/lookup-order-list-per-minute.document";
 import {lookupOrderBookDocument} from "./ko/lookup-order-book.document";
+import {lookupOrderDocumentByorderId} from "./ko/lookup-order-by-orderid.document";
 import {lookupDeliveryModifyHistoryDocument} from "./ko/lookup-delivery-modify-history.document";
 import {productPreparationProcessingDocument} from "./ko/product-preparation-processing.document";
 import {invoiceUploadProcessingDocument} from "./ko/invoice-upload-processing.document";
@@ -16,6 +17,7 @@ export const deliveryApiDocs = {
 deliveryApiDocs.ko.push(lookupOrderListPerDayDocument);
 deliveryApiDocs.ko.push(lookupOrderListPerMinuteDocument);
 deliveryApiDocs.ko.push(lookupOrderBookDocument);
+deliveryApiDocs.ko.push(lookupOrderDocumentByorderId);
 deliveryApiDocs.ko.push(lookupDeliveryModifyHistoryDocument);
 deliveryApiDocs.ko.push(productPreparationProcessingDocument);
 deliveryApiDocs.ko.push(invoiceUploadProcessingDocument);
