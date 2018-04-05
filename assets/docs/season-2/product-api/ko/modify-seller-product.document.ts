@@ -721,17 +721,6 @@ export const modifySellerProductDocument = {
           }
           ,
           {
-            name: `originalPrice`,
-            type: `Number`,
-            require: true,
-            _description: `할인율기준가`,
-            _relation: ``,
-            _referenceInfo: `할인율(%)표시를 위한 할인전 금액으로, 판매가격과 동일하게 입력시 '쿠팡가'로 노출. 승인완료 이후 할인율기준가 수정은 [옵션별 할인율기준가 변경] API를 통해 변경가능`,
-            _warning: ``,
-            children: false
-          }
-          ,
-          {
             name: `maximumBuyCount`,
             type: `Number`,
             require: true,
