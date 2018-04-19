@@ -6,7 +6,7 @@ export const changeBestPriceGuaranteedByProductDocument = {
     category: `product-api`,   // input category ex) exchange-service-api
     id: `change-best-price-guaranteed-by-product`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `change-best-price-guaranteed-by-product`,
-    name: `상품 아이템별 최저가 보장 변경(쿠뤠잇)`,       // use display name, i will change 'translation key'
+    name: `상품 아이템별 최저가 보장 변경(쿠런티)`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -29,7 +29,7 @@ export const changeBestPriceGuaranteedByProductDocument = {
     _description: `상품 아이템별 최저가 보장 여부를 변경한다.<br>
                    등록 후 승인이 완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있습니다.`,
     _relation: ``,
-    _referenceInfo: `주의: 본 기능은 쿠뤠잇 자격을 얻은 판매자가 판매자점수 우수 판매자이면서, 배송비 무료배송 또는 9800원 이상 무료배송(기본  배송료 2500원 미만)으로 등록한 상품에 적용이 가능합니다.`,
+    _referenceInfo: `주의: 본 기능은 쿠런티 자격을 얻은 판매자가 판매자점수 우수 판매자이면서, 배송비 무료배송 또는 9800원 이상 무료배송(기본  배송료 2500원 미만)으로 등록한 상품에 적용이 가능합니다.`,
     _warning: ``,
   },
   parameters: {
@@ -63,35 +63,35 @@ export const changeBestPriceGuaranteedByProductDocument = {
     errorSpec: [
     {
       status: 400,
-      _description: `해당 판매자는 쿠뤠잇 변경이 허가되지 않았습니다. 쿠뤠잇을 사용하고 싶으신 경우 판매자 콜센터(sellerhelp@coupang.com)로 연락해주세요.`,
+      _description: `해당 판매자는 쿠런티 변경이 허가되지 않았습니다. 쿠런티를 사용하고 싶으신 경우 판매자 콜센터(sellerhelp@coupang.com)로 연락해주세요.`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``
     },
     {
       status: 400,
-      _description: `해당 카테고리는 쿠뤠잇을 설정할 수 없습니다.`,
+      _description: `해당 카테고리는 쿠런티 설정할 수 없습니다.`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``
     },
     {
       status: 400,
-      _description: `중고상품에는 쿠뤠잇을 적용할 수 없습니다`,
+      _description: `중고상품에는 쿠런티를 적용할 수 없습니다`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``
     },
     {
       status: 400,
-      _description: `무료배송 혹은 9800원 이상 무료배송의 경우에만 쿠뤠잇을 등록할 수 있습니다.`,
+      _description: `무료배송 혹은 9800원 이상 무료배송의 경우에만 쿠런티를 등록할 수 있습니다.`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``
     },
     {
       status: 400,
-      _description: `쿠뤠잇 상품에는 2500원을 초과하는 배송비를 설정할 수 없습니다.`,
+      _description: `쿠런티 상품에는 2500원을 초과하는 배송비를 설정할 수 없습니다.`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``
@@ -125,7 +125,7 @@ export const changeBestPriceGuaranteedByProductDocument = {
       }
     ],
     response: {
-        "code":"SUCCESS","message":"쿠뤠잇 변경을 완료했습니다.","data":null
+        "code":"SUCCESS","message":"쿠런티 변경을 완료했습니다.","data":null
     },
     _description: ``,
     _relation: ``,
