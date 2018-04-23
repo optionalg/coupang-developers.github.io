@@ -23,8 +23,8 @@ export const  createCouponDocument = {
     developer: `Settlement`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `POST`,
-    path: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/coupons`,
-    HMACPath: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/coupons`,
+    path: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/coupon`,
+    HMACPath: `/v2/providers/fms/apis/api/v2/vendors/{vendorId}/coupon`,
     _description: `계약아이디(contractId)에 기반한 신규 쿠폰 생성을 위한 API입니다. 본 API는 비동기방식으로 프로세스에 대한 요청 만을 수행하고 있어
 <br/>실제 API 수행 결과값은 응답으로 받은 "requestedId" 값을 가지고 요청상태 확인 API를 통해서 확인 가능합니다.`,
     _relation: ``,
@@ -264,7 +264,7 @@ export const  createCouponDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/fms/apis/api/v2/vendors/A00000001/coupons`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/fms/apis/api/v2/vendors/A00000001/coupon`,
     code: [
       {
         language: `http`,
