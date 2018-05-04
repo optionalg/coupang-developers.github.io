@@ -47,7 +47,8 @@ export const createReturnShippingFacilityDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnShippingCenters`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnShippingCenters`,
-    _description: `반품지를 생성합니다. 셀러는 이API를 사용하여 하나 이상의 주소를 만들 수 있으며 반품배송에 사용됩니다.`,
+    _description: `상품 반품지를 생성합니다. 판매자는 이 API를 사용하여 하나 이상의 반품지를 만들 수 있으며, 생성된 반품지는 상품 등록 시 반품지를 지정할 때 사용됩니다.
+`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -57,7 +58,7 @@ export const createReturnShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `벤더 아이디`,
+        _description: `업체 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -70,7 +71,7 @@ export const createReturnShippingFacilityDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `벤더 아이디`,
+        _description: `업체 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -80,7 +81,7 @@ export const createReturnShippingFacilityDocument = {
         name: `userId`,
         type: `String`,
         require: true,
-        _description: `유저 아이디`,
+        _description: `사용자 아이디(쿠팡 WING 아이디)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -100,7 +101,7 @@ export const createReturnShippingFacilityDocument = {
         name: `goodsflowInfoOpenApiDto`,
         type: `Object`,
         require: true,
-        _description: `상품정보`,
+        _description: `택배사 정보`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -181,9 +182,9 @@ export const createReturnShippingFacilityDocument = {
             name: `vendorCreditFee05kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 5kg일때의 신용요금 (판매자 신용)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -191,9 +192,9 @@ export const createReturnShippingFacilityDocument = {
             name: `vendorCashFee05kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 5kg일때의 선불요금 (판매자 현금)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -201,9 +202,9 @@ export const createReturnShippingFacilityDocument = {
             name: `consumerCashFee05kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 5kg일때의 착불요금(구매자 현금)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -211,9 +212,9 @@ export const createReturnShippingFacilityDocument = {
             name: `returnFee05kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 5kg일때의 반품비`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -221,9 +222,9 @@ export const createReturnShippingFacilityDocument = {
             name: `vendorCreditFee10kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 10kg일때의 신용요금 (판매자 신용)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -231,9 +232,9 @@ export const createReturnShippingFacilityDocument = {
             name: `vendorCashFee10kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 10kg일때의 선불요금(판매자 현금)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -241,9 +242,9 @@ export const createReturnShippingFacilityDocument = {
             name: `consumerCashFee10kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 10kg일때의 착불요금(구매자 현금)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -251,9 +252,9 @@ export const createReturnShippingFacilityDocument = {
             name: `returnFee10kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 10kg일때의 반품비`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -261,9 +262,9 @@ export const createReturnShippingFacilityDocument = {
             name: `vendorCreditFee20kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 20kg일때의 신용요금 (판매자 신용)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -271,9 +272,9 @@ export const createReturnShippingFacilityDocument = {
             name: `vendorCashFee20kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 20kg일때의 선불요금 (판매자 현금)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -281,9 +282,9 @@ export const createReturnShippingFacilityDocument = {
             name: `consumerCashFee20kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 20kg일때의 착불요금(구매자 현금)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -291,9 +292,9 @@ export const createReturnShippingFacilityDocument = {
             name: `returnFee20kg`,
             type: `Number`,
             require: true,
-            _description: `0보다 커야합니다`,
+            _description: `상품이 20kg일때의 반품비`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `0보다 커야합니다`,
             _warning: ``,
             children: false
           },
@@ -303,7 +304,7 @@ export const createReturnShippingFacilityDocument = {
         name: `placeAddresses`,
         type: `Array`,
         require: false,
-        _description: `주소`,
+        _description: `반품지 주소`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -312,28 +313,23 @@ export const createReturnShippingFacilityDocument = {
             name: `addressType`,
             type: `String`,
             require: true,
-            _description: ``,
+            _description: `주소 타입 <br/> JIBUN, JIBUN&ROADNAME`,
             _relation: ``,
             _referenceInfo: `
-            <table>
-              <tr>
-                  <th>
-                      value
-                  </th>
-                  <th>
-                      remark
-                  </th>
-              </tr>
-              <tr>
+            <table class="table">
+                <tr>
+                  <th>CODE</th>
+                  <th>Mean</th>
+                </tr>
+                <tr>
                   <td>JIBUN</td>
-                  <td>지번주소.1개의 주소만 등록시는 JIBUN으로 등록</td>
-              </tr>
-              <tr>
-                  <td>JIBUN/ROADNAME</td>
-                  <td>지번주소/도로명주소. 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
-              </tr>
-           </table>
-            `,
+                  <td>지번, 1개의 주소만 등록시는 JIBUN으로 등록</td>
+                </tr>
+                <tr>
+                  <td>JIBUN&ROADNAME</td>
+                  <td>지번주소/도로명주소, 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
+                </tr>
+            </table>`,
             _warning: ``,
             children: false
           },
@@ -341,7 +337,10 @@ export const createReturnShippingFacilityDocument = {
             name: `companyContactNumber`,
             type: `String`,
             require: true,
-            _description: `전화번호, e.g. : xx-yyy-zzzz, x : 수자 , minimum length is 2, maximum length is 4 ,y :minimum length is 3, maximum length is 4, z :valid lenth is 4`,
+                _description: `전화번호, e.g. : xx-yyy-zzzz, <br/>
+                          x : 숫자 , 최소길이2, 최대길이 4 <br/>
+                          y : 최소길이 3, 최대길이 4 <br/>
+                          z : 유효한 길이 4.`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -351,7 +350,7 @@ export const createReturnShippingFacilityDocument = {
             name: `phoneNumber2`,
             type: `String`,
             require: false,
-            _description: `전화번호 (포맷 : companyContactNumber와 동일)`,
+            _description: `보조 전화번호 (형식 : 전화번호1과 같습니다)`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -361,7 +360,7 @@ export const createReturnShippingFacilityDocument = {
             name: `returnZipCode`,
             type: `String`,
             require: true,
-            _description: `우편번호: 수자, minimum length is 5, maximum length is 6`,
+            _description: `우편번호 : 숫자, 최소길이 5, 최대길이 6`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -371,7 +370,7 @@ export const createReturnShippingFacilityDocument = {
             name: `returnAddress`,
             type: `String`,
             require: true,
-            _description: `주소이름, 주소지 이름은 150자 이하로 입력해 주세요`,
+            _description: `주소, 최대길이는 150`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -381,7 +380,7 @@ export const createReturnShippingFacilityDocument = {
             name: `returnAddressDetail`,
             type: `String`,
             require: false,
-            _description: `주소, 200자 이하로 입력해 주세요`,
+            _description: `상세주소, 최대길이는 200`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -396,7 +395,7 @@ export const createReturnShippingFacilityDocument = {
     {
       name: `code`,
       type: `Number`,
-      _description: `http 반품요청 상태 코드`,
+      _description: `서버 응답 코드`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -405,7 +404,7 @@ export const createReturnShippingFacilityDocument = {
     {
       name: `message`,
       type: `String`,
-      _description: `http 반품요청 상태 메시지`,
+      _description: `서버 응답 메시지`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -414,7 +413,7 @@ export const createReturnShippingFacilityDocument = {
     {
       name: `data`,
       type: `Array`,
-      _description: `http 반품요청 결과(결과 코드 & 메세지가 포함됨)`,
+      _description: `반품지 생성 결과`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -422,18 +421,18 @@ export const createReturnShippingFacilityDocument = {
         {
           name: `resultCode`,
           type: `String`,
-          _description: `SUCCESS or FAIL`,
+          _description: `결과 코드`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `SUCCESS or FAIL`,
           _warning: ``,
           children: false,
         },
         {
           name: `resultMessage`,
           type: `String`,
-          _description: `returnCenterCode`,
+          _description: `결과 메시지(반품지 코드)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `returnCenterCode`,
           _warning: ``,
           children: false,
         },

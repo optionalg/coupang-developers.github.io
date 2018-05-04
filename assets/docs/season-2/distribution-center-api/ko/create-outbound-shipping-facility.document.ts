@@ -46,7 +46,7 @@ export const createOutboundShippingFacilityDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters`,
-    _description: `상품 출고지를 생성합니다. 셀러는 이API를 사용하여 하나 이상의 출고지를 만들 수 있으며, 출고지는 제품 교환 및 일반 구매 제품배송등에 사용됩니다.`,
+    _description: `상품 출고지를 생성합니다. 판매자는 이 API를 사용하여 하나 이상의 출고지를 만들 수 있으며, 생성된 출고지는 상품 등록 시 출고지를 지정할 때 사용됩니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -56,7 +56,7 @@ export const createOutboundShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `벤더 아이디`,
+        _description: `업체 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -69,7 +69,7 @@ export const createOutboundShippingFacilityDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `벤더 아이디`,
+        _description: `업체 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -79,7 +79,7 @@ export const createOutboundShippingFacilityDocument = {
         name: `userId`,
         type: `String`,
         require: true,
-        _description: `유저 아이디`,
+        _description: `사용자 아이디(쿠팡 WING 아이디)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -89,7 +89,7 @@ export const createOutboundShippingFacilityDocument = {
         name: `shippingPlaceName`,
         type: `String`,
         require: true,
-        _description: `배송주소, 최대렝스는 50입니다`,
+        _description: `출고지 이름, 최대 50 자`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -99,20 +99,21 @@ export const createOutboundShippingFacilityDocument = {
         name: `global`,
         type: `boolean`,
         require: false,
-        _description: `domestic or overseas, default value is false`,
+        _description: `기본값: false, 국내(domestic) or 해외(overseas)`,
         _relation: ``,
-        _referenceInfo: `<table class="table">
+        _referenceInfo: `
+        <table class="table">
         <tr>
-          <th>Parameter</th>
-          <th>Value</th>
+          <th>CODE</th>
+          <th>Mean</th>
         </tr>
         <tr>
-          <td>domestic (국내)</td>
           <td>false</td>
+          <td>국내(domestic) </td>
         </tr>
         <tr>
-          <td>overseas (해외)</td>
           <td>true</td>
+          <td>해외(overseas)</td>
         </tr>
         </table>`,
         _warning: ``,
@@ -122,7 +123,7 @@ export const createOutboundShippingFacilityDocument = {
         name: `placeAddresses`,
         type: `Array`,
         require: true,
-        _description: `배송지`,
+        _description: `출고지 주소`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -131,9 +132,27 @@ export const createOutboundShippingFacilityDocument = {
             name: `addressType`,
             type: `String`,
             require: true,
-            _description: `JIBUN, JIBUN&ROADNAME,OVERSEA`,
+            _description: `주소 타입 <br/> JIBUN, JIBUN&ROADNAME, OVERSEA`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `
+            <table class="table">
+                <tr>
+                  <th>CODE</th>
+                  <th>Mean</th>
+                </tr>
+                <tr>
+                  <td>JIBUN</td>
+                  <td>지번</td>
+                </tr>
+                <tr>
+                  <td>JIBUN&ROADNAME</td>
+                  <td>지번과 도로명</td>
+                </tr>
+                <tr>
+                  <td>OVERSEA</td>
+                  <td>해외</td>
+                </tr>
+            </table>`,
             _warning: ``,
             children: false
           },
@@ -141,7 +160,7 @@ export const createOutboundShippingFacilityDocument = {
             name: `countryCode`,
             type: `String`,
             require: true,
-            _description: `국가 코드, 주소 타입이 지번이라면, 국가 코드는 "KR"입니다 ,혹은 왼쪽에 있는 "국가 코드"메뉴로 국가 코드를 체크하십시오.유효한 길이는 2입니다.`,
+            _description: `국가 코드, 국내의 경우 "KR"입력. 해외의 경우 "국가 코드"메뉴에서 나라별 체크 후 입력. 유효한 길이는 2`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -151,9 +170,9 @@ export const createOutboundShippingFacilityDocument = {
             name: `companyContactNumber`,
             type: `String`,
             require: true,
-            _description: `전화번호, e.g. : xx-yyy-zzzz,
-                          x : 수자 , 최소길이2, 최대길이 4
-                          y : 최소길이 3, 최대길이 4
+            _description: `전화번호, e.g. : xx-yyy-zzzz, <br/>
+                          x : 숫자 , 최소길이2, 최대길이 4 <br/>
+                          y : 최소길이 3, 최대길이 4 <br/>
                           z : 유효한 길이 4.`,
             _relation: ``,
             _referenceInfo: ``,
@@ -164,7 +183,7 @@ export const createOutboundShippingFacilityDocument = {
             name: `phoneNumber2`,
             type: `String`,
             require: false,
-            _description: `전화번호 (포맷 : 전화번호1과 같습니다)`,
+            _description: `보조 전화번호 (형식 : 전화번호1과 같습니다)`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -174,7 +193,7 @@ export const createOutboundShippingFacilityDocument = {
             name: `returnZipCode`,
             type: `String`,
             require: true,
-            _description: `우편번호 : 수자, 최소길이 5, 최대길이 6`,
+            _description: `우편번호 : 숫자, 최소길이 5, 최대길이 6`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -184,7 +203,7 @@ export const createOutboundShippingFacilityDocument = {
             name: `returnAddress`,
             type: `String`,
             require: true,
-            _description: `주소, 최대길이는 150입니다`,
+            _description: `주소, 최대길이는 150`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -194,7 +213,7 @@ export const createOutboundShippingFacilityDocument = {
             name: `returnAddressDetail`,
             type: `String`,
             require: false,
-            _description: `주소, 최대길이는 200입니다`,
+            _description: `상세주소, 최대길이는 200`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -206,7 +225,7 @@ export const createOutboundShippingFacilityDocument = {
         name: `remoteInfos`,
         type: `Array`,
         require: false,
-        _description: `도서산간 지불 정보`,
+        _description: `도서산간 추가배송비`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -215,7 +234,7 @@ export const createOutboundShippingFacilityDocument = {
             name: `deliveryCode`,
             type: `String`,
             require: true,
-            _description: `택배사 코드<br>취소선은 합병 또는 폐업한 택배사를 의미합니다.`,
+            _description: `택배사 코드<br/>취소선은 합병 또는 폐업한 택배사를 의미합니다.`,
             _relation: ``,
             _referenceInfo: `
               <table class="table">
@@ -404,9 +423,9 @@ export const createOutboundShippingFacilityDocument = {
             name: `jeju`,
             type: `Number`,
             require: true,
-            _description: `제주지역 배송비`,
+            _description: `제주 지역 배송비(원)`,
             _relation: ``,
-            _referenceInfo: `배달요금은 1000원보다 높고 제한가격 보다 낮아야합니다.HYUNDAI,CJGLS HANJIN의 최고 배송비는 20000원입니다기타 택배사의 최고 배송비는 70000원입니다`,
+            _referenceInfo: `배달요금은 1,000원보다 높고 제한가격 보다 낮아야함. HYUNDAI, CJGLS, HANJIN의 최고 배송비는 20,000원. 기타 택배사의 최고 배송비는 70,000원`,
             _warning: ``,
             children: false
           },
@@ -414,9 +433,9 @@ export const createOutboundShippingFacilityDocument = {
             name: `notJeju`,
             type: `Number`,
             require: true,
-            _description: `제주외지역 배송비`,
+            _description: `제주 외 지역 배송비(원)`,
             _relation: ``,
-            _referenceInfo: `제주지역과 같습니다`,
+            _referenceInfo: `제주 지역과 같습니다`,
             _warning: ``,
             children: false
           }
@@ -493,7 +512,7 @@ export const createOutboundShippingFacilityDocument = {
     {
       name: `code`,
       type: `Number`,
-      _description: `http 반품요청 상태 코드`,
+      _description: `서버 응답 코드`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -502,7 +521,7 @@ export const createOutboundShippingFacilityDocument = {
     {
       name: `message`,
       type: `String`,
-      _description: `http 반품요청 상태 메시지`,
+      _description: `서버 응답 메시지`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -511,7 +530,7 @@ export const createOutboundShippingFacilityDocument = {
     {
       name: `data`,
       type: `Object`,
-      _description: `http 반품요청 결과(결과 코드 & 메세지가 포함됨)`,
+      _description: `출고지 생성 결과`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -519,18 +538,18 @@ export const createOutboundShippingFacilityDocument = {
         {
           name: `resultCode`,
           type: `String`,
-          _description: `SUCCESS or FAIL`,
+          _description: `결과 코드`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `SUCCESS or FAIL`,
           _warning: ``,
           children: false,
         },
         {
           name: `resultMessage`,
           type: `String`,
-          _description: `Result message for creating outbound shipping place : return outbound shipping place code`,
+          _description: `결과 메시지(출고지 코드)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `outbound shipping place code`,
           _warning: ``,
           children: false,
         }
@@ -544,30 +563,30 @@ export const createOutboundShippingFacilityDocument = {
         language: `http`,
         codeblock: {
           "vendorId": "A00011620",
-          "userId": "test@",
+          "userId": "testId",
           "shippingPlaceName": "outbound shipping place",
           "global": "false",
           "placeAddresses": [
             {
               "addressType": "JIBUN",
               "countryCode": "KR",
-              "companyContactNumber": "010-1234-5555",
-              "phoneNumber2": "0120-2345-6666",
+              "companyContactNumber": "02-1234-5678",
+              "phoneNumber2": "010-1234-5678",
               "returnZipCode": "10516",
-              "returnAddress": "경기도 파주시 탄현면 월롱산로 294-58 ()",
-              "returnAddressDetail": "경기도 파주시 탄현면 금승리"
+              "returnAddress": "경기도 파주시 탄현면 월롱산로" ,
+              "returnAddressDetail": "294-58"
             }
           ],
           "remoteInfos": [
             {
-              "deliveryCode": "COUPANG",
-              "jeju": "1000",
-              "notJeju": "1200"
+              "deliveryCode": "KGB",
+              "jeju": "5000",
+              "notJeju": "2500"
             },
             {
               "deliveryCode": "CJGLS",
-              "jeju": "10001",
-              "notJeju": "12001"
+              "jeju": "5000",
+              "notJeju": "2500"
             }
           ]
         }

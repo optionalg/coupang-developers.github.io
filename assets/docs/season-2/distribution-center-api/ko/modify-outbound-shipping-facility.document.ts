@@ -12,7 +12,7 @@ export const modifyOutboundShippingFacilityDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `상품출고지 수정`,
+      name: ``,
       anchorId: ``,
     },
   },
@@ -48,7 +48,7 @@ export const modifyOutboundShippingFacilityDocument = {
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters/{outboundShippingPlaceCode}`,
     _description: `출고지를 수정합니다.`,
     _relation: ``,
-    _referenceInfo: `Note:출고지를 수정하려면 outboundShippingPlaceCode및remoteInfoId가 필요합니다. '상품출고지 조회' API를사용하여 outboundShippingPlaceCode 및 remoteInfoId를 얻을수있습니다.`,
+    _referenceInfo: `출고지를 수정하려면 outboundShippingPlaceCode 및 remoteInfoId가 필요합니다. '출고지 목록 조회' API를 사용하여 outboundShippingPlaceCode 와 remoteInfoId를 얻을 수 있습니다.`,
     _warning: ``,
   },
   parameters: {
@@ -56,7 +56,7 @@ export const modifyOutboundShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `벤더아이디`,
+        _description: `업체 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -65,7 +65,7 @@ export const modifyOutboundShippingFacilityDocument = {
       {
         name: `outboundShippingPlaceCode`,
         require: true,
-        _description: `수정하려는 출고지 Id`,
+        _description: `수정하려는 출고지 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -78,7 +78,7 @@ export const modifyOutboundShippingFacilityDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `벤더Id`,
+        _description: `업체 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -88,7 +88,7 @@ export const modifyOutboundShippingFacilityDocument = {
         name: `userId`,
         type: `String`,
         require: true,
-        _description: `유저Id`,
+        _description: `사용자 아이디(쿠팡 WING 아이디)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -98,7 +98,7 @@ export const modifyOutboundShippingFacilityDocument = {
         name: `outboundShippingPlaceCode`,
         type: `Number`,
         require: false,
-        _description: `출고지Id`,
+        _description: `출고지 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -118,7 +118,7 @@ export const modifyOutboundShippingFacilityDocument = {
         name: `usable`,
         type: `Boolean`,
         require: false,
-        _description: `주소지 사용 여부`,
+        _description: `사용 가능 여부`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -130,7 +130,21 @@ export const modifyOutboundShippingFacilityDocument = {
         require: false,
         _description: `국내 혹은 해외`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `
+           <table class="table">
+            <tr>
+              <th>CODE</th>
+              <th>Mean</th>
+            </tr>
+            <tr>
+              <td>false</td>
+              <td>국내(domestic) </td>
+            </tr>
+            <tr>
+              <td>true</td>
+              <td>해외(overseas)</td>
+            </tr>
+            </table>`,
         _warning: ``,
         children: false
       },
@@ -138,7 +152,7 @@ export const modifyOutboundShippingFacilityDocument = {
         name: `placeAddresses`,
         type: `Array`,
         require: false,
-        _description: `상세한 주소지 정보`,
+        _description: `출고지 주소`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -153,11 +167,25 @@ export const modifyOutboundShippingFacilityDocument = {
                         <li>OVERSEA</li>
                  </ul>`,
             _relation: ``,
-            _referenceInfo: `이 필드는 글로벌과 매핑됩니다.
-
-글로벌이 "false"이라면, 주소지타입은 지번입니다
-
-글로벌이 "true"이라면, 주소지타입은 해외입니다`,
+            _referenceInfo: `          
+             <table class="table">
+                <tr>
+                  <th>CODE</th>
+                  <th>Mean</th>
+                </tr>
+                <tr>
+                  <td>JIBUN</td>
+                  <td>지번</td>
+                </tr>
+                <tr>
+                  <td>JIBUN&ROADNAME</td>
+                  <td>지번과 도로명</td>
+                </tr>
+                <tr>
+                  <td>OVERSEA</td>
+                  <td>해외</td>
+                </tr>
+            </table>`,
             _warning: ``,
             children: false
           },
@@ -165,11 +193,7 @@ export const modifyOutboundShippingFacilityDocument = {
             name: `countryCode`,
             type: `String`,
             require: true,
-            _description: `국가 코드, 주소 타입이 지번이라면, 국가 코드는 "KR"입니다 ,
-
-혹은 왼쪽에 있는 "국가 코드"메뉴로 국가 코드를 체크하십시오.
-
-유효한 길이는 2입니다.`,
+            _description: `국가 코드, 국내의 경우 "KR"입력. 해외의 경우 "국가 코드"메뉴에서 나라별 체크 후 입력. 유효한 길이는 2`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -179,13 +203,10 @@ export const modifyOutboundShippingFacilityDocument = {
             name: `companyContactNumber`,
             type: `String`,
             require: true,
-            _description: `전화번호, e.g. : xx-yyy-zzzz,
-
-x : 수자 , 최소길이2, 최대길이 4
-
-y : 최소길이 3, 최대길이 4
-
-z : 유효한 길이 4`,
+            _description: `전화번호, e.g. : xx-yyy-zzzz, <br/>
+                          x : 숫자 , 최소길이2, 최대길이 4 <br/>
+                          y : 최소길이 3, 최대길이 4 <br/>
+                          z : 유효한 길이 4.`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -195,7 +216,7 @@ z : 유효한 길이 4`,
             name: `phoneNumber2`,
             type: `String`,
             require: false,
-            _description: `전화번호 (포맷 : 전화번호1과 같습니다)`,
+            _description: `보조 전화번호 (포맷 : 전화번호1과 같습니다)`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -205,7 +226,7 @@ z : 유효한 길이 4`,
             name: `returnZipCode`,
             type: `String`,
             require: true,
-            _description: `우편번호 : 수자, 최소길이 5, 최대길이 6`,
+            _description: `우편번호 : 숫자, 최소길이 5, 최대길이 6`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -215,7 +236,7 @@ z : 유효한 길이 4`,
             name: `returnAddress`,
             type: `String`,
             require: true,
-            _description: `주소, 최대길이는 150입니다`,
+            _description: `주소, 최대길이는 150`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -225,7 +246,7 @@ z : 유효한 길이 4`,
             name: `returnAddressDetail`,
             type: `String`,
             require: false,
-            _description: `주소, 최대길이는 200입니다`,
+            _description: `상세주소, 최대길이는 200`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -237,7 +258,7 @@ z : 유효한 길이 4`,
         name: `remoteInfos`,
         type: `Array`,
         require: false,
-        _description: `도서산간 지불 정보`,
+        _description: `도서산간 추가배송비`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -247,7 +268,6 @@ z : 유효한 길이 4`,
             type: `Number`,
             require: false,
             _description: `새로운 배송정보를 생성시 이 필드는 입력할 필요없습니다.
-
 배송정보를 수정/삭제시 반드시 이 필드를 입력해야합니다. 조회 API를 통해 이 필드 값을 얻을 수 있습니다.`,
             _relation: ``,
             _referenceInfo: ``,
@@ -447,13 +467,9 @@ z : 유효한 길이 4`,
             name: `jeju`,
             type: `Number`,
             require: true,
-            _description: `제주지역 배송비`,
+            _description: `제주 지역 배송비(원)`,
             _relation: ``,
-            _referenceInfo: `배달요금은 1000원보다 높고 제한가격 보다 낮아야합니다.
-
-HYUNDAI,CJGLS HANJIN의 최고 배송비는 20000원입니다
-
-기타 택배사의 최고 배송비는 70000원입니다`,
+            _referenceInfo: `배달요금은 1,000원보다 높고 제한가격 보다 낮아야함. HYUNDAI, CJGLS, HANJIN의 최고 배송비는 20,000원. 기타 택배사의 최고 배송비는 70,000원`,
             _warning: ``,
             children: false
           },
@@ -461,9 +477,9 @@ HYUNDAI,CJGLS HANJIN의 최고 배송비는 20000원입니다
             name: `notJeju`,
             type: `Number`,
             require: true,
-            _description: `제주지역과 같습니다`,
+            _description: `제주 외 지역 배송비(원)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `제주 지역과 같습니다`,
             _warning: ``,
             children: false
           },
@@ -474,10 +490,8 @@ HYUNDAI,CJGLS HANJIN의 최고 배송비는 20000원입니다
             _description: `사용여부`,
             _relation: ``,
             _referenceInfo: `새로운 배송정보를 생성시 이 필드는 입력할 필요없습니다.
-
 수정하신다면, "true"로 설정.
-
-삭제하신다변, "false"로 설정.`,
+삭제하신다면, "false"로 설정.`,
             _warning: ``,
             children: false
           }

@@ -12,7 +12,7 @@ export const lookupOutboundShippingFacilityListDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `상품출고지 조회`,
+      name: ``,
       anchorId: ``,
     },
   },
@@ -46,7 +46,7 @@ export const lookupOutboundShippingFacilityListDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters`,
-    _description: `벤더아이디를 통해 출고지를 조회한다. pageNum과 pageSize를 입력하지 않으면 첫 페이지로 리턴된다. 기본 pageNum은 10이다.`,
+    _description: `업체 코드를 통해 출고지 목록을 조회한다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -56,7 +56,7 @@ export const lookupOutboundShippingFacilityListDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `벤더아이디`,
+        _description: `업체 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -71,37 +71,37 @@ export const lookupOutboundShippingFacilityListDocument = {
         _relation: ``,
         _referenceInfo: `<table>
                           <tr>
-                           <th>searchType</th>
-                           <th>Meanning</th>
+                           <th>CODE</th>
+                           <th>Mean</th>
                           </tr>
                           <tr>
                            <td>OSPC</td>
-                           <td>Search by outboundShippingPlaceCodes</td>
+                           <td>출고지 코드로 조회(Search by outboundShippingPlaceCodes)</td>
                           </tr>
                           <tr>
                            <td>FULL</td>
-                           <td>Search fulllist by vendorId</td>
+                           <td>업체코드로 조회(Search fulllist by vendorId)</td>
                           </tr>
                          </table>`,
-        _warning: `This parameter is for v4 version, you needn't use it for v2 version`,
+        _warning: ``,
         children: false,
       },
       {
         name: `vendorId`,
         require: true,
-        _description: `벤더아이디`,
+        _description: `업체 코드`,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `This parameter is for v2 version, you needn't use it for v4 version`,
+        _warning: ``,
         children: false
       },
       {
         name: `outboundShippingPlaceCodes`,
         require: false,
-        _description: `Outbound shipping place codes.`,
+        _description: `출고지 코드`,
         _relation: ``,
-        _referenceInfo: `e.g.:5192,5156,5155, max length is 100.`,
-        _warning: `If searchType is OSPC, outboundShippingPlaceCodes is required`,
+        _referenceInfo: `예) 5192,5156,5155`,
+        _warning: `검색 타입이 OSPC 일 경우 필수(If searchType is OSPC, outboundShippingPlaceCodes is required)`,
         children: false
       },
       {
@@ -109,18 +109,16 @@ export const lookupOutboundShippingFacilityListDocument = {
         require: false,
         _description: `페이지수`,
         _relation: ``,
-        _referenceInfo: `기본값 1
-pageNum가 널일경우 기본값을 입력해 주십시오.`,
+        _referenceInfo: `기본값 1`,
         _warning: ``,
         children: false
       },
       {
         name: `pageSize`,
         require: false,
-        _description: `페이지당 최대 건수는 50입니다`,
+        _description: `페이지당 건수`,
         _relation: ``,
-        _referenceInfo: `기본값 10, max = 50
-pageSize가 널일경우 기본값을 입력해 주십시오.`,
+        _referenceInfo: `기본값 10, 최대값 50`,
         _warning: ``,
         children: false
       }
@@ -132,16 +130,16 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
     {
       name: `code`,
       type: `Number`,
-      _description: `Http request status code`,
+      _description: `서버 응답 코드`,
       _relation: ``,
-      _referenceInfo: `Example: 200, 400, 500`,
+      _referenceInfo: ``,
       _warning: ``,
       children: false,
     },
     {
       name: `message`,
       type: `String`,
-      _description: `성공 혹은 실패시 해당 결과메시지가 나타남`,
+      _description: `서버 응답 메시지`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -158,7 +156,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
         {
           name: `content`,
           type: `Array`,
-          _description: `Http request return inquiry result`,
+          _description: `출고지 목록 데이터`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -166,7 +164,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
             {
               name: `outboundShippingPlaceCode`,
               type: `Number`,
-              _description: `출고지코드`,
+              _description: `출고지 코드`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -175,7 +173,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
             {
               name: `shippingPlaceName`,
               type: `String`,
-              _description: `출고지 주소`,
+              _description: `출고지 이름`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -184,7 +182,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
             {
               name: `placeAddresses`,
               type: `Array`,
-              _description: `주소`,
+              _description: `출고지 주소`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -192,7 +190,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
                 {
                   name: `addressType`,
                   type: `String`,
-                  _description: `지번/로드 넴/해외`,
+                  _description: `주소 타입(지번, 지번과 도로명, 해외)`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -201,11 +199,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
                 {
                   name: `countryCode`,
                   type: `String`,
-                  _description: `국가 코드, 주소 타입이 지번이라면, 국가 코드는 "KR"입니다 ,
-
-혹은 왼쪽에 있는 "국가 코드"메뉴로 국가 코드를 체크하십시오.
-
-유효한 길이는 2입니다.`,
+                  _description: `국가 코드`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -269,7 +263,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
                 {
                   name: `remoteInfoId`,
                   type: `Number`,
-                  _description: `remoteInfoId`,
+                  _description: `도서산간 배송정보 ID`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -278,7 +272,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
                 {
                   name: `deliveryCode`,
                   type: `String`,
-                  _description: `택백회사코드`,
+                  _description: `택백사 코드`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -287,7 +281,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
                 {
                   name: `jejuFee`,
                   type: `Number`,
-                  _description: `제주지역`,
+                  _description: `제주지역 배송비`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -296,7 +290,7 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
                 {
                   name: `notJeju`,
                   type: `Number`,
-                  _description: `제주외지역`,
+                  _description: `제주외지역 배송비`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -305,9 +299,9 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
                 {
                   name: `usable`,
                   type: `Boolean`,
-                  _description: `도서산간 배송정보 유효여부, true/false`,
+                  _description: `도서산간 배송정보 유효여부`,
                   _relation: ``,
-                  _referenceInfo: ``,
+                  _referenceInfo: `true or false`,
                   _warning: ``,
                   children: false
                 }
@@ -316,18 +310,18 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
             {
               name: `createDate`,
               type: `Object`,
-              _description: `날자생성 형태 : yyyy/MM/dd`,
+              _description: `생성일`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `yyyy/MM/dd`,
               _warning: ``,
               children: false
             },
             {
               name: `usable`,
               type: `Boolean`,
-              _description: `사용가능 여부, true/false`,
+              _description: `사용가능 여부`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `true or false`,
               _warning: ``,
               children: false
             }
@@ -336,53 +330,44 @@ pageSize가 널일경우 기본값을 입력해 주십시오.`,
         {
           name: `pagination`,
           type: `Object`,
-          _description: `detail info`,
+          _description: `페이징`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
           children: [
             {
-              name: `message`,
-              type: `String`,
-              _description: `detail info`,
-              _relation: ``,
-              _referenceInfo: ``,
-              _warning: ``,
-              children: false,
-            },
-            {
               name: `currentPage`,
               type: `Number`,
-              _description: `currentPage`,
+              _description: `현재 페이지`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `예) 1`,
               _warning: ``,
               children: false,
             },
             {
               name: `totalPages`,
               type: `Number`,
-              _description: `totalPages`,
+              _description: `전체 페이지 Count`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `예) 1000`,
               _warning: ``,
               children: false,
             },
             {
               name: `totalElements`,
               type: `Number`,
-              _description: `totalElements`,
+              _description: `전체 데이터 Count`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `예) 1000`,
               _warning: ``,
               children: false,
             },
             {
               name: `countPerPage`,
               type: `Number`,
-              _description: `countPerPage`,
+              _description: `페이지별 데이터 Count`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `예) 10, 20, 30`,
               _warning: ``,
               children: false,
             },

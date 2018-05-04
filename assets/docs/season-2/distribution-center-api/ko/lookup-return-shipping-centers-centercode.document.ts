@@ -49,7 +49,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
     {
       name: `code`,
       type: `Number`,
-      _description: `결과코드`,
+      _description: `서버 응답 코드`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -58,7 +58,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
     {
       name: `message`,
       type: `String`,
-      _description: `메시지`,
+      _description: `서버 응답 메시지`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -67,7 +67,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
     {
       name: `data`,
       type: `Array`,
-      _description: `반품지정보`,
+      _description: `반품지 정보`,
       _relation: ``,
       _referenceInfo: ``,
       _warning: ``,
@@ -75,7 +75,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
         {
           name: `vendorId`,
           type: `String`,
-          _description: `벤더 아이디`,
+          _description: `업체 코드`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -84,7 +84,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
         {
           name: `returnCenterCode`,
           type: `String`,
-          _description: `반품지센터코드`,
+          _description: `반품지 센터코드`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -138,7 +138,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
         {
           name: `createAt`,
           type: `String`,
-          _description: `생성 날자`,
+          _description: `생성일`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -147,72 +147,72 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
         {
           name: `vendorCreditFee05kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 5kg일때의 신용요금 (판매자 신용)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `vendorCashFee05kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 5kg일때의 선불요금 (판매자 현금)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `consumerCashFee05kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 5kg일때의 착불요금(구매자 현금)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `returnFee05kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 5kg일때의 반품비`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `vendorCreditFee10kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 10kg일때의 신용요금 (판매자 신용)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `vendorCashFee10kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 10kg일때의 선불요금(판매자 현금)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `consumerCashFee10kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 10kg일때의 착불요금(구매자 현금)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `returnFee10kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 10kg일때의 반품비`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
@@ -221,34 +221,34 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
           type: `Number`,
           _description: ``,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `상품이 20kg일때의 신용요금 (판매자 신용)`,
           _warning: ``,
           children: false
         },
         {
           name: `vendorCashFee20kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 20kg일때의 선불요금 (판매자 현금)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `consumerCashFee20kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 20kg일때의 착불요금(구매자 현금)`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
         {
           name: `returnFee20kg`,
           type: `Number`,
-          _description: ``,
+          _description: `상품이 20kg일때의 반품비`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `0보다 커야합니다`,
           _warning: ``,
           children: false
         },
@@ -264,7 +264,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
         {
           name: `placeAddresses`,
           type: `Array`,
-          _description: `주소`,
+          _description: `반품지 주소`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -272,16 +272,30 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
             {
               name: `addressType`,
               type: `String`,
-              _description: `주소 타입`,
+              _description: `주소 타입 <br/> JIBUN, JIBUN&ROADNAME`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `
+              <table class="table">
+                <tr>
+                  <th>CODE</th>
+                  <th>Mean</th>
+                </tr>
+                <tr>
+                  <td>JIBUN</td>
+                  <td>지번, 1개의 주소만 등록시는 JIBUN으로 등록</td>
+                </tr>
+                <tr>
+                  <td>JIBUN&ROADNAME</td>
+                  <td>지번주소/도로명주소, 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
+                </tr>
+            </table>`,
               _warning: ``,
               children: false
             },
             {
               name: `countryCode`,
               type: `String`,
-              _description: `KR`,
+              _description: `국가코드, 국내의 경우 "KR"`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -290,7 +304,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
             {
               name: `companyContactNumber`,
               type: `String`,
-              _description: `반품지연락처`,
+              _description: `반품지 전화번호`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -308,7 +322,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
             {
               name: `returnZipCode`,
               type: `String`,
-              _description: `반품지우편번호`,
+              _description: `반품지 우편번호`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -317,7 +331,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
             {
               name: `returnAddress`,
               type: `String`,
-              _description: `반품지주소`,
+              _description: `반품지 주소`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -326,7 +340,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
             {
               name: `returnAddressDetail`,
               type: `String`,
-              _description: `상세한 반품지주소`,
+              _description: `반품지 상세주소`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,

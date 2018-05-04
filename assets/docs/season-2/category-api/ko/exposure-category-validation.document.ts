@@ -12,7 +12,7 @@ export const exposureCategoryValidationDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `노출카테고리 유효성 검사`,
+      name: ``,
       anchorId: ``,
     },
   },

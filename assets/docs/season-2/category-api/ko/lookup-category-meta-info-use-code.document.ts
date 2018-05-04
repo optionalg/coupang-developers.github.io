@@ -12,7 +12,7 @@ export const lookupCategoryMetaInfoUseCodeDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `카테고리 메타 정보 조회`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -26,10 +26,10 @@ export const lookupCategoryMetaInfoUseCodeDocument = {
     httpMethod: `GET`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/{displayCategoryCode}`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/{displayCategoryCode}`,
-    _description: `전시카테고리코드로 특정 카테고리에 속한 옵션타입, 상품필수 정보, 구비서류 목록을 조회한다.`,
+    _description: `노출 카테고리코드로 해당 카테고리에 속한 구매옵션(필수정보), 검색옵션, 고시정보, 구비서류, 인증정보 목록을 조회한다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `상품생성 시 사전에 displayCategoryCode 로 조회 후 해당 카테고리의 정보 대로 전문을 구성해야 한다.`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -68,19 +68,59 @@ export const lookupCategoryMetaInfoUseCodeDocument = {
     {
       name: `data`,
       type: ``,
-      _description: `카테고리메타정보`,
+      _description: `카테고리 메타정보`,
       _relation: ``,
       _referenceInfo: `조회된 업체상품 개수만큼 N번 반복`,
       _warning: ``,
       children: [
-        {
+         {
+              name: `isAllowSingleItem`,
+              type: ``,
+              require: false,
+              _description: `단일상품 등록 가능 여부`,
+              _relation: ``,
+              _referenceInfo: `
+              <table class="table">
+              <tr>
+                <th>Response Value</th>
+                <th>Mean</th>
+              </tr>
+              <tr>
+                <td>true</td>
+                <td>단일상품 등록 가능 카테고리</td>
+              </tr>
+              <tr>
+                <td>false</td>
+                <td>단일상품 등록 불가능 카테고리</td>
+              </tr>
+              </table>
+                `,
+              _warning: ``,
+              children: false
+          },
+         {
           name: `attributes`,
           type: ``,
           require: false,
           _description: `카테고리옵션목록`,
           _relation: ``,
-          _referenceInfo: `옵션 개수 만큼 반복`,
-          _warning: ``,
+          _referenceInfo: `
+             <table class="table">
+              <tr>
+                <td>isAllowSingleItem이 true인 카테고리</td>
+                <td>속성의 입력이 없이 단일 상품(1개의 아이템) 등록이 가능</td>
+              </tr>
+              <tr>
+                <td>isAllowSingleItem이 False인 카테고리</td>
+                <td>속성의 입력 없이는 상품 등록이 불가</td>
+              </tr>
+              </table>
+옵션 개수 만큼 반복
+`,
+          _warning: `
+상품 판매 승인 이전에는 attributes의 추가, 변경, 삭제가 가능<br/>
+상품 판매 승인 이후에는 attributes의 추가가 가능하나 attributes의 삭제, 변경 등은 불가
+`,
           children: [
             {
               name: `attributeTypeName`,
@@ -101,8 +141,8 @@ export const lookupCategoryMetaInfoUseCodeDocument = {
               _referenceInfo: `
               <table class="table">
               <tr>
-                <th>Parameter Name</th>
-                <th>Status</th>
+                <th>Response Value</th>
+                <th>Mean</th>
               </tr>
               <tr>
                 <td>MANDATORY</td>
@@ -126,8 +166,8 @@ export const lookupCategoryMetaInfoUseCodeDocument = {
               _referenceInfo: `
               <table class="table">
               <tr>
-                <th>Parameter Name</th>
-                <th>Status</th>
+                <th>Response Value</th>
+                <th>Mean</th>
               </tr>
               <tr>
                 <td>STRING</td>
@@ -270,8 +310,8 @@ NONE : 그룹속성 아님<br/>
                   _referenceInfo: `
                   <table class="table">
                   <tr>
-                    <th>Parameter Name</th>
-                    <th>Status</th>
+                    <th>Response Value</th>
+                    <th>Mean</th>
                   </tr>
                   <tr>
                     <td>MANDATORY</td>
@@ -318,8 +358,8 @@ NONE : 그룹속성 아님<br/>
               _referenceInfo: `
                 <table class="table">
                   <tr>
-                    <th>Parameter Name</th>
-                    <th>Status</th>
+                    <th>Response Value</th>
+                    <th>Mean</th>
                   </tr>
                   <tr>
                     <td>MANDATORY</td>
