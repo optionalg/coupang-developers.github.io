@@ -12,7 +12,7 @@ export const returnRequestApprovalProcessingDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `반품승인 처리`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -47,7 +47,10 @@ export const returnRequestApprovalProcessingDocument = {
     httpMethod: `PATCH`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/approval`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/approval`,
-    _description: `반품요청 승인`,
+    _description: `
+    빠른환불(선환불)조건에 해당하지 않는 상품의 반품이나 반품 회수가 완료되었는데 반품회수의 상태에 머물러 있는 경우에는<br>
+    반품요청 승인 처리를 판매자가 해주시면 반품승인,반품 완료로 진행됩니다.  
+    `,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -63,13 +66,13 @@ export const returnRequestApprovalProcessingDocument = {
         _warning: ``,
       },
       {
-        name: `receiptId`,
-        require: true,
-        _description: `쿠팡에 확인요청할 반품접수번호`,
-        _relation: `ReceiptId is from relational api: GET /v4/vendors/{vendorId}/returnRequests`,
-        _referenceInfo: ``,
-        _warning: `ReceiptId must be a number.`
-      }
+          name: `receiptId`,
+          require: true,
+          _description: `취소(반품)접수번호`,
+          _relation: `ReceiptId는 반품요청 목록 조회API를 통해 확인가능합니다.`,
+          _referenceInfo: ``,
+          _warning: `ReceiptId는 반드시 number타입이어야 합니다.`
+        }
     ],
     queryStringParameters: false,
     bodyParameters: [

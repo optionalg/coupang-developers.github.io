@@ -12,7 +12,7 @@ export const lookupReturnRequestListPerDayDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `반품 목록 조회(일단위 페이징)`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -20,19 +20,17 @@ export const lookupReturnRequestListPerDayDocument = {
   apiMigrationInfo: {
     previousVersions: [
       {
-        apiName: `반품 목록 조회(분단위 전체)`,
+        apiName: `반품 목록 조회(일단위 페이징)`,
         path: `/v2/providers/wing_api/apis/internal-api/v1/return`,
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `Integrated search by day and minutes by add the parameter "searchType=timeFrame".<br>
-                   Search by day parameters : createdAtFrom,createdTo, status, nextToken, maxPerPage and orderId <br>
-                   Search by minutes parameters : createdAtFrom,createdTo and status`
+        _warning: ``
       },
     ],
     nextVersions: [
       {
-        apiName: `반품요청 목록 조회(분단위 전체)`,
+        apiName: `반품요청 목록 조회(일단위 페이징`,
         path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests`,
         _description: ``,
         _relation: ``,
@@ -49,7 +47,7 @@ export const lookupReturnRequestListPerDayDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests`,
-    _description: `상태별 반품 목록 조회 분단위 전체 조회`,
+    _description: `상태별 반품 목록 조회 일단위 페이징`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -67,15 +65,6 @@ export const lookupReturnRequestListPerDayDocument = {
       }
     ],
     queryStringParameters: [
-      {
-        name: `searchType`,
-        require: false,
-        _description: `Indicate parameter to identify search by days or minutes,if by days no need it, if by minutes set as "searchType=timeFrame"`,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: `If want to search return detail info by minutes, need to add this parameter as "searchType=timeFrame"`,
-        children: false
-      },
       {
         name: `createdAtFrom`,
         require: true,
@@ -150,7 +139,7 @@ export const lookupReturnRequestListPerDayDocument = {
         require: false,
         _description: `Order ID.`,
         _relation: ``,
-        _referenceInfo: `If status is null, then orderId is mandatory.`,
+        _referenceInfo: `status 파라메터를 제외하고 조회할 경우에는 orderId가 파라메터에 포함되어야 합니다.`,
         //_warning: `No need this parameter when search by minutes. `,
         children: false
       }

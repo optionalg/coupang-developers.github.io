@@ -12,7 +12,7 @@ export const returnRequestProductReceiptConfirmationProcessingDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `입고확인 처리`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -47,10 +47,13 @@ export const returnRequestProductReceiptConfirmationProcessingDocument = {
     httpMethod: `PATCH`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/receiveConfirmation`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/receiveConfirmation`,
-    _description: `입고확인 처리`,
+    _description: `
+    빠른환불(선환불) 조건에 해당하는 상품(일반배송이며 상품가 10만원 미만)의 반품은 회수송장이 추적되는 경우에는 고객에게 물건 회수시점에 빠른환불이 이루어지며<br>
+    회수송장이 트랙킹되지 않는 경우에는 반품상품 입고 확인처리 이후(고객에게 반품 상품의 회수가 확인되었기에)빠른환불 및 반품 승인,반품 완료로 진행이 됩니다. 
+    `,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `이미 빠른환불이 진행된 반품에 물건 이상 또는 배송비 이상등이 발생시 쿠팡 확인 요청 프로세스를 수행하게 됩니다.`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -65,10 +68,10 @@ export const returnRequestProductReceiptConfirmationProcessingDocument = {
       {
         name: `receiptId`,
         require: true,
-        _description: `접수번호`,
-        _relation: `ReceiptId is from relational api: GET /v4/vendors/{vendorId}/returnRequests`,
+        _description: `취소(반품)접수번호`,
+        _relation: `ReceiptId는 반품요청 목록 조회API를 통해 확인가능합니다.`,
         _referenceInfo: ``,
-        _warning: `ReceiptId must be a number.`
+        _warning: `ReceiptId는 반드시 number타입이어야 합니다.`
       }
     ],
     queryStringParameters: false,

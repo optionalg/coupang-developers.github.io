@@ -12,7 +12,7 @@ export const lookupReturnByProductDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `반품 단건 조회`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -47,7 +47,7 @@ export const lookupReturnByProductDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}`,
-    _description: `반품 단건 조회`,
+    _description: `취소(반품)접수번호를 이용하여 반품 단건 조회를 수행합니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -63,13 +63,13 @@ export const lookupReturnByProductDocument = {
         _warning: ``,
       },
       {
-        name: `receiptId`,
-        require: true,
-        _description: `취소(반품)접수번호`,
-        _relation: `ReceiptId is from relational api: GET /v4/vendors/{vendorId}/returnRequests`,
-        _referenceInfo: ``,
-        _warning: `ReceiptId must be a number.`
-      }
+          name: `receiptId`,
+          require: true,
+          _description: `취소(반품)접수번호`,
+          _relation: `ReceiptId는 반품요청 목록 조회API를 통해 확인가능합니다.`,
+          _referenceInfo: ``,
+          _warning: `ReceiptId는 반드시 number타입이어야 합니다.`
+        }
     ],
     queryStringParameters: false,
     bodyParameters: false

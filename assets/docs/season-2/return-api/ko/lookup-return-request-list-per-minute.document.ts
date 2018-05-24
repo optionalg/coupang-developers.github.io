@@ -12,7 +12,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `반품 목록 조회(분단위 전체)`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -25,9 +25,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `Integrated search by day and minutes by add the parameter "searchType=timeFrame".<br>
-                   Search by day parameters : createdAtFrom,createdTo, status, nextToken, maxPerPage and orderId <br>
-                   Search by minutes parameters : createdAtFrom,createdTo and status`
+        _warning: ``
 
       },
     ],
@@ -70,11 +68,11 @@ export const lookupReturnRequestListPerMinuteDocument = {
     queryStringParameters: [
       {
         name: `searchType`,
-        require: false,
-        _description: `Indicate parameter to identify search by days or minutes,if by days no need it, if by minutes set as "searchType=timeFrame"`,
+        require: true,
+        _description: `반품요청 목록 조회를 분단위로 수행시에는 "searchType=timeFrame"파라메터를 전송하여야 합니다.`,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `If want to search return detail info by minutes, need to add this parameter as "searchType=timeFrame"`,
+        _warning: ``,
         children: false
       },
       {
