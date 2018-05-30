@@ -602,17 +602,6 @@ export const createSellerProductDocument = {
         name: `afterServiceContactNumber`,
         type: `String`,
         require: true,
-        _description: `반품지주소상세`,
-        _relation: ``,
-        _referenceInfo: `쿠팡 Wing에서 배송지 등록 후 확인`,
-        _warning: ``,
-        children: false
-      }
-      ,
-      {
-        name: `returnAddressDetail`,
-        type: `String`,
-        require: true,
         _description: `A/S전화번호`,
         _relation: ``,
         _referenceInfo: ``,
