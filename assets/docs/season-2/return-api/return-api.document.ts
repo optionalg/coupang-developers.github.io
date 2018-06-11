@@ -4,6 +4,7 @@ import {lookupReturnRequestListPerMinuteDocument} from "./ko/lookup-return-reque
 import {lookupReturnByProductDocument} from "./ko/lookup-return-request-by-product.document";
 import {returnRequestProductReceiptConfirmationProcessingDocument} from "./ko/return-request-product-receipt-confirmation-processing.document";
 import {returnRequestApprovalProcessingDocument} from "./ko/return-request-approval-processing.document";
+import {lookupReturnCancelListDocument} from "./ko/lookup-return-cancel-list.document";
 export const returnApiDocs = {
   ko: [],
   en: []
@@ -14,3 +15,4 @@ returnApiDocs.ko.push(lookupReturnRequestListPerMinuteDocument);
 returnApiDocs.ko.push(lookupReturnByProductDocument);
 returnApiDocs.ko.push(returnRequestProductReceiptConfirmationProcessingDocument);
 returnApiDocs.ko.push(returnRequestApprovalProcessingDocument);
+returnApiDocs.ko.push(lookupReturnCancelListDocument);

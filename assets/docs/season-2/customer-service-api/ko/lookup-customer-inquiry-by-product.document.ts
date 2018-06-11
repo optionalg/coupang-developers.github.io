@@ -301,15 +301,6 @@ export const lookupCustomerInquiryByProductDocument = {
                   _referenceInfo: `"2015-05-27 10:38:32"`,
                   _warning: ``,
                   children: false,
-                },
-                {
-                  name: `replyBy`,
-                  type: `String`,
-                  _description: `응답자 이메일 혹은 이름`,
-                  _relation: ``,
-                  _referenceInfo: ``,
-                  _warning: ``,
-                  children: false,
                 }
               ]
             }
@@ -389,15 +380,13 @@ export const lookupCustomerInquiryByProductDocument = {
                 "inquiryCommentId": 351,
                 "inquiryId": 844,
                 "content": "just do it9.28",
-                "inquiryCommentAt": "2016-09-28 16:18:09",
-                "replyBy":"wanger"
+                "inquiryCommentAt": "2016-09-28 16:18:09"
               },
               {
                 "inquiryCommentId": 352,
                 "inquiryId": 844,
                 "content": "just do it9.29",
-                "inquiryCommentAt": "2016-09-29 16:18:09",
-                "replyBy":"wanger"
+                "inquiryCommentAt": "2016-09-29 16:18:09"
               }
             ]
           },
@@ -416,8 +405,7 @@ export const lookupCustomerInquiryByProductDocument = {
                 "inquiryCommentId": 312,
                 "inquiryId": 848,
                 "content": "미처리 답변 완료 3",
-                "inquiryCommentAt": "2015-05-27 10:38:32",
-                "replyBy":"wanger"
+                "inquiryCommentAt": "2015-05-27 10:38:32"
               }
             ]
           },
