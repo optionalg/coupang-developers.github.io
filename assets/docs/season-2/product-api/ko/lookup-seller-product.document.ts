@@ -197,42 +197,42 @@ export const lookupSellerProductDocument = {
           _description: `배송방법`,
           _relation: ``,
           _referenceInfo: `
-        <table class="table">
-        <tr>
-          <th>Parameter Name</th>
-          <th>Status</th>
-        </tr>
-        <tr>
-          <td>SEQUENCIAL</td>
-          <td>일반배송<br>(순차배송)</td>
-        </tr>
-        <tr>
-          <td>VENDOR_DIRECT</td>
-          <td>업체직송</td>
-        </tr>
-        <tr>
-          <td>MAKE_ORDER</td>
-          <td>주문제작</td>
-        </tr>
-        <tr>
-          <td>INSTRUCTURE</td>
-          <td>설치배송</td>
-        </tr>
-        <tr>
-          <td>AGENT_BUY</td>
-          <td>구매대행</td>
-        </tr>
-        <tr>
-          <td>COLD_FRESH</td>
-          <td>신선냉동</td>
-        </tr>
-         <tr>
-          <td>MAKE_ORDER_DIRECT</td>
-          <td>주문제작(업체직송)</td>
-        </tr>
-        </table>
+          <table class="table">
+          <tr>
+            <th>Parameter Name</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>SEQUENCIAL</td>
+            <td>일반배송<br>(순차배송)</td>
+          </tr>
+          <tr>
+            <td>COLD_FRESH</td>
+            <td>신선냉동</td>
+          </tr>
+          <tr>
+            <td>MAKE_ORDER</td>
+            <td>주문제작</td>
+          </tr>
+          <tr>
+            <td>AGENT_BUY</td>
+            <td>구매대행</td>
+          </tr>
+          <tr>
+            <td>VENDOR_DIRECT</td>
+            <td>설치배송 또는 판매자 직접 전달</td>
+          </tr>
+          <tr>
+            <td><del>INSTRUCTURE</del></td>
+            <td><del>설치배송</del></td>
+          </tr>
+          <tr>
+            <td><del>MAKE_ORDER_DIRECT</del></td>
+            <td><del>설치주문제작(업체직접전달)</del></td>
+          </tr>
+          </table>
         `,
-          _warning: ``,
+          _warning: `“INSTRUCTUR”와 “MAKE_ORDER_DIRECT”는 “VENDOR_DIRECT”로 통합되었습니다.`,
           children: false
         },
         {
@@ -249,7 +249,7 @@ export const lookupSellerProductDocument = {
                 </tr>
                 <tr>
                   <td>HYUNDAI</td>
-                  <td>롯데택배</td>
+                  <td>현대택배</td>
                 </tr>
                 <tr>
                   <td>KGB</td>
@@ -1448,6 +1448,17 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
         }
         ,
         {
+          name: `extraInfoMessage`,
+          type: `String`,
+          require: false,
+          _description: `주문제작 안내 메시지`,
+          _relation: ``,
+          _referenceInfo: `배송 방법을 주문제작으로 선택했을 경우, 고객에게 안내할 메시지를 입력해주세요.`,
+          _warning: ``,
+          children: false
+        }
+        ,
+        {
           name: `manufacture`,
           type: `String`,
           require: true,
@@ -1771,6 +1782,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
     "requiredDocuments": [
       
     ],
+    "extraInfoMessage": null,
     "manufacture": "제조사"
   }
     	},
