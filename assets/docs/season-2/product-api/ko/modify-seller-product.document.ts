@@ -26,11 +26,12 @@ export const modifySellerProductDocument = {
     httpMethod: `PUT`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products`,
-    _description: `업체상품을 수정한다. 상품은 한 개 이상의 옵션으로 구성된다.
-옵션 추가 : items 배열 하위에 새로운 옵션을 추가하여 전송한다. 옵션 추가시 sellerProductItemId는 입력하지 않는다. (등록시와 동일)
-옵션 삭제 : 삭제하고 싶은 옵션의 items 배열 하위 값을 제거하여 전송한다. (단, 승인완료된 옵션은 삭제 불가)
-※ 승인완료된 상품의 판매가격, 재고수량, 판매상태, 할인율 기준가는 각각 상품 API 하위의 [옵션별 수량/가격/판매여부/할인율기준가 변경] API를 통해 가능합니다.
-※ 업체 상품 최초 등록 이후, 옵션값(속성값)은 수정이 불가능합니다.`,
+    _description: `업체상품 정보를 수정한다. <br/>
+    상품 생성 시 사용한 request body에, [sellerProductId]와 [sellerProductItemId]를 삽입하여 빠른 수정 가능 <br/>
+    - 옵션 삭제 : 삭제하고 싶은 옵션의 'items 배열 하위 값'을 제거하고, 남기고 싶은 아이템 상단에 [sellerProductItemId] 삽입 후 전송 <br/>
+    - 옵션 추가 : [sellerProductItemId]를 입력하지 않고 items 배열을 추가하여 전송 <br/>
+    ※ [sellerProductId]와 [sellerProductItemId]는 상품 조회 API를 이용해 확인가능합니다. <br/>
+    ※ 승인 완료된 상품의 판매가격, 재고수량, 판매상태, 할인율 기준가는 상품수정API가 아닌, 상품 API 하위의 [옵션별 수량/가격/판매여부/할인율기준가 변경] API를 통해 가능합니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -44,7 +45,8 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `업체상품아이디`,
         _relation: ``,
-        _referenceInfo: `상품생성 후 얻어진 sellerProductId`,
+        _referenceInfo: `상품 생성 완료 시, 출력 되는 등록상품 아이디 (data)<br/>
+        상품 조회 API를 통해 확인 가능`,
         _warning: ``,
         children: false
       },
@@ -54,7 +56,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `노출카테고리코드`,
         _relation: ``,
-        _referenceInfo: `변경불가.노출카테고리(internal category)코드는 수정해도 실 상품정보에 반영되지 않음.`,
+        _referenceInfo: `상품 등록 후, 셀러의 직접 변경 불가`,
         _warning: ``,
         children: false
       },
@@ -64,7 +66,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `등록상품명`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `발주서에 사용되는 상품명`,
         _warning: ``,
         children: false
       },
@@ -74,7 +76,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: `쿠팡에서 업체를 관리하기 위해 발급한 코드.`,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
         _warning: ``,
         children: false
       },
@@ -104,7 +106,9 @@ export const modifySellerProductDocument = {
           require: false,
           _description: `노출상품명`,
           _relation: ``,
-          _referenceInfo: `실제 쿠팡 판매페이지에서 노출될 상품명이나 실제 노출 시 변경될 수 있으며 브랜드, 제품명, 상품군의 변경에 의해 변경됩니다.`,
+          _referenceInfo: `실제 쿠팡 판매페이지에서 노출되는 상품명.<br>
+          [brand]+[generalProductName]과 동일하게 입력할 것을 권장, 미입력 상태로도 등록 가능 <br>
+          미입력 시 [brand]+[generalProductName]가 노출되거나, [sellerProductName]이 노출될 수 있음<br> `,
           _warning: ``,
           children: false
       },
@@ -114,7 +118,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `브랜드`,
         _relation: ``,
-        _referenceInfo: `브랜드명은 한글/영어 표준이름 입력`,
+        _referenceInfo: `브랜드명은 한글/영어 표준이름 입력<br> 띄어쓰기 및 특수문자 없이 입력`,
         _warning: ``,
         children: false
       },
@@ -124,7 +128,7 @@ export const modifySellerProductDocument = {
           require: false,
           _description: `제품명`,
           _relation: ``,
-          _referenceInfo: `사이즈, 컬러등의 '옵션정보'를 포함하지 않은 상품의 고유명사 또는 모델명.`,
+          _referenceInfo: `구매옵션[Attribute exposed] 정보(사이즈, 색상 등)를 포함하지 않는 상품명. 모델명 추가 기입 가능`,
           _warning: ``,
           children: false
       },
@@ -134,7 +138,8 @@ export const modifySellerProductDocument = {
             require: false,
             _description: `상품군`,
             _relation: ``,
-            _referenceInfo: `상품의 그룹으로 노출카테고리의 최하위명을 참고하여 입력.`,
+            _referenceInfo: `상품의 종류를 나타내는 명칭으로 노출카테고리의 최하위명을 참고하여 입력 가능.<br>
+            제품명[generalProductName]과 중복될 경우, 입력 불필요`,
             _warning: ``,
             children: false
       },
@@ -180,7 +185,7 @@ export const modifySellerProductDocument = {
        </tr>
        </table>
         `,
-        _warning: `“INSTRUCTUR”와 “MAKE_ORDER_DIRECT”는 “VENDOR_DIRECT”로 통합되었습니다. `,
+        _warning: `“INSTRUCTURE”와 “MAKE_ORDER_DIRECT”는 “VENDOR_DIRECT”로 통합되었습니다. `,
         children: false
       },
       {
@@ -488,11 +493,11 @@ export const modifySellerProductDocument = {
         </tr>
         </table>
         <br/>※ 묶음 배송 조건<br/>
-묶음 배송 설정시, 출고지 정보 필수 입력 / 출고지 정보가 같은 상품만 묶음 배송 가능
-묶음 배송 설정시, 배송비 종류에 따른 조건
-무료배송 : 기본배송비 0원, 초도반품배송비 2,500원, 반품배송비 2,500원으로 자동 설정
-9800이상 무료배송 / 조건부무료배송 / 유료배송 : 기본배송비 2,500원, 반품배송비 2,500원으로 자동 설정
-착불배송 : 합배송 설정 불가
+        묶음 배송 설정시, 출고지 정보 필수 입력 (출고지 정보가 같은 상품만 묶음 배송 가능)<br><br/>
+        ※ 묶음 배송 설정시, 배송비 종류에 따른 조건<br/>
+        ● 무료배송 : 기본배송비 0원, 초도반품배송비 2,500원, 반품배송비 2,500원으로 자동 설정<br/>
+        ● 9800이상 무료배송 / 조건부무료배송 / 유료배송 : 기본배송비 2,500원, 반품배송비 2,500원으로 자동 설정<br/>
+        ● 착불배송 : 합배송 설정 불가
         `,
         _warning: ``,
         children: false
@@ -640,7 +645,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `실사용자아이디(쿠팡 WING 아이디)`,
         _relation: ``,
-        _referenceInfo: `업체(Vendor)에 소속된 사용자아이디 (윙 ID)`,
+        _referenceInfo: `업체(Vendor)에 소속된 사용자아이디`,
         _warning: ``,
         children: false
       }
@@ -651,7 +656,9 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `자동승인요청여부`,
         _relation: ``,
-        _referenceInfo: `상품 저장후에 자동으로 승인요청을 진행여부 기본값 : false, true를 입력할 경우, 임시저장중 -> 임시저장 상태를 자동으로 승인 요청으로 바꿔 준다.`,
+        _referenceInfo: `상품 등록 시, 자동으로 판매승인요청을 진행할지 여부 선택 <br>
+        ● false : 작성 내용만 저장. (판매를 원할 시에는 상품 승인요청 API 또는 wing에서 판매요청을 진행 해야 함)<br>
+        ● true : 저장 및 자동으로 판매 승인 요청`,
         _warning: ``,
         children: false
       }
@@ -671,8 +678,8 @@ export const modifySellerProductDocument = {
             require: true,
             _description: `업체상품옵션아이디`,
             _relation: ``,
-            _referenceInfo: `상품등록 후 얻어진 sellerProductItemId (기존 옵션 수정시 필수 / 새로운 옵션 추가시 null로 입력)`,
-            _warning: ``,
+            _referenceInfo: `상품 등록 후, 각 옵션에 따라 부여 된 아이디. 상품 조회 API를 통해 확인 가능 `,
+            _warning: `기존 옵션 수정시 필수이며, 새로운 옵션 추가 시에는 null로 입력`,
             children: false
           }
           ,
@@ -682,7 +689,7 @@ export const modifySellerProductDocument = {
             require: true,
             _description: `업체상품옵션명`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `발주서에 사용되는 구매옵션명.<br> 사이트에 노출되는 옵션명이 아니며, 관리 용도로 활용 가능`,
             _warning: ``,
             children: false
           }
@@ -704,7 +711,7 @@ export const modifySellerProductDocument = {
             require: true,
             _description: `판매가격`,
             _relation: ``,
-            _referenceInfo: `판매가격을 입력. '최초' 업체상품 등록시 판매가격은 상품 승인 요청 전에만 가능하며, 승인완료 이후 판매가격 수정은 [옵션별 가격 변경] API를 통해 변경가능`,
+            _referenceInfo: `판매가격을 입력. <br> '최초' 업체상품 등록시 판매가격은 상품 승인 요청 전에만 가능하며, 승인완료 이후 판매가격 수정은 [옵션별 가격 변경] API를 통해 변경가능`,
             _warning: ``,
             children: false
           }
@@ -715,7 +722,7 @@ export const modifySellerProductDocument = {
             require: true,
             _description: `판매가능수량`,
             _relation: ``,
-            _referenceInfo: `판매가능한 재고수량을 입력. '최초' 업체상품 등록시 판매수량은 상품 승인 요청 전에만 가능하며, 승인완료 이후 재고 수정은 [옵션별 수량 변경] API를 통해 변경가능`,
+            _referenceInfo: `판매가능한 재고수량을 입력. <br>'최초' 업체상품 등록시 판매수량은 상품 승인 요청 전에만 가능하며, 승인완료 이후 재고 수정은 [옵션별 수량 변경] API를 통해 변경가능`,
             _warning: ``,
             children: false
           }
@@ -749,17 +756,6 @@ export const modifySellerProductDocument = {
             _description: `최대구매수량기간(일)`,
             _relation: ``,
             _referenceInfo: `일별 1인당 최대 구매 가능한 수량. 제한이 없을 경우 '1'을 입력`,
-            _warning: ``,
-            children: false
-          }
-          ,
-          {
-            name: `unitCount`,
-            type: `Number`,
-            require: true,
-            _description: `단위수량`,
-            _relation: ``,
-            _referenceInfo: `상품에 포함된 수량을 입력하면 (판매가격 ÷ 단위수량) 로 계산하여 (1개당 가격 #,000원) 으로 노출. 개당가격이 필요하지 않은 상품은 '0'을 입력`,
             _warning: ``,
             children: false
           }
@@ -885,7 +881,7 @@ export const modifySellerProductDocument = {
             require: false,
             _description: `바코드`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `상품에 부착 된 유효한 표준상품 코드`,
             _warning: ``,
             children: false
           }
@@ -918,7 +914,7 @@ export const modifySellerProductDocument = {
             require: false,
             _description: `모델번호`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `판매하는 제품의 모델명`,
             _warning: ``,
             children: false
           }
@@ -1016,10 +1012,13 @@ export const modifySellerProductDocument = {
                 require: false,
                 _description: `이미지타입`,
                 _relation: ``,
-                _referenceInfo: `REPRESENTATION : 대표이미지 (정사각형: 최소 500 x 500px, 최대 5000 x 5000px (3MB 이하)  *필수)<br/>
-REP_OBLONG_ORIGIN : 대표이미지 (직사각형: 최소 500 x 290px, 최대 5000 x 2900px(3MB 이하) *선택)<br/>
-DETAIL : 기타이미지 (정사각형: 최소 500 x 500px, 최대 5000 x 5000px (3MB 이하) *선택, 9개까지 등록 가능)<br/>
-USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px, 3MB 이하의 JPG, PNG파일을 최대 4개 까지 등록가능 *선택)`,
+                _referenceInfo: `대표이미지 타입<br> 
+                3MB 이하의 정사각형 이미지를 JPG, PNG로 등록 가능 (최소 500 x 500px, 최대 5000 x 5000px)<br><br/>
+                ● 필수<br/>
+                REPRESENTATION : 정사각형 대표이미지<br/>
+                ● 선택<br/>
+                DETAIL : 기타이미지 (최대 9개까지 등록 가능)<br/>
+                USED_PRODUCT : 중고상태 이미지 (최대 4개까지 등록 가능)`,
                 _warning: ``,
                 children: false
               }
@@ -1054,7 +1053,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
             require: true,
             _description: `상품고시정보 목록`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `카테고리 메타 정보 조회 API 또는 전체카테고리 리스트 Excel file을 통해, 필요한 고시정보 항목의 확인 및 선택 가능`,
             _warning: ``,
             children: [
               {
@@ -1063,7 +1062,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                 require: true,
                 _description: `상품고시정보카테고리명`,
                 _relation: ``,
-                _referenceInfo: `카테고리별 입력 가능한 상품고시정보 카테고리 중 하나를 입력`,
+                _referenceInfo: `카테고리별 입력 가능한 상품고시정보 카테고리 중 하나를 입력<br>카테고리 메타 정보 조회 API 또는 전체 카테고리 정보 Excel file을 통해, 필요한 고시정보 항목의 확인 및 선택 가능`,
                 _warning: ``,
                 children: false
               }
@@ -1098,9 +1097,10 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
             require: true,
             _description: `옵션목록(속성)`,
             _relation: ``,
-            _referenceInfo: `카테고리 기준으로 정해진 옵션을 입력하는 객체의 목록으로 
-                             상품 수정 시 입력을 원하지 않는 필수값 이외의 속성은 attributes 목록에서 제거 또는 또는 attributeValueName을 ""값으로 입력하여 전송`,
-            _warning: ``,
+            _referenceInfo: `카테고리 기준으로 정해진 옵션 목록을 입력하는 객체 <br/>
+            등록하기 원하는 구매옵션 개수 만큼 반복 입력 가능`,
+            _warning: `구매옵션(attribute exposed)의 모든 값이 중복될 경우 등록 불가<br/>
+            한개 이상 필수 등록이며, 입력을 원하지 않는 속성은 attributes 목록에서 제거 또는 attributeValueName을 ""로 입력하여 전송`,
             children: [
               {
                 name: `attributeTypeName`,
@@ -1108,7 +1108,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                 require: true,
                 _description: `옵션타입명`,
                 _relation: ``,
-                _referenceInfo: ``,
+                _referenceInfo: `카테고리 메타 정보 조회 API 또는 전체카테고리 리스트 다운로드 엑셀 파일을 통해, 카테고리에 맞는 옵션타입명 확인 및 선택 가능`,
                 _warning: ``,
                 children: false
               }
@@ -1119,7 +1119,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                 require: true,
                 _description: `옵션값`,
                 _relation: ``,
-                _referenceInfo: ``,
+                _referenceInfo: `옵션타입명[attributeTypeName]에 해당하는 Value를 단위와 함께 입력 (예시 : "200ml")`,
                 _warning: ``,
                 children: false
               }
@@ -1274,7 +1274,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                 _description: `상품상태`,
                 _relation: ``,
                 _referenceInfo: ``,
-                _warning: `등록 이후 offerCondition 은 수정이 불가능합니다.`,
+                _warning: `상품 생성 후에는 offerCondition 변경이 불가능`,
                 children: false
               },
               {
@@ -1284,7 +1284,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                 _description: `중고상품 상세설명`,
                 _relation: ``,
                 _referenceInfo: `
-                중고상품 상태를 설명, 700자 제한
+                중고상품 상태를 설명, 700자 제한<br/>offerCondition을 중고로 입력한 경우에만 작성
                 `,
                 _warning: ``,
                 children: false
@@ -1342,7 +1342,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
         require: false,
         _description: `주문제작 안내 메시지`,
         _relation: ``,
-        _referenceInfo: `배송 방법을 주문제작으로 선택했을 경우, 고객에게 안내할 메시지를 입력해주세요.`,
+        _referenceInfo: `배송 방법을 '주문제작'으로 선택했을 경우, 고객에게 안내할 메시지를 입력`,
         _warning: ``,
         children: false
       }
@@ -1353,7 +1353,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
         require: true,
         _description: `제조사`,
         _relation: ``,
-        _referenceInfo: `제조사`,
+        _referenceInfo: `정확한 제조사를 기입할 수 없는 경우, ""를 입력하여 전송 또는 [brand] 항목과 동일하게 입력 가능`,
         _warning: ``,
         children: false
       }
@@ -1410,26 +1410,26 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
       {
         language: `http`,
         codeblock: {
-          "sellerProductId": 7803,
-          "displayCategoryCode": 79386,
-          "sellerProductName": "테스트 상품 등록_CJ제일제당 백설 찹쌀 호떡믹스_Python",
+          "sellerProductId": 309323422,
+          "displayCategoryCode": 56137,
+          "sellerProductName": "test_클렌징오일_수정",
           "vendorId": "A00013264",
-          "saleStartedAt": "2017-09-01T00:00:00",
+          "saleStartedAt": "2017-11-30T00:00:00",
           "saleEndedAt": "2099-01-01T23:59:59",
-          "displayProductName": "[displayProductName]고객 만족 CJ제일제당 백설 찹쌀 호떡믹스",
-          "brand": "Stchodo",
-          "generalProductName": "[generalProductName]CJ제일제당 백설 찹쌀 호떡믹스",
-          "productGroup": "호떡믹스",
+          "displayProductName": "해피바스 솝베리 클렌징 오일",
+          "brand": "해피바스",
+          "generalProductName": "솝베리 클렌징 오일",
+          "productGroup": "클렌징 오일",
           "deliveryMethod": "SEQUENCIAL",
-          "deliveryCompanyCode": "KGB",
-          "deliveryChargeType": "FREE_DELIVERY_OVER_9800",
-          "deliveryCharge": 2500,
-          "freeShipOverAmount": 9800,
-          "deliveryChargeOnReturn": 0,
+           "deliveryCompanyCode": "KGB",
+          "deliveryChargeType": "FREE",
+          "deliveryCharge": 0,
+          "freeShipOverAmount": 0,
+          "deliveryChargeOnReturn": 5000,
           "remoteAreaDeliverable": "N",
           "unionDeliveryType": "UNION_DELIVERY",
           "returnCenterCode": "1000274592",
-          "returnChargeName": "대표이름4",
+          "returnChargeName": "반품지_1",
           "companyContactNumber": "02-1234-678",
           "returnZipCode": "135-090",
           "returnAddress": "서울특별시 강남구 삼성동",
@@ -1443,11 +1443,145 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
           "requested": true,
           "items": [
             {
-              "sellerProductItemId": 4869645952,
-              "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
+              "sellerProductItemId": 769536471,
+              "itemName": "200ml_1개",
               "originalPrice": 13000,
               "salePrice": 10000,
-              "maximumBuyCount": "9999",
+              "maximumBuyCount": "100",
+              "maximumBuyForPerson": "0",
+              "outboundShippingTimeDay": "1",
+              "maximumBuyForPersonPeriod": "1",
+              "unitCount": 1,
+              "adultOnly": "EVERYONE",
+              "taxType": "TAX",
+              "parallelImported": "NOT_PARALLEL_IMPORTED",
+              "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+              "pccNeeded": "false",
+              "externalVendorSku": "0001",
+              "barcode": "",
+              "emptyBarcode": true,
+              "emptyBarcodeReason": "상품확인불가_바코드없음사유",
+              "modelNo": "171717",
+              "extraProperties": {
+                "coupangSalePrice": 5000,
+                "onlineSalePriceForBooks": 10000,
+                "transactionType": "manufacturer",
+                "businessType": "Beauty"
+              },
+              "certifications": [
+                {
+                  "certificationType": "NOT_REQUIRED",
+                  "certificationCode": ""
+                }
+              ],
+              "searchTags": [
+                "검색어1",
+                "검색어2"
+              ],
+              "images": [
+                   {
+                  "imageOrder": 0,
+                  "imageType": "REPRESENTATION",
+                  "vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/25/3719529368/27a6b898-ff3b-4a27-b1e4-330a90c25e9c.jpg"
+                },
+                {
+                  "imageOrder": 1,
+                  "imageType": "DETAIL",
+                  "vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2017/02/21/3000169918/34b79649-d625-4f49-a260-b78bf7a573a8.jpg"
+                },
+                {
+                  "imageOrder": 2,
+                  "imageType": "DETAIL",
+                  "vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/28/3000169918/5716aa61-70bd-47cd-8f3d-f3d49e7f496d.jpg"
+                }
+              ],
+              "notices": [
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "용량(중량)",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "제품 주요 사양",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "사용기한 또는 개봉 후 사용기간",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "사용방법",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "제조업자 및 제조판매업자",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "제조국",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "화장품법에 따라 기재, 표시하여야 하는 모든 성분",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "식품의약품안전처 심사 필 유무",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "사용할 때 주의사항",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "품질보증기준",
+                  "content": "제품 이상 시 공정거래위원회 고시 소비자분쟁해결기준에 의거 보상합니다."
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "소비자상담관련 전화번호",
+                  "content": "상세페이지 참조"
+                }
+              ],
+              "attributes": [
+                {
+                  "attributeTypeName": "수량",
+                  "attributeValueName": "1개"
+                },
+                {
+                  "attributeTypeName": "개당 용량",
+                  "attributeValueName": "200ml"
+                }
+              ],
+              "contents": [
+                {
+                  "contentsType": "TEXT",
+                  "contentDetails": [
+                    {
+                      "content": "<html><div></div><div><img src='http://image11.coupangcdn.com/image/product/content/vendorItem/2018/06/26/196713/738d905f-ed80-4fd8-ad21-ed87b195a19e.jpg' /><div></html>",
+                      "detailType": "TEXT"
+                    }
+                  ]
+                }
+              ],
+              "offerCondition": "NEW",
+              "offerDescription": ""
+            },
+            {
+              "sellerProductItemId": 769536472,
+              "itemName": "200ml_2개",
+              "originalPrice": 26000,
+              "salePrice": 20000,
+              "maximumBuyCount": "100",
               "maximumBuyForPerson": "0",
               "outboundShippingTimeDay": "2",
               "maximumBuyForPersonPeriod": "1",
@@ -1457,100 +1591,134 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
               "parallelImported": "NOT_PARALLEL_IMPORTED",
               "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
               "pccNeeded": "false",
-              "externalVendorSku": "90726",
+              "externalVendorSku": "0001",
               "barcode": "",
-              "emptyBarcode": false,
-              "emptyBarcodeReason": null,
-              "modelNo": "",
+              "emptyBarcode": true,
+              "emptyBarcodeReason": "상품확인불가_바코드없음사유",
+              "modelNo": "171717",
               "extraProperties": {
                 "coupangSalePrice": 5000,
                 "onlineSalePriceForBooks": 10000,
                 "transactionType": "manufacturer",
                 "businessType": "Beauty"
               },
-              "certifications":[
+              "certifications": [
                 {
-                  "certificationType": "PRESENTED_IN_DETAIL_PAGE",
-                  "certificationCode": null
+                  "certificationType": "NOT_REQUIRED",
+                  "certificationCode": ""
                 }
               ],
               "searchTags": [
                 "검색어1",
                 "검색어2"
               ],
-              "images": [{
+              "images": [
+                {
                   "imageOrder": 0,
                   "imageType": "REPRESENTATION",
-                  "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-                  "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"
-                }],
-                "notices": [{
-                  "noticeCategoryName": "의류",
-                  "noticeCategoryDetailName": "제품 소재",
+                  "vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/26/3001519145/74100e2a-d1ad-4b50-9c78-840c12a3e10d.jpg"
+                },
+                {
+                  "imageOrder": 1,
+                  "imageType": "DETAIL",
+                  "vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2017/02/21/3000169918/34b79649-d625-4f49-a260-b78bf7a573a8.jpg"
+                },
+                {
+                  "imageOrder": 2,
+                  "imageType": "DETAIL",
+                  "vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/28/3000169918/5716aa61-70bd-47cd-8f3d-f3d49e7f496d.jpg"
+                }
+              ],
+              "notices": [
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "용량(중량)",
                   "content": "상세페이지 참조"
-                }, {
-                  "noticeCategoryName": "의류",
-                  "noticeCategoryDetailName": "색상",
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "제품 주요 사양",
                   "content": "상세페이지 참조"
-                }, {
-                  "noticeCategoryName": "의류",
-                  "noticeCategoryDetailName": "치수",
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "사용기한 또는 개봉 후 사용기간",
                   "content": "상세페이지 참조"
-                }, {
-                  "noticeCategoryName": "의류",
-                  "noticeCategoryDetailName": "제조자(수입자)",
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "사용방법",
                   "content": "상세페이지 참조"
-                }, {
-                  "noticeCategoryName": "의류",
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "제조업자 및 제조판매업자",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
                   "noticeCategoryDetailName": "제조국",
                   "content": "상세페이지 참조"
-                }, {
-                  "noticeCategoryName": "의류",
-                  "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "화장품법에 따라 기재, 표시하여야 하는 모든 성분",
                   "content": "상세페이지 참조"
-                }, {
-                  "noticeCategoryName": "의류",
-                  "noticeCategoryDetailName": "제조연월",
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "식품의약품안전처 심사 필 유무",
                   "content": "상세페이지 참조"
-                }, {
-                  "noticeCategoryName": "의류",
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "사용할 때 주의사항",
+                  "content": "상세페이지 참조"
+                },
+                {
+                  "noticeCategoryName": "화장품",
                   "noticeCategoryDetailName": "품질보증기준",
                   "content": "상세페이지 참조"
-                }, {
-                  "noticeCategoryName": "의류",
-                  "noticeCategoryDetailName": "A/S 책임자와 전화번호",
+                },
+                {
+                  "noticeCategoryName": "화장품",
+                  "noticeCategoryDetailName": "소비자상담관련 전화번호",
                   "content": "상세페이지 참조"
-                }],
-        		"attributes": [{
-      			"attributeTypeName": "색상",
-      			"attributeValueName": "GREY"
-      		  },
-  			  {
-      			"attributeTypeName": "패션의류/잡화 사이즈",
-      			"attributeValueName": "44"
-                }],
+                }
+              ],
+              "attributes": [
+                {
+                  "attributeTypeName": "수량",
+                  "attributeValueName": "2개"
+                },
+                {
+                  "attributeTypeName": "개당 용량",
+                  "attributeValueName": "200ml"
+                }
+              ],
               "contents": [
                 {
                   "contentsType": "TEXT",
                   "contentDetails": [
                     {
-                      "content": "<html></html>",
+                      "content": "<html><div></div><div><img src='http://image11.coupangcdn.com/image/product/content/vendorItem/2018/06/26/196713/738d905f-ed80-4fd8-ad21-ed87b195a19e.jpg' /><div></html>",
                       "detailType": "TEXT"
                     }
                   ]
                 }
-              ]
-           }
-          ],
-          "requiredDocuments": [
-            {
-              "templateName": "기타인증서류",
-              "documentPath": "vendor_inventory/documents/2015/06/25/bd8813a7-4aff-4952-81fb-20f8b628cec4.jpg",
-              "vendorDocumentPath": "A_1.jpg"
+              ],
+              "offerCondition": "NEW",
+              "offerDescription": ""
             }
           ],
-          "extraInfoMessage": null,
-          "manufacture": "제조사"
+          "requiredDocuments": [
+          {
+              "templateName": "기타인증서류",
+              "vendorDocumentPath": "http://image11.coupangcdn.com/image/product/content/vendorItem/2018/07/02/41579010/eebc0c30-8f35-4a51-8ffd-808953414dc1.jpg"
+            }
+          ], 
+          "extraInfoMessage": "", 
+          "manufacture": "아모레퍼시픽"      
         }
       }
     ],

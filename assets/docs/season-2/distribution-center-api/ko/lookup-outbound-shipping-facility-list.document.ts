@@ -56,7 +56,7 @@ export const lookupOutboundShippingFacilityListDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -76,11 +76,11 @@ export const lookupOutboundShippingFacilityListDocument = {
                           </tr>
                           <tr>
                            <td>OSPC</td>
-                           <td>출고지 코드로 조회(Search by outboundShippingPlaceCodes)</td>
+                           <td>출고지 코드로 조회</td>
                           </tr>
                           <tr>
                            <td>FULL</td>
-                           <td>업체코드로 조회(Search fulllist by vendorId)</td>
+                           <td>업체코드로 조회</td>
                           </tr>
                          </table>`,
         _warning: ``,
@@ -89,7 +89,7 @@ export const lookupOutboundShippingFacilityListDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -98,27 +98,27 @@ export const lookupOutboundShippingFacilityListDocument = {
       {
         name: `outboundShippingPlaceCodes`,
         require: false,
-        _description: `출고지 코드`,
+        _description: `출고지 코드, 출고지 생성 시 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: `예) 5192,5156,5155`,
-        _warning: `검색 타입이 OSPC 일 경우 필수(If searchType is OSPC, outboundShippingPlaceCodes is required)`,
+        _warning: `** 검색 타입이 OSPC 일 경우 필수`,
         children: false
       },
       {
         name: `pageNum`,
         require: false,
-        _description: `페이지수`,
+        _description: `페이지수(기본 1)`,
         _relation: ``,
-        _referenceInfo: `기본값 1`,
+        _referenceInfo: ``,
         _warning: ``,
         children: false
       },
       {
         name: `pageSize`,
         require: false,
-        _description: `페이지당 건수`,
+        _description: `페이지당 건수(기본 1 ~ 최대 50)`,
         _relation: ``,
-        _referenceInfo: `기본값 10, 최대값 50`,
+        _referenceInfo: ``,
         _warning: ``,
         children: false
       }
@@ -166,7 +166,25 @@ export const lookupOutboundShippingFacilityListDocument = {
               type: `Number`,
               _description: `출고지 코드`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `
+              <table class="table">
+              <tr>
+                <th>CODE</th>
+                <th>Mean</th>
+              </tr>
+              <tr>
+                <td>JIBUN</td>
+                <td>지번</td>
+              </tr>
+              <tr>
+                <td>ROADNAME</td>
+                <td>도로명</td>
+              </tr>
+              <tr>
+                <td>OVERSEA</td>
+                <td>해외</td>
+              </tr>
+          </table>`,
               _warning: ``,
               children: false
             },
@@ -190,16 +208,34 @@ export const lookupOutboundShippingFacilityListDocument = {
                 {
                   name: `addressType`,
                   type: `String`,
-                  _description: `주소 타입(지번, 지번과 도로명, 해외)`,
+                  _description: `주소 타입 <br/> JIBUN, ROADNAME, OVERSEA`,
                   _relation: ``,
-                  _referenceInfo: ``,
+                  _referenceInfo: `
+                  <table class="table">
+                  <tr>
+                    <th>CODE</th>
+                    <th>Mean</th>
+                  </tr>
+                  <tr>
+                    <td>JIBUN</td>
+                    <td>지번</td>
+                  </tr>
+                  <tr>
+                    <td>ROADNAME</td>
+                    <td>도로명</td>
+                  </tr>
+                  <tr>
+                    <td>OVERSEA</td>
+                    <td>해외</td>
+                  </tr>
+              </table>`,
                   _warning: ``,
                   children: false
                 },
                 {
                   name: `countryCode`,
                   type: `String`,
-                  _description: `국가 코드`,
+                  _description: `국가 코드, 국내의 경우 'KR'. 유효길이는 2`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -210,14 +246,31 @@ export const lookupOutboundShippingFacilityListDocument = {
                   type: `String`,
                   _description: `전화번호`,
                   _relation: ``,
-                  _referenceInfo: ``,
+                  _referenceInfo: `            <table class="table">
+                  <tr>
+                    <th>구분</th>
+                    <th>Min~Max</th>
+                  </tr>
+                  <tr>
+                    <td>x</td>
+                    <td>2~4자</td>
+                  </tr>
+                  <tr>
+                    <td>y</td>
+                    <td>3~4자</td>
+                  </tr>
+                  <tr>
+                    <td>z</td>
+                    <td>4자</td>
+                  </tr>
+                 </table>`,
                   _warning: ``,
                   children: false
                 },
                 {
                   name: `phoneNumber2`,
                   type: `String`,
-                  _description: `보조 전화번호`,
+                  _description: `보조 전화번호<br/>(형식 : 전화번호와 동일합니다.)`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -226,7 +279,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 {
                   name: `returnZipCode`,
                   type: `String`,
-                  _description: `우편번호`,
+                  _description: `우편번호 : 숫자, 최소길이 5, 최대길이 6`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -235,7 +288,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 {
                   name: `returnAddress`,
                   type: `String`,
-                  _description: `반품지주소`,
+                  _description: `주소, 최대길이는 150`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -244,7 +297,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 {
                   name: `returnAddressDetail`,
                   type: `String`,
-                  _description: `상세한 반품지주소`,
+                  _description: `상세주소, 최대길이는 200`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -272,16 +325,16 @@ export const lookupOutboundShippingFacilityListDocument = {
                 {
                   name: `deliveryCode`,
                   type: `String`,
-                  _description: `택백사 코드`,
+                  _description: `택배사 코드`,
                   _relation: ``,
-                  _referenceInfo: ``,
+                  _referenceInfo: `출고지 생성 API - 택배사 코드 참고`,
                   _warning: ``,
                   children: false
                 },
                 {
                   name: `jejuFee`,
                   type: `Number`,
-                  _description: `제주지역 배송비`,
+                  _description: `제주 지역 배송비(원)`,
                   _relation: ``,
                   _referenceInfo: ``,
                   _warning: ``,
@@ -377,20 +430,20 @@ export const lookupOutboundShippingFacilityListDocument = {
     }
   ],
   sample: {
-    endpoint:`https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00012697/outboundShippingCenters?searchType=OSPC&outboundShippingPlaceCodes=5192,5156,5155&pageNum=1&pageSize=50`,
+    endpoint:`https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00012697/outboundShippingCenters?searchType=FULL&pageNum=1&pageSize=50`,
     code: [
       {
         language: `http`,
       }
     ],
     response: {
-      "code": "200",
+      "code": 200,
       "message": "SUCCESS",
       "data": {
         "content": [
           {
             "outboundShippingPlaceCode": 84,
-            "shippingPlaceName": "5555",
+            "shippingPlaceName": "상품출고지1",
             "placeAddresses": [
               {
                 "addressType": "ROADNAME",
@@ -399,7 +452,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "phoneNumber2": "010-000-0000",
                 "returnZipCode": "06544",
                 "returnAddress": "서울특별시 서초구 신반포로 270 (반포동, 반포자이아파트)",
-                "returnAddressDetail": "dd"
+                "returnAddressDetail": "100-1호"
               },
               {
                 "addressType": "JIBUN",
@@ -408,7 +461,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "phoneNumber2": "010-000-0000",
                 "returnZipCode": "06544",
                 "returnAddress": "서울특별시 서초구 반포동 20-43 반포자이아파트",
-                "returnAddressDetail": "dd"
+                "returnAddressDetail": "100-1호"
               }
             ],
             "remoteInfos": [
@@ -432,20 +485,6 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "jeju": 19000,
                 "notJeju": 9000,
                 "usable": false
-              },
-              {
-                "remoteInfoId": 103,
-                "deliveryCode": "HANJIN",
-                "jeju": 19000,
-                "notJeju": 0,
-                "usable": true
-              },
-              {
-                "remoteInfoId": 84,
-                "deliveryCode": "HYUNDAI",
-                "jeju": 10000,
-                "notJeju": 0,
-                "usable": true
               }
             ],
             "createDate": "2016/09/27",
@@ -453,17 +492,8 @@ export const lookupOutboundShippingFacilityListDocument = {
           },
           {
             "outboundShippingPlaceCode": 81,
-            "shippingPlaceName": "5555",
+            "shippingPlaceName": "상품출고지2",
             "placeAddresses": [
-              {
-                "addressType": "ROADNAME",
-                "countryCode": "KR",
-                "companyContactNumber": "010-000-0000",
-                "phoneNumber2": "010-000-0000",
-                "returnZipCode": "06544",
-                "returnAddress": "서울특별시 서초구 신반포로 270 (반포동, 반포자이아파트)",
-                "returnAddressDetail": "호호호호"
-              },
               {
                 "addressType": "JIBUN",
                 "countryCode": "KR",
@@ -471,7 +501,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "phoneNumber2": "010-000-0000",
                 "returnZipCode": "06544",
                 "returnAddress": "서울특별시 서초구 반포동 20-43 반포자이아파트",
-                "returnAddressDetail": "호호호호"
+                "returnAddressDetail": "100-1호"
               }
             ],
             "remoteInfos": [
@@ -516,48 +546,6 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "jeju": 0,
                 "notJeju": 10000,
                 "usable": true
-              },
-              {
-                "remoteInfoId": 70,
-                "deliveryCode": "HYUNDAI",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": false
-              },
-              {
-                "remoteInfoId": 77,
-                "deliveryCode": "IPARCEL",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": true
-              },
-              {
-                "remoteInfoId": 73,
-                "deliveryCode": "KDEXP",
-                "jeju": 1000,
-                "notJeju": 2000,
-                "usable": false
-              },
-              {
-                "remoteInfoId": 71,
-                "deliveryCode": "KGB",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": true
-              },
-              {
-                "remoteInfoId": 74,
-                "deliveryCode": "KGBLS",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": true
-              },
-              {
-                "remoteInfoId": 78,
-                "deliveryCode": "REGISTPOST",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": true
               }
             ],
             "createDate": "2016/09/22",
@@ -565,7 +553,7 @@ export const lookupOutboundShippingFacilityListDocument = {
           },
           {
             "outboundShippingPlaceCode": 80,
-            "shippingPlaceName": "5555",
+            "shippingPlaceName": "상품출고지3",
             "placeAddresses": [
               {
                 "addressType": "ROADNAME",
@@ -574,7 +562,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "phoneNumber2": "010-000-0000",
                 "returnZipCode": "06544",
                 "returnAddress": "서울특별시 서초구 신반포로 270 (반포동, 반포자이아파트)",
-                "returnAddressDetail": "dd"
+                "returnAddressDetail": "100-1호"
               },
               {
                 "addressType": "JIBUN",
@@ -583,24 +571,10 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "phoneNumber2": "010-000-0000",
                 "returnZipCode": "06544",
                 "returnAddress": "서울특별시 서초구 반포동 20-43 반포자이아파트",
-                "returnAddressDetail": "dd"
+                "returnAddressDetail": "100-1호"
               }
             ],
             "remoteInfos": [
-              {
-                "remoteInfoId": 68,
-                "deliveryCode": "CHUNIL",
-                "jeju": 2000,
-                "notJeju": 0,
-                "usable": true
-              },
-              {
-                "remoteInfoId": 65,
-                "deliveryCode": "CSLOGIS",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": true
-              },
               {
                 "remoteInfoId": 64,
                 "deliveryCode": "DAESIN",
@@ -642,7 +616,7 @@ export const lookupOutboundShippingFacilityListDocument = {
           },
           {
             "outboundShippingPlaceCode": 79,
-            "shippingPlaceName": "5555",
+            "shippingPlaceName": "상품출고지4",
             "placeAddresses": [
               {
                 "addressType": "ROADNAME",
@@ -651,7 +625,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "phoneNumber2": "010-000-0000",
                 "returnZipCode": "06544",
                 "returnAddress": "서울특별시 서초구 신반포로 270 (반포동, 반포자이아파트)",
-                "returnAddressDetail": "dd"
+                "returnAddressDetail": "100-1호"
               },
               {
                 "addressType": "JIBUN",
@@ -660,7 +634,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "phoneNumber2": "010-000-0000",
                 "returnZipCode": "06544",
                 "returnAddress": "서울특별시 서초구 반포동 20-43 반포자이아파트",
-                "returnAddressDetail": "dd"
+                "returnAddressDetail": "100-1호"
               }
             ],
             "remoteInfos": [
@@ -677,7 +651,7 @@ export const lookupOutboundShippingFacilityListDocument = {
           },
           {
             "outboundShippingPlaceCode": 78,
-            "shippingPlaceName": "5555",
+            "shippingPlaceName": "상품출고지5",
             "placeAddresses": [
               {
                 "addressType": "ROADNAME",
@@ -695,7 +669,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                 "phoneNumber2": "010-000-0000",
                 "returnZipCode": "06544",
                 "returnAddress": "서울특별시 서초구 반포동 20-43 반포자이아파트",
-                "returnAddressDetail": "dd"
+                "returnAddressDetail": "100-1호"
               }
             ],
             "remoteInfos": [
@@ -709,185 +683,13 @@ export const lookupOutboundShippingFacilityListDocument = {
             ],
             "createDate": "2016/09/22",
             "usable": true
-          },
-          {
-            "outboundShippingPlaceCode": 77,
-            "shippingPlaceName": "중복등록테스트",
-            "placeAddresses": [
-              {
-                "addressType": "ROADNAME",
-                "countryCode": "KR",
-                "companyContactNumber": "010-1111-1111",
-                "phoneNumber2": "010-1111-1111",
-                "returnZipCode": "34571",
-                "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
-                "returnAddressDetail": "1111"
-              },
-              {
-                "addressType": "JIBUN",
-                "countryCode": "KR",
-                "companyContactNumber": "010-1111-1111",
-                "phoneNumber2": "010-1111-1111",
-                "returnZipCode": "34571",
-                "returnAddress": "대전광역시 동구 삼성동 314-18 삼성식품",
-                "returnAddressDetail": "1111"
-              }
-            ],
-            "remoteInfos": [
-              {
-                "remoteInfoId": 54,
-                "deliveryCode": "HYUNDAI",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": true
-              }
-            ],
-            "createDate": "2016/09/22",
-            "usable": true
-          },
-          {
-            "outboundShippingPlaceCode": 339,
-            "shippingPlaceName": "자동테스트 배송지 20160725-164125",
-            "placeAddresses": [
-              {
-                "addressType": "JIBUN",
-                "countryCode": "KR",
-                "companyContactNumber": "01012345678",
-                "phoneNumber2": "01098765432",
-                "returnZipCode": "06168",
-                "returnAddress": "서울특별시 강남구 삼성동 157-27 (삼성동,경암빌딩)",
-                "returnAddressDetail": "5층 코로나팀 20160725-164125"
-              },
-              {
-                "addressType": "ROADNAME",
-                "countryCode": "KR",
-                "companyContactNumber": "01012345678",
-                "phoneNumber2": "01098765432",
-                "returnZipCode": "06168",
-                "returnAddress": "서울특별시 강남구 테헤란로 501 경암빌딩 (삼성동,경암빌딩)",
-                "returnAddressDetail": "5층 코로나팀 20160725-164125"
-              }
-            ],
-            "remoteInfos": [
-              {
-                "remoteInfoId": 24,
-                "deliveryCode": "HYUNDAI",
-                "jeju": 2000,
-                "notJeju": 2000,
-                "usable": true
-              }
-            ],
-            "createDate": "2016/07/25",
-            "usable": true
-          },
-          {
-            "outboundShippingPlaceCode": 338,
-            "shippingPlaceName": "123",
-            "placeAddresses": [
-              {
-                "addressType": "ROADNAME",
-                "countryCode": "KR",
-                "companyContactNumber": "010-0000-0000",
-                "phoneNumber2": "010-0000-0000",
-                "returnZipCode": "06544",
-                "returnAddress": "서울특별시 서초구 신반포로 270 (반포동, 반포자이아파트)",
-                "returnAddressDetail": "33311"
-              },
-              {
-                "addressType": "JIBUN",
-                "countryCode": "KR",
-                "companyContactNumber": "010-0000-0000",
-                "phoneNumber2": "010-0000-0000",
-                "returnZipCode": "06544",
-                "returnAddress": "서울특별시 서초구 반포동 20-43 반포자이아파트",
-                "returnAddressDetail": "33311"
-              }
-            ],
-            "remoteInfos": [
-              {
-                "remoteInfoId": 23,
-                "deliveryCode": "KGB",
-                "jeju": 2000,
-                "notJeju": 3000,
-                "usable": true
-              }
-            ],
-            "createDate": "2016/07/25",
-            "usable": true
-          },
-          {
-            "outboundShippingPlaceCode": 60,
-            "shippingPlaceName": "5555",
-            "placeAddresses": [
-              {
-                "addressType": "JIBUN",
-                "countryCode": "KR",
-                "companyContactNumber": "010-000-0000",
-                "phoneNumber2": "010-000-0000",
-                "returnZipCode": "06544",
-                "returnAddress": "서울특별시 서초구 반포동 20-43 반포자이아파트",
-                "returnAddressDetail": "dd"
-              },
-              {
-                "addressType": "ROADNAME",
-                "countryCode": "KR",
-                "companyContactNumber": "010-000-0000",
-                "phoneNumber2": "010-000-0000",
-                "returnZipCode": "06544",
-                "returnAddress": "서울특별시 서초구 신반포로 270 (반포동, 반포자이아파트)",
-                "returnAddressDetail": "dd"
-              }
-            ],
-            "remoteInfos": [
-              {
-                "remoteInfoId": 55,
-                "deliveryCode": "CHUNIL",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": true
-              },
-              {
-                "remoteInfoId": 56,
-                "deliveryCode": "DIRECT",
-                "jeju": 0,
-                "notJeju": 0,
-                "usable": true
-              },
-              {
-                "remoteInfoId": 18,
-                "deliveryCode": "KDEXP",
-                "jeju": 3000,
-                "notJeju": 4000,
-                "usable": true
-              }
-            ],
-            "createDate": "2016/07/25",
-            "usable": true
-          },
-          {
-            "outboundShippingPlaceCode": 59,
-            "shippingPlaceName": "반품지테스트",
-            "placeAddresses": [
-              {
-                "addressType": "JIBUN",
-                "countryCode": "KR",
-                "companyContactNumber": "010-1234-5678",
-                "phoneNumber2": "010-1234-5678",
-                "returnZipCode": "123456",
-                "returnAddress": "서울시 강남구 삼성동",
-                "returnAddressDetail": "경암빌딩"
-              }
-            ],
-            "remoteInfos": [],
-            "createDate": "2016/07/25",
-            "usable": true
           }
         ],
         "pagination": {
           "currentPage": 1,
-          "totalPages": 3,
-          "totalElements": 25,
-          "countPerPage": 10
+          "totalPages": 1,
+          "totalElements": 5,
+          "countPerPage": 5
         }
       }
     },

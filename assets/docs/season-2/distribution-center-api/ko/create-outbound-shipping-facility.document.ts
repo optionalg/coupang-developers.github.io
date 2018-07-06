@@ -46,7 +46,7 @@ export const createOutboundShippingFacilityDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters`,
-    _description: `상품 출고지를 생성합니다. 판매자는 이 API를 사용하여 하나 이상의 출고지를 만들 수 있으며, 생성된 출고지는 상품 등록 시 출고지를 지정할 때 사용됩니다.`,
+    _description: `상품 출고지를 생성합니다. 판매자는 이 API를 사용하여 하나 이상의 출고지를 만들 수 있으며, 생성된 출고지는 상품 등록 시 출고지를 지정할 때 사용됩니다.<br/>출고지 생성 갯수 제한은 없습니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -56,7 +56,7 @@ export const createOutboundShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -69,7 +69,7 @@ export const createOutboundShippingFacilityDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -79,7 +79,7 @@ export const createOutboundShippingFacilityDocument = {
         name: `userId`,
         type: `String`,
         require: true,
-        _description: `사용자 아이디(쿠팡 WING 아이디)`,
+        _description: `사용자 아이디(쿠팡 WING 로그인 계정)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -99,7 +99,7 @@ export const createOutboundShippingFacilityDocument = {
         name: `global`,
         type: `boolean`,
         require: false,
-        _description: `기본값: false, 국내(domestic) or 해외(overseas)`,
+        _description: `기본값: false<br/>국내(domestic) or 해외(overseas)`,
         _relation: ``,
         _referenceInfo: `
         <table class="table">
@@ -132,7 +132,7 @@ export const createOutboundShippingFacilityDocument = {
             name: `addressType`,
             type: `String`,
             require: true,
-            _description: `주소 타입 <br/> JIBUN, JIBUN&ROADNAME, OVERSEA`,
+            _description: `주소 타입 <br/> JIBUN, ROADNAME, OVERSEA`,
             _relation: ``,
             _referenceInfo: `
             <table class="table">
@@ -145,22 +145,22 @@ export const createOutboundShippingFacilityDocument = {
                   <td>지번</td>
                 </tr>
                 <tr>
-                  <td>JIBUN&ROADNAME</td>
-                  <td>지번과 도로명</td>
+                  <td>ROADNAME</td>
+                  <td>도로명</td>
                 </tr>
                 <tr>
                   <td>OVERSEA</td>
                   <td>해외</td>
                 </tr>
             </table>`,
-            _warning: ``,
+            _warning: `도로명 주소 등록 시, 반드시 지번 주소를 함께 등록해야합니다.`,
             children: false
           },
           {
             name: `countryCode`,
             type: `String`,
             require: true,
-            _description: `국가 코드, 국내의 경우 "KR"입력. 해외의 경우 "국가 코드"메뉴에서 나라별 체크 후 입력. 유효한 길이는 2`,
+            _description: `국가 코드, 국내의 경우 "KR"입력. 유효길이는 2`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -170,12 +170,27 @@ export const createOutboundShippingFacilityDocument = {
             name: `companyContactNumber`,
             type: `String`,
             require: true,
-            _description: `전화번호, e.g. : xx-yyy-zzzz, <br/>
-                          x : 숫자 , 최소길이2, 최대길이 4 <br/>
-                          y : 최소길이 3, 최대길이 4 <br/>
-                          z : 유효한 길이 4.`,
+            _description: `전화번호, e.g. : xx-yyy-zzzz,`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `
+            <table class="table">
+            <tr>
+              <th>구분</th>
+              <th>Min~Max</th>
+            </tr>
+            <tr>
+              <td>x</td>
+              <td>2~4자</td>
+            </tr>
+            <tr>
+              <td>y</td>
+              <td>3~4자</td>
+            </tr>
+            <tr>
+              <td>z</td>
+              <td>4자</td>
+            </tr>
+           </table>`,
             _warning: ``,
             children: false
           },
@@ -416,7 +431,7 @@ export const createOutboundShippingFacilityDocument = {
                 </tr>
               </table>
             `,
-            _warning: ``,
+            _warning: `택배사는 복수 등록이 가능하지만, 중복 등록은 불가능합니다.`,
             children: false
           },
           {
@@ -425,8 +440,31 @@ export const createOutboundShippingFacilityDocument = {
             require: true,
             _description: `제주 지역 배송비(원)`,
             _relation: ``,
-            _referenceInfo: `배달요금은 1,000원보다 높고 제한가격 보다 낮아야함. HYUNDAI, CJGLS, HANJIN의 최고 배송비는 20,000원. 기타 택배사의 최고 배송비는 70,000원`,
-            _warning: ``,
+            _referenceInfo: `
+            <table class="table">
+            <tr>
+               <th>분류</th>
+               <th>최대 배송비</th>
+             </tr>
+             <tr>
+               <td>HYUNDAI</td>
+               <td>20,000원</td>
+             </tr>
+             <tr>
+               <td>CJGLS</td>
+               <td>20,000원</td>
+             </tr>
+             <tr>
+               <td>HANJIN</td>
+               <td>20,000원</td>
+             </tr>
+             <tr>
+               <td>그 외</td>
+               <td>70,000원</td>
+             </tr>
+             </table> 
+             `,
+            _warning: `배달 최소 요금은 전 택배사 공통 1,000원`,
             children: false
           },
           {
@@ -549,7 +587,7 @@ export const createOutboundShippingFacilityDocument = {
           type: `String`,
           _description: `결과 메시지(출고지 코드)`,
           _relation: ``,
-          _referenceInfo: `outbound shipping place code`,
+          _referenceInfo: `outbound shipping place code 출력 <br/>해당코드로 출고지 목록 조회 가능`,
           _warning: ``,
           children: false,
         }
@@ -564,7 +602,7 @@ export const createOutboundShippingFacilityDocument = {
         codeblock: {
           "vendorId": "A00011620",
           "userId": "testId",
-          "shippingPlaceName": "outbound shipping place",
+          "shippingPlaceName": "상품출고지 생성",
           "global": "false",
           "placeAddresses": [
             {
