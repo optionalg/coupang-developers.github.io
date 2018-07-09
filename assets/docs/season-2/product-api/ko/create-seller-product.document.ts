@@ -92,7 +92,7 @@ export const createSellerProductDocument = {
           _relation: ``,
           _referenceInfo: `실제 쿠팡 판매페이지에서 노출되는 상품명.<br>
           [brand]+[generalProductName]과 동일하게 입력할 것을 권장, 미입력 상태로도 등록 가능 <br>
-          미입력 시 [brand]+[generalProductName]가 노출되거나, [sellerProductName]이 노출될 수 있음<br> `,
+          미입력 시 [brand]+[generalProductName]이 노출되거나, [sellerProductName]이 노출될 수 있음<br> `,
           _warning: ``,
           children: false
       },
@@ -380,7 +380,7 @@ export const createSellerProductDocument = {
         </tr>
         <tr>
           <th>FREE_DELIVERY_OVER_9800</th>
-          <th>9800이상 무료배송 ※ 쿠팡 정책으로 일부카테고리를 제외한 묶음 배송 설정 시, 9800이상 무료배송 조건을 선택해야함</th>
+          <th>9800이상 무료배송 </th>
         </tr>
         <tr>
           <th>NOT_FREE</th>
@@ -391,7 +391,7 @@ export const createSellerProductDocument = {
           <th>착불배송</th>
         </tr>
         </table>
-        `,
+        <br>※ 쿠팡 정책으로 일부카테고리를 제외한 묶음 배송 설정 시, 9800이상 무료배송 조건을 선택해야함`,
         _warning: ``,
         children: false
       }
@@ -662,7 +662,7 @@ export const createSellerProductDocument = {
             require: true,
             _description: `업체상품옵션명`,
             _relation: ``,
-            _referenceInfo: `발주서에 사용되는 구매옵션명.<br> 사이트에 노출되는 옵션명이 아니며, 관리 용도로 활용 가능`,
+            _referenceInfo: `각각의 아이템에 중복되지 않도록 기입<br> 사이트에 노출되는 옵션명이 아니며, 구매옵션에 따라 변경될 수 있음 `,
             _warning: ``,
             children: false
           }
@@ -977,7 +977,7 @@ export const createSellerProductDocument = {
             require: false,
             _description: `검색어`,
             _relation: ``,
-            _referenceInfo: `필요한 만큼 반복입력가능. ["검색어1","검색어2"]`,
+            _referenceInfo: `필요한 만큼 반복입력가능. <br>["검색어1","검색어2"]`,
             _warning: ``,
             children: false
           }
@@ -1267,7 +1267,7 @@ export const createSellerProductDocument = {
                 _description: `상품상태`,
                 _relation: ``,
                 _referenceInfo: `
-                    상품 생성 후에는 offerCondition 변경이 불가능<br/>
+                    상품 생성 후에는 offerCondition 변경 불가능<br/>
                     노출카테고리 코드에 따라 아래 값을 선택가능, 없을 경우 NEW로 취급함
                     <table class="table">
                     <tr>
@@ -1374,7 +1374,7 @@ export const createSellerProductDocument = {
         require: true,
         _description: `제조사`,
         _relation: ``,
-        _referenceInfo: `정확한 제조사를 기입할 수 없는 경우, ""를 입력하여 전송 또는 [brand] 항목과 동일하게 입력 가능`,
+        _referenceInfo: `정확한 제조사를 기입할 수 없는 경우, [brand] 항목과 동일하게 입력 가능`,
         _warning: ``,
         children: false
       }
@@ -1427,7 +1427,7 @@ export const createSellerProductDocument = {
         codeblock: {
           "displayCategoryCode": 56137,
           "sellerProductName": "test_클렌징오일",
-          "vendorId": "A00013264",
+          "vendorId": "A00012345",
           "saleStartedAt": "2017-11-30T00:00:00",
           "saleEndedAt": "2099-01-01T23:59:59",
           "displayProductName": "해피바스 솝베리 클렌징 오일",
@@ -1454,7 +1454,7 @@ export const createSellerProductDocument = {
           "afterServiceContactNumber": "1544-1255",
           "outboundShippingPlaceCode": "74010",
           "vendorUserId": "et5",
-          "requested": true,
+          "requested": false,
           "items": [
             {
               "itemName": "200ml_1개",

@@ -106,7 +106,7 @@ export const lookupSellerProductDocument = {
           require: true,
           _description: `노출카테고리코드`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `카테고리 목록 조회 API 또는 카테고리 정보 excel을 다운받아 노출카테고리코드 확인 가능`,
           _warning: ``,
           children: false
         },
@@ -116,7 +116,7 @@ export const lookupSellerProductDocument = {
           require: true,
           _description: `등록상품명`,
           _relation: ``,
-          _referenceInfo: ``,
+          _referenceInfo: `발주서에 사용되는 상품명`,
           _warning: ``,
           children: false
         },
@@ -126,7 +126,7 @@ export const lookupSellerProductDocument = {
           require: true,
           _description: `업체코드`,
           _relation: ``,
-          _referenceInfo: `쿠팡에서 업체를 관리하기 위해 발급한 코드.`,
+          _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
           _warning: ``,
           children: false
         },
@@ -176,7 +176,7 @@ export const lookupSellerProductDocument = {
             require: false,
             _description: `제품명`,
             _relation: ``,
-            _referenceInfo: `사이즈, 컬러등의 '옵션정보'를 포함하지 않은 상품의 고유명사 또는 모델명.`,
+            _referenceInfo: `구매옵션[Attribute exposed] 정보(사이즈, 색상 등)를 포함하지 않는 상품명. 모델명 추가 기입 가능`,
             _warning: ``,
             children: false
         },
@@ -186,7 +186,7 @@ export const lookupSellerProductDocument = {
               require: false,
               _description: `상품군`,
               _relation: ``,
-              _referenceInfo: `상품의 그룹으로 노출카테고리의 최하위명을 참고하여 입력.`,
+              _referenceInfo: `상품의 그룹으로 노출카테고리의 최하위명을 참고하여 입력.<br>제품명[generalProductName]과 중복될 경우, 입력 불필요`,
               _warning: ``,
               children: false
         },
@@ -232,7 +232,7 @@ export const lookupSellerProductDocument = {
           </tr>
           </table>
         `,
-          _warning: `“INSTRUCTUR”와 “MAKE_ORDER_DIRECT”는 “VENDOR_DIRECT”로 통합되었습니다.`,
+          _warning: `“INSTRUCTURE”와 “MAKE_ORDER_DIRECT”는 “VENDOR_DIRECT”로 통합되었습니다.`,
           children: false
         },
         {
@@ -443,7 +443,7 @@ export const lookupSellerProductDocument = {
         </tr>
         <tr>
           <th>FREE_DELIVERY_OVER_9800</th>
-          <th>9800이상 무료배송 ※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함</th>
+          <th>9800이상 무료배송</th>
         </tr>
         <tr>
           <th>NOT_FREE</th>
@@ -454,6 +454,7 @@ export const lookupSellerProductDocument = {
           <th>착불배송</th>
         </tr>
         </table>
+        <br>※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함
         `,
           _warning: ``,
           children: false
@@ -540,11 +541,11 @@ export const lookupSellerProductDocument = {
         </tr>
         </table>
         <br/>※ 묶음 배송 조건<br/>
-묶음 배송 설정시, 출고지 정보 필수 입력 / 출고지 정보가 같은 상품만 묶음 배송 가능
-묶음 배송 설정시, 배송비 종류에 따른 조건
-무료배송 : 기본배송비 0원, 초도반품배송비 2,500원, 반품배송비 2,500원으로 자동 설정
-9800이상 무료배송 / 조건부무료배송 / 유료배송 : 기본배송비 2,500원, 반품배송비 2,500원으로 자동 설정
-착불배송 : 합배송 설정 불가
+        묶음 배송 설정시, 출고지 정보 필수 입력 (출고지 정보가 같은 상품만 묶음 배송 가능)<br><br/>
+        ※ 묶음 배송 설정시, 배송비 종류에 따른 조건<br/>
+        ● 무료배송 : 기본배송비 0원, 초도반품배송비 2,500원, 반품배송비 2,500원으로 자동 설정<br/>
+        ● 9800이상 무료배송 / 조건부무료배송 / 유료배송 : 기본배송비 2,500원, 반품배송비 2,500원으로 자동 설정<br/>
+        ● 착불배송 : 합배송 설정 불가
         `,
           _warning: ``,
           children: false
@@ -690,9 +691,9 @@ export const lookupSellerProductDocument = {
           name: `vendorUserId`,
           type: `String`,
           require: true,
-          _description: `실사용자아이디(쿠팡 WING 아이디)`,
+          _description: `실사용자아이디(쿠팡 Wing 아이디)`,
           _relation: ``,
-          _referenceInfo: `업체(Vendor)에 소속된 사용자아이디 (윙 ID)`,
+          _referenceInfo: `업체(Vendor)에 소속된 사용자아이디`,
           _warning: ``,
           children: false
         }
@@ -766,7 +767,7 @@ export const lookupSellerProductDocument = {
               require: true,
               _description: `판매가격`,
               _relation: ``,
-              _referenceInfo: `판매가격을 입력. '최초' 업체상품 등록시 판매가격은 상품 승인 요청 전에만 가능하며, 승인완료 이후 판매가격 수정은 [옵션별 가격 변경] API를 통해 변경가능`,
+              _referenceInfo: `판매가격을 입력.<br>'최초' 업체상품 등록시 판매가격은 상품 승인 요청 전에만 가능하며, 승인완료 이후 판매가격 수정은 [옵션별 가격 변경] API를 통해 변경가능`,
               _warning: ``,
               children: false
             }
@@ -777,7 +778,7 @@ export const lookupSellerProductDocument = {
               require: true,
               _description: `판매가능수량`,
               _relation: ``,
-              _referenceInfo: `판매가능한 재고수량을 입력. '최초' 업체상품 등록시 판매수량은 상품 승인 요청 전에만 가능하며, 승인완료 이후 재고 수정은 [옵션별 수량 변경] API를 통해 변경가능`,
+              _referenceInfo: `판매가능한 재고수량을 입력.<br> '최초' 업체상품 등록시 판매수량은 상품 승인 요청 전에만 가능하며, 승인완료 이후 재고 수정은 [옵션별 수량 변경] API를 통해 변경가능`,
               _warning: ``,
               children: false
             }
@@ -811,17 +812,6 @@ export const lookupSellerProductDocument = {
               _description: `최대구매수량기간(일)`,
               _relation: ``,
               _referenceInfo: `일별 1인당 최대 구매 가능한 수량. 제한이 없을 경우 '1'을 입력`,
-              _warning: ``,
-              children: false
-            }
-            ,
-            {
-              name: `unitCount`,
-              type: `Number`,
-              require: true,
-              _description: `단위수량`,
-              _relation: ``,
-              _referenceInfo: `상품에 포함된 수량을 입력하면 (판매가격 ÷ 단위수량) 로 계산하여 (1개당 가격 #,000원) 으로 노출. 개당가격이 필요하지 않은 상품은 '0'을 입력`,
               _warning: ``,
               children: false
             }
@@ -1069,7 +1059,7 @@ export const lookupSellerProductDocument = {
               require: false,
               _description: `검색어`,
               _relation: ``,
-              _referenceInfo: `필요한 만큼 반복입력가능. ['검색어1','검색어2']`,
+              _referenceInfo: `필요한 만큼 반복입력가능. <br>['검색어1','검색어2']`,
               _warning: ``,
               children: false
             }
@@ -1100,10 +1090,12 @@ export const lookupSellerProductDocument = {
                   require: false,
                   _description: `이미지타입`,
                   _relation: ``,
-                _referenceInfo: `REPRESENTATION : 대표이미지 (정사각형: 최소 500 x 500px, 최대 5000 x 5000px (3MB 이하)  *필수)<br/>
-REP_OBLONG_ORIGIN : 대표이미지 (직사각형: 최소 500 x 290px, 최대 5000 x 2900px(3MB 이하) *선택)<br/>
-DETAIL : 기타이미지 (정사각형: 최소 500 x 500px, 최대 5000 x 5000px (3MB 이하) *선택, 9개까지 등록 가능)<br/>
-USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px, 3MB 이하의 JPG, PNG파일을 최대 4개 까지 등록가능 *선택)`,
+                _referenceInfo: `대표이미지 타입<br> 3MB 이하의 정사각형 이미지를 JPG, PNG로 등록 가능 (최소 500 x 500px, 최대 5000 x 5000px)<br><br/>
+                ● 필수<br/>
+                REPRESENTATION : 정사각형 대표이미지<br/>
+                ● 선택<br/>
+                DETAIL : 기타이미지 (최대 9개까지 등록 가능)<br/>
+                USED_PRODUCT : 중고상태 이미지 (최대 4개까지 등록 가능)`,
                  _warning: ``,
                   children: false
                 }
@@ -1357,7 +1349,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                 _description: `상품상태`,
                 _relation: ``,
                 _referenceInfo: `
-                    노출카테고리 코드에 따라 아래 값을 선택가능, 없을 경우 NEW로 취급함
+                    상품 생성 후에는 offerCondition 변경 불가능
                     <table class="table">
                     <tr>
                       <th>Parameter Name</th>
@@ -1395,7 +1387,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
                 _description: `중고상품 상세설명`,
                 _relation: ``,
                 _referenceInfo: `
-                중고상품 상태를 설명, 700자 제한
+                중고상품 상태를 설명, 700자 제한 <br>offerCondition을 중고로 입력한 경우에만 작성
                 `,
                 _warning: ``,
                 children: false
@@ -1453,7 +1445,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
           require: false,
           _description: `주문제작 안내 메시지`,
           _relation: ``,
-          _referenceInfo: `배송 방법을 주문제작으로 선택했을 경우, 고객에게 안내할 메시지를 입력해주세요.`,
+          _referenceInfo: `배송 방법을 '주문제작'으로 선택했을 경우, 고객에게 안내할 메시지를 입력`,
           _warning: ``,
           children: false
         }
@@ -1464,7 +1456,7 @@ USED_PRODUCT : 중고상태 이미지 (최소 500 x 500px, 최대 5000 x 5000px,
           require: true,
           _description: `제조사`,
           _relation: ``,
-          _referenceInfo: `제조사`,
+          _referenceInfo: ``,
           _warning: ``,
           children: false
         }

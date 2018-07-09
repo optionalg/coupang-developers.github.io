@@ -30,7 +30,7 @@ export const modifySellerProductDocument = {
     상품 생성 시 사용한 request body에, [sellerProductId]와 [sellerProductItemId]를 삽입하여 빠른 수정 가능 <br/>
     - 옵션 삭제 : 삭제하고 싶은 옵션의 'items 배열 하위 값'을 제거하고, 남기고 싶은 아이템 상단에 [sellerProductItemId] 삽입 후 전송 <br/>
     - 옵션 추가 : [sellerProductItemId]를 입력하지 않고 items 배열을 추가하여 전송 <br/>
-    ※ [sellerProductId]와 [sellerProductItemId]는 상품 조회 API를 이용해 확인가능합니다. <br/>
+    ※ [sellerProductItemId]는 상품 조회 API를 이용해 확인가능합니다. <br/>
     ※ 승인 완료된 상품의 판매가격, 재고수량, 판매상태, 할인율 기준가는 상품수정API가 아닌, 상품 API 하위의 [옵션별 수량/가격/판매여부/할인율기준가 변경] API를 통해 가능합니다.`,
     _relation: ``,
     _referenceInfo: ``,
@@ -45,8 +45,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `업체상품아이디`,
         _relation: ``,
-        _referenceInfo: `상품 생성 완료 시, 출력 되는 등록상품 아이디 (data)<br/>
-        상품 조회 API를 통해 확인 가능`,
+        _referenceInfo: `상품 생성 완료 시, 출력 된 등록상품 아이디 (data)`,
         _warning: ``,
         children: false
       },
@@ -108,7 +107,7 @@ export const modifySellerProductDocument = {
           _relation: ``,
           _referenceInfo: `실제 쿠팡 판매페이지에서 노출되는 상품명.<br>
           [brand]+[generalProductName]과 동일하게 입력할 것을 권장, 미입력 상태로도 등록 가능 <br>
-          미입력 시 [brand]+[generalProductName]가 노출되거나, [sellerProductName]이 노출될 수 있음<br> `,
+          미입력 시 [brand]+[generalProductName]이 노출되거나, [sellerProductName]이 노출될 수 있음<br> `,
           _warning: ``,
           children: false
       },
@@ -396,7 +395,7 @@ export const modifySellerProductDocument = {
         </tr>
         <tr>
           <th>FREE_DELIVERY_OVER_9800</th>
-          <th>9800이상 무료배송 ※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함</th>
+          <th>9800이상 무료배송</th>
         </tr>
         <tr>
           <th>NOT_FREE</th>
@@ -407,6 +406,7 @@ export const modifySellerProductDocument = {
           <th>착불배송</th>
         </tr>
         </table>
+        <br>※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함
         `,
         _warning: `상품 아이템별 최저가 보장(쿠런티)이 설정된 상품은 유료배송으로 변경 적용할 수 없습니다.먼저 옵션들의 쿠런티 해제 후 변경해야 합니다.`,
         children: false
@@ -689,7 +689,7 @@ export const modifySellerProductDocument = {
             require: true,
             _description: `업체상품옵션명`,
             _relation: ``,
-            _referenceInfo: `발주서에 사용되는 구매옵션명.<br> 사이트에 노출되는 옵션명이 아니며, 관리 용도로 활용 가능`,
+            _referenceInfo: `각각의 아이템에 중복되지 않도록 기입<br> 사이트에 노출되는 옵션명이 아니며, 구매옵션에 따라 변경될 수 있음`,
             _warning: ``,
             children: false
           }
@@ -1274,7 +1274,7 @@ export const modifySellerProductDocument = {
                 _description: `상품상태`,
                 _relation: ``,
                 _referenceInfo: ``,
-                _warning: `상품 생성 후에는 offerCondition 변경이 불가능`,
+                _warning: `상품 생성 후에는 offerCondition 변경 불가능`,
                 children: false
               },
               {
@@ -1353,7 +1353,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `제조사`,
         _relation: ``,
-        _referenceInfo: `정확한 제조사를 기입할 수 없는 경우, ""를 입력하여 전송 또는 [brand] 항목과 동일하게 입력 가능`,
+        _referenceInfo: `정확한 제조사를 기입할 수 없는 경우, [brand] 항목과 동일하게 입력 가능`,
         _warning: ``,
         children: false
       }
@@ -1413,7 +1413,7 @@ export const modifySellerProductDocument = {
           "sellerProductId": 309323422,
           "displayCategoryCode": 56137,
           "sellerProductName": "test_클렌징오일_수정",
-          "vendorId": "A00013264",
+          "vendorId": "A00012345",
           "saleStartedAt": "2017-11-30T00:00:00",
           "saleEndedAt": "2099-01-01T23:59:59",
           "displayProductName": "해피바스 솝베리 클렌징 오일",

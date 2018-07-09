@@ -210,25 +210,7 @@ export const lookupOutboundShippingFacilityListDocument = {
                   type: `String`,
                   _description: `주소 타입 <br/> JIBUN, ROADNAME, OVERSEA`,
                   _relation: ``,
-                  _referenceInfo: `
-                  <table class="table">
-                  <tr>
-                    <th>CODE</th>
-                    <th>Mean</th>
-                  </tr>
-                  <tr>
-                    <td>JIBUN</td>
-                    <td>지번</td>
-                  </tr>
-                  <tr>
-                    <td>ROADNAME</td>
-                    <td>도로명</td>
-                  </tr>
-                  <tr>
-                    <td>OVERSEA</td>
-                    <td>해외</td>
-                  </tr>
-              </table>`,
+                  _referenceInfo: ``,
                   _warning: ``,
                   children: false
                 },
