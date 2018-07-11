@@ -455,7 +455,12 @@ export const lookupSellerProductDocument = {
         </tr>
         </table>
         <br>※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함
-        `,
+        ● 무료배송 설정 시<br>
+        초도반품배송비(편도)[deliveryChargeOnReturn]와, 반품배송비(편도)[returnCharge] 금액 설정<br>  
+        ● 유료배송 설정 시<br>
+        기본배송비[deliveryCharge]와 반품배송비(편도) 금액 설정<br>
+        ● 조건부 무료배송 설정 시 <br>
+        기본배송비와 반품배송비(편도) 금액 설정`,
           _warning: ``,
           children: false
         }
@@ -541,11 +546,8 @@ export const lookupSellerProductDocument = {
         </tr>
         </table>
         <br/>※ 묶음 배송 조건<br/>
-        묶음 배송 설정시, 출고지 정보 필수 입력 (출고지 정보가 같은 상품만 묶음 배송 가능)<br><br/>
-        ※ 묶음 배송 설정시, 배송비 종류에 따른 조건<br/>
-        ● 무료배송 : 기본배송비 0원, 초도반품배송비 2,500원, 반품배송비 2,500원으로 자동 설정<br/>
-        ● 9800이상 무료배송 / 조건부무료배송 / 유료배송 : 기본배송비 2,500원, 반품배송비 2,500원으로 자동 설정<br/>
-        ● 착불배송 : 합배송 설정 불가
+        출고지 정보 필수 입력 (출고지 정보가 같은 상품만 묶음 배송 가능)<br/>
+        착불배송 불가 설정 불가
         `,
           _warning: ``,
           children: false

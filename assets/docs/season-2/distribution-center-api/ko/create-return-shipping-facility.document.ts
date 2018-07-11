@@ -20,7 +20,7 @@ export const createReturnShippingFacilityDocument = {
   apiMigrationInfo: {
     previousVersions: [
       {
-        apiName: `반품지 생성`,
+        apiName: `반품지 생성 `,
         path: `/v2/providers/wing_api/apis/internal-api/v1/return/shipping-place-creations`,
         _description: ``,
         _relation: ``,
