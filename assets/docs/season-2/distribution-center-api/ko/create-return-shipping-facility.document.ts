@@ -47,7 +47,7 @@ export const createReturnShippingFacilityDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnShippingCenters`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnShippingCenters`,
-    _description: `상품 반품지를 생성합니다. 판매자는 이 API를 사용하여 하나 이상의 반품지를 만들 수 있으며, 생성된 반품지는 상품 등록 시 반품지를 지정할 때 사용됩니다.
+    _description: `상품 반품지를 생성합니다. 판매자는 이 API를 사용하여 하나 이상의 반품지를 만들 수 있으며, 생성된 반품지는 상품 등록 시 반품지를 지정할 때 사용됩니다.<br/>반품지 생성 갯수 제한은 없습니다.
 `,
     _relation: ``,
     _referenceInfo: ``,
@@ -58,7 +58,7 @@ export const createReturnShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -71,7 +71,7 @@ export const createReturnShippingFacilityDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -81,7 +81,7 @@ export const createReturnShippingFacilityDocument = {
         name: `userId`,
         type: `String`,
         require: true,
-        _description: `사용자 아이디(쿠팡 WING 아이디)`,
+        _description: `사용자 아이디(쿠팡 WING 로그인 계정)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,

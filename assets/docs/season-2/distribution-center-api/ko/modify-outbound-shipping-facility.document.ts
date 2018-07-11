@@ -46,9 +46,9 @@ export const modifyOutboundShippingFacilityDocument = {
     httpMethod: `PUT`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters/{outboundShippingPlaceCode}`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters/{outboundShippingPlaceCode}`,
-    _description: `출고지를 수정합니다.`,
+    _description: `출고지를 수정합니다.<br/>출고지를 수정하려면 outboundShippingPlaceCode 및 remoteInfoId가 필요합니다.<br/>'출고지 목록 조회' API를 사용하여 outboundShippingPlaceCode 와 remoteInfoId를 얻을 수 있습니다.`,
     _relation: ``,
-    _referenceInfo: `출고지를 수정하려면 outboundShippingPlaceCode 및 remoteInfoId가 필요합니다. '출고지 목록 조회' API를 사용하여 outboundShippingPlaceCode 와 remoteInfoId를 얻을 수 있습니다.`,
+    _referenceInfo: ``,
     _warning: ``,
   },
   parameters: {
@@ -56,7 +56,7 @@ export const modifyOutboundShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -78,7 +78,7 @@ export const modifyOutboundShippingFacilityDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -161,14 +161,10 @@ export const modifyOutboundShippingFacilityDocument = {
             name: `addressType`,
             type: `String`,
             require: false,
-            _description: `<ul>
-                        <li>JIBUN</li>
-                        <li>JIBUN&ROADNAME</li>
-                        <li>OVERSEA</li>
-                 </ul>`,
+            _description: `주소 타입`,
             _relation: ``,
-            _referenceInfo: `          
-             <table class="table">
+            _referenceInfo: `
+            <table class="table">
                 <tr>
                   <th>CODE</th>
                   <th>Mean</th>
@@ -178,8 +174,8 @@ export const modifyOutboundShippingFacilityDocument = {
                   <td>지번</td>
                 </tr>
                 <tr>
-                  <td>JIBUN&ROADNAME</td>
-                  <td>지번과 도로명</td>
+                  <td>ROADNAME</td>
+                  <td>도로명</td>
                 </tr>
                 <tr>
                   <td>OVERSEA</td>
@@ -193,7 +189,7 @@ export const modifyOutboundShippingFacilityDocument = {
             name: `countryCode`,
             type: `String`,
             require: true,
-            _description: `국가 코드, 국내의 경우 "KR"입력. 해외의 경우 "국가 코드"메뉴에서 나라별 체크 후 입력. 유효한 길이는 2`,
+            _description: `국가 코드, 국내의 경우 "KR"입력. 유효길이는 2`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -203,12 +199,27 @@ export const modifyOutboundShippingFacilityDocument = {
             name: `companyContactNumber`,
             type: `String`,
             require: true,
-            _description: `전화번호, e.g. : xx-yyy-zzzz, <br/>
-                          x : 숫자 , 최소길이2, 최대길이 4 <br/>
-                          y : 최소길이 3, 최대길이 4 <br/>
-                          z : 유효한 길이 4.`,
+            _description: `전화번호, e.g. : xx-yyy-zzzz,`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `
+            <table class="table">
+            <tr>
+              <th>구분</th>
+              <th>Min~Max</th>
+            </tr>
+            <tr>
+              <td>x</td>
+              <td>2~4자</td>
+            </tr>
+            <tr>
+              <td>y</td>
+              <td>3~4자</td>
+            </tr>
+            <tr>
+              <td>z</td>
+              <td>4자</td>
+            </tr>
+           </table>`,
             _warning: ``,
             children: false
           },
@@ -268,7 +279,7 @@ export const modifyOutboundShippingFacilityDocument = {
             type: `Number`,
             require: false,
             _description: `새로운 배송정보를 생성시 이 필드는 입력할 필요없습니다.
-배송정보를 수정/삭제시 반드시 이 필드를 입력해야합니다. 조회 API를 통해 이 필드 값을 얻을 수 있습니다.`,
+배송정보를 수정/삭제시 반드시 이 필드를 입력해야합니다.<br/>조회 API를 통해 이 필드 값을 얻을 수 있습니다.`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -460,7 +471,7 @@ export const modifyOutboundShippingFacilityDocument = {
                 </tr>
               </table>
             `,
-            _warning: ``,
+            _warning: `택배사는 복수 등록이 가능하지만, 중복 등록은 불가능합니다.`,
             children: false
           },
           {
@@ -469,8 +480,30 @@ export const modifyOutboundShippingFacilityDocument = {
             require: true,
             _description: `제주 지역 배송비(원)`,
             _relation: ``,
-            _referenceInfo: `배달요금은 1,000원보다 높고 제한가격 보다 낮아야함. HYUNDAI, CJGLS, HANJIN의 최고 배송비는 20,000원. 기타 택배사의 최고 배송비는 70,000원`,
-            _warning: ``,
+            _referenceInfo: `
+            <table class="table">
+            <tr>
+               <th>분류</th>
+               <th>최대 배송비</th>
+             </tr>
+             <tr>
+               <td>HYUNDAI</td>
+               <td>20,000원</td>
+             </tr>
+             <tr>
+               <td>CJGLS</td>
+               <td>20,000원</td>
+             </tr>
+             <tr>
+               <td>HANJIN</td>
+               <td>20,000원</td>
+             </tr>
+             <tr>
+               <td>그 외</td>
+               <td>70,000원</td>
+             </tr>
+             </table> `,
+            _warning: `배달 최소 요금은 전 택배사 공통 1,000원`,
             children: false
           },
           {

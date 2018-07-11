@@ -59,9 +59,10 @@ export const lookupOrderListPerMinuteDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 Id`,
+        _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드<br>
+        Wing 로그인 후, 확인 가능`,
         _warning: ``
       }
     ],
@@ -73,15 +74,8 @@ export const lookupOrderListPerMinuteDocument = {
         _description: `검색 시작일시`,
         _relation: ``,
         _referenceInfo: `
-        if searchType equals timeFrame parameter format is
-        yyyy-MM-dd'T'HH:mm(ISO-8601)
-        ex)2015-12-14T14:16 ~ 2015-12-14T15:16
-        위 조건을 초단위까지 고려하면 아래와 같습니다.
-        result >= 2015-12-14T14:16:00
-        result < 2015-12-14T15:16:00
-        from과 to는 최대 하루(24시간)까지 검색 가능합니다.
-        otherwise parameter format is
-        데이터 형태는 yyyy-mm-dd 로 하여야 합니다. ex) 2017-02-01`,
+        yyyy-mm-ddT00:00 형태로 조회하기 원하는 시작 날짜 및 시각 기입 <br>
+        ex) 2018-07-01T01:23`,
         _warning: ``,
         children: false
       },
@@ -92,17 +86,10 @@ export const lookupOrderListPerMinuteDocument = {
         _description: `검색 종료일시`,
         _relation: ``,
         _referenceInfo: `
-        if searchType equals timeFrame parameter format is
-        yyyy-MM-dd'T'HH:mm(ISO-8601)
-        ex)2015-12-14T14:16 ~ 2015-12-14T15:16
-        위 조건을 초단위까지 고려하면 아래와 같습니다.
-        result >= 2015-12-14T14:16:00
-        result < 2015-12-14T15:16:00
-        from과 to는 최대 하루(24시간)까지 검색 가능합니다
-        otherwise parameter format is
-        데이터 형태는 yyyy-mm-dd 로 하여야 합니다. ex) 2017-02-01
-        `,
-        _warning: ``,
+        yyyy-mm-ddT00:00 형태로 조회하기 원하는 종료 날짜 및 시각 기입<br>
+        ex) 2018-07-01T15:50
+       `,
+        _warning: `해당 일자 내 24시간이내로 조회 가능합니다.`,
         children: false
       },
       {

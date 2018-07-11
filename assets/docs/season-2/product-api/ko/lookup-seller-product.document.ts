@@ -454,7 +454,7 @@ export const lookupSellerProductDocument = {
           <th>착불배송</th>
         </tr>
         </table>
-        <br>※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함
+        <br>※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함<br>
         ● 무료배송 설정 시<br>
         초도반품배송비(편도)[deliveryChargeOnReturn]와, 반품배송비(편도)[returnCharge] 금액 설정<br>  
         ● 유료배송 설정 시<br>

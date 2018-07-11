@@ -28,7 +28,7 @@ export const lookupOrderListPerDayDocument = {
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets`,
     _description: `
     발주서 목록을 하루단위 페이징 형태로 조회합니다.ex)(2017-02-01 ~ 2017-02-03)<br>
-    페이지당 row사이즈 조정은 maxPerPage 파라미터를 통해 가능하며 다음페이지는 nextToken을 이용하여 얻을 수 있습니다.
+    페이지당 row사이즈 조정은 maxPerPage 파라미터를 통해 가능하며 다음 페이지는 [nextToken]을 이용하여 얻을 수 있습니다.
     `,
     _relation: ``,
     _referenceInfo: ``,
@@ -65,9 +65,10 @@ export const lookupOrderListPerDayDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 Id`,
+        _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드 <br>
+        Wing 로그인 후, 확인 가능`,
         _warning: ``
       }
     ],
@@ -79,15 +80,8 @@ export const lookupOrderListPerDayDocument = {
         _description: `검색 시작일시`,
         _relation: ``,
         _referenceInfo: `
-        if searchType equals time-frame parameter format is
-        yyyy-MM-dd'T'HH:mm(ISO-8601)
-        ex)2015-12-14T14:16 ~ 2015-12-14T15:16
-        위 조건을 초단위까지 고려하면 아래와 같습니다.
-        result >= 2015-12-14T14:16:00
-        result < 2015-12-14T15:16:00
-        from과 to는 최대 하루(24시간)까지 검색 가능합니다.
-        otherwise parameter format is
-        데이터 형태는 yyyy-mm-dd 로 하여야 합니다. ex) 2017-02-01`,
+        yyyy-mm-dd 형태로 조회하기 원하는 시작 날짜 기입<br>
+        ex) 2018-07-01`,
         _warning: ``,
         children: false
       },
@@ -98,17 +92,9 @@ export const lookupOrderListPerDayDocument = {
         _description: `검색 종료일시`,
         _relation: ``,
         _referenceInfo: `
-        if searchType equals time-frame parameter format is
-        yyyy-MM-dd'T'HH:mm(ISO-8601)
-        ex)2015-12-14T14:16 ~ 2015-12-14T15:16
-        위 조건을 초단위까지 고려하면 아래와 같습니다.
-        result >= 2015-12-14T14:16:00
-        result < 2015-12-14T15:16:00
-        from과 to는 최대 하루(24시간)까지 검색 가능합니다
-        otherwise parameter format is
-        데이터 형태는 yyyy-mm-dd 로 하여야 합니다. ex) 2017-02-01
-        `,
-        _warning: ``,
+        yyyy-mm-dd 형태로 조회하기 원하는 종료 날짜 기입 <br>
+        ex) 2018-07-31`,
+        _warning: `최대 31일까지 조회 가능합니다.`,
         children: false
       },
       {
@@ -158,7 +144,9 @@ export const lookupOrderListPerDayDocument = {
         require: false,
         _description: `다음 페이지 조회를 위한 token값`,
         _relation: ``,
-        _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.`,
+        _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.<br>
+        페이지당 최대 50개까지 요청되므로, 이후 페이지를 조회하기 위해서는 [nextToken] 사용 필요 
+        `,
         //_warning: `if searchType equals timeFrame this parameter is not supported`,
         children: false
       },
