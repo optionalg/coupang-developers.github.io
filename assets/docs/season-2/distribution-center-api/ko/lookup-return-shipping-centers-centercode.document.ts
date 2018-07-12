@@ -24,7 +24,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/greatwall_api/apis/api/v2/return/shipping-places/center-code`,
     HMACPath: `/v2/providers/greatwall_api/apis/api/v2/return/shipping-places/center-code`,
-    _description: `returncenterCode로 반품지를 조회한다.`,
+    _description: `returncenterCode로 반품지를 조회합니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -35,9 +35,9 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
       {
         name: `returnCenterCodes`,
         require: true,
-        _description: `returnCenterCodes의 최대 개수는 100.`,
+        _description: `일괄 조회가능한 returnCenterCodes의 <br/>최대 개수는 100.`,
         _relation: ``,
-        _referenceInfo: `e.g: A00000001,A00000002`,
+        _referenceInfo: `사용예시: A00000001,A00000002`,
         _warning: ``,
         children: false
       }
@@ -276,19 +276,19 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
               _relation: ``,
               _referenceInfo: `
               <table class="table">
-                <tr>
-                  <th>CODE</th>
-                  <th>Mean</th>
-                </tr>
-                <tr>
-                  <td>JIBUN</td>
-                  <td>지번, 1개의 주소만 등록시는 JIBUN으로 등록</td>
-                </tr>
-                <tr>
-                  <td>JIBUN&ROADNAME</td>
-                  <td>지번주소/도로명주소, 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
-                </tr>
-            </table>`,
+              <tr>
+              <th>CODE</th>
+              <th>Mean</th>
+            </tr>
+            <tr>
+              <td>JIBUN</td>
+              <td>지번</td>
+            </tr>
+            <tr>
+              <td>ROADNAME</td>
+              <td>도로명</td>
+            </tr>
+              </table>`,
               _warning: ``,
               children: false
             },
@@ -392,7 +392,7 @@ export const lookupReturnShippingCentersCenterCodeDocument = {
               "phoneNumber2": "123",
               "returnZipCode": "136822",
               "returnAddress": "서울 성북구 성북동",
-              "returnAddressDetail": "asdfasdfasdf11111"
+              "returnAddressDetail": "100-1"
             }
           ]
         }

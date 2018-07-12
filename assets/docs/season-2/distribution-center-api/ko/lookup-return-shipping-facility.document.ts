@@ -57,7 +57,7 @@ export const lookupReturnShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -68,7 +68,7 @@ export const lookupReturnShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: `v2버전 사용 시에만 사용되는 파라메터로 v4버전에서는 필요없음.`,
@@ -326,20 +326,24 @@ export const lookupReturnShippingFacilityDocument = {
               _description: `주소 타입 <br/> JIBUN, JIBUN&ROADNAME`,
               _relation: ``,
               _referenceInfo: `
-            <table class="table">
-                <tr>
-                  <th>CODE</th>
-                  <th>Mean</th>
-                </tr>
-                <tr>
-                  <td>JIBUN</td>
-                  <td>지번, 1개의 주소만 등록시는 JIBUN으로 등록</td>
-                </tr>
-                <tr>
-                  <td>JIBUN&ROADNAME</td>
-                  <td>지번주소/도로명주소, 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
-                </tr>
-            </table>`,
+              <table class="table">
+                  <tr>
+                    <th>CODE</th>
+                    <th>Mean</th>
+                  </tr>
+                  <tr>
+                    <td>JIBUN</td>
+                    <td>지번</td>
+                  </tr>
+                  <tr>
+                    <td>ROADNAME</td>
+                    <td>도로명</td>
+                  </tr>
+                  <tr>
+                    <td>OVERSEA</td>
+                    <td>해외</td>
+                  </tr>
+              </table>`,
               _warning: ``,
               children: false
             },
@@ -411,431 +415,223 @@ export const lookupReturnShippingFacilityDocument = {
       }
     ],
     response: {
-      "code": "200",
+      "code": 200,
       "message": "SUCCESS",
-      "data": {
-        "content": [
-          {
+      "data":    {
+      "content":       [
+                  {
             "vendorId": "A00013264",
-            "returnCenterCode": "1100044634",
-            "shippingPlaceName": "5555",
-            "deliverCode": "KGB",
-            "deliverName": "로젠택배",
-            "goodsflowStatus": "승인",
+            "returnCenterCode": "1000396860",
+            "shippingPlaceName": "생성된반품지1",
+            "deliverCode": "DONGBU",
+            "deliverName": "드림택배",
+            "goodsflowStatus": "승인불가",
             "errorMessage": "",
-            "createdAt": 1469423254000,
-            "vendorCreditFee05kg": 111,
-            "vendorCreditFee10kg": 111,
-            "vendorCreditFee20kg": 111,
-            "vendorCashFee05kg": 111,
-            "vendorCashFee10kg": 111,
-            "vendorCashFee20kg": 111,
-            "consumerCashFee05kg": 111,
-            "consumerCashFee10kg": 111,
-            "consumerCashFee20kg": 111,
-            "returnFee05kg": 111,
-            "returnFee10kg": 111,
-            "returnFee20kg": 111,
+            "createdAt": 1531379440000,
+            "vendorCreditFee05kg": 2500,
+            "vendorCreditFee10kg": 2500,
+            "vendorCreditFee20kg": 2500,
+            "vendorCashFee05kg": 2500,
+            "vendorCashFee10kg": 2500,
+            "vendorCashFee20kg": 2500,
+            "consumerCashFee05kg": 2500,
+            "consumerCashFee10kg": 2500,
+            "consumerCashFee20kg": 2500,
+            "returnFee05kg": 2500,
+            "returnFee10kg": 2500,
+            "returnFee20kg": 2500,
             "usable": true,
-            "placeAddresses": [
-              {
-                "addressType": "ROADNAME",
-                "countryCode": "KR",
-                "companyContactNumber": "010-000-0000",
-                "phoneNumber2": "010-000-0000",
-                "returnZipCode": "06544",
-                "returnAddress": "서울특별시 서초구 신반포로 270 (반포동, 반포자이아파트)",
-                "returnAddressDetail": "dd"
-              },
-              {
-                "addressType": "JIBUN",
-                "countryCode": "KR",
-                "companyContactNumber": "010-000-0000",
-                "phoneNumber2": "010-000-0000",
-                "returnZipCode": "06544",
-                "returnAddress": "서울특별시 서초구 반포동 20-43 반포자이아파트",
-                "returnAddressDetail": "dd"
-              }
+            "placeAddresses":             [
+                              {
+                  "addressType": "JIBUN",
+                  "countryCode": "KR",
+                  "companyContactNumber": "139-2029-0520",
+                  "phoneNumber2": "",
+                  "returnZipCode": "112207",
+                  "returnAddress": "경기도 파주시 탄현면 월롱산로",
+                  "returnAddressDetail": "-"
+               },
+                              {
+                  "addressType": "ROADNAME",
+                  "countryCode": "KR",
+                  "companyContactNumber": "139-2029-0520",
+                  "phoneNumber2": "",
+                  "returnZipCode": "112207",
+                  "returnAddress": "경기도 파주시 탄현면 월롱산로",
+                  "returnAddressDetail": "-"
+               }
             ]
-          },
-          {
+         },
+                  {
             "vendorId": "A00013264",
-            "returnCenterCode": "1100044027",
-            "shippingPlaceName": "중복등록테스트-chu",
-            "deliverCode": "KGB",
-            "deliverName": "로젠택배",
+            "returnCenterCode": "1000395940",
+            "shippingPlaceName": "생성된반품지2",
+            "deliverCode": "HANJIN",
+            "deliverName": "한진택배",
+            "goodsflowStatus": "승인불가",
+            "errorMessage": "",
+            "createdAt": 1531125352000,
+            "vendorCreditFee05kg": 1000,
+            "vendorCreditFee10kg": 1000,
+            "vendorCreditFee20kg": 1000,
+            "vendorCashFee05kg": 1000,
+            "vendorCashFee10kg": 1000,
+            "vendorCashFee20kg": 1000,
+            "consumerCashFee05kg": 1000,
+            "consumerCashFee10kg": 1000,
+            "consumerCashFee20kg": 1000,
+            "returnFee05kg": 1000,
+            "returnFee10kg": 1000,
+            "returnFee20kg": 1000,
+            "usable": true,
+            "placeAddresses":             [
+                              {
+                  "addressType": "ROADNAME",
+                  "countryCode": "KR",
+                  "companyContactNumber": "02-1234-5678",
+                  "phoneNumber2": "010-1234-5978",
+                  "returnZipCode": "02480",
+                  "returnAddress": "서울특별시 동대문구 홍릉로15길 35 (제기동)",
+                  "returnAddressDetail": "아파트좋은곳101호"
+               },
+                              {
+                  "addressType": "JIBUN",
+                  "countryCode": "KR",
+                  "companyContactNumber": "02-1234-5678",
+                  "phoneNumber2": "010-1234-5978",
+                  "returnZipCode": "02480",
+                  "returnAddress": "서울특별시 동대문구 제기동 315",
+                  "returnAddressDetail": "아파트좋은곳101호"
+               }
+            ]
+         },
+                  {
+            "vendorId": "A00013264",
+            "returnCenterCode": "1000393179",
+            "shippingPlaceName": "생성된반품지3",
+            "deliverCode": "DONGBU",
+            "deliverName": "드림택배",
+            "goodsflowStatus": "승인불가",
+            "errorMessage": "",
+            "createdAt": 1530003213000,
+            "vendorCreditFee05kg": 2500,
+            "vendorCreditFee10kg": 2500,
+            "vendorCreditFee20kg": 2500,
+            "vendorCashFee05kg": 2500,
+            "vendorCashFee10kg": 2500,
+            "vendorCashFee20kg": 2500,
+            "consumerCashFee05kg": 2500,
+            "consumerCashFee10kg": 2500,
+            "consumerCashFee20kg": 2500,
+            "returnFee05kg": 2500,
+            "returnFee10kg": 2500,
+            "returnFee20kg": 2500,
+            "usable": true,
+            "placeAddresses":             [
+                              {
+                  "addressType": "JIBUN",
+                  "countryCode": "KR",
+                  "companyContactNumber": "139-2029-0520",
+                  "phoneNumber2": "",
+                  "returnZipCode": "112207",
+                  "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
+                  "returnAddressDetail": "-"
+               },
+                              {
+                  "addressType": "ROADNAME",
+                  "countryCode": "KR",
+                  "companyContactNumber": "139-2029-0520",
+                  "phoneNumber2": "",
+                  "returnZipCode": "112207",
+                  "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
+                  "returnAddressDetail": "-"
+               }
+            ]
+         },
+                  {
+            "vendorId": "A00013264",
+            "returnCenterCode": "1000393173",
+            "shippingPlaceName": "생성된반품지4",
+            "deliverCode": "DONGBU",
+            "deliverName": "드림택배",
             "goodsflowStatus": "승인",
             "errorMessage": "",
-            "createdAt": 1456473137000,
-            "vendorCreditFee05kg": 10,
-            "vendorCreditFee10kg": 10,
-            "vendorCreditFee20kg": 10,
-            "vendorCashFee05kg": 10,
-            "vendorCashFee10kg": 10,
-            "vendorCashFee20kg": 10,
-            "consumerCashFee05kg": 10,
-            "consumerCashFee10kg": 10,
-            "consumerCashFee20kg": 10,
-            "returnFee05kg": 10,
-            "returnFee10kg": 10,
-            "returnFee20kg": 10,
+            "createdAt": 1530002017000,
+            "vendorCreditFee05kg": 2500,
+            "vendorCreditFee10kg": 2500,
+            "vendorCreditFee20kg": 2500,
+            "vendorCashFee05kg": 2500,
+            "vendorCashFee10kg": 2500,
+            "vendorCashFee20kg": 2500,
+            "consumerCashFee05kg": 2500,
+            "consumerCashFee10kg": 2500,
+            "consumerCashFee20kg": 2500,
+            "returnFee05kg": 2500,
+            "returnFee10kg": 2500,
+            "returnFee20kg": 2500,
+            "usable": false,
+            "placeAddresses":             [
+                              {
+                  "addressType": "JIBUN",
+                  "countryCode": "KR",
+                  "companyContactNumber": "139-2029-0520",
+                  "phoneNumber2": "",
+                  "returnZipCode": "112207",
+                  "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
+                  "returnAddressDetail": "-"
+               },
+                              {
+                  "addressType": "ROADNAME",
+                  "countryCode": "KR",
+                  "companyContactNumber": "139-2029-0520",
+                  "phoneNumber2": "",
+                  "returnZipCode": "112207",
+                  "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
+                  "returnAddressDetail": "-"
+               }
+            ]
+         },
+                  {
+            "vendorId": "A00013264",
+            "returnCenterCode": "1000392392",
+            "shippingPlaceName": "생성된반품지5",
+            "deliverCode": "DONGBU",
+            "deliverName": "드림택배",
+            "goodsflowStatus": "승인",
+            "errorMessage": "",
+            "createdAt": 1529630090000,
+            "vendorCreditFee05kg": 1,
+            "vendorCreditFee10kg": 1,
+            "vendorCreditFee20kg": 1,
+            "vendorCashFee05kg": 1,
+            "vendorCashFee10kg": 2,
+            "vendorCashFee20kg": 2,
+            "consumerCashFee05kg": 2,
+            "consumerCashFee10kg": 2,
+            "consumerCashFee20kg": 3,
+            "returnFee05kg": 1,
+            "returnFee10kg": 2,
+            "returnFee20kg": 3,
             "usable": true,
-            "placeAddresses": [
-              {
-                "addressType": "ROADNAME",
-                "countryCode": "KR",
-                "companyContactNumber": "010-1111-1111",
-                "phoneNumber2": "010-1111-1111",
-                "returnZipCode": "34571",
-                "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
-                "returnAddressDetail": "1111222"
-              },
-              {
-                "addressType": "JIBUN",
-                "countryCode": "KR",
-                  "companyContactNumber": "010-1111-1111",
-                  "phoneNumber2": "010-1111-1111",
-                  "returnZipCode": "34571",
-                  "returnAddress": "대전광역시 동구 삼성동 314-18 삼성식품",
-                  "returnAddressDetail": "1111222"
-                }
-                ]
-                },
-                {
-                  "vendorId": "A00013264",
-                  "returnCenterCode": "1100043927",
-                  "shippingPlaceName": "중복등록테스트-chu",
-                  "deliverCode": "CJGLS",
-                  "deliverName": "CJ 대한통운",
-                  "goodsflowStatus": "승인",
-                  "errorMessage": "",
-                  "createdAt": 1456462277000,
-                  "vendorCreditFee05kg": 10,
-                  "vendorCreditFee10kg": 10,
-                  "vendorCreditFee20kg": 10,
-                  "vendorCashFee05kg": 10,
-                  "vendorCashFee10kg": 101,
-                  "vendorCashFee20kg": 10,
-                  "consumerCashFee05kg": 10,
-                  "consumerCashFee10kg": 10,
-                  "consumerCashFee20kg": 10,
-                  "returnFee05kg": 10,
-                  "returnFee10kg": 10,
-                  "returnFee20kg": 10,
-                  "usable": true,
-                  "placeAddresses": [
-                  {
-                    "addressType": "ROADNAME",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
-                    "returnAddressDetail": "1111222"
-                  },
-                  {
-                    "addressType": "JIBUN",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 삼성동 314-18 삼성식품",
-                    "returnAddressDetail": "1111222"
-                  }
-                ]
-                },
-                {
-                  "vendorId": "A00013264",
-                  "returnCenterCode": "1100043827",
-                  "shippingPlaceName": "중복등록테스트-chu",
-                  "deliverCode": "CJGLS",
-                  "deliverName": "CJ 대한통운",
-                  "goodsflowStatus": "승인",
-                  "errorMessage": "",
-                  "createdAt": 1456388734000,
-                  "vendorCreditFee05kg": 10,
-                  "vendorCreditFee10kg": 10,
-                  "vendorCreditFee20kg": 10,
-                  "vendorCashFee05kg": 10,
-                  "vendorCashFee10kg": 10,
-                  "vendorCashFee20kg": 10,
-                  "consumerCashFee05kg": 10,
-                  "consumerCashFee10kg": 10,
-                  "consumerCashFee20kg": 10,
-                  "returnFee05kg": 10,
-                  "returnFee10kg": 10,
-                  "returnFee20kg": 10,
-                  "usable": false,
-                  "placeAddresses": [
-                  {
-                    "addressType": "ROADNAME",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
-                    "returnAddressDetail": "1111-2"
-                  },
-                  {
-                    "addressType": "JIBUN",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 삼성동 314-18 삼성식품",
-                    "returnAddressDetail": "1111-2"
-                  }
-                ]
-                },
-                {
-                  "vendorId": "A00013264",
-                  "returnCenterCode": "1100043727",
-                  "shippingPlaceName": "중복등록테스트-chu",
-                  "deliverCode": "CJGLS",
-                  "deliverName": "CJ 대한통운",
-                  "goodsflowStatus": "승인",
-                  "errorMessage": "",
-                  "createdAt": 1456383015000,
-                  "vendorCreditFee05kg": 10,
-                  "vendorCreditFee10kg": 20,
-                  "vendorCreditFee20kg": 20,
-                  "vendorCashFee05kg": 10,
-                  "vendorCashFee10kg": 20,
-                  "vendorCashFee20kg": 20,
-                  "consumerCashFee05kg": 10,
-                  "consumerCashFee10kg": 20,
-                  "consumerCashFee20kg": 20,
-                  "returnFee05kg": 20,
-                  "returnFee10kg": 20,
-                  "returnFee20kg": 20,
-                  "usable": true,
-                  "placeAddresses": [
-                  {
-                    "addressType": "ROADNAME",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
-                    "returnAddressDetail": "1111"
-                  },
-                  {
-                    "addressType": "JIBUN",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 삼성동 314-18 삼성식품",
-                    "returnAddressDetail": "1111"
-                  }
-                ]
-                },
-                {
-                  "vendorId": "A00013264",
-                  "returnCenterCode": "1100043627",
-                  "shippingPlaceName": "중복등록테스트",
-                  "deliverCode": "CJGLS",
-                  "deliverName": "CJ 대한통운",
-                  "goodsflowStatus": "승인",
-                  "errorMessage": "",
-                  "createdAt": 1456298299000,
-                  "vendorCreditFee05kg": 1,
-                  "vendorCreditFee10kg": 1,
-                  "vendorCreditFee20kg": 1,
-                  "vendorCashFee05kg": 1,
-                  "vendorCashFee10kg": 1,
-                  "vendorCashFee20kg": 1,
-                  "consumerCashFee05kg": 1,
-                  "consumerCashFee10kg": 1,
-                  "consumerCashFee20kg": 1,
-                  "returnFee05kg": 1,
-                  "returnFee10kg": 1,
-                  "returnFee20kg": 1,
-                  "usable": true,
-                  "placeAddresses": [
-                  {
-                    "addressType": "ROADNAME",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
-                    "returnAddressDetail": "1111"
-                  },
-                  {
-                    "addressType": "JIBUN",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 삼성동 314-18 삼성식품",
-                    "returnAddressDetail": "1111"
-                  }
-                ]
-                },
-                {
-                  "vendorId": "A00013264",
-                  "returnCenterCode": "1100043527",
-                  "shippingPlaceName": "중복등록테스트",
-                  "deliverCode": "CJGLS",
-                  "deliverName": "CJ 대한통운",
-                  "goodsflowStatus": "승인",
-                  "errorMessage": "",
-                  "createdAt": 1456298163000,
-                  "vendorCreditFee05kg": 1,
-                  "vendorCreditFee10kg": 1,
-                  "vendorCreditFee20kg": 1,
-                  "vendorCashFee05kg": 1,
-                  "vendorCashFee10kg": 1,
-                  "vendorCashFee20kg": 1,
-                  "consumerCashFee05kg": 1,
-                  "consumerCashFee10kg": 1,
-                  "consumerCashFee20kg": 1,
-                  "returnFee05kg": 1,
-                  "returnFee10kg": 1,
-                  "returnFee20kg": 1,
-                  "usable": false,
-                  "placeAddresses": [
-                  {
-                    "addressType": "ROADNAME",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 태전로 113-2 (삼성동,삼성식품)",
-                    "returnAddressDetail": "1111"
-                  },
-                  {
-                    "addressType": "JIBUN",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-1111",
-                    "phoneNumber2": "010-1111-1111",
-                    "returnZipCode": "34571",
-                    "returnAddress": "대전광역시 동구 삼성동 314-18 삼성식품",
-                    "returnAddressDetail": "1111"
-                  }
-                ]
-                },
-                {
-                  "vendorId": "A00013264",
-                  "returnCenterCode": "1100043427",
-                  "shippingPlaceName": "반품배송지테스트",
-                  "deliverCode": "CJGLS",
-                  "deliverName": "CJ 대한통운",
-                  "goodsflowStatus": "승인",
-                  "errorMessage": "",
-                  "createdAt": 1456200884000,
-                  "vendorCreditFee05kg": 100,
-                  "vendorCreditFee10kg": 100,
-                  "vendorCreditFee20kg": 100,
-                  "vendorCashFee05kg": 100,
-                  "vendorCashFee10kg": 100,
-                  "vendorCashFee20kg": 100,
-                  "consumerCashFee05kg": 100,
-                  "consumerCashFee10kg": 100,
-                  "consumerCashFee20kg": 100,
-                  "returnFee05kg": 100,
-                  "returnFee10kg": 100,
-                  "returnFee20kg": 100,
-                  "usable": false,
-                  "placeAddresses": [
-                  {
-                    "addressType": "JIBUN",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-2222",
-                    "phoneNumber2": "010-3333-4444",
-                    "returnZipCode": "111222",
-                    "returnAddress": "서울시 강남구 삼성동",
-                    "returnAddressDetail": "Tue Feb 23 13:14:44 KST 2016634113749"
-                  },
-                  {
-                    "addressType": "ROADNAME",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1111-2222",
-                    "phoneNumber2": "010-3333-4444",
-                    "returnZipCode": "111222",
-                    "returnAddress": "서울시 강남구 삼성동",
-                    "returnAddressDetail": "Tue Feb 23 13:14:44 KST 2016634113749"
-                  }
-                ]
-                },
-                {
-                  "vendorId": "A00013264",
-                  "returnCenterCode": "1100043026",
-                  "shippingPlaceName": "반품지테스트",
-                  "deliverCode": "CJGLS",
-                  "deliverName": "CJ 대한통운",
-                  "goodsflowStatus": "승인",
-                  "errorMessage": "",
-                  "createdAt": 1455776156000,
-                  "vendorCreditFee05kg": 100,
-                  "vendorCreditFee10kg": 100,
-                  "vendorCreditFee20kg": 100,
-                  "vendorCashFee05kg": 100,
-                  "vendorCashFee10kg": 100,
-                  "vendorCashFee20kg": 100,
-                  "consumerCashFee05kg": 100,
-                  "consumerCashFee10kg": 100,
-                  "consumerCashFee20kg": 100,
-                  "returnFee05kg": 100,
-                  "returnFee10kg": 100,
-                  "returnFee20kg": 100,
-                  "usable": true,
-                  "placeAddresses": [
-                  {
-                    "addressType": "JIBUN",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1234-5678",
-                    "phoneNumber2": "010-1234-5678",
-                    "returnZipCode": "135090",
-                    "returnAddress": "서울특별시 강남구 삼성동 ",
-                    "returnAddressDetail": "경암빌딩 1-1"
-                  }
-                ]
-                },
-                {
-                  "vendorId": "A00013264",
-                  "returnCenterCode": "1100043025",
-                  "shippingPlaceName": "드디어it존에서도반품지를",
-                  "deliverCode": "CJGLS",
-                  "deliverName": "CJ 대한통운",
-                  "goodsflowStatus": "승인",
-                  "errorMessage": "",
-                  "createdAt": 1455775059000,
-                  "vendorCreditFee05kg": 10,
-                  "vendorCreditFee10kg": 10,
-                  "vendorCreditFee20kg": 10,
-                  "vendorCashFee05kg": 10,
-                  "vendorCashFee10kg": 10,
-                  "vendorCashFee20kg": 10,
-                  "consumerCashFee05kg": 10,
-                  "consumerCashFee10kg": 10,
-                  "consumerCashFee20kg": 10,
-                  "returnFee05kg": 10,
-                  "returnFee10kg": 10,
-                  "returnFee20kg": 10,
-                  "usable": true,
-                  "placeAddresses": [
-                  {
-                    "addressType": "JIBUN",
-                    "countryCode": "KR",
-                    "companyContactNumber": "010-1234-5678",
-                    "phoneNumber2": "010-1234-5678",
-                    "returnZipCode": "135090",
-                    "returnAddress": "서울특별시 강남구 삼성동 ",
-                    "returnAddressDetail": "경암빌딩"
-                  }
-                ]
-                }
-                ],
-                "pagination": {
-                  "currentPage": 1,
-                    "totalPages": 11,
-                    "totalElements": 110,
-                    "countPerPage": 10
-                }
-                }
-              },
+            "placeAddresses": [            {
+               "addressType": "JIBUN",
+               "countryCode": "KR",
+               "companyContactNumber": "1234-2345-6666",
+               "phoneNumber2": "0120-2345-6666",
+               "returnZipCode": "10516",
+               "returnAddress": "경기도 파주시 탄현면 월롱산로 294-58 ()",
+               "returnAddressDetail": "경기도 파주시 탄현면 금승리"
+            }]
+         }
+      ],
+         "pagination":       {
+         "currentPage": 1,
+         "totalPages": 1,
+         "totalElements": 5,
+         "countPerPage": 10
+      }
+   }
+},
                   _description: ``,
                   _relation: ``,
                   _referenceInfo: ``,

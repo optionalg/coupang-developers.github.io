@@ -47,9 +47,10 @@ export const modifyReturnShippingFacilityDocument = {
     httpMethod: `PUT`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnShippingCenters/{returnCenterCode}`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnShippingCenters/{returnCenterCode}`,
-    _description: `반품지를 수정합니다.`,
+    _description: `반품지를 수정합니다.<br/>반품지를 수정하려면 outboundShippingPlaceCode 및 remoteInfoId가 필요합니다.<br/>
+    '반품지 목록 조회' API를 사용하여 outboundShippingPlaceCode 와 remoteInfoId를 얻을 수 있습니다.`,
     _relation: ``,
-    _referenceInfo: `반품지를 수정하려면  '반품지 목록 조회 API'를 사용하여 returnCenterCode를 받으십시오.`,
+    _referenceInfo: ``,
     _warning: ``,
   },
   parameters: {
@@ -57,7 +58,7 @@ export const modifyReturnShippingFacilityDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)<br/>Wing 페이지에서도 확인 가능합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -66,7 +67,7 @@ export const modifyReturnShippingFacilityDocument = {
       {
         name: `returnCenterCode`,
         require: true,
-        _description: `반품지 센터코드`,
+        _description: `수정하려는 반품지 코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``
@@ -78,7 +79,7 @@ export const modifyReturnShippingFacilityDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `업체 코드`,
+        _description: `업체 코드(판매자코드)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -118,27 +119,9 @@ export const modifyReturnShippingFacilityDocument = {
         name: `usable`,
         type: `boolean`,
         require: false,
-        _description: `주소 사용 가능여부`,
+        _description: `사용 가능 여부`,
         _relation: ``,
         _referenceInfo: `
-          <table>
-            <tr>
-                <th>
-                   CODE 
-                </th>
-                <th>
-                    Mean
-                </th>
-            </tr>
-            <tr>
-                <td>true</td>
-                <td>사용함</td>
-            </tr>
-            <tr>
-                <td>false</td>
-                <td>사용안함</td>
-            </tr>
-           </table>
         `,
         _warning: ``,
         children: false
@@ -160,18 +143,18 @@ export const modifyReturnShippingFacilityDocument = {
             _relation: ``,
             _referenceInfo: `
             <table class="table">
-                <tr>
-                  <th>CODE</th>
-                  <th>Mean</th>
-                </tr>
-                <tr>
-                  <td>JIBUN</td>
-                  <td>지번, 1개의 주소만 등록시는 JIBUN으로 등록</td>
-                </tr>
-                <tr>
-                  <td>JIBUN&ROADNAME</td>
-                  <td>지번주소/도로명주소, 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
-                </tr>
+            <tr>
+            <th>CODE</th>
+            <th>Mean</th>
+          </tr>
+          <tr>
+            <td>JIBUN</td>
+            <td>지번</td>
+          </tr>
+          <tr>
+            <td>ROADNAME</td>
+            <td>도로명</td>
+          </tr>
             </table>`,
             _warning: ``,
             children: false
@@ -180,12 +163,27 @@ export const modifyReturnShippingFacilityDocument = {
             name: `companyContactNumber`,
             type: `String`,
             require: true,
-            _description: `전화번호, e.g. : xx-yyy-zzzz, <br/>
-                          x : 숫자 , 최소길이2, 최대길이 4 <br/>
-                          y : 최소길이 3, 최대길이 4 <br/>
-                          z : 유효한 길이 4.`,
+            _description: `전화번호, e.g. : xx-yyy-zzzz,`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `
+            <table class="table">
+            <tr>
+              <th>구분</th>
+              <th>Min~Max</th>
+            </tr>
+            <tr>
+              <td>x</td>
+              <td>2~4자</td>
+            </tr>
+            <tr>
+              <td>y</td>
+              <td>3~4자</td>
+            </tr>
+            <tr>
+              <td>z</td>
+              <td>4자</td>
+            </tr>
+           </table>`,
             _warning: ``,
             children: false
           },
@@ -235,7 +233,7 @@ export const modifyReturnShippingFacilityDocument = {
         name: `goodsflowInfoDto`,
         type: `Object`,
         require: false,
-        _description: `택배 정보`,
+        _description: `굿스 플로 택배 연동 정보`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -246,8 +244,8 @@ export const modifyReturnShippingFacilityDocument = {
             require: true,
             _description: `상품이 5kg일때의 신용요금 (판매자 신용)`,
             _relation: ``,
-            _referenceInfo: `0보다 커야합니다`,
-            _warning: ``,
+            _referenceInfo: `0보다 커야합니다<br/>해당 항목은 따로 사용하는 곳이 없기에<br/>상품등록API에서 입력하는 반품배송비로 입력<br/>`,
+            _warning: `대상:vendorCreditFee05kg~returnFee20kg`,
             children: false
           },
           {

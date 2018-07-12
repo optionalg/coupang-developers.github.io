@@ -100,7 +100,7 @@ export const modifyOutboundShippingFacilityDocument = {
         require: false,
         _description: `출고지 코드`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `"null"인 경우, 출고지이름은 변하지 않습니다`,
         _warning: ``,
         children: false
       },

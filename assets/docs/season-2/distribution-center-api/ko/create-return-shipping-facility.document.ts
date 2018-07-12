@@ -184,8 +184,8 @@ export const createReturnShippingFacilityDocument = {
             require: true,
             _description: `상품이 5kg일때의 신용요금 (판매자 신용)`,
             _relation: ``,
-            _referenceInfo: `0보다 커야합니다`,
-            _warning: ``,
+            _referenceInfo: `0보다 커야합니다<br/>해당 항목은 따로 사용하는 곳이 없기에<br/>상품등록API에서 입력하는 반품배송비로 입력<br/>`,
+            _warning: `대상:vendorCreditFee05kg~returnFee20kg`,
             children: false
           },
           {
@@ -323,11 +323,11 @@ export const createReturnShippingFacilityDocument = {
                 </tr>
                 <tr>
                   <td>JIBUN</td>
-                  <td>지번, 1개의 주소만 등록시는 JIBUN으로 등록</td>
+                  <td>지번</td>
                 </tr>
                 <tr>
-                  <td>JIBUN&ROADNAME</td>
-                  <td>지번주소/도로명주소, 복수개의 주소 등록시 두 타입 모두 사용 가능</td>
+                  <td>ROADNAME</td>
+                  <td>도로명</td>
                 </tr>
             </table>`,
             _warning: ``,
@@ -337,12 +337,27 @@ export const createReturnShippingFacilityDocument = {
             name: `companyContactNumber`,
             type: `String`,
             require: true,
-                _description: `전화번호, e.g. : xx-yyy-zzzz, <br/>
-                          x : 숫자 , 최소길이2, 최대길이 4 <br/>
-                          y : 최소길이 3, 최대길이 4 <br/>
-                          z : 유효한 길이 4.`,
+            _description: ``,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `
+            <table class="table">
+            <tr>
+              <th>구분</th>
+              <th>Min~Max</th>
+            </tr>
+            <tr>
+              <td>x</td>
+              <td>2~4자</td>
+            </tr>
+            <tr>
+              <td>y</td>
+              <td>3~4자</td>
+            </tr>
+            <tr>
+              <td>z</td>
+              <td>4자</td>
+            </tr>
+           </table>`,
             _warning: ``,
             children: false
           },
@@ -468,18 +483,18 @@ export const createReturnShippingFacilityDocument = {
           },
           "placeAddresses":[{
             "addressType":"JIBUN",
-            "companyContactNumber":"139-2029-0520",
+            "companyContactNumber":"02-1234-5678",
             "phoneNumber2":"",
             "returnZipCode":"112207",
-            "returnAddress":"abdsplendidg2520",
-            "returnAddressDetail":""
+            "returnAddress":"경기도 파주시 탄현면 월롱산로",
+            "returnAddressDetail":"294-58"
           },{
             "addressType":"ROADNAME",
-            "companyContactNumber":"139-2029-0520",
+            "companyContactNumber":"02-1234-5678",
             "phoneNumber2":"",
             "returnZipCode":"112207",
-            "returnAddress":"abdsplendidg2520",
-            "returnAddressDetail":""
+            "returnAddress":"경기도 파주시 탄현면 월롱산로",
+            "returnAddressDetail":"294-58"
           }]
 
         }
