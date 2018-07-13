@@ -6,7 +6,7 @@ export const deliveryCompleteProcessingDocument = {
     category: `delivery-api`,   // input category ex) exchange-service-api
     id: `delivery-complete-processing`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `delivery_complete_processing`,
-    name: `장기미배송 배송완료 처리`,       // use display name, i will change 'translation key'
+    name: `장기미배송 배송완료 처리 `,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: `draft`, // draft, candidate, release
     lastUpdateDate: `2017-02-17`, // yyyy-mm-dd  ex> 2016-12-23

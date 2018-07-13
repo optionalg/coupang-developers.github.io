@@ -31,7 +31,7 @@ export const modifySellerProductDocument = {
     - 옵션 삭제 : 삭제하고 싶은 옵션의 'items 배열 하위 값'을 제거하고, 남기고 싶은 아이템 상단에 [sellerProductItemId] 삽입 후 전송 <br/>
     - 옵션 추가 : [sellerProductItemId]를 입력하지 않고 items 배열을 추가하여 전송 <br/>
     ※ [sellerProductItemId]는 상품 조회 API를 이용해 확인가능합니다. <br/>
-    ※ 승인 완료된 상품의 판매가격, 재고수량, 판매상태, 할인율 기준가는 상품수정API가 아닌, 상품 API 하위의 [옵션별 수량/가격/판매여부/할인율기준가 변경] API를 통해 가능합니다.`,
+    ※ 승인 완료된 상품의 판매가격, 재고수량, 판매상태, 할인율 기준가는 상품수정API가 아닌, 상품 API 하위의 [상품 아이템별 수량/가격/판매여부/할인율기준가 변경] API를 통해 가능합니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -702,8 +702,8 @@ export const modifySellerProductDocument = {
             require: true,
             _description: `할인율기준가`,
             _relation: ``,
-            _referenceInfo: `할인율(%)표시를 위한 할인전 금액으로, 판매가격과 동일하게 입력시 '쿠팡가'로 노출. 승인완료 이후 할인율기준가 수정은 [옵션별 할인율기준가 변경] API를 통해 변경가능`,
-            _warning: ``,
+            _referenceInfo: `할인율(%)표시를 위한 할인전 금액, 판매가격과 동일하게 입력시 '쿠팡가'(saleprice)로 노출. `,
+            _warning: `승인완료 이후 할인율기준가 수정은 [상품 아이템별 할인율 기준가격 변경] API를 통해 변경 가능`,
             children: false
           }
           ,
@@ -713,8 +713,8 @@ export const modifySellerProductDocument = {
             require: true,
             _description: `판매가격`,
             _relation: ``,
-            _referenceInfo: `판매가격을 입력. <br> '최초' 업체상품 등록시 판매가격은 상품 승인 요청 전에만 가능하며, 승인완료 이후 판매가격 수정은 [옵션별 가격 변경] API를 통해 변경가능`,
-            _warning: ``,
+            _referenceInfo: `상품 수정 API를 통한 판매가격 수정은 상품 승인 요청 전에만 가능`,
+            _warning: `승인완료 이후 판매가격 수정은 [상품 아이템별 가격 변경] API를 통해 변경 가능`,
             children: false
           }
           ,
@@ -724,8 +724,8 @@ export const modifySellerProductDocument = {
             require: true,
             _description: `판매가능수량`,
             _relation: ``,
-            _referenceInfo: `판매가능한 재고수량을 입력. <br>'최초' 업체상품 등록시 판매수량은 상품 승인 요청 전에만 가능하며, 승인완료 이후 재고 수정은 [옵션별 수량 변경] API를 통해 변경가능`,
-            _warning: ``,
+            _referenceInfo: `판매가능한 재고수량. <br>상품 수정 API를 통한 판매수량 수정은 상품 승인 요청 전에만 가능 `,
+            _warning: `승인완료 이후 재고 수정은 [상품 아이템별 수량 변경] API를 통해 변경 가능`,
             children: false
           }
           ,

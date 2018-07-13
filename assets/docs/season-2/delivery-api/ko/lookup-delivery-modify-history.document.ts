@@ -58,9 +58,10 @@ export const lookupDeliveryModifyHistoryDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 Id`,
+        _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드 <br>
+        Wing 로그인 후, 확인 가능`,
         _warning: ``
       },
       {
@@ -68,7 +69,7 @@ export const lookupDeliveryModifyHistoryDocument = {
         require: true,
         _description: `배송ID`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `발주서 목록 조회 API를 통해 확인 가능`,
         _warning: ``
       }
     ],
