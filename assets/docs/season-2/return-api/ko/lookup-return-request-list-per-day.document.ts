@@ -68,7 +68,7 @@ export const lookupReturnRequestListPerDayDocument = {
       {
         name: `createdAtFrom`,
         require: true,
-        _description: `검색 시작일 (yyyy-MM-ddTHH:mm)`,
+        _description: `검색 시작일 (yyyy-MM-dd)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -77,7 +77,7 @@ export const lookupReturnRequestListPerDayDocument = {
       {
         name: `createdAtTo`,
         require: true,
-        _description: `검색 종료일 (yyyy-MM-ddTHH:mm)`,
+        _description: `검색 종료일 (yyyy-MM-dd)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,

@@ -6,7 +6,7 @@ export const changePriceBasedOnDiscountRateByProductDocument = {
     category: `product-api`,   // input category ex) exchange-service-api
     id: `change-price-based-on-discount-rate-by-product`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `change_price_based_on_discount_rate_by_product`,
-    name: `상품 아이템별 할인율 기준가격 변경`,       // use display name, i will change 'translation key'
+    name: `상품 아이템별 할인율 기준가격 변경 `,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23

@@ -310,7 +310,7 @@ export const invoiceUploadProcessingDocument = {
             require: true,
             _description: `옵션Id`,
             _relation: ``,
-            _referenceInfo: `송장을 업로드 할, 상품의 옵션 ID를 입력. <br>분리배송 시 해당 shipmentBoxId의 vendorItemId단위로 접수해야한다.`,
+            _referenceInfo: `송장을 업로드 할 상품의 옵션 ID를 입력. <br>분리배송 시 해당 shipmentBoxId의 vendorItemId단위로 접수해야한다.`,
             _warning: ``,
             children: false
           },
@@ -321,7 +321,7 @@ export const invoiceUploadProcessingDocument = {
             _description: `분리배송 여부`,
             _relation: ``,
             _referenceInfo: `● false(전체배송) <br> 1개의 주문번호에 포함된 전체 상품을 1개의 송장번호로 배송하는 경우 <br>
-            ● true(분리배송) <br> 1개의 주문번호에 포함 된 상품을 시간을 두고 분리하여 여러 송장번호로 배송하는 경우`,
+            ● true(분리배송) <br> 1개의 주문번호에 포함 된 상품을 분리하여 여러 송장번호로 배송하는 경우`,
             _warning: ``,
             children: false
           },
@@ -332,7 +332,7 @@ export const invoiceUploadProcessingDocument = {
             _description: `분리 배송중인지 여부`,
             _relation: ``,
             _referenceInfo: `● false <br> 분리배송을 하지 않는 경우 (=splitshipping이 false인 경우)<br>
-            해당 주문번호에 대해 처음으로 분리배송처리 할 경우
+            해당 주문번호에 대해 처음으로 분리배송처리 할 경우 <br>
             ● true <br> 해당 주문번호에 이미 분리배송을 진행한 상품이 있을 경우`,
             _warning: ``,
             children: false
@@ -341,7 +341,7 @@ export const invoiceUploadProcessingDocument = {
             name: `estimatedShippingDate`,
             type: `String`,
             require: true,
-            _description: `출고예정일`,
+            _description: `(분리배송)출고예정일`,
             _relation: ``,
             _referenceInfo: `YYYY-MM-DD 포멧으로 분리배송 시에만 선택적으로 입력.
             <br> 입력 하지 않는 경우 "" 공백을 입력한다.`,
