@@ -6,7 +6,7 @@ export const invoiceUploadProcessingDocument = {
     category: `delivery-api`,   // input category ex) exchange-service-api
     id: `invoice-upload-processing`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `invoice_upload_processing`,
-    name: `송장업로드  처리 `,       // use display name, i will change 'translation key'
+    name: `송장업로드 처리`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -26,7 +26,7 @@ export const invoiceUploadProcessingDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/invoices`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/invoices`,
-    _description: ``,//`송장을 업로드하여 발주서의 상태를 배송지시로 변경, v2에 분리배송이 구현`
+    _description: `송장을 업로드하여, 주문을 배송지시 상태로 변경합니다.<Br>※ 분리배송이 필요한 경우, 송장 업로드 예시는 e-mail로 별도 문의해주세요.`,//`송장을 업로드하여 발주서의 상태를 배송지시로 변경, v2에 분리배송이 구현`
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -58,9 +58,9 @@ export const invoiceUploadProcessingDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 Id`,
+        _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
         _warning: ``
       }
     ],
@@ -70,9 +70,9 @@ export const invoiceUploadProcessingDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `업체 Id`,
+        _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
         _warning: ``,
         children: false
       },
@@ -89,9 +89,9 @@ export const invoiceUploadProcessingDocument = {
             name: `shipmentBoxId`,
             type: `Number`,
             require: true,
-            _description: `배송번호`,
+            _description: `배송번호(=묶음배송번호)`,
             _relation: ``,
-            _referenceInfo: ``,
+            _referenceInfo: `분리배송 시, 나중에 발송할 상품의 shipmentBoxId는 변경됩니다. (orderId로 발주서 단건 조회API를 통해 확인 가능)`,
             _warning: ``,
             children: false
           },
@@ -300,17 +300,17 @@ export const invoiceUploadProcessingDocument = {
             require: true,
             _description: `송장번호`,
             _relation: ``,
-            _referenceInfo: `분리배송 시 선택. 입력 안하는경우 "" 공백을 입력한다. 분리배송 시에는 송장번호 또는 출고예정일 둘중에 한가지만 입력한다.`,
-            _warning: ``,
+            _referenceInfo: `분리배송 시 선택. 입력 하지 않는 경우 "" 공백으로 입력한다.`,
+            _warning: `분리배송 시에는 송장번호 또는 출고예정일 둘중에 한가지만 입력한다.`,
             children: false
           },
           {
             name: `vendorItemId`,
             type: `Number`,
             require: true,
-            _description: `vendorItemId`,
+            _description: `옵션Id`,
             _relation: ``,
-            _referenceInfo: `분리배송 시 해당 shipmentBoxId의 vendorItemId단위로 접수해야한다.`,
+            _referenceInfo: `송장을 업로드 할, 상품의 옵션 ID를 입력. <br>분리배송 시 해당 shipmentBoxId의 vendorItemId단위로 접수해야한다.`,
             _warning: ``,
             children: false
           },
@@ -320,7 +320,8 @@ export const invoiceUploadProcessingDocument = {
             require: true,
             _description: `분리배송 여부`,
             _relation: ``,
-            _referenceInfo: `true / false`,
+            _referenceInfo: `● false(전체배송) <br> 1개의 주문번호에 포함된 전체 상품을 1개의 송장번호로 배송하는 경우 <br>
+            ● true(분리배송) <br> 1개의 주문번호에 포함 된 상품을 시간을 두고 분리하여 여러 송장번호로 배송하는 경우`,
             _warning: ``,
             children: false
           },
@@ -328,9 +329,11 @@ export const invoiceUploadProcessingDocument = {
             name: `preSplitShipped`,
             type: `String`,
             require: true,
-            _description: `분리 배송중 여부`,
+            _description: `분리 배송중인지 여부`,
             _relation: ``,
-            _referenceInfo: `이미 분리배송중인 건인지 여부. true / false`,
+            _referenceInfo: `● false <br> 분리배송을 하지 않는 경우 (=splitshipping이 false인 경우)<br>
+            해당 주문번호에 대해 처음으로 분리배송처리 할 경우
+            ● true <br> 해당 주문번호에 이미 분리배송을 진행한 상품이 있을 경우`,
             _warning: ``,
             children: false
           },
@@ -340,8 +343,9 @@ export const invoiceUploadProcessingDocument = {
             require: true,
             _description: `출고예정일`,
             _relation: ``,
-            _referenceInfo: `분리배송 시 선택. 입력 안하는경우 "" 공백을 입력한다. 분리배송 시에는 송장번호 또는 출고예정일 둘중에 한가지만 입력한다. YYYY-MM-DD 포멧으로 입력.`,
-            _warning: ``,
+            _referenceInfo: `YYYY-MM-DD 포멧으로 분리배송 시에만 선택적으로 입력.
+            <br> 입력 하지 않는 경우 "" 공백을 입력한다.`,
+            _warning: `분리배송 시, 송장번호 또는 출고예정일 둘 중 한가지만 입력.`,
             children: false
           },
         ]
@@ -589,34 +593,24 @@ export const invoiceUploadProcessingDocument = {
           "vendorId": "A00034612",
           "orderSheetInvoiceApplyDtos": [
             {
-              "shipmentBoxId": 102390933,
-              "orderId": 806,
-              "vendorItemId": 22063200,
+              "shipmentBoxId": 606920263,
+              "orderId": 4000019469460,
+              "vendorItemId": 3823839899,
               "deliveryCompanyCode": "KDEXP",
-              "invoiceNumber": "4567456566",
-              "splitShipping": true,
+              "invoiceNumber": "20180731040123",
+              "splitShipping": false,
               "preSplitShipped": false,
               "estimatedShippingDate": ""
             },
             {
-              "shipmentBoxId": 102390933,
-              "orderId": 806,
-              "vendorItemId": 22063201,
+              "shipmentBoxId": 606920263,
+              "orderId": 4000019469460,
+              "vendorItemId": 3834780191,
               "deliveryCompanyCode": "KDEXP",
-              "invoiceNumber": "4567456567",
-              "splitShipping": true,
+              "invoiceNumber": "20180731040123",
+              "splitShipping": false,
               "preSplitShipped": false,
               "estimatedShippingDate": ""
-            },
-            {
-              "shipmentBoxId": 102390933,
-              "orderId": 806,
-              "vendorItemId": 22063202,
-              "deliveryCompanyCode": "KDEXP",
-              "invoiceNumber": "",
-              "splitShipping": true,
-              "preSplitShipped": false,
-              "estimatedShippingDate": "2015-11-13"
             }
           ]
         }
@@ -630,7 +624,7 @@ export const invoiceUploadProcessingDocument = {
         "responseMessage": "SUCCESS",
         "responseList": [
           {
-            "shipmentBoxId": 102390933,
+            "shipmentBoxId": 606920263,
             "succeed": true,
             "resultCode": "OK",
             "retryRequired": false,
