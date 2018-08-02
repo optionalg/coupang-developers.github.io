@@ -26,11 +26,11 @@ export const lookupOrderListPerMinuteDocument = {
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets`,
     _description: `
-    발주서 목록을 24시간 이내의 분단위 구간으로 조회합니다.ex)(2017-02-01T00:01~2017-02-01T23:59)<br>
+    발주서 목록을 24시간 이내의 분단위 구간으로 조회합니다.ex)(2017-02-01T00:01~2017-02-01T23:59)<br>Path Parameter 일부 제외, 발주서 목록 조회(분 단위 전체)와 전반적으로 구성이 같습니다.
     `,
     _relation: ``,
-    _referenceInfo: ``,
-    _warning: `v2 version과 v4 version의 조회결과가 동일하지 않습니다. v4 version에만 추가된 항목들이 있으니 아래 Response Spec을 참조하시기 바랍니다.`
+    _referenceInfo: `v2 version과 v4 version의 조회결과가 동일하지 않습니다. v4 version에만 추가된 항목들이 있으니 아래 Response Spec을 참조하시기 바랍니다.`,
+    _warning: `반품완료건은 발주서목록에서 조회 불가, '반품 요청 목록 조회' 이용`
   },
   apiMigrationInfo: {
     previousVersions: [
@@ -179,7 +179,7 @@ export const lookupOrderListPerMinuteDocument = {
         {
           name: `shipmentBoxId`,
           type: `Number`,
-          _description: `배송번호`,
+          _description: `배송번호(묶음배송번호)`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -369,6 +369,14 @@ export const lookupOrderListPerMinuteDocument = {
               _warning: ``,
               children: false
             }, {
+              name: `receiverNumber`,
+              type: `String`,
+              _description: ``,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: `사용하지 않음`,
+              children: false
+            }, {
               name: `addr1`,
               type: `String`,
               _description: `수취인 배송지1`,
@@ -398,7 +406,7 @@ export const lookupOrderListPerMinuteDocument = {
         {
           name: `orderItems`,
           type: `Array`,
-          _description: `Items to deliver`,
+          _description: `주문 상품 정보`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -408,7 +416,7 @@ export const lookupOrderListPerMinuteDocument = {
               type: `Number`,
               _description: `vendorItemPackageId`,
               _relation: ``,
-              _referenceInfo: `optional / 없는 경우 0으로 리턴`,
+              _referenceInfo: `미사용 / 없는 경우 0으로 리턴`,
               _warning: ``,
               children: false
             }, {
@@ -416,13 +424,13 @@ export const lookupOrderListPerMinuteDocument = {
               type: `String`,
               _description: `vendorItemPackageName`,
               _relation: ``,
-              _referenceInfo: `optional`,
+              _referenceInfo: `미사용`,
               _warning: ``,
               children: false
             }, {
               name: `productId`,
               type: `Number`,
-              _description: `productId`,
+              _description: `노출상품ID`,
               _relation: ``,
               _referenceInfo: `optional / 없는 경우 0으로 리턴`,
               _warning: ``,
@@ -430,7 +438,7 @@ export const lookupOrderListPerMinuteDocument = {
             }, {
               name: `vendorItemId`,
               type: `Number`,
-              _description: `vendorItemId`,
+              _description: `옵션ID`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -438,7 +446,7 @@ export const lookupOrderListPerMinuteDocument = {
             }, {
               name: `vendorItemName`,
               type: `String`,
-              _description: `vendorItemName`,
+              _description: `옵션상품이름`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -462,7 +470,7 @@ export const lookupOrderListPerMinuteDocument = {
             }, {
               name: `orderPrice`,
               type: `Number`,
-              _description: `결제 가격 salesPrice*shippingCount : 하지만 항상 같지는 않음`,
+              _description: `결제 가격 (salesPrice x shippingCount)<br/>하지만 항상 같지는 않음`,
               //왜 항상 안같지?
               _relation: ``,
               _referenceInfo: ``,
@@ -481,7 +489,7 @@ export const lookupOrderListPerMinuteDocument = {
             {
               name: `externalVendorSkuCode`,
               type: `String`,
-              _description: `external code`,
+              _description: `업체 외부 상품 코드`,
               _relation: ``,
               _referenceInfo: `optional`,
               _warning: ``,
@@ -501,7 +509,7 @@ export const lookupOrderListPerMinuteDocument = {
               _description: `상품별 개별 입력 항목에 대한 사용자의 입력값`,
               _relation: ``,
               _referenceInfo: `optional`,
-              _warning: `필드는 존재하나 값이 없는 상태입니다. 필요시에는 아래의 etcInfoValues를 사용하시기 바랍니다.`,
+              _warning: `미사용`,
               children: false
             },
             {
@@ -567,7 +575,7 @@ export const lookupOrderListPerMinuteDocument = {
             {
               name: `estimatedShippingDate`,
               type: `String`,
-              _description: `주문시 출고예정일`,
+              _description: `주문 시 출고예정일`,
               _relation: ``,
               _referenceInfo: `optional / yyyy-mm-dd`,
               _warning: ``,
@@ -575,7 +583,7 @@ export const lookupOrderListPerMinuteDocument = {
             }, {
               name: `plannedShippingDate`,
               type: `String`,
-              _description: `실제 출고예정일 (분리배송 시)`,
+              _description: `실제 출고예정일 (분리 배송 시)`,
               _relation: ``,
               _referenceInfo: `optional / yyyy-mm-dd`,
               _warning: ``,
@@ -599,7 +607,7 @@ export const lookupOrderListPerMinuteDocument = {
             }, {
               name: `pricingBadge`,
               type: `Boolean`,
-              _description: `최저가 상품 여부`,
+              _description: `쿠런티(최저가 상품 여부)`,
               _relation: ``,
               _referenceInfo: `true/false`,
               _warning: `v4 version으로만 조회가능`,
@@ -680,7 +688,7 @@ export const lookupOrderListPerMinuteDocument = {
             type: `String`,
             _description: `택배사`,
             _relation: ``,
-            _referenceInfo: `CJ 대한통운,한진택배`,
+            _referenceInfo: `Ex: CJ 대한통운,한진택배...`,
             _warning: `v4 version으로만 조회가능`,
             children: false
           },
@@ -716,7 +724,7 @@ export const lookupOrderListPerMinuteDocument = {
                 type: `String`,
                 _description: `결제위치`,
                 _relation: ``,
-                _referenceInfo: `아이폰앱,안드로이드앱,PC웹`,
+                _referenceInfo: `아이폰앱,안드로이드앱,PC웹,모바일웰`,
                 _warning: `v4 version으로만 조회가능`,
                 children: false
              }
@@ -764,10 +772,11 @@ export const lookupOrderListPerMinuteDocument = {
 	      "ableSplitShipping": false,
 	      "receiver": {
 	        "name": "신*희",
-	        "safeNumber": "0503-**-5464",
-	        "addr1": "경기 오산시 가수동 **아파트",
-	        "addr2": "109동 *호",
-	        "postCode": "447-700"
+          "safeNumber": "0502-344-6681",
+          "receiverNumber": null,
+          "addr1": "경기 광명시 하안1동 두산트레지움아파트",
+          "addr2": "107동701호",
+          "postCode": "423-747"
 	      },
 	      "orderItems": [
 	        {

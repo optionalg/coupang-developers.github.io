@@ -28,11 +28,11 @@ export const lookupOrderListPerDayDocument = {
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets`,
     _description: `
     발주서 목록을 하루단위 페이징 형태로 조회합니다.ex)(2017-02-01 ~ 2017-02-03)<br>
-    페이지당 row사이즈 조정은 maxPerPage 파라미터를 통해 가능하며 다음 페이지는 [nextToken]을 이용하여 얻을 수 있습니다.
+    페이지당 row사이즈 조정은 maxPerPage 파라미터를 통해 가능하며 다음 페이지는 [nextToken]을 이용하여 얻을 수 있습니다.<br/> Path Parameter 일부 제외, 발주서 목록 조회(분 단위 전체)와 전반적으로 구성이 같습니다.
     `,
     _relation: ``,
-    _referenceInfo: ``,
-    _warning: `v2 version과 v4 version의 조회결과가 동일하지 않습니다. v4 version에만 추가된 항목들이 있으니 아래 Response Spec을 참조하시기 바랍니다.`
+    _referenceInfo: `v2 version과 v4 version의 조회결과가 동일하지 않습니다. v4 version에만 추가된 항목들이 있으니 아래 Response Spec을 참조하시기 바랍니다.`,
+    _warning: `반품완료건은 발주서목록에서 조회 불가, '반품 요청 목록 조회' 또는 '발주서 단건 조회' 이용`
   },
   apiMigrationInfo: {
     previousVersions: [
@@ -206,7 +206,7 @@ export const lookupOrderListPerDayDocument = {
         {
           name: `shipmentBoxId`,
           type: `Number`,
-          _description: `배송번호`,
+          _description: `배송번호(묶음배송번호)`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -396,6 +396,14 @@ export const lookupOrderListPerDayDocument = {
               _warning: ``,
               children: false
             }, {
+              name: `receiverNumber`,
+              type: `String`,
+              _description: ``,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: `사용하지 않음`,
+              children: false
+            }, {
               name: `addr1`,
               type: `String`,
               _description: `수취인 배송지1`,
@@ -435,7 +443,7 @@ export const lookupOrderListPerDayDocument = {
               type: `Number`,
               _description: `vendorItemPackageId`,
               _relation: ``,
-              _referenceInfo: `optional / 없는 경우 0으로 리턴`,
+              _referenceInfo: `미사용 / 없는 경우 0으로 리턴`,
               _warning: ``,
               children: false
             }, {
@@ -443,7 +451,7 @@ export const lookupOrderListPerDayDocument = {
               type: `String`,
               _description: `vendorItemPackageName`,
               _relation: ``,
-              _referenceInfo: `optional`,
+              _referenceInfo: `미사용`,
               _warning: ``,
               children: false
             }, {
@@ -594,7 +602,7 @@ export const lookupOrderListPerDayDocument = {
             {
               name: `estimatedShippingDate`,
               type: `String`,
-              _description: `주문시 출고예정일`,
+              _description: `주문시 출고예정일<br/>(불리배송 출고예정일)`,
               _relation: ``,
               _referenceInfo: `optional / yyyy-mm-dd`,
               _warning: ``,
@@ -743,7 +751,7 @@ export const lookupOrderListPerDayDocument = {
                 type: `String`,
                 _description: `결제위치`,
                 _relation: ``,
-                _referenceInfo: `아이폰앱,안드로이드앱,PC웹`,
+                _referenceInfo: `아이폰앱,안드로이드앱,PC웹,모바일웹`,
                 _warning: `v4 version으로만 조회가능`,
                 children: false
              }
@@ -860,10 +868,11 @@ export const lookupOrderListPerDayDocument = {
       "ableSplitShipping": false,
       "receiver": {
         "name": "김*숙",
-        "safeNumber": "0503-**-5013",
-        "addr1": "경기도 고양시 일산동구 백석동 **아파트",
-        "addr2": "303-*",
-        "postCode": "104-48"
+        "safeNumber": "0502-344-6681",
+        "receiverNumber": null,
+        "addr1": "경기 광명시 하안1동 두산트레지움아파트",
+        "addr2": "107동701호",
+        "postCode": "423-747"
       },
       "orderItems": [
         {

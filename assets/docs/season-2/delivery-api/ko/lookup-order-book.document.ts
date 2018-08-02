@@ -67,8 +67,8 @@ export const lookupOrderBookDocument = {
       {
         name: `shipmentBoxId`,
         require: true,
-        _description: `shipmentBoxId`,
-        _relation: `본 파라미터는 발주서 목록 조회 분단위 및 일단위를 통해 조회한 발주서 정보에 포함되어 있습니다.`,
+        _description: `배송번호(묶음배송번호)`,
+        _relation: `Wing 또는, 발주서 목록 조회 분단위/일단위를 통해 조회`,
         _referenceInfo: ``,
         _warning: `shipmentBoxId는 Number type입니다.`
       }
@@ -142,7 +142,7 @@ export const lookupOrderBookDocument = {
         {
           name: `orderer`,
           type: `Object`,
-          _description: `주문자`,
+          _description: `주문자 정보`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -159,7 +159,7 @@ export const lookupOrderBookDocument = {
             {
               name: `email`,
               type: `String`,
-              _description: `주문자 email`,
+              _description: `주문자 E-mail`,
               _relation: ``,
               _referenceInfo: `마스킹 처리됨`,
               _warning: ``,
@@ -335,7 +335,7 @@ export const lookupOrderBookDocument = {
         {
           name: `ordeItems`,
           type: `Array`,
-          _description: `Items to deliver`,
+          _description: `주문 상품 정보`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -345,7 +345,7 @@ export const lookupOrderBookDocument = {
               type: `Number`,
               _description: `vendorItemPackageId`,
               _relation: ``,
-              _referenceInfo: `없는 경우 0으로 리턴`,
+              _referenceInfo: `미사용 / 없는 경우 0으로 리턴`,
               _warning: ``,
               children: false
             },
@@ -354,14 +354,14 @@ export const lookupOrderBookDocument = {
               type: `String`,
               _description: `vendorItemPackageName`,
               _relation: ``,
-              _referenceInfo: ``,
+              _referenceInfo: `미사용`,
               _warning: ``,
               children: false
             },
             {
               name: `productId`,
               type: `Number`,
-              _description: `productId`,
+              _description: `노출상품ID`,
               _relation: ``,
               _referenceInfo: `없는 경우 0으로 리턴`,
               _warning: ``,
@@ -370,7 +370,7 @@ export const lookupOrderBookDocument = {
             {
               name: `vendorItemId`,
               type: `Number`,
-              _description: `vendorItemId`,
+              _description: `옵션ID`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -379,7 +379,7 @@ export const lookupOrderBookDocument = {
             {
               name: `vendorItemName`,
               type: `String`,
-              _description: `vendorItemName`,
+              _description: `옵션상품이름`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -406,7 +406,7 @@ export const lookupOrderBookDocument = {
             {
               name: `orderPrice`,
               type: `Number`,
-              _description: `결제 가격 salesPrice*shippingCount: 하지만 항상 같지는 않음`,
+              _description: `결제 가격 (salesPrice x shippingCount)<br/>하지만 항상 같지는 않음`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -424,7 +424,7 @@ export const lookupOrderBookDocument = {
             {
               name: `externalVendorSkuCode`,
               type: `String`,
-              _description: `external code`,
+              _description: `업체 외부 상품 코드`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -445,7 +445,7 @@ export const lookupOrderBookDocument = {
               _description: `상품별 개별 입력 항목에 대한 사용자의 입력값`,
               _relation: ``,
               _referenceInfo: `optional`,
-              _warning: `필드는 존재하나 값이 없는 상태입니다. 필요시에는 아래의 etcInfoValues를 사용하시기 바랍니다.`,
+              _warning: `미사용`,
               children: false
             },
             {
@@ -513,7 +513,7 @@ export const lookupOrderBookDocument = {
             {
               name: `estimatedShippingDate`,
               type: `String`,
-              _description: `주문시 출고예정일`,
+              _description: `주문 시 출고예정일`,
               _relation: ``,
               _referenceInfo: `yyyy-MM-dd`,
               _warning: ``,
@@ -548,7 +548,7 @@ export const lookupOrderBookDocument = {
             }, {
               name: `pricingBadge`,
               type: `Boolean`,
-              _description: `최저가 상품 여부`,
+              _description: `쿠런티(최저가 상품 여부)`,
               _relation: ``,
               _referenceInfo: `true/false`,
               _warning: `v4 version으로만 조회가능`,
@@ -631,7 +631,7 @@ export const lookupOrderBookDocument = {
             type: `String`,
             _description: `택배사`,
             _relation: ``,
-            _referenceInfo: `CJ 대한통운,한진택배`,
+            _referenceInfo: `Ex: CJ 대한통운,한진택배...`,
             _warning: `v4 version으로만 조회가능`,
             children: false
           },

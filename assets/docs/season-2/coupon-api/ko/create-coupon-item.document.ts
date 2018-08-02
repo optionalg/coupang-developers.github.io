@@ -6,7 +6,7 @@ export const  createCouponItemDocument = {
     category: `coupon-api`,   // input category ex) exchange-service-api
     id: `create-coupon-item`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `create_coupon_item`,
-    name: `쿠폰아이템 생성`,       // use display name, i will change 'translation key'
+    name: `쿠폰아이템 생성 `,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
