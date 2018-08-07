@@ -220,6 +220,33 @@ export const lookupReturnByProductDocument = {
           children: false
         },
         {
+          name: `requesterRealPhoneNumber`,
+          type: `String`,
+          _description: `반품 신청인 실전화번호`,
+          _relation: ``,
+          _referenceInfo: `null`,
+          _warning: ``,
+          children: false
+        },
+        {
+          name: `requesterAddress`,
+          type: `String`,
+          _description: `반품 회수지 주소`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        }, 
+        {
+          name: `requesterAddressDetail`,
+          type: `String`,
+          _description: `반품 회수지 상세주소`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        },
+        {
           name: `cancelReasonCategory1`,
           type: `String`,
           _description: `반품 사유 카테고리 1`,
@@ -502,6 +529,9 @@ export const lookupReturnByProductDocument = {
           "modifiedAt": "2016-03-25T13:05:30",
           "requesterName": "임송이",
           "requesterPhoneNumber": "010-****-4043",
+          "requesterRealPhoneNumber": null,
+          "requesterAddress": "서울특별시 송파구 송파대로 570 (신천동)",
+          "requesterAddressDetail": "Tower 730",
           "cancelReasonCategory1": "고객변심",
           "cancelReasonCategory2": "단순변심(사유없음)",
           "cancelReason": "테스트",

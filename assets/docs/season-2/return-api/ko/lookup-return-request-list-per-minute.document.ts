@@ -273,6 +273,33 @@ export const lookupReturnRequestListPerMinuteDocument = {
           children: false
         },
         {
+          name: `requesterRealPhoneNumber`,
+          type: `String`,
+          _description: `반품 신청인 실전화번호`,
+          _relation: ``,
+          _referenceInfo: `null`,
+          _warning: ``,
+          children: false
+        }, 
+        {
+          name: `requesterAddress`,
+          type: `String`,
+          _description: `반품 회수지 주소`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        }, 
+        {
+          name: `requesterAddressDetail`,
+          type: `String`,
+          _description: `반품 회수지 상세주소`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        },
+        {
           name: `cancelReasonCategory1`,
           type: `String`,
           _description: `반품 사유 카테고리 1`,
@@ -592,6 +619,9 @@ export const lookupReturnRequestListPerMinuteDocument = {
               "modifiedAt": "2017-09-02T22:52:42",
               "requesterName": "구*숙",
               "requesterPhoneNumber": "0503-****-3560",
+              "requesterRealPhoneNumber": null,
+              "requesterAddress": "서울특별시 송파구 송파대로 570 (신천동)",
+              "requesterAddressDetail": "Tower 730",
               "cancelReasonCategory1": "고객변심",
               "cancelReasonCategory2": "단순변심(사유없음)",
               "cancelReason": "",
@@ -635,6 +665,9 @@ export const lookupReturnRequestListPerMinuteDocument = {
               "modifiedAt": "2017-09-02T11:36:02",
               "requesterName": "이*진",
               "requesterPhoneNumber": "0503-****-6341",
+              "requesterRealPhoneNumber": null,
+              "requesterAddress": "서울특별시 송파구 송파대로 570 (신천동)",
+              "requesterAddressDetail": "Tower 730",
               "cancelReasonCategory1": "상품불량",
               "cancelReasonCategory2": "사용중 제품결함",
               "cancelReason": "단 이틀 착용하였는데 초침이 궤도를 이탈하였습니다 ㅡ., ㅡ",
@@ -689,6 +722,9 @@ export const lookupReturnRequestListPerMinuteDocument = {
               "modifiedAt": "2017-09-02T10:48:29",
               "requesterName": "서*희",
               "requesterPhoneNumber": "0503-****-6778",
+              "requesterRealPhoneNumber": null,
+              "requesterAddress": "서울특별시 송파구 송파대로 570 (신천동)",
+              "requesterAddressDetail": "Tower 730",
               "cancelReasonCategory1": "고객변심",
               "cancelReasonCategory2": "단순변심(사유없음)",
               "cancelReason": "신랑이 맘에 안든데요",
