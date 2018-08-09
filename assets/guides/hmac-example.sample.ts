@@ -26,7 +26,8 @@ public class HmacReturnbyday {
     public void test() {
         //params
         String method = "GET";
-        String path = "/v2/providers/wing_api/apis/internal-api/samples/v1/return/time-frame";
+        //replace with your own vendorId
+        String path = "/v2/providers/openapi/apis/api/v4/vendors/A00******/returnRequests";
         
         CloseableHttpClient client = null;
         try {
@@ -35,8 +36,8 @@ public class HmacReturnbyday {
             //build uri
             URIBuilder uriBuilder = new URIBuilder()
                     .setPath(path)
-                    .addParameter("createdAtFrom", "2017-11-01T10:54")
-                    .addParameter("createdAtTo", "2017-11-30T10:59")
+                    .addParameter("createdAtFrom", "2018-08-09")
+                    .addParameter("createdAtTo", "2018-08-09")
                     .addParameter("status", "UC");
 
             /********************************************************/
@@ -98,8 +99,9 @@ date_default_timezone_set("GMT+0");
 
 $datetime = date("ymd").'T'.date("His").'Z';
 $method = "GET";
-$path = "/v2/providers/wing_api/apis/internal-api/samples/v1/return/time-frame";
-$query = "createdAtFrom=2017-11-01T10:54&createdAtTo=2017-11-30T10:59&status=UC";
+//replace with your own vendorId
+$path = "/v2/providers/openapi/apis/api/v4/vendors/A00******/returnRequests";
+$query = "createdAtFrom=2018-08-09&createdAtTo=2018-08-09&status=UC";
 
 $message = $datetime.$method.$path.$query;
 
@@ -141,8 +143,9 @@ os.environ['TZ'] = 'GMT+0'
 
 datetime=time.strftime('%y%m%d')+'T'+time.strftime('%H%M%S')+'Z'
 method = "GET"
-path = "/v2/providers/wing_api/apis/internal-api/samples/v1/return/time-frame"
-query = urllib.parse.urlencode({"createdAtFrom": "2017-04-01T23:54", "createdAtTo": "2017-04-22T01:59", "status": "UC"})
+#replace with your own vendorId
+path = "/v2/providers/openapi/apis/api/v4/vendors/A00******/returnRequests"
+query = urllib.parse.urlencode({"createdAtFrom": "2018-08-08", "createdAtTo": "2018-08-08", "status": "UC"})
 
 message = datetime+method+path+query
 
@@ -214,8 +217,8 @@ namespace ns_sample_get
         private static string url = "https://api-gateway.coupang.com";
         private static string schema = "https";
         private static int port = 443;
-
-        private string path="/v2/providers/wing_api/apis/internal-api/samples/v1/return/time-frame";
+        //replace with your own vendorId
+        private string path="/v2/providers/openapi/apis/api/v4/vendors/A00******/returnRequests";
         //replace with your own accessKey
         private static string accessKey = "****";
         //replace with your own secretKey
@@ -227,8 +230,8 @@ namespace ns_sample_get
 
             var uriBuilder = new UriBuilder(url+path);
             var parameters = HttpUtility.ParseQueryString(string.Empty);
-                parameters["createdAtFrom"] = "2017-04-01T23:54";
-                parameters["createdAtTo"] = "2017-04-22T01:59";
+                parameters["createdAtFrom"] = "2018-08-09";
+                parameters["createdAtTo"] = "2018-08-09";
                 parameters["status"] = "UC";
             uriBuilder.Query = parameters.ToString();
 

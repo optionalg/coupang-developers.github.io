@@ -164,8 +164,8 @@ namespace ns_sample_get
         private static string url = "https://api-gateway.coupang.com";
         private static string schema = "https";
         private static int port = 443;
-
-        private string path="/v2/providers/wing_api/apis/internal-api/samples/v1/return/time-frame";
+        //replace with your own vendorId
+        private string path="/v2/providers/openapi/apis/api/v4/vendors/A00******/returnRequests";
         //replace with your own accessKey
         private static string accessKey = "****";
         //replace with your own secretKey
@@ -177,8 +177,8 @@ namespace ns_sample_get
 
             var uriBuilder = new UriBuilder(url+path);
             var parameters = HttpUtility.ParseQueryString(string.Empty);
-                parameters["createdAtFrom"] = "2017-04-01T23:54";
-                parameters["createdAtTo"] = "2017-04-22T01:59";
+                parameters["createdAtFrom"] = "2018-08-09";
+                parameters["createdAtTo"] = "2018-08-09";
                 parameters["status"] = "UC";
             uriBuilder.Query = parameters.ToString();
 

@@ -319,6 +319,15 @@ export const lookupReturnRequestListPerDayDocument = {
           children: false
         },
         {
+          name: `requesterZipCode`,
+          type: `String`,
+          _description: `반품 회수지 우편번호`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        },
+        {
           name: `cancelReasonCategory1`,
           type: `String`,
           _description: `반품 사유 카테고리 1`,
@@ -641,6 +650,7 @@ export const lookupReturnRequestListPerDayDocument = {
               "requesterRealPhoneNumber": null,
               "requesterAddress": "서울특별시 송파구 송파대로 570 (신천동)",
               "requesterAddressDetail": "Tower 730",
+              "requesterZipCode": "05510",
               "cancelReasonCategory1": "고객변심",
               "cancelReasonCategory2": "단순변심(사유없음)",
               "cancelReason": "",
@@ -686,6 +696,7 @@ export const lookupReturnRequestListPerDayDocument = {
               "requesterRealPhoneNumber": null,
               "requesterAddress": "서울특별시 송파구 송파대로 570 (신천동)",
               "requesterAddressDetail": "Tower 730",
+              "requesterZipCode": "05510",
               "cancelReasonCategory1": "상품불량",
               "cancelReasonCategory2": "사용중 제품결함",
               "cancelReason": "단 이틀 착용하였는데 초침이 궤도를 이탈하였습니다 ㅡ., ㅡ",
@@ -743,6 +754,7 @@ export const lookupReturnRequestListPerDayDocument = {
               "requesterRealPhoneNumber": null,
               "requesterAddress": "서울특별시 송파구 송파대로 570 (신천동)",
               "requesterAddressDetail": "Tower 730",
+              "requesterZipCode": "05510",
               "cancelReasonCategory1": "고객변심",
               "cancelReasonCategory2": "단순변심(사유없음)",
               "cancelReason": "신랑이 맘에 안든데요",

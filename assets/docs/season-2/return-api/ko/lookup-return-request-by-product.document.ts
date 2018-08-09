@@ -247,6 +247,15 @@ export const lookupReturnByProductDocument = {
           children: false
         },
         {
+          name: `requesterZipCode`,
+          type: `String`,
+          _description: `반품 회수지 우편번호`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false
+        },
+        {
           name: `cancelReasonCategory1`,
           type: `String`,
           _description: `반품 사유 카테고리 1`,
@@ -532,6 +541,7 @@ export const lookupReturnByProductDocument = {
           "requesterRealPhoneNumber": null,
           "requesterAddress": "서울특별시 송파구 송파대로 570 (신천동)",
           "requesterAddressDetail": "Tower 730",
+          "requesterZipCode": "05510",
           "cancelReasonCategory1": "고객변심",
           "cancelReasonCategory2": "단순변심(사유없음)",
           "cancelReason": "테스트",

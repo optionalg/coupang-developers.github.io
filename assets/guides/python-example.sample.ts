@@ -275,8 +275,9 @@ os.environ['TZ'] = 'GMT+0'
 
 datetime=time.strftime('%y%m%d')+'T'+time.strftime('%H%M%S')+'Z'
 method = "GET"
-path = "/v2/providers/wing_api/apis/internal-api/samples/v1/return/time-frame"
-query = urllib.parse.urlencode({"createdAtFrom": "2017-04-01T23:54", "createdAtTo": "2017-04-22T01:59", "status": "UC"})
+#replace with your own vendorId
+path = "/v2/providers/openapi/apis/api/v4/vendors/A00******/returnRequests"
+query = urllib.parse.urlencode({"createdAtFrom": "2018-08-08", "createdAtTo": "2018-08-08", "status": "UC"})
 
 message = datetime+method+path+query
 
