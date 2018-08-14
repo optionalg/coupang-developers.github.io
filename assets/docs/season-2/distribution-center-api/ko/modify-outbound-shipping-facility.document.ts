@@ -330,8 +330,8 @@ export const modifyOutboundShippingFacilityDocument = {
                   <td>경동택배</td>
                 </tr>
                 <tr>
-                  <td>DONGBU</td>
-                  <td>드림택배(구 KG로지스)</td>
+                  <td><del>DONGBU</del></td>
+                  <td><del>드림택배(구 KG로지스)</del></td>
                 </tr>
                     <tr>
                         <td><del>INNOGIS</del></td>
