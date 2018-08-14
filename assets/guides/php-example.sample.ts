@@ -24,254 +24,305 @@ $url = 'https://api-gateway.coupang.com'.$path;
 
 $strjson='
 	{
-		  "displayCategoryCode": 79386,
-		  "sellerProductName": "테스트 상품 등록_CJ제일제당 백설 찹쌀 호떡믹스_Python",
-		  "vendorId": "A00013264",
-		  "saleStartedAt": "2017-09-01T00:00:00",
-		  "saleEndedAt": "2099-01-01T23:59:59",
-		  "displayProductName": "[displayProductName]고객 만족 CJ제일제당 백설 찹쌀 호떡믹스",
-		  "brand": "Stchodo",
-		  "generalProductName": "[generalProductName]CJ제일제당 백설 찹쌀 호떡믹스",
-		  "productGroup": "호떡믹스",
-		  "deliveryMethod": "SEQUENCIAL",
-		  "deliveryCompanyCode": "KGB",
-		  "deliveryChargeType": "FREE_DELIVERY_OVER_9800",
-		  "deliveryCharge": "2500",
-		  "freeShipOverAmount": "9800",
-		  "deliveryChargeOnReturn": "0",
-		  "remoteAreaDeliverable": "N",
-		  "unionDeliveryType": "UNION_DELIVERY",
-		  "returnCenterCode": "1000274592",
-		  "returnChargeName": "대표이름4",
-		  "companyContactNumber": "02-1234-678",
-		  "returnZipCode": "135-090",
-		  "returnAddress": "서울특별시 강남구 삼성동",
-		  "returnAddressDetail": "333",
-		  "returnCharge": 5000,
-		  "returnChargeVendor": "N",
-		  "afterServiceInformation": "A/S안내 1544-1255",
-		  "afterServiceContactNumber": "1544-1255",
-		  "outboundShippingPlaceCode": "74010",
-		  "vendorUserId": "et5",
-		  "requested": false,
-		  "items": [
-		    {
-		      "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
-		      "originalPrice": 13000,
-		      "salePrice": 10000,
-		      "maximumBuyCount": "9999",
-		      "maximumBuyForPerson": "0",
-		      "outboundShippingTimeDay": "2",
-		      "maximumBuyForPersonPeriod": "1",
-		      "unitCount": 1,
-		      "adultOnly": "EVERYONE",
-		      "taxType": "TAX",
-		      "parallelImported": "NOT_PARALLEL_IMPORTED",
-		      "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-		      "pccNeeded": "true",
-		      "externalVendorSku": "90726",
-		      "barcode": "",
-		      "emptyBarcode": false,
-		      "emptyBarcodeReason": null,
-		      "modelNo": "",
-		      "extraProperties": null,
-		      "certifications": [
-                          {
-                            "certificationType": "NOT_REQUIRED",
-                            "certificationCode": ""
-                          }
-		      ],
-		      "searchTags": null,
-		      "images": [
-		        {
-		          "imageOrder": 0,
-		          "imageType": "REPRESENTATION",
-		          "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-		          "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"
-		        }
-		      ],
-		      "notices": [
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "제품 소재",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "색상",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "치수",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "제조자(수입자)",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "제조국",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "제조연월",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "품질보증기준",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "A/S 책임자와 전화번호",
-		          "content": "상세페이지 참조"
-		        }
-		      ],
-		      "attributes": [
-		        {
-		          "attributeTypeName": "색상",
-		          "attributeValueName": "GREY"
-		        },
-		        {
-		          "attributeTypeName": "패션의류/잡화 사이즈",
-		          "attributeValueName": "44"
-		        }
-		      ],
-		      "contents": [
-		        {
-		          "contentsType": "TEXT",
-		          "contentDetails": [
-		            {
-		              "content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
-		              "detailType": "TEXT"
-		            }
-		          ]
-		        }
-		      ]
-		    },
-		    {
-		      "itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 55",
-		      "originalPrice": 13000,
-		      "salePrice": 10000,
-		      "maximumBuyCount": "9999",
-		      "maximumBuyForPerson": "0",
-		      "outboundShippingTimeDay": "2",
-		      "maximumBuyForPersonPeriod": "1",
-		      "unitCount": 1,
-		      "adultOnly": "EVERYONE",
-		      "taxType": "TAX",
-		      "parallelImported": "PARALLEL_IMPORTED",
-		      "overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-		      "pccNeeded": "true",
-		      "externalVendorSku": "90726",
-		      "barcode": "",
-		      "emptyBarcode": false,
-		      "emptyBarcodeReason": null,
-		      "modelNo": "",
-		      "extraProperties": null,
-		      "certifications": [
-                  {
-                    "certificationType": "NOT_REQUIRED",
-                    "certificationCode": ""
-                  }		        
-		      ],
-		      "searchTags": null,
-		      "images": [
-		        {
-		          "imageOrder": 0,
-		          "imageType": "REPRESENTATION",
-		          "cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-		          "vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"
-		        }
-		      ],
-		      "notices": [
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "제품 소재",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "색상",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "치수",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "제조자(수입자)",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "제조국",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "제조연월",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "품질보증기준",
-		          "content": "상세페이지 참조"
-		        },
-		        {
-		          "noticeCategoryName": "의류",
-		          "noticeCategoryDetailName": "A/S 책임자와 전화번호",
-		          "content": "상세페이지 참조"
-		        }
-		      ],
-		      "extraProperties": {
-		        "GOODS_SEQ": "1",
-		        "optuid": "18788597"
-		      },
-		      "attributes": [
-		        {
-		          "attributeTypeName": "색상",
-		          "attributeValueName": "GREY"
-		        },
-		        {
-		          "attributeTypeName": "패션의류/잡화 사이즈",
-		          "attributeValueName": "55"
-		        }
-		      ],
-		      "contents": [
-		        {
-		          "contentsType": "TEXT",
-		          "contentDetails": [
-		            {
-		              "content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
-		              "detailType": "TEXT"
-		            }
-		          ]
-		        }
-		      ]
-		    }
-		  ],
-		  "requiredDocuments": [
-		    
-		  ],
-		  "manufacture": "제조사"
+		"displayCategoryCode": 56137,
+		"sellerProductName": "상품등록_example",
+		"vendorId": "A00012345",
+		"saleStartedAt": "2018-08-13T00:00:00",
+		"saleEndedAt": "2099-01-01T23:59:59",
+		"displayProductName": "해피바스 솝베리 클렌징 오일",
+		"brand": "해피바스",
+		"generalProductName": "솝베리 클렌징 오일",
+		"productGroup": "클렌징 오일",
+		"deliveryMethod": "SEQUENCIAL",
+		"deliveryCompanyCode": "KGB",
+		"deliveryChargeType": "FREE",
+		"deliveryCharge": 0,
+		"freeShipOverAmount": 0,
+		"deliveryChargeOnReturn": 2500,
+		"remoteAreaDeliverable": "N",
+		"unionDeliveryType": "UNION_DELIVERY",
+		"returnCenterCode": "1000274592",
+		"returnChargeName": "반품지_1",
+		"companyContactNumber": "02-1234-678",
+		"returnZipCode": "135-090",
+		"returnAddress": "서울특별시 강남구 삼성동",
+		"returnAddressDetail": "333",
+		"returnCharge": 2500,
+		"returnChargeVendor": "N",
+		"afterServiceInformation": "A/S안내 1544-1255",
+		"afterServiceContactNumber": "1544-1255",
+		"outboundShippingPlaceCode": "74010",
+		"vendorUserId": "user01",
+		"requested": false,
+		"items": [
+			{
+				"itemName": "200ml_1개",
+				"originalPrice": 13000,
+				"salePrice": 10000,
+				"maximumBuyCount": "100",
+				"maximumBuyForPerson": "0",
+				"outboundShippingTimeDay": "1",
+				"maximumBuyForPersonPeriod": "1",
+				"unitCount": 1,
+				"adultOnly": "EVERYONE",
+				"taxType": "TAX",
+				"parallelImported": "NOT_PARALLEL_IMPORTED",
+				"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+				"pccNeeded": "false",
+				"externalVendorSku": "0001",
+				"barcode": "",
+				"emptyBarcode": true,
+				"emptyBarcodeReason": "상품확인불가_바코드없음사유",
+				"modelNo": "1717171",
+				"extraProperties": null,
+				"certifications": [
+					{
+						"certificationType": "NOT_REQUIRED",
+						"certificationCode": ""
+					}
+				],
+				"searchTags": [
+					"검색어1",
+					"검색어2"
+				],
+				"images": [
+					{
+						"imageOrder": 0,
+						"imageType": "REPRESENTATION",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/25/3719529368/27a6b898-ff3b-4a27-b1e4-330a90c25e9c.jpg"
+					},
+					{
+						"imageOrder": 1,
+						"imageType": "DETAIL",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2017/02/21/3000169918/34b79649-d625-4f49-a260-b78bf7a573a8.jpg"
+					},
+					{
+						"imageOrder": 2,
+						"imageType": "DETAIL",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/28/3000169918/5716aa61-70bd-47cd-8f3d-f3d49e7f496d.jpg"
+					}
+				],
+				"notices": [
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "용량(중량)",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제품 주요 사양",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용기한 또는 개봉 후 사용기간",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용방법",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제조업자 및 제조판매업자",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제조국",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "화장품법에 따라 기재, 표시하여야 하는 모든 성분",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "식품의약품안전처 심사 필 유무",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용할 때 주의사항",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "품질보증기준",
+						"content": "제품 이상 시 공정거래위원회 고시 소비자분쟁해결기준에 의거 보상합니다."
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "소비자상담관련 전화번호",
+						"content": "상세페이지 참조"
+					}
+				],
+				"attributes": [
+					{
+						"attributeTypeName": "수량",
+						"attributeValueName": "1개"
+					},
+					{
+						"attributeTypeName": "개당 용량",
+						"attributeValueName": "200ml"
+					}
+				],
+				"contents": [
+					{
+						"contentsType": "TEXT",
+						"contentDetails": [
+							{
+								"content": "<html><div></div><div><img src='http://image11.coupangcdn.com/image/product/content/vendorItem/2018/06/26/196713/738d905f-ed80-4fd8-ad21-ed87b195a19e.jpg' /><div></html>",
+								"detailType": "TEXT"
+							}
+						]
+					}
+				],
+				"offerCondition": "NEW",
+				"offerDescription": ""
+			},
+			{
+				"itemName": "200ml_2개",
+				"originalPrice": 26000,
+				"salePrice": 20000,
+				"maximumBuyCount": "100",
+				"maximumBuyForPerson": "0",
+				"outboundShippingTimeDay": "2",
+				"maximumBuyForPersonPeriod": "1",
+				"unitCount": 1,
+				"adultOnly": "EVERYONE",
+				"taxType": "TAX",
+				"parallelImported": "NOT_PARALLEL_IMPORTED",
+				"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+				"pccNeeded": "false",
+				"externalVendorSku": "0002",
+				"barcode": "",
+				"emptyBarcode": true,
+				"emptyBarcodeReason": "상품확인불가_바코드없음사유",
+				"modelNo": "1717172",
+				"extraProperties": {
+					"GOODS_SEQ":"1",
+					"optuid":"18788597"
+				},
+				"certifications": [
+					{
+						"certificationType": "NOT_REQUIRED",
+						"certificationCode": ""
+					}
+				],
+				"searchTags": [
+					"검색어1",
+					"검색어2"
+				],
+				"images": [
+					{
+						"imageOrder": 0,
+						"imageType": "REPRESENTATION",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/26/3001519145/74100e2a-d1ad-4b50-9c78-840c12a3e10d.jpg"
+					},
+					{
+						"imageOrder": 1,
+						"imageType": "DETAIL",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2017/02/21/3000169918/34b79649-d625-4f49-a260-b78bf7a573a8.jpg"
+					},
+					{
+						"imageOrder": 2,
+						"imageType": "DETAIL",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/28/3000169918/5716aa61-70bd-47cd-8f3d-f3d49e7f496d.jpg"
+					}
+				],
+				"notices": [
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "용량(중량)",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제품 주요 사양",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용기한 또는 개봉 후 사용기간",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용방법",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제조업자 및 제조판매업자",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제조국",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "화장품법에 따라 기재, 표시하여야 하는 모든 성분",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "식품의약품안전처 심사 필 유무",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용할 때 주의사항",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "품질보증기준",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "소비자상담관련 전화번호",
+						"content": "상세페이지 참조"
+					}
+				],
+				"attributes": [
+					{
+						"attributeTypeName": "수량",
+						"attributeValueName": "2개"
+					},
+					{
+						"attributeTypeName": "개당 용량",
+						"attributeValueName": "200ml"
+					}
+				],
+				"contents": [
+					{
+						"contentsType": "TEXT",
+						"contentDetails": [
+							{
+								"content": "<html><div></div><div><img src='http://image11.coupangcdn.com/image/product/content/vendorItem/2018/06/26/196713/738d905f-ed80-4fd8-ad21-ed87b195a19e.jpg' /><div></html>",
+								"detailType": "TEXT"
+							}
+						]
+					}
+				],
+				"offerCondition": "NEW",
+				"offerDescription": ""
+			}
+		],
+		"requiredDocuments": [
+			{
+				"templateName": "기타인증서류",
+				"vendorDocumentPath": "http://image11.coupangcdn.com/image/product/content/vendorItem/2018/07/02/41579010/eebc0c30-8f35-4a51-8ffd-808953414dc1.jpg"
+			}
+		],
+		"extraInfoMessage": "",
+		"manufacture": "아모레퍼시픽"
 	}
 ';
 
@@ -349,43 +400,173 @@ $url = 'https://api-gateway.coupang.com'.$path;
 
 $strjson='
 	{
-		"sellerProductId": 83358541,
-		"displayCategoryCode": 79386,
-		"sellerProductName": "테스트 상품 등록_CJ제일제당 백설 찹쌀 호떡믹스_Python",
-		"vendorId": "A00013264",
-		"saleStartedAt": "2017-09-01T00:00:00",
+		"sellerProductId": 309323422,
+		"displayCategoryCode": 56137,
+		"sellerProductName": "상품수정_example",
+		"vendorId": "A00012345",
+		"saleStartedAt": "2017-11-30T00:00:00",
 		"saleEndedAt": "2099-01-01T23:59:59",
-		"displayProductName": "[displayProductName]고객 만족 CJ제일제당 백설 찹쌀 호떡믹스",
-		"brand": "Stchodo",
-		"generalProductName": "[generalProductName]CJ제일제당 백설 찹쌀 호떡믹스",
-		"productGroup": "호떡믹스",
+		"displayProductName": "해피바스 솝베리 클렌징 오일",
+		"brand": "해피바스",
+		"generalProductName": "솝베리 클렌징 오일",
+		"productGroup": "클렌징 오일",
 		"deliveryMethod": "SEQUENCIAL",
 		"deliveryCompanyCode": "KGB",
-		"deliveryChargeType": "FREE_DELIVERY_OVER_9800",
-		"deliveryCharge": "2500",
-		"freeShipOverAmount": "9800",
-		"deliveryChargeOnReturn": "0",
+		"deliveryChargeType": "FREE",
+		"deliveryCharge": 0,
+		"freeShipOverAmount": 0,
+		"deliveryChargeOnReturn": 2500,
 		"remoteAreaDeliverable": "N",
 		"unionDeliveryType": "UNION_DELIVERY",
 		"returnCenterCode": "1000274592",
-		"returnChargeName": "대표이름4",
+		"returnChargeName": "반품지_1",
 		"companyContactNumber": "02-1234-678",
 		"returnZipCode": "135-090",
 		"returnAddress": "서울특별시 강남구 삼성동",
 		"returnAddressDetail": "333",
-		"returnCharge": 5000,
+		"returnCharge": 2500,
 		"returnChargeVendor": "N",
 		"afterServiceInformation": "A/S안내 1544-1255",
 		"afterServiceContactNumber": "1544-1255",
 		"outboundShippingPlaceCode": "74010",
-		"vendorUserId": "et5",
+		"vendorUserId": "user01",
 		"requested": false,
 		"items": [
 			{
-				"itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 44",
+				"sellerProductItemId": 769536471,
+				"itemName": "200ml_1개",
 				"originalPrice": 13000,
 				"salePrice": 10000,
-				"maximumBuyCount": "9999",
+				"maximumBuyCount": "100",
+				"maximumBuyForPerson": "0",
+				"outboundShippingTimeDay": "1",
+				"maximumBuyForPersonPeriod": "1",
+				"unitCount": 1,
+				"adultOnly": "EVERYONE",
+				"taxType": "TAX",
+				"parallelImported": "NOT_PARALLEL_IMPORTED",
+				"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
+				"pccNeeded": "false",
+				"externalVendorSku": "0001",
+				"barcode": "",
+				"emptyBarcode": true,
+				"emptyBarcodeReason": "상품확인불가_바코드없음사유",
+				"modelNo": "171717",
+				"extraProperties": null,
+				"certifications": [
+					{
+						"certificationType": "NOT_REQUIRED",
+						"certificationCode": ""
+					}
+				],
+				"searchTags": [
+					"검색어1",
+					"검색어2"
+				],
+				"images": [
+					{
+						"imageOrder": 0,
+						"imageType": "REPRESENTATION",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/25/3719529368/27a6b898-ff3b-4a27-b1e4-330a90c25e9c.jpg"
+					},
+					{
+						"imageOrder": 1,
+						"imageType": "DETAIL",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2017/02/21/3000169918/34b79649-d625-4f49-a260-b78bf7a573a8.jpg"
+					},
+					{
+						"imageOrder": 2,
+						"imageType": "DETAIL",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/28/3000169918/5716aa61-70bd-47cd-8f3d-f3d49e7f496d.jpg"
+					}
+				],
+				"notices": [
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "용량(중량)",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제품 주요 사양",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용기한 또는 개봉 후 사용기간",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용방법",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제조업자 및 제조판매업자",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제조국",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "화장품법에 따라 기재, 표시하여야 하는 모든 성분",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "식품의약품안전처 심사 필 유무",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용할 때 주의사항",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "품질보증기준",
+						"content": "제품 이상 시 공정거래위원회 고시 소비자분쟁해결기준에 의거 보상합니다."
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "소비자상담관련 전화번호",
+						"content": "상세페이지 참조"
+					}
+				],
+				"attributes": [
+					{
+						"attributeTypeName": "수량",
+						"attributeValueName": "1개"
+					},
+					{
+						"attributeTypeName": "개당 용량",
+						"attributeValueName": "200ml"
+					}
+				],
+				"contents": [
+					{
+						"contentsType": "TEXT",
+						"contentDetails": [
+							{
+								"content": "<html><div></div><div><img src='http://image11.coupangcdn.com/image/product/content/vendorItem/2018/06/26/196713/738d905f-ed80-4fd8-ad21-ed87b195a19e.jpg' /><div></html>",
+								"detailType": "TEXT"
+							}
+						]
+					}
+				],
+				"offerCondition": "NEW",
+				"offerDescription": ""
+			},
+			{
+				"sellerProductItemId": 769536472,
+				"itemName": "200ml_2개",
+				"originalPrice": 26000,
+				"salePrice": 20000,
+				"maximumBuyCount": "100",
 				"maximumBuyForPerson": "0",
 				"outboundShippingTimeDay": "2",
 				"maximumBuyForPersonPeriod": "1",
@@ -394,147 +575,133 @@ $strjson='
 				"taxType": "TAX",
 				"parallelImported": "NOT_PARALLEL_IMPORTED",
 				"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-				"pccNeeded": "true",
-				"externalVendorSku": "90726",
+				"pccNeeded": "false",
+				"externalVendorSku": "0001",
 				"barcode": "",
-				"emptyBarcode": false,
-				"emptyBarcodeReason": null,
-				"modelNo": "",
-				"extraProperties": null,
-				"certifications": [],
-				"searchTags": null,
-				"images": [{
-					"imageOrder": 0,
-					"imageType": "REPRESENTATION",
-					"cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-					"vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
-				"notices": [{
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "제품 소재",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "색상",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "치수",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "제조자(수입자)",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "제조국",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "제조연월",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "품질보증기준",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "A/S 책임자와 전화번호",
-					"content": "상세페이지 참조"
-				}],
-				"attributes": [{
-					"attributeTypeName": "색상",
-					"attributeValueName": "GREY"},
+				"emptyBarcode": true,
+				"emptyBarcodeReason": "상품확인불가_바코드없음사유",
+				"modelNo": "171717",
+				"extraProperties": {
+					"GOODS_SEQ":"1",
+					"optuid":"18788597"
+				},
+				"certifications": [
 					{
-						"attributeTypeName": "패션의류/잡화 사이즈",
-						"attributeValueName": "44"}],
-				"contents": [{
-					"contentsType": "TEXT",
-					"contentDetails": [{
-						"content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
-						"detailType": "TEXT"}]}]},
-			{
-				"itemName": "[Stchodo] 스쳐도 민트코코 빅에디션 버핑 55",
-				"originalPrice": 13000,
-				"salePrice": 10000,
-				"maximumBuyCount": "9999",
-				"maximumBuyForPerson": "0",
-				"outboundShippingTimeDay": "2",
-				"maximumBuyForPersonPeriod": "1",
-				"unitCount": 1,
-				"adultOnly": "EVERYONE",
-				"taxType": "TAX",
-				"parallelImported": "PARALLEL_IMPORTED",
-				"overseasPurchased": "NOT_OVERSEAS_PURCHASED",
-				"pccNeeded": "true",
-				"externalVendorSku": "90726",
-				"barcode": "",
-				"emptyBarcode": false,
-				"emptyBarcodeReason": null,
-				"modelNo": "",
-				"extraProperties": null,
-				"certifications": [],
-				"searchTags": null,
-				"images": [{
-					"imageOrder": 0,
-					"imageType": "REPRESENTATION",
-					"cdnPath": "vendor_inventory/images/2015/06/25/6649eb03-ac87-4138-90b2-a1d5aca2ea39.jpg",
-					"vendorPath": "http://www.babomall.com/bbsemarket/shop/goods_bak/77900.jpg"}],
-				"notices": [{
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "제품 소재",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "색상",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "치수",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "제조자(수입자)",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "제조국",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "세탁방법 및 취급시 주의사항",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "제조연월",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "품질보증기준",
-					"content": "상세페이지 참조"
-				}, {
-					"noticeCategoryName": "의류",
-					"noticeCategoryDetailName": "A/S 책임자와 전화번호",
-					"content": "상세페이지 참조"
-				}],
-				"extraProperties": {"GOODS_SEQ": "1", "optuid": "18788597"},
-				"attributes": [{
-					"attributeTypeName": "색상",
-					"attributeValueName": "GREY"},
+						"certificationType": "NOT_REQUIRED",
+						"certificationCode": ""
+					}
+				],
+				"searchTags": [
+					"검색어1",
+					"검색어2"
+				],
+				"images": [
 					{
-						"attributeTypeName": "패션의류/잡화 사이즈",
-						"attributeValueName": "55"}],
-				"contents": [{
-					"contentsType": "TEXT",
-					"contentDetails": [{
-						"content": "<html><div><\/div><div><img src='http:\/\/www.babomall.com\/bbsemarket\/gimage\/7005345_2014_04_09_10_02_25_111.jpg' \/><div><\/html>",
-						"detailType": "TEXT"}]}]}
+						"imageOrder": 0,
+						"imageType": "REPRESENTATION",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/26/3001519145/74100e2a-d1ad-4b50-9c78-840c12a3e10d.jpg"
+					},
+					{
+						"imageOrder": 1,
+						"imageType": "DETAIL",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2017/02/21/3000169918/34b79649-d625-4f49-a260-b78bf7a573a8.jpg"
+					},
+					{
+						"imageOrder": 2,
+						"imageType": "DETAIL",
+						"vendorPath": "http://image11.coupangcdn.com/image/product/image/vendoritem/2018/06/28/3000169918/5716aa61-70bd-47cd-8f3d-f3d49e7f496d.jpg"
+					}
+				],
+				"notices": [
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "용량(중량)",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제품 주요 사양",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용기한 또는 개봉 후 사용기간",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용방법",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제조업자 및 제조판매업자",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "제조국",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "화장품법에 따라 기재, 표시하여야 하는 모든 성분",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "식품의약품안전처 심사 필 유무",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "사용할 때 주의사항",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "품질보증기준",
+						"content": "상세페이지 참조"
+					},
+					{
+						"noticeCategoryName": "화장품",
+						"noticeCategoryDetailName": "소비자상담관련 전화번호",
+						"content": "상세페이지 참조"
+					}
+				],
+				"attributes": [
+					{
+						"attributeTypeName": "수량",
+						"attributeValueName": "2개"
+					},
+					{
+						"attributeTypeName": "개당 용량",
+						"attributeValueName": "200ml"
+					}
+				],
+				"contents": [
+					{
+						"contentsType": "TEXT",
+						"contentDetails": [
+							{
+								"content": "<html><div></div><div><img src='http://image11.coupangcdn.com/image/product/content/vendorItem/2018/06/26/196713/738d905f-ed80-4fd8-ad21-ed87b195a19e.jpg' /><div></html>",
+								"detailType": "TEXT"
+							}
+						]
+					}
+				],
+				"offerCondition": "NEW",
+				"offerDescription": ""
+			}
 		],
-		"requiredDocuments": [],
-		"manufacture": "제조사"
+		"requiredDocuments": [
+			{
+				"templateName": "기타인증서류",
+				"vendorDocumentPath": "http://image11.coupangcdn.com/image/product/content/vendorItem/2018/07/02/41579010/eebc0c30-8f35-4a51-8ffd-808953414dc1.jpg"
+			}
+		],
+		"extraInfoMessage": "",
+		"manufacture": "아모레퍼시픽"
 	}
 ';
 

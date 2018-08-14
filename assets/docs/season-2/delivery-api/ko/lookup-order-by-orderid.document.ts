@@ -6,7 +6,7 @@ export const lookupOrderDocumentByorderId = {
     category: `delivery-api`,   // input category ex) exchange-service-api
     id: `lookup-order-by-orderid`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `lookup-order-by-orderid`,
-    name: `발주서 단건 조회(orderId)`,       // use display name, i will change 'translation key'
+    name: `발주서 단건 조회 (orderId)`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: `2017-02-09`, // yyyy-mm-dd  ex> 2016-12-23

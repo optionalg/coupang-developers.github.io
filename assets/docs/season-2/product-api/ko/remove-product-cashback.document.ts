@@ -57,9 +57,9 @@ export const removeProductCashbackDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `vendor ID`,
+        _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
         _warning: ``,
       }
     ],
@@ -69,7 +69,7 @@ export const removeProductCashbackDocument = {
         require: true,
         _description: `Rule ID`,
         _relation: ``,
-        _referenceInfo: `셀러는 쿠팡이 제공한 룰 아이디를 저장한다.`,
+        _referenceInfo: `캐시백 관련 계약완료 후 제공받은 룰 아이디를 입력`,
         _warning: ``,
         children: false
       },

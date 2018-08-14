@@ -47,7 +47,7 @@ export const applyProductCashbackDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/products/items/cashback`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/products/items/cashback`,
-    _description: `옵션별로 캐시백 룰을 설정한다.
+    _description: `옵션별로 캐시백 룰을 설정한다.<br>
 
 이 API는 동일한 캐시백 룰을 사용하는 옵션에 적용할수 있으며(승인완료 이후의 옵션들에 지정 가능) 캐시백 유형은 RATE, FIXED 및 FIXED_WITH_QUANTITY입니다.<br>
 
@@ -59,41 +59,45 @@ export const applyProductCashbackDocument = {
           <th>Explanation</th>
           <th>value</th>
           <th>maxAmount</th>
-          <th>Order case (The order submited by cusomer)</th>
-          <th>Caculate fomula for cash back</th>
-          <th>Cash back need to pay</th>
+          <th>고객 주문 예시</th>
+          <th>캐시백 계산 식 Caculate fomula for cash back</th>
+          <th>캐시백 금액</th>
         </tr>
         <tr>
           <td>FIXED</td>
-          <td>Give fixed cash back to customer,no matter how much they paid.</td>
+          <td>고객이 구매한 상품의 수량과 상관없이 정해진 금액의 캐시백을 적용합니다.</br>
+              여러개를 구매하여도 정해진 캐시백 금액만 적립됩니다. </td>
           <td>1000</td>
           <td>null</td>
-          <td>Price : 5000</br>Quantity : 2</br>Paid : 10000</td>
+          <td>Price : ￦5,000</br>Quantity : 2</br>Paid : ￦10,000</td>
           <td>cash_back = value</td>
-          <td>1000</td>
+          <td>￦1,000</td>
         </tr>
         <tr>
           <td rowspan="2">RATE</td>
-          <td rowspan="2">No matter how much does customer paid,the cash back should not exceed maxAmount.</br>When set valueType as RATE, please note the range of value is 1~100.</td>
+          <td rowspan="2">판매 가격에 정해진 비율대로 캐시백을 적용합니다. </br>
+          Value는 1~100 범위 내에서 적용 가능합니다. </br>
+          캐시백은 maxAmount를 초과할 수 없습니다. </br>
+          </td>
           <td rowspan="2">5</td>
           <td>1000</td>
-          <td>Price : 5000</br>Quantity : 2</br>Paid : 10000</td>
-          <td rowspan="2">a=Paid*value% . if a <=maxAmount,then cash_back = a; if a > maxAmount, then cash_back = maxAmount</td>
-          <td>500</td>
+          <td>Price : ￦5,000</br>Quantity : 2</br>Paid : ￦10,000</td>
+          <td rowspan="2">a=Paid*value% . </br> if a <=maxAmount,then cash_back = a; if a > maxAmount, then cash_back = maxAmount</td>
+          <td>￦500</td>
         </tr>
         <tr>
           <td>1000</td>
-          <td>Price : 5000</br>Quantity : 5</br>Paid : 25000</td>
-          <td>1000</td>
+          <td>Price : ￦5,000</br>Quantity : 5</br>Paid : ￦25,000</td>
+          <td>￦1,000</td>
         </tr>
         <tr>
           <td>FIXED_WITH_QUANTITY</td>
-          <td>The cash back paid influenced by quantity</td>
+          <td>정해진 금액을 구매한 상품 수량만큼 곱해서 캐시백을 적용합니다. </td>
           <td>1000</td>
           <td>null</td>
-          <td>Price : 5000</br>Quantity : 2</br>Paid : 10000</td>
+          <td>Price : ￦5,000</br>Quantity : 2</br>Paid : ￦10,000</td>
           <td>cash_back = value*Quantity</td>
-          <td>2000</td>
+          <td>￦2,000</td>
         </tr>
 </table>`,
     _relation: ``,
@@ -105,9 +109,9 @@ export const applyProductCashbackDocument = {
       {
         name: `vendorId`,
         require: true,
-        _description: `vendor ID`,
+        _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
         _warning: ``,
       }
     ],
@@ -118,7 +122,7 @@ export const applyProductCashbackDocument = {
         require: true,
         _description: `Rule ID`,
         _relation: ``,
-        _referenceInfo: `셀러는 쿠팡이 제공한 룰 아이디를 지정한다.`,
+        _referenceInfo: `캐시백 관련 계약완료 후 제공받은 룰 아이디를 입력`,
         _warning: ``,
         children: false
       },
@@ -127,7 +131,7 @@ export const applyProductCashbackDocument = {
         require: true,
         _description: `캐시백 유형`,
         _relation: ``,
-        _referenceInfo: `FIXED; RATE;FIXED_WITH_QUANTITY.`,
+        _referenceInfo: `FIXED; RATE; FIXED_WITH_QUANTITY.`,
         _warning: ``,
         children: false
       },
@@ -136,9 +140,8 @@ export const applyProductCashbackDocument = {
         require: true,
         _description: `적립값`,
         _relation: ``,
-        _referenceInfo: `최소값은 1;
-
-RATE 일 경우 1~100`,
+        _referenceInfo: `최소값은 1</br>
+RATE 일 경우 적립률을 입력 (1~100)`,
         _warning: ``,
         children: false
       },
@@ -147,12 +150,9 @@ RATE 일 경우 1~100`,
         require: false,
         _description: `최대적립금액`,
         _relation: ``,
-        _referenceInfo: `최소값은 0;
-
-FIXED 혹은 FIXED_WITH_QUANTITY 시 이 파라미터는 필요하지 않음
-
-RATE 일 경우만 이 파라미터가 필수임`,
-        _warning: ``,
+        _referenceInfo: `최소값은 0</br>
+FIXED 혹은 FIXED_WITH_QUANTITY 선택 시 파라미터 입력 불필요`,
+        _warning: `RATE 일 경우 필수 파라미터`,
         children: false
       },
       {
@@ -160,32 +160,26 @@ RATE 일 경우만 이 파라미터가 필수임`,
         require: true,
         _description: `옵션아아디목록; 최대 적립할수있는 옵션개수는 50개`,
         _relation: ``,
-        _referenceInfo: `null일수 없다. 동일한 캐시백 룰를 적용하려는 옵션아이디의 리스트
-`,
-        _warning: ``,
+        _referenceInfo: `동일한 캐시백 룰를 적용하려는 옵션아이디의 리스트`,
+        _warning: `반드시 입력, null로 입력 불가`,
         children: false
       },
       {
         name: `startAt`,
         require: true,
-        _description: `시작일
-
-yyyy-MM-ddTHH:mm:ss 형태`,
+        _description: `시작일`,
         _relation: ``,
-        _referenceInfo: `현재 시간보다 최소 2시간 이후로 적용 가능
-
-(현시간 오후 2시 일 경우, startAt은 오후 4시 이후로 설정 가능)`,
-        _warning: ``,
+        _referenceInfo: `yyyy-MM-ddTHH:mm:ss 형태`,
+        _warning: `현재 시간보다 최소 2시간 이후로 적용 가능 </br>
+        (현시간 오후 2시 일 경우, startAt은 오후 4시 이후로 설정 가능)`,
         children: false
       },
       {
         name: `endAt`,
         require: true,
-        _description: `종료일
-
-yyyy-MM-ddTHH:mm:ss 형태`,
+        _description: `종료일`,
         _relation: ``,
-        _referenceInfo: `yyyy-MM-ddTHH:mm:ss`,
+        _referenceInfo: `yyyy-MM-ddTHH:mm:ss 형태`,
         _warning: ``,
         children: false
       }
