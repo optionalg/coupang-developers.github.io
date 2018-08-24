@@ -1,15 +1,15 @@
-export const invoiceUploadProcessingDocument = {
+export const invoiceUpdateProcessingDocument = {
   note: ``,
 
   //don't modify documentInfo
   documentInfo: {
     category: `delivery-api`,   // input category ex) exchange-service-api
-    id: `invoice-upload-processing`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
-    anchorId: `invoice_upload_processing`,
-    name: `송장업로드 처리`,       // use display name, i will change 'translation key'
+    id: `invoice-update-processing`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
+    anchorId: `invoice_update_processing`,
+    name: `송장업데이트 처리`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
-    lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
+    lastUpdateDate: ``, // yyyy-mm-dd  ex> 2018-08-21
     reflectionDate: ``,
     documentLegacyInfo: {
       name: ``,
@@ -20,38 +20,17 @@ export const invoiceUploadProcessingDocument = {
 
   apiInfo: {
     state: ``,      // draft, candidate, release, unstable, stable, deprecated
-    lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
-    developer: `Wiv`,
+    lastUpdateDate: ``, // yyyy-mm-dd  ex> 2018-08-21
+    developer: `Seattle`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `POST`,
-    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/invoices`,
-    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/invoices`,
-    _description: `송장을 업로드하여 주문을 배송지시 상태로 변경합니다. 상품준비중 상태의 주문에 대해서만 송장업로드가 가능합니다.<Br/>※ 분리배송이 필요한 경우, 송장 업로드 예시는 e-mail로 별도 문의해주세요.`,//`송장을 업로드하여 발주서의 상태를 배송지시로 변경, v2에 분리배송이 구현`
+    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/updateInvoices`,
+    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/updateInvoices`,
+    _description: `잘못 등록한 운송장 내용을 변경합니다. 배송상태가 배송지시(DEPARTURE), 배송중(DELIVERING), 배송완료(FINAL_DELIVERY), 업체직송(NONE_TRACKING) 상태일 때만 운송장정보 변경이 가능합니다.
+                (나머지 상태에서는 에러 발생). <Br/>변경된 운송장의 배송상태는 배송지시(DEPARTURE)로 변경되며 이후 트래킹 정보 연동에 따라 변경될 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
-  },
-  apiMigrationInfo: {
-    previousVersions: [
-      {
-        apiName: `송장업로드 처리`,
-        path: `/v2/providers/wing_api/apis/internal-api/v2/ordersheets/invoices`,
-        _description: `송장을 업로드하여 발주서의 상태를 배송지시로 변경`,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      },
-    ],
-    nextVersions: [
-      {
-        apiName: ``,
-        path: ``,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      }
-    ]
   },
   parameters: {
     pathSegmentParameters: [
@@ -91,7 +70,7 @@ export const invoiceUploadProcessingDocument = {
             require: true,
             _description: `배송번호(=묶음배송번호)`,
             _relation: ``,
-            _referenceInfo: `분리배송 시, 이미 발송한 상품의 shipmentBoxId는 변경됩니다. (orderId로 발주서 단건 조회API를 통해 확인 가능)`,
+            _referenceInfo: ``,
             _warning: ``,
             children: false
           },
@@ -109,7 +88,7 @@ export const invoiceUploadProcessingDocument = {
             name: `deliveryCompanyCode`,
             type: `String`,
             require: true,
-            _description: `택배사 코드<br>취소선은 합병 또는 폐업한 택배사를 의미합니다.`,
+            _description: `변경할 택배사 코드<br>취소선은 합병 또는 폐업한 택배사를 의미합니다.`,
             _relation: ``,
             _referenceInfo: `
               <table class="table">
@@ -298,10 +277,10 @@ export const invoiceUploadProcessingDocument = {
             name: `invoiceNumber`,
             type: `String`,
             require: true,
-            _description: `송장번호`,
+            _description: `변경할 송장번호`,
             _relation: ``,
-            _referenceInfo: `분리배송 시 선택. 입력 하지 않는 경우 "" 공백으로 입력한다.`,
-            _warning: `분리배송 시에는 송장번호 또는 출고예정일 둘중에 한가지만 입력한다.`,
+            _referenceInfo: ``,
+            _warning: ``,
             children: false
           },
           {
@@ -310,7 +289,7 @@ export const invoiceUploadProcessingDocument = {
             require: true,
             _description: `옵션Id`,
             _relation: ``,
-            _referenceInfo: `송장을 업로드 할 상품의 옵션 ID를 입력. <br>분리배송 시 해당 shipmentBoxId의 vendorItemId단위로 접수해야한다.`,
+            _referenceInfo: `송장을 업데이트할 상품의 옵션 ID를 입력.`,
             _warning: ``,
             children: false
           },
@@ -585,46 +564,36 @@ export const invoiceUploadProcessingDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com//v2/providers/openapi/apis/api/v4/vendors/A00034612/orders/invoices`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00034612/orders/updateInvoices`,
     code: [
       {
         language: `http`,
         codeblock: {
-          "vendorId": "A00034612",
-          "orderSheetInvoiceApplyDtos": [
+            "vendorId": "A00013264",
+            "orderSheetInvoiceApplyDtos": [
             {
-              "shipmentBoxId": 606920263,
-              "orderId": 4000019469460,
-              "vendorItemId": 3823839899,
-              "deliveryCompanyCode": "KDEXP",
-              "invoiceNumber": "20180731040123",
-              "splitShipping": false,
-              "preSplitShipped": false,
-              "estimatedShippingDate": ""
-            },
-            {
-              "shipmentBoxId": 606920263,
-              "orderId": 4000019469460,
-              "vendorItemId": 3834780191,
-              "deliveryCompanyCode": "KDEXP",
-              "invoiceNumber": "20180731040123",
-              "splitShipping": false,
-              "preSplitShipped": false,
-              "estimatedShippingDate": ""
-            }
-          ]
-        }
+                "shipmentBoxId": 614018634,
+                "orderId": 2000019631453,
+                "vendorItemId": 3819657333,
+                "deliveryCompanyCode": "KDEXP",
+                "invoiceNumber": 201808231414,
+                "splitShipping": "False",
+                "preSplitShipped": "False",
+                "estimatedShippingDate": ""
+             }
+     ]
+    }
       }
     ],
     response: {
-      "code": "200",
+      "code": 200,
       "message": "OK",
       "data": {
         "responseCode": 0,
         "responseMessage": "SUCCESS",
         "responseList": [
           {
-            "shipmentBoxId": 606920263,
+            "shipmentBoxId": 614018634,
             "succeed": true,
             "resultCode": "OK",
             "retryRequired": false,

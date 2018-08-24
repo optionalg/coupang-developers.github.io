@@ -511,7 +511,10 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `반품지센터코드`,
         _relation: ``,
-        _referenceInfo: `쿠팡 Wing에서 배송지 등록 후 확인`,
+        _referenceInfo: `반품지 생성 후, 추출 된 반품지 센터코드를 입력 <br>
+        ● 반품지 생성은 Wing 또는 반품지 생성 API를 통해 가능 <br>
+        ● 반품지 생성이 불가능한 경우, "NO_RETURN_CENTERCODE"를 입력하여 직접 반품지 정보 등록 가능<br>
+        ※ 반품자동연동 서비스(굿스플로우)는 계약한 택배사가 있어야만 이용이 가능하며, 반품지 센터코드 입력 필수`,
         _warning: ``,
         children: false
       }
@@ -522,7 +525,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `반품지담당자명`,
         _relation: ``,
-        _referenceInfo: `쿠팡 Wing에서 배송지 등록 후 확인`,
+        _referenceInfo: `쿠팡 Wing 또는 반품지 생성 API를 통해 반품지 등록 후 확인`,
         _warning: ``,
         children: false
       }
@@ -533,7 +536,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `반품지연락처`,
         _relation: ``,
-        _referenceInfo: `쿠팡 Wing에서 배송지 등록 후 확인`,
+        _referenceInfo: `쿠팡 Wing 또는 반품지 생성 API를 통해 반품지 등록 후 확인`,
         _warning: ``,
         children: false
       }
@@ -544,7 +547,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `반품지우편번호`,
         _relation: ``,
-        _referenceInfo: `쿠팡 Wing에서 배송지 등록 후 확인`,
+        _referenceInfo: `쿠팡 Wing 또는 반품지 생성 API를 통해 반품지 등록 후 확인`,
         _warning: ``,
         children: false
       }
@@ -555,7 +558,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `반품지주소`,
         _relation: ``,
-        _referenceInfo: `쿠팡 Wing에서 배송지 등록 후 확인`,
+        _referenceInfo: `쿠팡 Wing 또는 반품지 생성 API를 통해 반품지 등록 후 확인`,
         _warning: ``,
         children: false
       }
@@ -566,7 +569,7 @@ export const modifySellerProductDocument = {
         require: true,
         _description: `반품지주소상세`,
         _relation: ``,
-        _referenceInfo: `쿠팡 Wing에서 배송지 등록 후 확인`,
+        _referenceInfo: `쿠팡 Wing 또는 반품지 생성 API를 통해 반품지 등록 후 확인`,
         _warning: ``,
         children: false
       }

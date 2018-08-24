@@ -5,6 +5,7 @@ import {lookupOrderDocumentByorderId} from "./ko/lookup-order-by-orderid.documen
 import {lookupDeliveryModifyHistoryDocument} from "./ko/lookup-delivery-modify-history.document";
 import {productPreparationProcessingDocument} from "./ko/product-preparation-processing.document";
 import {invoiceUploadProcessingDocument} from "./ko/invoice-upload-processing.document";
+import {invoiceUpdateProcessingDocument} from "./ko/invoice-update-processing.document";
 import {stopShippingCompleteProcessingDocument} from "./ko/stop-shipping-complete-processing.document";
 import {paymentCompleteRefundDocument} from "./ko/payment-complete-refund.document";
 import {productAlreadyShippedProcessingDocument} from "./ko/products-already-shipped-processing.document";
@@ -22,6 +23,7 @@ deliveryApiDocs.ko.push(lookupOrderDocumentByorderId);
 deliveryApiDocs.ko.push(lookupDeliveryModifyHistoryDocument);
 deliveryApiDocs.ko.push(productPreparationProcessingDocument);
 deliveryApiDocs.ko.push(invoiceUploadProcessingDocument);
+deliveryApiDocs.ko.push(invoiceUpdateProcessingDocument);
 deliveryApiDocs.ko.push(stopShippingCompleteProcessingDocument);
 deliveryApiDocs.ko.push(productAlreadyShippedProcessingDocument);
 deliveryApiDocs.ko.push(paymentCompleteRefundDocument);
