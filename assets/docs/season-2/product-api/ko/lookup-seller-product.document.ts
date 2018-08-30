@@ -249,7 +249,7 @@ export const lookupSellerProductDocument = {
                 </tr>
                 <tr>
                   <td>HYUNDAI</td>
-                  <td>현대택배</td>
+                  <td>롯데택배</td>
                 </tr>
                 <tr>
                   <td>KGB</td>

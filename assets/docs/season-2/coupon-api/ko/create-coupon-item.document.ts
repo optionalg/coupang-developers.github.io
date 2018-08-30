@@ -47,7 +47,7 @@ export const  createCouponItemDocument = {
             name: `couponId`,
             type: `Number`,
             require: true,
-            _description: `적용을 해제할 쿠폰 ID`,
+            _description: `적용할 쿠폰 ID`,
             _relation: ``,
             _referenceInfo: ``,
             _warning: ``,
@@ -62,8 +62,8 @@ export const  createCouponItemDocument = {
         require: false,
         _description: `쿠폰을 적용할 아이템 ID`,
         _relation: ``,
-        _referenceInfo: `쿠폰을 적용할 아이템 ID 수는 10,000개를 초과할 수 없음`,
-        _warning: ``,
+        _referenceInfo: ``,
+        _warning: `쿠폰을 적용할 아이템 ID 수는 10,000개를 초과할 수 없음`,
         children: false
       }
     ]
