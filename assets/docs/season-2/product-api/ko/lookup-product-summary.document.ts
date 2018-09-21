@@ -12,7 +12,7 @@ export const lookupProductSummaryDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 요약 정보 조회`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -26,7 +26,7 @@ export const lookupProductSummaryDocument = {
     httpMethod: `GET`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/external-vendor-sku-codes/{externalVendorSkuCode}`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/external-vendor-sku-codes/{externalVendorSkuCode}`,
-    _description: `업체상품코드로 업체상품 요약 정보를 조회할 수 있다.`,
+    _description: `상품등록시 판매자가 입력한 업체상품코드(externalVendorSku)로 상품 요약 정보를 조회할 수 있다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,

@@ -29,8 +29,8 @@ export const changeBestPriceGuaranteedByProductDocument = {
     _description: `상품 아이템별 최저가 보장 여부를 변경한다.<br>
                    등록 후 승인이 완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있습니다.`,
     _relation: ``,
-    _referenceInfo: `주의: 본 기능은 쿠런티 자격을 얻은 판매자가 판매자점수 우수 판매자이면서, 배송비 무료배송 또는 9800원 이상 무료배송(기본  배송료 2500원 미만)으로 등록한 상품에 적용이 가능합니다.`,
-    _warning: ``,
+    _referenceInfo: ``,
+    _warning: `쿠런티 자격을 얻은 판매자가 판매자점수 우수 판매자이면서, 배송비가 무료배송 또는 9,800원 이상 무료배송으로 등록한 상품에 적용이 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [

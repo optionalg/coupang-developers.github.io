@@ -12,7 +12,7 @@ export const lookupSellerProductListPagingDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 목록 페이징 조회`,
+      name: ``,
       anchorId: ``,
     },
 

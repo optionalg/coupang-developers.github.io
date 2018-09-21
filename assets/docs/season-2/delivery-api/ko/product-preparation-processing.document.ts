@@ -33,7 +33,7 @@ export const productPreparationProcessingDocument = {
                    환불이 완료된 시점에 취소 요청 상품 이외의 상품이 포함된 주문은 상품준비중으로 변경 가능합니다.` ,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `결재완료 단계의 ordersheet에 대해서만 적용이 가능합니다.`,
   },
   apiMigrationInfo: {
     previousVersions: [

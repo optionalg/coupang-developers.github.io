@@ -12,7 +12,7 @@ export const lookupQuantityPriceStatusByProductDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `옵션별 수량/가격/상태 조회`,
+      name: ``,
       anchorId: ``,
     },
 

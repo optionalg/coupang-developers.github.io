@@ -26,10 +26,10 @@ export const invoiceUploadProcessingDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/invoices`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/invoices`,
-    _description: `송장을 업로드하여 주문을 배송지시 상태로 변경합니다. 상품준비중 상태의 주문에 대해서만 송장업로드가 가능합니다.<Br/>※ 분리배송이 필요한 경우, 송장 업로드 예시는 e-mail로 별도 문의해주세요.`,//`송장을 업로드하여 발주서의 상태를 배송지시로 변경, v2에 분리배송이 구현`
+    _description: `송장을 업로드하여 주문을 배송지시 상태로 변경합니다. <Br/>※ 분리배송이 필요한 경우, 송장 업로드 예시는 e-mail로 별도 문의해주세요.`,//`송장을 업로드하여 발주서의 상태를 배송지시로 변경, v2에 분리배송이 구현`
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `상품준비중 상태의 주문에 대해서만 송장업로드가 가능합니다.`,
   },
   apiMigrationInfo: {
     previousVersions: [

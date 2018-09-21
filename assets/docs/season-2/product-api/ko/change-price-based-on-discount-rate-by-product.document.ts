@@ -12,7 +12,7 @@ export const changePriceBasedOnDiscountRateByProductDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `옵션별 할인율기준가 변경`,
+      name: ``,
       anchorId: ``,
     },
 

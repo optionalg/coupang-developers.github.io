@@ -12,7 +12,7 @@ export const modifySellerProductDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 수정`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -31,10 +31,10 @@ export const modifySellerProductDocument = {
     - 옵션 삭제 : 삭제하고 싶은 옵션의 'items 배열 하위 값'을 제거하고, 남기고 싶은 아이템 상단에 [sellerProductItemId] 삽입 후 전송 <br/>
     - 옵션 추가 : [sellerProductItemId]를 입력하지 않고 items 배열을 추가하여 전송 <br/>
     ※ [sellerProductItemId]는 상품 조회 API를 이용해 확인가능합니다. <br/>
-    ※ 승인 완료된 상품의 판매가격, 재고수량, 판매상태, 할인율 기준가는 상품수정API가 아닌, 상품 API 하위의 [상품 아이템별 수량/가격/판매여부/할인율기준가 변경] API를 통해 가능합니다.`,
+    `,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `※ 승인 완료된 상품의 판매가격, 재고수량, 판매상태, 할인율 기준가는 상품수정API가 아닌, 상품 API 하위의 [상품 아이템별 수량/가격/판매여부/할인율기준가 변경] API를 통해 가능합니다.`,
   },
   parameters: {
     queryStringParameters: false,
@@ -194,7 +194,7 @@ export const modifySellerProductDocument = {
         _description: `택배사 코드<br>취소선은 합병 또는 폐업한 택배사를 의미합니다.`,
         _relation: ``,
         _referenceInfo: `
-              <table class="table">
+             <table class="table">
                <tr>
                   <th>CODE</th>
                   <th>NAME</th>
@@ -216,16 +216,16 @@ export const modifySellerProductDocument = {
                   <td>한진택배</td>
                 </tr>
                 <tr>
-                    <td><del>KOREX</del></td>
-                    <td><del>대한통운[합병]</del></td>
-                </tr>
-                <tr>
                   <td>CJGLS</td>
                   <td>CJ대한통운</td>
                 </tr>
                 <tr>
-                  <td>KGBLS</td>
-                  <td>KGB택배</td>
+                    <td><del>KOREX</del></td>
+                    <td><del>대한통운[합병]</del></td>
+                </tr>
+                <tr>
+                  <td><del>KGBLS</del></td>
+                  <td><del>KGB택배</del></td>
                 </tr>
                 <tr>
                   <td>KDEXP</td>
@@ -296,8 +296,8 @@ export const modifySellerProductDocument = {
                   <td>쿠팡자체배송</td>
                 </tr>
                 <tr>
-                  <td>IQS</td>
-                  <td>굿스포스트</td>
+                  <td><del>IQS</del></td>
+                  <td><del>굿스포스트</del></td>
                 </tr>
                 <tr>
                   <td>EMS</td>

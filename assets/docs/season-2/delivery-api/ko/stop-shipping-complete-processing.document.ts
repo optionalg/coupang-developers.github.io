@@ -17,6 +17,20 @@ export const stopShippingCompleteProcessingDocument = {
     },
     
   },
+  apiInfo: {
+    state: ``,      // draft, candidate, release, unstable, stable, deprecated
+    lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
+    developer: `Wiv`,
+    domain: `https://api-gateway.coupang.com`,
+    httpMethod: `PATCH `,
+    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
+    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
+    _description: `반품요청목록 조회 시 취소진행 상태가 출고중지요청(RELEASE_STOP_UNCHECKED) 일 경우에 사용가능합니다. <br/>
+           아직 상품을 발송하지 않아, 고객 요청대로 상품을 출고하지 않을 예정일 때 적용합니다.`,
+    _relation: ``,
+    _referenceInfo: ``,
+    _warning: ``,
+  },
   apiMigrationInfo: {
     previousVersions: [
       {
@@ -39,19 +53,7 @@ export const stopShippingCompleteProcessingDocument = {
       }
     ]
   },
-  apiInfo: {
-    state: ``,      // draft, candidate, release, unstable, stable, deprecated
-    lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
-    developer: `Wiv`,
-    domain: `https://api-gateway.coupang.com`,
-    httpMethod: `PATCH `,
-    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
-    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
-    _description: ``,
-    _relation: ``,
-    _referenceInfo: ``,
-    _warning: ``,
-  },
+
   parameters: {
     pathSegmentParameters: [
       {

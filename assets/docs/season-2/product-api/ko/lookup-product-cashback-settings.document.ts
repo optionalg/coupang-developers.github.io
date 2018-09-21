@@ -29,28 +29,7 @@ export const lookupProductCashbackSettingsDocument = {
       anchorId: ``,
     },
   },
-  apiMigrationInfo: {
-    previousVersions: [
-      {
-        apiName: ``,
-        path: ``,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      }
-    ],
-    nextVersions: [
-      {
-        apiName: ``,
-        path: ``,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      }
-    ]
-  },
+
   apiInfo: {
     state: `release`,      // draft, candidate, release, unstable, stable, deprecated
     lastUpdateDate: `2017-04-10`, // yyyy-mm-dd  ex> 2016-12-23
@@ -59,7 +38,7 @@ export const lookupProductCashbackSettingsDocument = {
     httpMethod: `GET`, // GET, POST, PUT, DELETE
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/products/items/cashback`,       // '/v2/providers/wing_api/apis/internal-api/v1/exchange/inquiries'
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/products/items/cashback`,
-    _description: `셀러는 이 API를 통해 해당 옵션아이디에 적용된 최신 캐시백 룰 정보를 얻을수 있다.`,
+    _description: `해당 옵션아이디에 적용된 캐시백 룰 정보를 조회합니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -73,7 +52,7 @@ export const lookupProductCashbackSettingsDocument = {
         require: true,
         _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드`,
         _warning: ``,
       }
     ],
@@ -161,7 +140,7 @@ export const lookupProductCashbackSettingsDocument = {
           type: `String`,
           _description: `캐시백 유형`,
           _relation: ``,
-          _referenceInfo: `RATE; FIXED;FIXED_WITH_QUANTITY.`,
+          _referenceInfo: `FIXED(정액할인), RATE(정률할인), FIXED_WITH_QUANTITY(수량별 정액할인)`,
           _warning: ``,
           children: false,
         },

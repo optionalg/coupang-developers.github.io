@@ -646,16 +646,44 @@ export const modifyOutboundShippingFacilityDocument = {
     }
   ],
   sample: {
-    endpoint:`https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00012697/outboundShippingCenters/135`,
-    code: [
+    endpoint:`https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00000001/outboundShippingCenters/123456`,
+code: [
       {
         language: `http`,
         codeblock:{
-            "vendorId": "A00012697",
-            "outboundShippingPlaceCode":"135",
-            "shippingPlaceName": "outbound shipping place",
-            "userId": "test@1"
-           },
+          "vendorId": "A00000001",
+          "userId": "Test11",
+          "outboundShippingPlaceCode": 123456,
+          "shippingPlaceName": "테스트 출고지 코드",
+          "placeAddresses":             [
+                            {
+                "addressType": "ROADNAME",
+                "countryCode": "KR",
+                "companyContactNumber": "02-1111-1111",
+                "phoneNumber2": "",
+                "returnZipCode": "05510",
+                "returnAddress": "서울특별시 송파구 송파대로 570 (신천동)",
+                "returnAddressDetail": "테스트 주소 101동 101호"
+             },
+                            {
+                "addressType": "JIBUN",
+                "countryCode": "KR",
+                "companyContactNumber": "02-1111-1111",
+                "phoneNumber2": "",
+                "returnZipCode": "05510",
+                "returnAddress": "서울특별시 송파구 신천동 7-30",
+                "returnAddressDetail": "테스트 주소 101동 101호"
+             }
+          ],
+          "remoteInfos": [            {
+             "remoteInfoId": 176476,
+             "deliveryCode": "DONGBU",
+             "jeju": 0,
+             "notJeju": 0,
+             "usable": true
+          }],
+          "usable": true
+       },
 
 
       }

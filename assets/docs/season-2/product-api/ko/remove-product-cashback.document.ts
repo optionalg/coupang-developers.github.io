@@ -13,33 +13,12 @@ export const removeProductCashbackDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 옵션 캐시백 중지`,
+      name: ``,
       anchorId: ``,
     },
   },
-  apiMigrationInfo: {
-    previousVersions: [
-      {
-        apiName: `업체상품 옵션 캐시백 중지`,
-        path: `/v2/providers/greatwall_api/apis/api/v1/product/vendorItems-cashbacks`,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      },
-    ],
-    nextVersions: [
-      {
-        apiName: `상품 캐시백 삭제`,
-        path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/products/items/cashback`,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      }
-    ]
-  },
-  apiInfo: {
+
+ apiInfo: {
     state: `release`,      // draft, candidate, release, unstable, stable, deprecated
     lastUpdateDate: `2017-03-22`, // yyyy-mm-dd  ex> 2016-12-23
     developer: `Tracy`,
@@ -59,7 +38,7 @@ export const removeProductCashbackDocument = {
         require: true,
         _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드`,
         _warning: ``,
       }
     ],

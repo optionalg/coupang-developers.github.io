@@ -12,7 +12,7 @@ export const deleteSellerProductDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 삭제`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -26,10 +26,10 @@ export const deleteSellerProductDocument = {
     httpMethod: `DELETE`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/{sellerProductId}`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/{sellerProductId}`,
-    _description: `업체상품을 삭제한다.(상품이 승인중 상태가 아니며, 포함된 옵션이 모두 판매중지 상태인 경우에만 삭제가능)`,
+    _description: `업체상품을 삭제한다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `상품이 승인중 상태가 아니며, 상품에 포함된 옵션(아이템)이 모두 판매중지된 경우에 삭제가 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [

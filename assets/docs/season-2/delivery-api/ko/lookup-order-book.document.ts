@@ -406,7 +406,7 @@ export const lookupOrderBookDocument = {
             {
               name: `orderPrice`,
               type: `Number`,
-              _description: `결제 가격 (salesPrice x shippingCount)<br/>하지만 항상 같지는 않음`,
+              _description: `결제 가격 : salesPrice*shippingCount`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
@@ -418,7 +418,7 @@ export const lookupOrderBookDocument = {
                 _description: `할인 가격`,
                 _relation: ``,
                 _referenceInfo: ``,
-                _warning: ``,
+                _warning: `즉시할인쿠폰등이 적용되지 않을 경우 null`,
                 children: false
             },
             {

@@ -12,7 +12,7 @@ export const changePriceByProductDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `옵셜별 가격 변경`,
+      name: ``,
       anchorId: ``,
     },
 

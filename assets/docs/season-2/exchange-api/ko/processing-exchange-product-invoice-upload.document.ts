@@ -12,7 +12,7 @@ export const processingExchangeProductInvoiceUploadDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `교환상품 송장 생성`,
+      name: ``,
       anchorId: ``,
     },
 

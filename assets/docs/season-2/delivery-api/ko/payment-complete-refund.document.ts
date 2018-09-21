@@ -12,33 +12,12 @@ export const paymentCompleteRefundDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `결제완료 건 취소 처리`,
+      name: ``,
       anchorId: ``,
     },
     
   },
-  apiMigrationInfo: {
-    previousVersions: [
-      {
-        apiName: `결제완료건 환불 처리`,
-        path: `/v2/providers/wing_api/apis/internal-api/v2/cancel/{orderId}/request`,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      },
-    ],
-    nextVersions: [
-      {
-        apiName: `결제완료건 환불 처리`,
-        path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/{orderId}/refunds`,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      }
-    ]
-  },
+
   apiInfo: {
     state: `draft`,      // draft, candidate, release, unstable, stable, deprecated
     lastUpdateDate: `2017-02-20`, // yyyy-mm-dd  ex> 2016-12-23
@@ -47,10 +26,10 @@ export const paymentCompleteRefundDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/{orderId}/refunds`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/{orderId}/refunds`,
-    _description: `결제 완료 상태의 주문건을 취소한다.`,
+    _description: `결제완료 상태의 주문건을 취소한다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `결제완료 상태의 주문에만 적용가능합니다.(나머지 상태에 적용 시 에러 발생)`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -135,7 +114,7 @@ export const paymentCompleteRefundDocument = {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `파트너 ID`,
+        _description: `업체코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -145,7 +124,7 @@ export const paymentCompleteRefundDocument = {
         name: `userId`,
         type: `String`,
         require: true,
-        _description: `파트너 로그인 ID`,
+        _description: `실사용자아이디(쿠팡 Wing ID)`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,

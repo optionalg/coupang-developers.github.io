@@ -12,7 +12,7 @@ export const lookupProductModifyHistoryDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 상태변경이력 조회`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -26,7 +26,7 @@ export const lookupProductModifyHistoryDocument = {
     httpMethod: `GET`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/{sellerProductId}/histories`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/{sellerProductId}/histories`,
-    _description: `업체상품아이디로 상태변경일시 기준 정렬된 업체상품 상태변경이력을 조회한다.`,
+    _description: `업체상품아이디(sellerProductId)로 상품 상태변경이력을 조회한다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,

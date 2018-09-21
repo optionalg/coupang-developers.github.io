@@ -50,7 +50,7 @@ export const lookupReturnCancelListDocument = {
         require: true,
         _description: `철회 이력을 조회할 취소(반품)접수번호 목록`,
         _relation: ``,
-        _referenceInfo: ``,
+        _referenceInfo: `한 번에 최대 50개까지 cancelIds 조회가 가능합니다.`,
         _warning: `cancelIds는 number 타입이어야 합니다.`,
         children: false
       }

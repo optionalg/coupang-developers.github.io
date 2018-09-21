@@ -12,7 +12,7 @@ export const lookupChangeRequestListDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `교환 목록 조회`,
+      name: ``,
       anchorId: ``,
     },
 

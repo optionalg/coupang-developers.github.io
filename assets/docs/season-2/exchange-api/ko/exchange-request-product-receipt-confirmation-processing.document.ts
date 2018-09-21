@@ -12,7 +12,7 @@ export const exchangeRequestProductReceiptConfirmationProcessingDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `교환상품 접수 확인`,
+      name: ``,
       anchorId: ``,
     },
     

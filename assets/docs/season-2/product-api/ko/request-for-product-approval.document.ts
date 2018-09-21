@@ -12,7 +12,7 @@ export const requestForProductApprovalDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 승인 요청`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -26,10 +26,10 @@ export const requestForProductApprovalDocument = {
     httpMethod: `PUT`,
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/{sellerProductId}/approvals`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/{sellerProductId}/approvals`,
-    _description: ``,
+    _description: `임시저장 상태의 상품은 승인요청->승인완료 단계를 거처 상품 페이지에 노출됩니다.`,
     _relation: ``,
-    _referenceInfo: `주의: "인벤토리(XXXX)는 승인요청 상태가 아닙니다." 메시지는 "업체상품[XXXX]이 승인요청 가능한 상태가 아닙니다." 의 의미입니다. '임시저장' 상태에서만 '승인요청'이 가능합니다.`,
-    _warning: ``,
+    _referenceInfo: `주의: "인벤토리(XXXX)는 승인요청 상태가 아닙니다." 메시지는 "업체상품[XXXX]이 승인요청 가능한 상태가 아닙니다." 의 의미입니다. `,
+    _warning: `'임시저장' 상태에서만 '승인요청'이 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [

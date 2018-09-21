@@ -12,7 +12,7 @@ export const changeQuantityByProductDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `옵션별 수량 변경`,
+      name: ``,
       anchorId: ``,
     },
 

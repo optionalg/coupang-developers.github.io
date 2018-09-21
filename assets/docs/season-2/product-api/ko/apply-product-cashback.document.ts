@@ -12,33 +12,12 @@ export const applyProductCashbackDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 옵션 캐시백 저장`,
+      name: ``,
       anchorId: ``,
     },
 
   },
-  apiMigrationInfo: {
-    previousVersions: [
-      {
-        apiName: `업체상품 옵션 캐시백 저장`,
-        path: `/v2/providers/greatwall_api/apis/api/v1/product/vendorItems-cashbacks`,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      },
-    ],
-    nextVersions: [
-      {
-        apiName: `상품 캐시백 적용`,
-        path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/products/items/cashback`,
-        _description: ``,
-        _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``
-      }
-    ]
-  },
+
   apiInfo: {
     state: `release`,      // draft, candidate, release, unstable, stable, deprecated
     lastUpdateDate: `2017-01-10`, // yyyy-mm-dd  ex> 2016-12-23
@@ -49,9 +28,8 @@ export const applyProductCashbackDocument = {
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/products/items/cashback`,
     _description: `옵션별로 캐시백 룰을 설정한다.<br>
 
-이 API는 동일한 캐시백 룰을 사용하는 옵션에 적용할수 있으며(승인완료 이후의 옵션들에 지정 가능) 캐시백 유형은 RATE, FIXED 및 FIXED_WITH_QUANTITY입니다.<br>
-
-* 캐쉬백 기능은 쿠팡 사업개발팀과 계약서 작성 및 이용 관련 협의 후 사용 가능, bd@coupang.com으로 문의 부탁 드립니다.<br>
+동일한 캐시백 룰을 사용하는 옵션에 적용할수 있으며 승인완료 이후의 옵션들에만 적용 가능합니다.</BR>
+* 캐쉬백 기능은 쿠팡 영업 담당자와 계약서 작성 및 이용 관련 협의 후 사용 가능합니다.<br>
 각 캐시백 유형에 맞는 비즈니스 로직은 아래 테이블을 참조해 주십시오.：
 <table>
         <tr>
@@ -64,7 +42,7 @@ export const applyProductCashbackDocument = {
           <th>캐시백 금액</th>
         </tr>
         <tr>
-          <td>FIXED</td>
+          <td>FIXED(정액할인)</td>
           <td>고객이 구매한 상품의 수량과 상관없이 정해진 금액의 캐시백을 적용합니다.</br>
               여러개를 구매하여도 정해진 캐시백 금액만 적립됩니다. </td>
           <td>1000</td>
@@ -74,7 +52,7 @@ export const applyProductCashbackDocument = {
           <td>￦1,000</td>
         </tr>
         <tr>
-          <td rowspan="2">RATE</td>
+          <td rowspan="2">RATE(정률할인)</td>
           <td rowspan="2">판매 가격에 정해진 비율대로 캐시백을 적용합니다. </br>
           Value는 1~100 범위 내에서 적용 가능합니다. </br>
           캐시백은 maxAmount를 초과할 수 없습니다. </br>
@@ -91,7 +69,7 @@ export const applyProductCashbackDocument = {
           <td>￦1,000</td>
         </tr>
         <tr>
-          <td>FIXED_WITH_QUANTITY</td>
+          <td>FIXED_WITH_QUANTITY(수량별 정액할인)</td>
           <td>정해진 금액을 구매한 상품 수량만큼 곱해서 캐시백을 적용합니다. </td>
           <td>1000</td>
           <td>null</td>
@@ -111,7 +89,7 @@ export const applyProductCashbackDocument = {
         require: true,
         _description: `업체코드`,
         _relation: ``,
-        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드. Wing 로그인 후 확인 가능`,
+        _referenceInfo: `쿠팡에서 업체에게 발급한 고유 코드`,
         _warning: ``,
       }
     ],
@@ -131,7 +109,7 @@ export const applyProductCashbackDocument = {
         require: true,
         _description: `캐시백 유형`,
         _relation: ``,
-        _referenceInfo: `FIXED; RATE; FIXED_WITH_QUANTITY.`,
+        _referenceInfo: `FIXED(정액할인), RATE(정률할인), FIXED_WITH_QUANTITY(수량별 정액할인)`,
         _warning: ``,
         children: false
       },

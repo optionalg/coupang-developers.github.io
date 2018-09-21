@@ -17,6 +17,20 @@ export const productAlreadyShippedProcessingDocument = {
     },
     
   },
+  apiInfo: {
+    state: `draft`,      // draft, candidate, release, unstable, stable, deprecated
+    lastUpdateDate: `2017-02-17`, // yyyy-mm-dd  ex> 2016-12-23
+    developer: `Wiv`,
+    domain: `https://api-gateway.coupang.com`,
+    httpMethod: `PATCH`,
+    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
+    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
+    _description: `반품요청목록 조회 시 취소진행 상태가 출고중지요청(RELEASE_STOP_UNCHECKED) 일 경우에 사용가능합니다. <br/>
+이미 상품을 발송한 상태일 때 적용합니다.`,
+    _relation: ``,
+    _referenceInfo: ``,
+    _warning: `단, 출고중지요청에도 불구하고 상품을 출고하거나, 상품이 출고됐는데 운송장번호를 등록하지 않았다면 반품배송비는 판매자가 부담합니다.`,
+  },
   apiMigrationInfo: {
     previousVersions: [
       {
@@ -39,19 +53,7 @@ export const productAlreadyShippedProcessingDocument = {
       }
     ]
   },
-  apiInfo: {
-    state: `draft`,      // draft, candidate, release, unstable, stable, deprecated
-    lastUpdateDate: `2017-02-17`, // yyyy-mm-dd  ex> 2016-12-23
-    developer: `Wiv`,
-    domain: `https://api-gateway.coupang.com`,
-    httpMethod: `PATCH`,
-    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
-    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/completedShipment`,
-    _description: `출고중지완료 상태로 변경한다.`,
-    _relation: ``,
-    _referenceInfo: ``,
-    _warning: ``,
-  },
+
   parameters: {
     pathSegmentParameters: [
       {

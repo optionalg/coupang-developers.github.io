@@ -12,7 +12,7 @@ export const lookupSellerProductListPeriodDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `업체상품 목록 구간 조회`,
+      name: ``,
       anchorId: ``,
     },
 
