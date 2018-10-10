@@ -12,7 +12,7 @@ export const customerEnquiryResponseDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `상담에대한 회신(셀러 -> 고객)`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -47,10 +47,10 @@ export const customerEnquiryResponseDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/onlineInquiries/{inquiryId}/replies`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/onlineInquiries/{inquiryId}/replies`,
-    _description: `셀러는 이 API를 사용하여 고객님의 질문에 대답할수있습니다<br>Note: API 한번 호출시, 단 하나의 질문만 대답할수 있습니다. 고객님의 질문에 대답하기전에 customer service inquiry api를 사용하여 inquiryId (inquiryId =question Id)를 받으십시오.`,
+    _description: `고객문의(inquiryId)에 대해 답변할 수 있습니다<br/>하나의 고객문의(inquiryId)에 답변할 수 있습니다. 먼저 상품별 고객문의 조회 API를 사용하여 inquiryId를 확인하기 바랍니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `<br/>답변내용(content)을 JSON 형식에 맞게 작성하시기 바랍니다.`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -59,7 +59,7 @@ export const customerEnquiryResponseDocument = {
         require: true,
         _description: `Inquiry ID`,
         _relation: ``,
-        _referenceInfo: `이 파라미터는 셀러가 어느 질문을 대답해야할지를 나타냅니다.<br>우선 customer service inquiry API를 사용하여 이 값을 받으십시오.`,
+        _referenceInfo: `판매자가 어느 질문을 답변할 지를 입력합니다.<br/>먼저 상품별 고객문의 조회 API를 사용하여 inquiryId를 확인하기 바랍니다.`,
         _warning: ``,
       },
       {
@@ -105,23 +105,32 @@ export const customerEnquiryResponseDocument = {
           }
       ]
   },
-  errorSpec: false,
+  errorSpec: [
+        {
+          status: 400,
+          _description: `Could not read JSON: Illegal unquoted character ((CTRL-CHAR, code 10)): has to be escaped using backslash to be included in string value....
+    : 답변내용(content)을 JSON 형식에 맞게 작성해야 합니다. newline, backslash, Carriage return 등의 문자는 JSON 형태로 변환이 필요합니다.`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+  ],
   responseSpec: [
     {
       name: `code`,
       type: `Number`,
-      _description: `Http request status code`,
+      _description: `서버 응답 코드`,
       _relation: ``,
-      _referenceInfo: `Example: 200, 400, 500`,
+      _referenceInfo: ``,
       _warning: ``,
       children: false
     },
     {
       name: `message`,
       type: `String`,
-      _description: `메세지 <br> If reply success, will show success message;<br>If reply fail, will show the corresponding error message`,
+      _description: `서버 응답 메세지`,
       _relation: ``,
-      _referenceInfo: `200 : OK <br> 400 : Bad request , will show corresponding bad request message <br> 500 : Internal error`,
+      _referenceInfo: ``,
       _warning: ``,
       children: false
     }

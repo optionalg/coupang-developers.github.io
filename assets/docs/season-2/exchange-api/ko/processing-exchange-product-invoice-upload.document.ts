@@ -47,10 +47,12 @@ export const processingExchangeProductInvoiceUploadDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/exchangeRequests/{exchangeId}/invoices`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/exchangeRequests/{exchangeId}/invoices`,
-    _description: `고객님에게 교환상품을 배송하기위해 송장을 생성합니다.`,
+    _description: `교환할 상품의 운송장을 입력합니다. <br/>교환상품 입고확인 API 실행 후 에
+교환요청목록 조회 시 회수상태(collectStatus) 가 업체전달완료(CompleteCollect) 일때
+교환송장 업로드 처리 API를 수행하실 수 있습니다!`,
     _relation: ``,
-    _referenceInfo: ``,
-    _warning: ``,
+    _referenceInfo: ` `,
+    _warning: `입고(회수)완료 처리 후 최대 10분이후에 운송장 입력이 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [

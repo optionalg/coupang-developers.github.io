@@ -48,10 +48,10 @@ export const lookupReturnRequestListPerMinuteDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests`,
-    _description: `상태별 반품 목록 조회 분단위 전체 조회`,
+    _description: `분단위로 반품 접수한 주문을 확인하고, 반품 완료 내역을 조회할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `최대 31일 까지 조회가 가능하나 데이터가 많을 경우 Timeout 에러가 발생할 수 있으니 1일 이내의 기간으로 조회를 권장합니다`,
   },
   parameters: {
     pathSegmentParameters: [

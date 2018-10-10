@@ -47,10 +47,11 @@ export const lookupChangeRequestListDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/exchangeRequests`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/exchangeRequests`,
-    _description: `교환 요청 상태를 조회한다.<br/>고객님이 반송 절차를 시작한 후에 이 API를 통해 리스트 형태로 교환 요청을 확인 할 수 있습니다.`,
+    _description: `교환 접수한 주문을 확인하고, 교환 완료 내역을 조회할 수 있습니다. 
+<br/>접수일자, 교환처리상태, 주문번호 등으로 교환 주문을 검색, 조회할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `최대 7일 까지만 조회가 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -378,48 +379,91 @@ export const lookupChangeRequestListDocument = {
                 <table class="table">
                     <tr>
                         <th>reasonCode</th>
-                        <th>codeName</th>
                         <th>reasonCodeText</th>
                     </tr>
                     <tr>
-                        <td>DEFECT</td>
-                        <td>결함</td>
-                        <td>불량 / 상품에 결함이 있음</td>
+                        <td>CHANGEMIND</td>
+                        <td>필요 없어짐 (단순 변심)</td>
                      </tr>
                      <tr>
-                        <td>WRONGITEM</td>
-                        <td>오배송</td>
-                        <td>다른 상품이 배송 됨(오배송)</td>
+                        <td>DIFFERENTOPT</td>
+                        <td>색상/ 사이즈가 기대와 다름</td>
                      </tr>
                      <tr>
-                        <td>OMISSION</td>
-                        <td>누락</td>
-                        <td>구성품 / 부속품 등이 누락됨</td>
+                        <td>CHEAPER</td>
+                        <td>다른 사이트의 가격이 더 저렴함</td>
                     </tr>
                     <tr>
-                        <td>OPTIONCHANGE</td>
-                        <td>옵션변경</td>
-                        <td>색상/사이즈 변경하고 싶음</td>
+                        <td>WRONGOPT</td>
+                        <td>상품의 옵션 선택을 잘못함</td>
                     </tr>
                     <tr>
-                        <td>ETC</td>
+                        <td>REORDER</td>
+                        <td>상품을 추가하여 재주문</td>
+                    </tr>
+                    <tr>
+                        <td>OTHERS</td>
                         <td>기타</td>
-                        <td>기타</td>
                     </tr>
                     <tr>
-                        <td>BROKEN</td>
-                        <td>파손</td>
-                        <td>상품이 파손되어 배송됨</td>
+                        <td>DELIVERYLATER</td>
+                        <td>배송 예정일이 예상보다 늦음</td>
                     </tr>
                     <tr>
-                        <td>ADDRESSCHANGE</td>
-                        <td>배송지변경</td>
-                        <td>배송지변경</td>
+                        <td>WRONGADDRESS</td>
+                        <td>배송지 입력 실수</td>
+                    </tr>
+                    <tr>
+                        <td>DELIVERYSTOP</td>
+                        <td>배송흐름이 멈춤</td>
+                    </tr>
+                    <tr>
+                        <td>CARRIERLOST</td>
+                        <td>택배사 상품 분실</td>
                     </tr>
                     <tr>
                         <td>LOST</td>
-                        <td>상품분실</td>
-                        <td>상품 분실로 인한 미수령</td>
+                        <td>배송 완료지만 상품 받지 못함</td>
+                    </tr>
+                    <tr>
+                        <td>PARTIALMISS</td>
+                        <td>주문상품 중 일부가 배송되지 않음</td>
+                    </tr>
+                    <tr>
+                        <td>COMPOMISS</td>
+                        <td>상품의 구성품, 부속품이 제대로 들어있지 않음</td>
+                    </tr>
+                    <tr>
+                        <td>LATEDELIVERED</td>
+                        <td>상품이 늦게 배송됨 </td>
+                    </tr>
+                    <tr>
+                        <td>DAMAGED</td>
+                        <td>상품이 파손되어 배송됨</td>
+                    </tr>
+                    <tr>
+                        <td>DEFECT</td>
+                        <td>상품 결함/기능에 이상이 있음</td>
+                    </tr>
+                    <tr>
+                        <td>INACCURATE</td>
+                        <td>실제 상품이 상품 설명에 써있는 것과 다름</td>
+                    </tr>
+                    <tr>
+                        <td>BOTHDAMAGED</td>
+                        <td>포장과 상품 모두 훼손됨</td>
+                    </tr>
+                    <tr>
+                        <td>SHIPBOXOK</td>
+                        <td>포장은 괜찮으나 상품이 파손됨</td>
+                    </tr>
+                    <tr>
+                        <td>WRONGDELIVERY</td>
+                        <td>내가 주문한 상품과 아예 다른 상품이 배송됨 </td>
+                    </tr>
+                    <tr>
+                        <td>WRONGSIZECOL</td>
+                        <td>내가 주문한 상품과 다른 색상/ 사이즈의 상품이 배송됨</td>
                     </tr>
                  </table>`,
           _warning: ``,
@@ -1901,8 +1945,8 @@ export const lookupChangeRequestListDocument = {
       "faultType": "VENDOR",
       "exchangeAmount": 0,
       "reason": null,
-      "reasonCode": "WRONGITEM",
-      "reasonCodeText": "다른 상품이 배송 됨(오배송)",
+      "reasonCode": "DIFFERENTOPT",
+      "reasonCodeText": "색상/ 사이즈가 기대와 다름",
       "reasonEtcDetail": "베이지색 주문했는데 브라운이 왔습니다",
       "cancelReason": null,
       "createdByType": "CUSTOMER",
@@ -2027,8 +2071,8 @@ export const lookupChangeRequestListDocument = {
       "faultType": "VENDOR",
       "exchangeAmount": 0,
       "reason": null,
-      "reasonCode": "OMISSION",
-      "reasonCodeText": "구성품 / 부속품 등이 누락됨",
+      "reasonCode": "COMPOMISS",
+      "reasonCodeText": "상품의 구성품, 부속품이 제대로 들어있지 않음",
       "reasonEtcDetail": "배송되지 않았어요 확인해주세요",
       "cancelReason": null,
       "createdByType": "CUSTOMER",

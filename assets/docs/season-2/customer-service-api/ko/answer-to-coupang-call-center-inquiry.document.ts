@@ -12,7 +12,7 @@ export const customerServiceCenterEnquiryResponseDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `상담에 대한 회신(셀러 -> 쿠팡)`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -20,12 +20,12 @@ export const customerServiceCenterEnquiryResponseDocument = {
   apiMigrationInfo: {
     previousVersions: [
       {
-        apiName: `상담에대한회신(셀러 -> 쿠팡)`,
-        path: `/v2/providers/wing_api/apis/internal-api/v1/customer-service/coupang/replies/{inquiryId}`,
+        apiName: ``,
+        path: ``,
         _description: ``,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `<strong>쿠팡 콜센터 문의답변 v1의 사용률이 지난 3개월동안 0%를 나타내어 2017년으로 지원이 종료됩니다.<br>
+        _warning: `<strong>쿠팡 콜센터 문의답변 v1의 사용률이 지난 3개월동안 0%를 나타내어 2017년으로 지원이 종료되었습니다.<br>
                    v1을 사용중이신 판매자분들이 있다면 v4로 변경하여 사용하시기 바랍니다.</strong>`
       },
     ],
@@ -48,10 +48,11 @@ export const customerServiceCenterEnquiryResponseDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries/{inquiryId}/replies`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries/{inquiryId}/replies`,
-    _description: `셀러가 쿠팡 콜센터를 통해 접수된 질문에 대해 이 API를 이용하여 답변합니다.<br>`,
+    _description: `판매자가 쿠팡 콜센터를 통해 접수된 문의에 대해 답변합니다.<br>`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `API 한번 호출시, 단 하나의 질문만 대답할수 있습니다. 쿠팡 콜센터 문의조회 api를 사용하여 inquiryId를 확인 후 답변하시기 바랍니다.`,
+    _warning: `동일한 inquiry에 대해 중복해서 답변을 보내면 에러가 발생합니다. 
+                    <br/>쿠팡 콜센터 문의조회 API를 이용하여 처리상태가 미답변(NO_ANSWER)인 inquiryId, answerId를 확인 후 답변하시기 바랍니다.`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -68,7 +69,7 @@ export const customerServiceCenterEnquiryResponseDocument = {
         require: true,
         _description: `Inquiry ID`,
         _relation: ``,
-        _referenceInfo: `이 파라미터는 셀러가 어느 질문을 대답해야할지를 나타냅니다.<br>우선  /v4/vendors/{vendorId}/callCenterInquiries API 를 사용하여 이 값을 받으십시오.`,
+        _referenceInfo: `판매자가 어느 질문을 대답해야할지를 입력합니다.<br/>먼저 쿠팡 콜센터 문의조회 API를 이용하여 inquiryId를 확인합니다.`,
         _warning: ``,
       }
     ],
@@ -118,20 +119,37 @@ export const customerServiceCenterEnquiryResponseDocument = {
         name: `parentAnswerId`,
         type: `Number`,
         require: false,
-        _description: `부모이관글 ID`,
+        _description: `부모이관글 ID(answerId)`,
         _relation: ``,
-        _referenceInfo: `콜센터 문의 조회에서 나온 answerId (답변ID) 를 넣으셔야 됩니다.`,
+        _referenceInfo: `쿠팡 콜센터 문의 조회API에서 조회한 answerId 를 입력해야 됩니다.`,
         _warning: ``,
         children: false
       }
     ]
   },
-  errorSpec: false,
+  errorSpec: [
+        {
+          status: 400,
+          _description: `Could not read JSON: Illegal unquoted character ((CTRL-CHAR, code 13)): has to be escaped using backslash to be included in string value...
+        : 답변내용(content)을 JSON 형식에 맞게 작성해야 합니다. newline, backslash, Carriage return 등의 문자는 JSON 형태로 변환이 필요합니다.`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+        {
+          status: 400,
+          _description: `The inquiry can't be answer. It can do only inquiryStatus:progress, partnerTransferStatus:requestAnswer
+         : 동일한 inquiry에 대해 중복해서 답변을 보낼 경우 에러가 발생합니다. 미답변(NO_ANSWER)인 상태의 문의에만 답변을 보내기 바랍니다.`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+  ],
   responseSpec: [
     {
       name: `code`,
       type: `Number`,
-      _description: `결과코드`,
+      _description: `서버 응답 코드`,
       _relation: ``,
       _referenceInfo: `200/400/500`,
       _warning: ``,
@@ -140,7 +158,7 @@ export const customerServiceCenterEnquiryResponseDocument = {
     {
       name: `message`,
       type: `String`,
-      _description: `실패원인`,
+      _description: `서버 응답 메세지`,
       _relation: ``,
       _referenceInfo: `If success,it shows OK`,
       _warning: ``,

@@ -24,7 +24,7 @@ export const customerServiceCenterInquireConfirmDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries/{inquiryId}/confirms`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries/{inquiryId}/confirms`,
-    _description: `쿠팡이 상담완료한 업체이관 건으로 판매자의 확인이 필요한 상태(미확인 상태)일 때  이 API를 이용하여 확인 처리합니다.<br>`,
+    _description: `쿠팡이 상담완료한 업체이관 건으로 판매자의 확인이 필요한 상태(미확인 상태:TRANSFER)일 때  이 API를 이용하여 확인 처리합니다.<br>`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -44,7 +44,7 @@ export const customerServiceCenterInquireConfirmDocument = {
         require: true,
         _description: `Inquiry ID`,
         _relation: ``,
-        _referenceInfo: `이 파라미터는 셀러가 어느 질문을 대답해야할지를 나타냅니다.<br>우선  /v4/vendors/{vendorId}/callCenterInquiries API 를 사용하여 이 값을 받으세요.`,
+        _referenceInfo: `판매자가 어느 질문을 확인해야할 지를 입력합니다.<br/>먼저 쿠팡 콜센터 문의조회 API를 사용하여 미확인 상태(TRANSFER)인 inquiry 값을 확인합니다.`,
         _warning: ``,
       }
     ],
@@ -67,7 +67,7 @@ export const customerServiceCenterInquireConfirmDocument = {
     {
       name: `code`,
       type: `Number`,
-      _description: `결과코드`,
+      _description: `서버 응답 코드`,
       _relation: ``,
       _referenceInfo: `200/400/500`,
       _warning: ``,
@@ -76,7 +76,7 @@ export const customerServiceCenterInquireConfirmDocument = {
     {
       name: `message`,
       type: `String`,
-      _description: `실패원인`,
+      _description: `서버 응답 메시지`,
       _relation: ``,
       _referenceInfo: `If success,it shows OK`,
       _warning: ``,

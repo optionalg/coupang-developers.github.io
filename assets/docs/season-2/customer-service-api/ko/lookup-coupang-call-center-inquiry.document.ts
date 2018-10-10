@@ -12,7 +12,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `상담문의(쿠팡 -> 셀러)`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -27,7 +27,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         _referenceInfo: ``,
         //_warning: `In V4 API, removed the counselingId,customerEmail and customerPhoneNumber from the request parameter.<br>
         //And replaced counselingId with inquiryId, they have the same business meaning.The search period changed from 1day to 7days.`
-        _warning: `v2 version의 최대 조회 기간은 1일 입니다. ex)inquiryStartAt=2017-10-12&inquiryEndAt=2017-10-13`
+        _warning: `v2 version의 최대 조회 기간은 1일 입니다.`
       },
     ],
     nextVersions: [
@@ -49,13 +49,13 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/callCenterInquiries`,
-    _description: `쿠팡 콜센터 문의를 조회합니다. 이 API를 이용하여 고객님이 특정 상품에 대해 쿠팡 고객센터 또는 셀러콜센터에 접수한 상담을 조회 할 수 있습니다.<br>
+    _description: `쿠팡 콜센터 문의를 조회합니다. 고객이 특정 상품에 대해 쿠팡 콜센터에 접수한 문의를 조회 할 수 있습니다.<br>
     	a. 옵션아이디와 조회기간 모두 값이 있을 경우, 해당 옵션아이디와 조회 기간내의 모든 상담을 조회 할 수 있습니다.<br>
         b. 옵션아이디만 값이 있을 경우, 해당 옵션아이디의 상담만 조회 할 수 있습니다.<br>
         c. 조회기간만 값이 있을 경우, 해당 조회 기간내의 상담만 조회 할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `v4 version 최대 조회 기간 7일까지 설정가능합니다. ex)inquiryStartAt=2017-10-07&inquiryEndAt=2017-10-13`,
+    _warning: `조회 기간은 최대 7일까지 설정 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -90,22 +90,22 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
       {
         name: `inquiryStartAt`,
         require: false,
-        _description: `Inquired from, format: yyyy-MM-dd`,
+        _description: `조회시작일, format: yyyy-MM-dd`,
         _relation: ``,
-        _referenceInfo: `1. vendorItemId가 널(null)인 경우, 반드시 이 파라미터를 상용해야합니다. 조회시작일과 종료일은 동일한 하루일수 없고 최대시간 간격은 하루입니다.<br>
-                   해당 조회시작일과 종료일 기간의 모든 상담리스트를 조회할수있습니다 (inquiryEndAt - inquiryStartAt = 7d).<br>
-                   2. vendorItemId 값 있을시 이 파라미터는 반드시 입력해야할 사항X <br>
-                   a. 조회시작일과 조회종요일 널인 경우, 해당 vendorItemId의 모든 상담리스트를 조회할수있습니다.<br>
-                   b. 조회시작일과 조회종요일 값 있을시 해당 기간의 모든 삼담리스트를 조회할수있습니다.`,
+        _referenceInfo: `1. vendorItemId가 널(null)인 경우, 반드시 이 파라미터를 사용해야 합니다.<br/>
+                   해당 조회시작일과 종료일 기간의 모든 상담리스트를 조회할 수 있습니다 (inquiryEndAt - inquiryStartAt = 7d).<br/>
+                   2. vendorItemId 값 있을시 이 파라미터는 반드시 입력해야할 사항X <br/>
+                   a. 조회시작일과 조회종료일이 null인 경우, 해당 vendorItemId의 모든 상담리스트를 조회할수있습니다.<br/>
+                   b. 조회시작일과 조회종료일 값이 있을 경우 해당 기간의 모든 삼담리스트를 조회할수있습니다.`,
         _warning: ``,
         children: false
       },
       {
         name: `inquiryEndAt`,
         require: false,
-        _description: `Inquired to, format: yyyy-MM-dd`,
+        _description: `조회종료일, format: yyyy-MM-dd`,
         _relation: ``,
-        _referenceInfo: `inquiryEndAt의 비고는 inquiryStartAt과 같습니다.inquiryStartAt의 비고를 참조해 주십시오`,
+        _referenceInfo: ``,
         _warning: ``,
         children: false
       },
@@ -125,7 +125,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
           _description: `처리상태
           <table class="table">
             <tr>
-                <th>Parameter Name</th>
+                <th>Name</th>
                 <th>Status</th>
             </tr>
             <tr>
@@ -142,7 +142,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
             </tr>
             <tr>
             	<td>TRANSFER</td>
-            	<td>미확인 : 쿠팡이 상담완료한 업체이관 건으로 판매자의 확인이 필요한 상태</td>
+            	<td>미확인 : 쿠팡이 상담완료한 업체이관 건으로 판매자의 확인이 필요한 상태 : 답변은 필요없음</td>
         </tr>
           </table>`,
         _relation: ``,
@@ -156,10 +156,8 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         require: false,
         _description: `옵션아이디`,
         _relation: ``,
-        _referenceInfo: `1. 조회시작일과 조회종료일이 널인 경우, 이 파라미터를 사용해야만 해당 vendorItemId 아래의 모든 상담리스트 조회할수있습니다.<br>
-                   2. 조회시작일과 조회종료일 값 있을시  이 파라미터는 반드시 입력해야할 사항X <br>
-                   조회시작일과 종료일은 동일한 하루일수 없음; 해당 조회시작일과 종료일 기간의 모든 상담리스트를 조회할수있습니다.<br>
-                   (inquiryEndAt - inquiryStartAt = 7d)`,
+        _referenceInfo: `1. 조회시작일과 조회종료일이 null인 경우, 이 파라미터를 사용해야만 해당 vendorItemId 아래의 모든 상담리스트를 조회할 수 있습니다.<br/>
+                   2. 조회시작일과 조회종료일 값이 있을 경우 이 파라미터는 입력할 필요 없습니다. <br/>`,
         _warning: ``,
         children: false
       },
@@ -168,8 +166,8 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         require: false,
         _description: `현재 페이지`,
         _relation: ``,
-        _referenceInfo: `Default 1,pageNum가 null일 경우에는 default값이 적용됩니다.`,
-        _warning: `v2 version의 경우 파라메터 이름이 page 입니다.`,
+        _referenceInfo: `Default 1`,
+        _warning: ``,
         children: false
       },
       {
@@ -177,7 +175,7 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
         require: false,
         _description: `페이지 사이즈`,
         _relation: ``,
-        _referenceInfo: `Default 10, max = 30 ,pageSize가 null일 경우에는 default값이 적용됩니다.`,
+        _referenceInfo: `Default 10, max = 30`,
         _warning: ``,
         children: false
       }
@@ -189,18 +187,18 @@ export const lookupCustomerServiceCenterEnquiryDocument = {
     {
       name: `code`,
       type: `Number`,
-      _description: `Http request status code`,
+      _description: `서버 응답 코드`,
       _relation: ``,
-      _referenceInfo: `eg: 400,401 and so on`,
+      _referenceInfo: ``,
       _warning: ``,
       children: false
     },
     {
       name: `message`,
       type: `String`,
-      _description: `If inquiry success, will show success message;<br>If inquiry fail, will show the corresponding message`,
+      _description: `서버 응답 메시지`,
       _relation: ``,
-      _referenceInfo: `200 : OK <br> 400 : Bad request , will show corresponding bad request message <br> 500 : Internal error`,
+      _referenceInfo: ``,
       _warning: ``,
       children: false
     },

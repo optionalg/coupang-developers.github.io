@@ -26,10 +26,10 @@ export const invoiceUpdateProcessingDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/updateInvoices`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/updateInvoices`,
-    _description: `잘못 등록한 운송장 내용을 변경합니다.  <Br/>변경된 운송장의 배송상태는 배송지시(DEPARTURE)로 변경되며 이후 트래킹 정보 연동에 따라 변경될 수 있습니다.`,
+    _description: `잘못 등록한 운송장 내용을 변경합니다.  <br/>변경된 운송장의 배송상태는 배송지시(DEPARTURE)로 변경되며 이후 트래킹 정보 연동에 따라 변경될 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `배송상태가 배송지시(DEPARTURE), 배송중(DELIVERING), 배송완료(FINAL_DELIVERY), 업체직송(NONE_TRACKING) 상태일 때만 운송장정보 변경이 가능합니다.
+    _warning: `<br/>배송상태가 배송지시(DEPARTURE), 배송중(DELIVERING), 배송완료(FINAL_DELIVERY), 업체직송(NONE_TRACKING) 상태일 때만 운송장정보 변경이 가능합니다.
                 (나머지 상태에서는 에러 발생).`,
   },
   parameters: {

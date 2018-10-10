@@ -26,10 +26,12 @@ export const invoiceUploadProcessingDocument = {
     httpMethod: `POST`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/invoices`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/invoices`,
-    _description: `송장을 업로드하여 주문을 배송지시 상태로 변경합니다. <Br/>※ 분리배송이 필요한 경우, 송장 업로드 예시는 e-mail로 별도 문의해주세요.`,//`송장을 업로드하여 발주서의 상태를 배송지시로 변경, v2에 분리배송이 구현`
+    _description: `송장을 업로드하여 주문을 배송지시 상태로 변경합니다.
+                        <br/>상품준비중 상태의 주문에 대해서만 송장업로드가 가능합니다. `,
     _relation: ``,
-    _referenceInfo: ``,
-    _warning: `상품준비중 상태의 주문에 대해서만 송장업로드가 가능합니다.`,
+    _referenceInfo: `분리배송이 필요한 경우, 송장 업로드 예시는 별도 문의해주세요.`,
+    _warning: `<br/>6개월 이내에 중복된 송장번호를 입력할 경우 송장중복에러가 발생할 수 있습니다.
+<br/>올바르지 않은 운송장을 입력하여 정확한 배송흐름을 추적할 수 없거나 기한 내 운송장을 입력하지 않아 고객이 취소를 요청할 경우 이로 인해 발생하는 배송비는 판매자가 부담해야 합니다.`,
   },
   apiMigrationInfo: {
     previousVersions: [
@@ -301,7 +303,8 @@ export const invoiceUploadProcessingDocument = {
             _description: `송장번호`,
             _relation: ``,
             _referenceInfo: `분리배송 시 선택. 입력 하지 않는 경우 "" 공백으로 입력한다.`,
-            _warning: `분리배송 시에는 송장번호 또는 출고예정일 둘중에 한가지만 입력한다.`,
+            _warning: `분리배송 시에는 송장번호 또는 출고예정일 둘중에 한가지만 입력한다.
+                            <br/> 업체직송(DIRECT)일 경우 임의의 숫자만 입력가능하며 배송트래킹은 지원하지 않습니다.`,
             children: false
           },
           {

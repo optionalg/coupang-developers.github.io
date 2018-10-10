@@ -873,7 +873,7 @@ export const modifySellerProductDocument = {
             name: `externalVendorSku`,
             type: `String`,
             require: false,
-            _description: `업체상품코드`,
+            _description: `판매자상품코드 (업체상품코드)`,
             _relation: ``,
             _referenceInfo: `업체고유의 item 코드값을 임의로 세팅할 수 있으며, 입력값은 발주서 조회 API response 에 포함됨.`,
             _warning: ``,

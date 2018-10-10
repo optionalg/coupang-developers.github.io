@@ -12,7 +12,7 @@ export const lookupCustomerInquiryByProductDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `상담문의(고객 -> 셀러)`,
+      name: ``,
       anchorId: ``,
     },
 
@@ -26,7 +26,7 @@ export const lookupCustomerInquiryByProductDocument = {
         _relation: ``,
         _referenceInfo: ``,
         //_warning: `In both version APIs, the search period changed from 1day to 7days.`
-        _warning: `v2 version의 최대 조회 기간은 1일 입니다. ex)inquiryStartAt=2017-10-12&inquiryEndAt=2017-10-13`
+        _warning: `v2 version의 최대 조회 기간은 1일 입니다. `
       },
     ],
     nextVersions: [
@@ -54,7 +54,7 @@ export const lookupCustomerInquiryByProductDocument = {
                    c. 조회기간만 값이 있을 경우, 해당 조회 기간내의 상담만 조회 할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `v4 version 최대 조회 기간 7일까지 설정가능합니다. ex)inquiryStartAt=2017-10-07&inquiryEndAt=2017-10-13`,
+    _warning: `최대 조회 기간 7일까지 설정가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -71,22 +71,22 @@ export const lookupCustomerInquiryByProductDocument = {
       {
         name: `inquiryStartAt`,
         require: false,
-        _description: `Inquired from, format: yyyy-MM-dd`,
+        _description: `조회시작일, format: yyyy-MM-dd`,
         _relation: ``,
-        _referenceInfo: `1. 옵션아이디가 널(null)인 경우, 반드시 이 두 파라미터를 사용해 주셔야 합니다. 조회시작일과 종료일은 동일한 하루일수 없고 최대 조회 시간 간격은 일주일 입니다.
-                         해당 조회 기간내의 모든 상담을 조회할수있습니다 (inquiryEndAt - inquiryStartAt < = 7days).<br>
-                         2. 옵션아이디가 값이 있을 경우, 이 파라미터는 옵셔널입니다 <br>
-                         a. 조회시작일과 종료일이 널인 경우, 해당 옵션아이디의 상담만 조회할수있습니다.<br>
-                         b. 조회시작일과 종료일이 값 있을 경우, 해당 기간의 상담만 조회할수있습니다.`,
+        _referenceInfo: `1. 옵션아이디가 널(null)인 경우, 반드시 이 두 파라미터를 사용해야 합니다. 최대 조회일 간격은 일주일입니다.
+                         해당 조회 기간내의 모든 상담을 조회할 수 있습니다 (inquiryEndAt - inquiryStartAt < = 7days).<br>
+                         2. 옵션아이디가 값이 있을 경우, 이 파라미터는 입력할 필요가 없습니다. <br>
+                         a. 조회시작일과 종료일이 null인 경우, 해당 옵션아이디의 상담만 조회할 수 있습니다.<br>
+                         b. 조회시작일과 종료일의 값이 있을 경우, 해당 기간의 상담만 조회할 수 있습니다.`,
         _warning: ``,
         children: false
       },
       {
         name: `inquiryEndAt`,
         require: false,
-        _description: `Inquired to, format: yyyy-MM-dd`,
+        _description: `조회종료일, format: yyyy-MM-dd`,
         _relation: ``,
-        _referenceInfo: `inquiryEndAt의 비고는 inquiryStartAt과 같습니다.inquiryStartAt의 비고를 참조해 주십시오`,
+        _referenceInfo: ``,
         _warning: ``,
         children: false
       },
@@ -96,7 +96,7 @@ export const lookupCustomerInquiryByProductDocument = {
         _description: `
           <table class="table">
             <tr>
-                <th>Parameter Name</th>
+                <th>Name</th>
                 <th>Status</th>
             </tr>
             <tr>
@@ -122,9 +122,9 @@ export const lookupCustomerInquiryByProductDocument = {
         require: false,
         _description: `상품등록후 생성된 VendorItemId`,
         _relation: ``,
-        _referenceInfo: `1. 조회시작일과 종료일이 널인 경우, 이 파라미터를 사용하셔야만 해당 옵션아이디의 상담을 조회 할 수 있습니다.<br>
-                         2. 조회시작일과 종료일이 값 있을 경우, 이 파라미터는 옵셔널입니다.<br>
-                         조회시작일과 종료일은 동일한 하루일수 없습니다; 해당 조회 기간내의 상담만 조회 할 수 있습니다.`,
+        _referenceInfo: `1. 조회시작일과 종료일이 null인 경우, 이 파라미터 값입력을 통해 해당 옵션아이디의 상담을 조회 할 수 있습니다.<br>
+                         2. 조회시작일과 종료일 값이 있을 경우, 이 파라미터 입력은 필요없습니다.<br>
+                         `,
         _warning: ``,
         children: false
       },
@@ -134,7 +134,7 @@ export const lookupCustomerInquiryByProductDocument = {
         _description: `현재 페이지`,
         _relation: ``,
         //_referenceInfo: `Default 1,if pageNum is null, then use the default value.`,
-        _referenceInfo: `Default 1,pageNum가 null일 경우에는 default값이 적용됩니다.`,
+        _referenceInfo: `Default 1`,
         _warning: ``,
         children: false
       },
@@ -143,7 +143,7 @@ export const lookupCustomerInquiryByProductDocument = {
         require: false,
         _description: `페이지 사이즈`,
         _relation: ``,
-        _referenceInfo: `Default 10, max = 50,pageSize가 null일 경우에는 default값이 적용됩니다.`,
+        _referenceInfo: `Default 10, max = 50`,
         _warning: ``,
         children: false
       },
@@ -164,18 +164,18 @@ export const lookupCustomerInquiryByProductDocument = {
     {
       name: `code`,
       type: `Number`,
-      _description: `Http request status code`,
+      _description: `서버 응답 코드`,
       _relation: ``,
-      _referenceInfo: `Example: 200, 400, 500`,
+      _referenceInfo: ``,
       _warning: ``,
       children: false
     },
     {
       name: `message`,
       type: `String`,
-      _description: `If inquiry success, will show success message;<br>If inquiry fail, will show the corresponding message`,
+      _description: `서버 응답 메시지`,
       _relation: ``,
-      _referenceInfo: `200 : OK <br> 400 : Bad request , will show corresponding bad request message <br> 500 : Internal error`,
+      _referenceInfo: ``,
       _warning: ``,
       children: false
     },
