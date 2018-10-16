@@ -29,22 +29,23 @@ export const paymentCompleteRefundDocument = {
     _description: `결제완료 상태의 주문건을 취소한다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `결제완료 상태의 주문에만 적용가능합니다.(나머지 상태에 적용 시 에러 발생)`,
+    _warning: `<br/>결제완료 상태의 주문에만 적용가능합니다.(나머지 상태에 적용 시 에러 발생)<br/>
+                    결제완료건 환불 처리 API 사용은 판매자점수(주문이행)를 하락시키게 됩니다.`,
   },
   parameters: {
     pathSegmentParameters: [
       {
-        name: `orderId`,
+        name: `vendorId`,
         require: true,
-        _description: `주문 ID`,
+        _description: `업체 ID`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``
       },
       {
-        name: `vendorId`,
+        name: `orderId`,
         require: true,
-        _description: `vendor ID`,
+        _description: `주문 번호`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``
@@ -56,7 +57,7 @@ export const paymentCompleteRefundDocument = {
         name: `orderId`,
         type: `Number`,
         require: true,
-        _description: `주문 ID`,
+        _description: `주문 번호`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -66,7 +67,7 @@ export const paymentCompleteRefundDocument = {
         name: `vendorItemIds`,
         type: `Array`,
         require: true,
-        _description: `벤더아이템 ID 배열`,
+        _description: `취소할 상품의 vendorItemId 배열`,
         _relation: ``,
         _referenceInfo: `receiptCounts 와 쌍으로 입력`,
         _warning: ``,
@@ -76,7 +77,7 @@ export const paymentCompleteRefundDocument = {
         name: `receiptCounts`,
         type: `Array`,
         require: true,
-        _description: `주문 취소 수량 배열`,
+        _description: `취소할 상품 개수 배열, 값은 항상 0보다 큼`,
         _relation: ``,
         _referenceInfo: `vendorItemIds 와 쌍으로 입력`,
         _warning: ``,
@@ -86,7 +87,7 @@ export const paymentCompleteRefundDocument = {
         name: `bigCancelCode`,
         type: `String`,
         require: true,
-        _description: `대분류 사유 코드`,
+        _description: `결제완료 상품취소 사유 중 대분류 사유 코드`,
         _relation: ``,
         _referenceInfo: `CANERR`,
         _warning: ``,
@@ -96,7 +97,7 @@ export const paymentCompleteRefundDocument = {
         name: `middleCancelCode`,
         type: `String`,
         require: true,
-        _description: `중분류 사유 코드`,
+        _description: `결제완료 상품취소 사유 중 중분류 사유 코드`,
         _relation: ``,
         _referenceInfo: `
           <ul>
@@ -104,17 +105,14 @@ export const paymentCompleteRefundDocument = {
             <li>CCPNER // 제휴사이트 오류 : 주소 문제로 고객 배송지 생성 불가시 취소 되는 오류</li>
             <li>CCPRER // 가격등재오류 : 양사간 상품 가격오류 발생시 취소 되는 오류</li>
           </ul>`,
-        _warning: `
-           <ul>
-            <li>CCSSER // 시스템오류 : 2018년 1월 15일에 삭제되는 코드 입니다. 이 경우 해당 코드 전송 시 오류가 발생합니다.</li>
-          </ul>`,
+        _warning: ``,
         children: false
       },
       {
         name: `vendorId`,
         type: `String`,
         require: true,
-        _description: `업체코드`,
+        _description: `업체 ID, path variable로도 입력`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -124,7 +122,7 @@ export const paymentCompleteRefundDocument = {
         name: `userId`,
         type: `String`,
         require: true,
-        _description: `실사용자아이디(쿠팡 Wing ID)`,
+        _description: `업체의 쿠팡 Wing로그인 ID`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,

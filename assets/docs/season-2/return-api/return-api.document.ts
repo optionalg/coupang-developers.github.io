@@ -5,6 +5,7 @@ import {lookupReturnByProductDocument} from "./ko/lookup-return-request-by-produ
 import {returnRequestProductReceiptConfirmationProcessingDocument} from "./ko/return-request-product-receipt-confirmation-processing.document";
 import {returnRequestApprovalProcessingDocument} from "./ko/return-request-approval-processing.document";
 import {lookupReturnCancelListDocument} from "./ko/lookup-return-cancel-list.document";
+import {returnInvoiceProcessingDocument} from "./ko/retrun-invoice-processing.document";
 export const returnApiDocs = {
   ko: [],
   en: []
@@ -16,3 +17,4 @@ returnApiDocs.ko.push(lookupReturnByProductDocument);
 returnApiDocs.ko.push(returnRequestProductReceiptConfirmationProcessingDocument);
 returnApiDocs.ko.push(returnRequestApprovalProcessingDocument);
 returnApiDocs.ko.push(lookupReturnCancelListDocument);
+returnApiDocs.ko.push(returnInvoiceProcessingDocument);

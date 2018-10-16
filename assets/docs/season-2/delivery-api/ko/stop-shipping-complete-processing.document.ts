@@ -26,10 +26,10 @@ export const stopShippingCompleteProcessingDocument = {
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}/stoppedShipment`,
     _description: `반품요청목록 조회 시 취소진행 상태가 출고중지요청(RELEASE_STOP_UNCHECKED) 일 경우에 사용가능합니다. <br/>
-           아직 상품을 발송하지 않아, 고객 요청대로 상품을 출고하지 않을 예정일 때 적용합니다.`,
+           아직 상품을 발송하지 않아, 고객 요청대로 상품을 출고하지 않을 예정일 때 사용합니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `<br/>출고 중지 요청 상품이 배송되면 왕복 반품 배송비는 판매자의 귀책입니다.`,
   },
   apiMigrationInfo: {
     previousVersions: [

@@ -46,7 +46,7 @@ export const lookupOutboundShippingFacilityListDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/outboundShippingCenters`,
-    _description: `업체 코드를 통해 출고지 목록을 조회한다.`,
+    _description: `업체 코드를 통해 출고지 목록을 조회합니다. 해당 API를 통해 출고지 코드(outboundShippingPlaceCode)를 확인할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -166,25 +166,7 @@ export const lookupOutboundShippingFacilityListDocument = {
               type: `Number`,
               _description: `출고지 코드`,
               _relation: ``,
-              _referenceInfo: `
-              <table class="table">
-              <tr>
-                <th>CODE</th>
-                <th>Mean</th>
-              </tr>
-              <tr>
-                <td>JIBUN</td>
-                <td>지번</td>
-              </tr>
-              <tr>
-                <td>ROADNAME</td>
-                <td>도로명</td>
-              </tr>
-              <tr>
-                <td>OVERSEA</td>
-                <td>해외</td>
-              </tr>
-          </table>`,
+              _referenceInfo: ``,
               _warning: ``,
               children: false
             },

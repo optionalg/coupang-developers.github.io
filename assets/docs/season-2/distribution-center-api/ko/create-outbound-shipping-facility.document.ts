@@ -92,7 +92,7 @@ export const createOutboundShippingFacilityDocument = {
         _description: `출고지 이름, 최대 50 자`,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: ``,
+        _warning: `동일한 명칭의 출고지 중복 등록 불가`,
         children: false
       },
       {
@@ -464,7 +464,7 @@ export const createOutboundShippingFacilityDocument = {
              </tr>
              </table> 
              `,
-            _warning: `배달 최소 요금은 전 택배사 공통 1,000원`,
+            _warning: ``,
             children: false
           },
           {

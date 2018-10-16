@@ -10,6 +10,7 @@ import {stopShippingCompleteProcessingDocument} from "./ko/stop-shipping-complet
 import {paymentCompleteRefundDocument} from "./ko/payment-complete-refund.document";
 import {productAlreadyShippedProcessingDocument} from "./ko/products-already-shipped-processing.document";
 import {deliveryCompleteProcessingDocument} from "./ko/delivery-complete-processing.document";
+import {instructCancelDocument} from "./ko/instruct-cancel.document";
 
 export const deliveryApiDocs = {
   ko: [],
@@ -27,4 +28,5 @@ deliveryApiDocs.ko.push(invoiceUpdateProcessingDocument);
 deliveryApiDocs.ko.push(stopShippingCompleteProcessingDocument);
 deliveryApiDocs.ko.push(productAlreadyShippedProcessingDocument);
 deliveryApiDocs.ko.push(paymentCompleteRefundDocument);
+deliveryApiDocs.ko.push(instructCancelDocument);
 deliveryApiDocs.ko.push(deliveryCompleteProcessingDocument);

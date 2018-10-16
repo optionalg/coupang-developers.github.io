@@ -1745,7 +1745,7 @@ export const createSellerProductDocument = {
       "data": {
         "code": "SUCCESS",
         "message": "",
-        "data": 7770
+        "data": 427011919
       }
     },
     _description: ``,

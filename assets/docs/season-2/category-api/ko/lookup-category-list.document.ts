@@ -12,7 +12,7 @@ export const lookupCategoryListDocument = {
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
-      name: `노출카테고리 전체목록 조회`,
+      name: `노출카테고리   전체목록 조회`,
       anchorId: ``,
     },
   },
