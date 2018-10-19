@@ -52,7 +52,9 @@ export const processingExchangeProductInvoiceUploadDocument = {
 교환송장 업로드 처리 API를 수행하실 수 있습니다!`,
     _relation: ``,
     _referenceInfo: ` `,
-    _warning: `입고(회수)완료 처리 후 최대 10분이후에 운송장 입력이 가능합니다.`,
+    _warning: `입고 확인처리 후, 교환요청 목록 조회를 하시면 deliveryInvoiceGroupDtos 정보가 생됩니다.<br/>
+                    이 때, 새롭게 발부 된 shipmentBoxId를 넣어 송장 업로드처리를 수행하시기 바랍니다.<br>     
+                    입고 확인처리 후 최대 10분 이후에 운송장 입력이 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [
@@ -132,8 +134,8 @@ export const processingExchangeProductInvoiceUploadDocument = {
                     <td><del>대한통운[합병]</del></td>
                 </tr>
                 <tr>
-                  <td><del>KGBLS</del></td>
-                  <td><del>KGB택배</del></td>
+                  <td>KGBPS</td>
+                  <td>KGB택배</td>
                 </tr>
                 <tr>
                   <td>KDEXP</td>
@@ -278,6 +280,14 @@ export const processingExchangeProductInvoiceUploadDocument = {
                 <tr>
                   <td>ECMS</td>
                   <td>ECMS익스프레스</td>
+                </tr>
+               <tr>
+                  <td>SELC</td>
+                  <td>삼성직배송</td>
+                </tr>
+                <tr>
+                  <td>WONDERS</td>
+                  <td>원더스퀵</td>
                 </tr>
               </table>
             `,

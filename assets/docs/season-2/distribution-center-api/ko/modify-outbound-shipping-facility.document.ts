@@ -322,8 +322,8 @@ export const modifyOutboundShippingFacilityDocument = {
                     <td><del>대한통운[합병]</del></td>
                 </tr>
                 <tr>
-                  <td><del>KGBLS</del></td>
-                  <td><del>KGB택배</del></td>
+                  <td>KGBPS</td>
+                  <td>KGB택배</td>
                 </tr>
                 <tr>
                   <td>KDEXP</td>
@@ -468,6 +468,14 @@ export const modifyOutboundShippingFacilityDocument = {
                 <tr>
                   <td>ECMS</td>
                   <td>ECMS익스프레스</td>
+                </tr>
+               <tr>
+                  <td>SELC</td>
+                  <td>삼성직배송</td>
+                </tr>
+                <tr>
+                  <td>WONDERS</td>
+                  <td>원더스퀵</td>
                 </tr>
               </table>
             `,
