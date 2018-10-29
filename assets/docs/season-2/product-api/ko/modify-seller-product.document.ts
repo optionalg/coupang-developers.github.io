@@ -27,7 +27,10 @@ export const modifySellerProductDocument = {
     path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products`,
     HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products`,
     _description: `업체상품 정보를 수정한다. <br/>
-    상품 생성 시 사용한 request body에, [sellerProductId]와 [sellerProductItemId]를 삽입하여 빠른 수정 가능 <br/>
+    '상품 조회 API'를 이용하여 추출 된 json 전문에 원하는 value만 수정, 전송하여 빠른 수정 가능 <br/>
+    상품 생성 시 사용한 request body에, [sellerProductId]와 [sellerProductItemId]를 삽입하여 수정 가능 <br/>
+    
+    - 옵션 수정 : 수정하고 싶은 옵션의 아이템 상단에 [sellerProductItemId]와 [vendorItemId] 삽입 후, 원하는 [attributeValueName]으로 수정하여 전송 <br/>
     - 옵션 삭제 : 삭제하고 싶은 옵션의 'items 배열 하위 값'을 제거하고, 남기고 싶은 아이템 상단에 [sellerProductItemId] 삽입 후 전송 <br/>
     - 옵션 추가 : [sellerProductItemId]를 입력하지 않고 items 배열을 추가하여 전송 <br/>
     ※ [sellerProductItemId]는 상품 조회 API를 이용해 확인가능합니다. <br/>
@@ -403,7 +406,15 @@ export const modifySellerProductDocument = {
         </tr>
         <tr>
           <th>FREE_DELIVERY_OVER_9800</th>
-          <th>9800이상 무료배송</th>
+          <th>9,800원이상 무료배송 </th>
+        </tr>
+        <tr>
+          <th>FREE_DELIVERY_OVER_19800</th>
+          <th>19,800원이상 무료배송 </th>
+        </tr>
+        <tr>
+          <th>FREE_DELIVERY_OVER_30000</th>
+          <th>30,000원이상 무료배송 </th>
         </tr>
         <tr>
           <th>NOT_FREE</th>

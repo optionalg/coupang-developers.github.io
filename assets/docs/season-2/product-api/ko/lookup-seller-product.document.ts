@@ -440,28 +440,36 @@ export const lookupSellerProductDocument = {
           _description: `배송비종류`,
           _relation: ``,
           _referenceInfo: `
-        <table class="table">
-        <tr>
-          <th>Parameter Name</th>
-          <th>Status</th>
-        </tr>
-        <tr>
-          <th>FREE</th>
-          <th>무료배송</th>
-        </tr>
-        <tr>
-          <th>FREE_DELIVERY_OVER_9800</th>
-          <th>9800이상 무료배송</th>
-        </tr>
-        <tr>
-          <th>NOT_FREE</th>
-          <th>유료배송</th>
-        </tr>
-        <tr>
-          <th>CHARGE_RECEIVED</th>
-          <th>착불배송</th>
-        </tr>
-        </table>
+          <table class="table">
+          <tr>
+            <th>Parameter Name</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <th>FREE</th>
+            <th>무료배송</th>
+          </tr>
+          <tr>
+            <th>FREE_DELIVERY_OVER_9800</th>
+            <th>9,800원이상 무료배송 </th>
+          </tr>
+          <tr>
+            <th>FREE_DELIVERY_OVER_19800</th>
+            <th>19,800원이상 무료배송 </th>
+          </tr>
+          <tr>
+            <th>FREE_DELIVERY_OVER_30000</th>
+            <th>30,000원이상 무료배송 </th>
+          </tr>
+          <tr>
+            <th>NOT_FREE</th>
+            <th>유료배송</th>
+          </tr>
+          <tr>
+            <th>CHARGE_RECEIVED</th>
+            <th>착불배송</th>
+          </tr>
+          </table>
         <br>※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함<br>
         ● 무료배송 설정 시<br>
         초도반품배송비(편도)[deliveryChargeOnReturn]와, 반품배송비(편도)[returnCharge] 금액 설정<br>  
