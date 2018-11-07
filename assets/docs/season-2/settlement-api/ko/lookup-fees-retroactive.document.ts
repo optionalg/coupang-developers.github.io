@@ -6,7 +6,7 @@ export const lookupFeesRetroactiveDocument = {
     category: `settlement-api`,   // input category ex) exchange-service-api
     id: `lookup-fees-retroactive`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `lookup_fees_retroactive`,
-    name: `수수료 소급분 조회`,       // use display name, i will change 'translation key'
+    name: `(사용불가)수수료 소급분 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -47,15 +47,14 @@ export const lookupFeesRetroactiveDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/retroactiveFees`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/retroactiveFees`,
-    _description: `수수료소급분을 조회할수 있다. 수수료소급분이란 수수료 변경에 따라 지급해줘야하는 금액.
-
-예:
-
-수수료가 9%였는데 7%로 변경시 2% 소급해줘야하는 금액을 수수료소급분으로 지칭한다;
-수수료가 변경되지 않을경우 수수료소급분은 0.`,
+    // 수수료소급분을 조회할수 있다. 수수료소급분이란 수수료 변경에 따라 지급해줘야하는 금액.
+    // 예:
+    // 수수료가 9%였는데 7%로 변경시 2% 소급해줘야하는 금액을 수수료소급분으로 지칭한다;
+    // 수수료가 변경되지 않을경우 수수료소급분은 0.
+    _description: ``,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `내부 이슈로 본 API는 사용이 불가합니다.  쿠팡 Wing 의 정산관리> 매출내역 메뉴를 이용하시기 바랍니다.`,
   },
   parameters: {
     pathSegmentParameters: [

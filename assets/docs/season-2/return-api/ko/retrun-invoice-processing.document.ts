@@ -6,7 +6,7 @@ export const returnInvoiceProcessingDocument = {
     category: `return-api`,   // input category ex) exchange-service-api
     id: `retrun_invoice_processing`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `retrun_invoice_processing.`,
-    name: `회수 수기 송장 등록`,       // use display name, i will change 'translation key'
+    name: `회수 송장 등록`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -54,8 +54,9 @@ export const returnInvoiceProcessingDocument = {
     `,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `반품 : 반품요청 목록조회 시 status가 반품접수(RETURNS_UNCHECKED) 시,<br/>
-                    교환 : 교환요청 목록조회 시 회수상태(collectStatus)가 BeforeDirection(회수연동전)일 때 사용하기 바랍니다.`,
+    _warning: `<br/>반품 : 반품요청 목록조회 시 status가 반품접수(RETURNS_UNCHECKED) 시,<br/>
+                    교환 : 교환요청 목록조회 시 회수상태(collectStatus)가 BeforeDirection(회수연동전)일 때 사용하기 바랍니다.<br/>
+                    <주의> 회수송장이 등록되었더라도 배송 트래킹이 안되거나 또는 택배기사가 물건을 회수하기 전까지는 고객이 마이쿠팡을 통해 반품철회를 할 수 있습니다. `,
   },
   parameters: {
     pathSegmentParameters: [

@@ -44,15 +44,7 @@ export const exposureCategoryValidationDocument = {
     ],
     queryStringParameters: false
   },
-  errorSpec: [
-    {
-      status: 400,
-      _description: ``,
-      _relation: ``,
-      _referenceInfo: ``,
-      _warning: ``
-    }
-  ],
+  errorSpec: false,
   responseSpec: [
     {
       name: `code`,

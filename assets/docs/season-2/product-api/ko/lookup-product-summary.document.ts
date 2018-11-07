@@ -50,7 +50,7 @@ export const lookupProductSummaryDocument = {
   responseSpec: [
     {
       name: `code`,
-      type: `Number`,
+      type: `String`,
       _description: `결과코드`,
       _relation: ``,
       _referenceInfo: `SUCCESS/ERROR`,
@@ -191,7 +191,7 @@ export const lookupProductSummaryDocument = {
         },
         {
           name: `createdAt`,
-          type: `DateTIme`,
+          type: `String`,
           require: true,
           _description: `판매등록일시`,
           _relation: ``,

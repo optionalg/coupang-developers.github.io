@@ -10,7 +10,7 @@ export const lookupAllSettlementInfoDocument = {
     category: `settlement-api`,   // input category ex) exchange-service-api
     id: `lookup-all-settlement-info`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `lookup_all_settlement_info`,
-    name: `전체 주문 정산내역 조회`,       // use display name, i will change 'translation key'
+    name: `(사용불가)전체 주문 정산내역 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -29,11 +29,11 @@ export const lookupAllSettlementInfoDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/settlementDetails`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/settlementDetails`,
-    _description: `결제일 기반 기간 검색제공, vendorItemId, shipmentStatus 필터 추가 가능`,
+    //결제일 기반 기간 검색제공, vendorItemId, shipmentStatus 필터 추가 가능
+    _description: ``,  
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `이 API는 '매출내역 조회'의 upgrade버전이며 현재 Close Beta상태에 있는 API입니다,
-              안정화 된 이후 공개 될 예정입니다.`,
+    _warning: `내부 이슈로 본 API는 사용이 불가합니다.  쿠팡 Wing 의 정산관리> 매출내역 메뉴를 이용하시기 바랍니다.`,
   },
   parameters: {
     pathSegmentParameters: [

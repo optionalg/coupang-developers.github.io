@@ -1,7 +1,7 @@
 
 import {lookupExposureCategoryListDocument} from "./ko/lookup-exposure-category-list.document";
 import {exposureCategoryValidationDocument} from "./ko/exposure-category-validation.document";
-import {lookupCategoryMetaInfoUseIdDocument} from "./ko/lookup-category-meta-info-use-id.document";
+//import {lookupCategoryMetaInfoUseIdDocument} from "./ko/lookup-category-meta-info-use-id.document";
 import {lookupCategoryMetaInfoUseCodeDocument} from "./ko/lookup-category-meta-info-use-code.document";
 import {lookupExposureCategoryDocument} from "./ko/lookup-exposure-category.document";
 export const categoryApiDocs = {

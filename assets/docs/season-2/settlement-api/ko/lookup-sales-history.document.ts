@@ -6,7 +6,7 @@ export const lookupSalesHistoryDocument = {
     category: `settlement-api`,   // input category ex) exchange-service-api
     id: `lookup-sales-history`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `lookup_sales_history`,
-    name: `매출내역 조회`,       // use display name, i will change 'translation key'
+    name: `(사용불가)매출내역 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -46,10 +46,11 @@ export const lookupSalesHistoryDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/salesDetails`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/orders/salesDetails`,
-    _description: `상품매출, 배송비매출등 상세한 매출내역을 조회할수 있다.`,
+    //상품매출, 배송비매출등 상세한 매출내역을 조회할수 있다.
+    _description: ``,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `내부 이슈로 본 API는 사용이 불가합니다.  쿠팡 Wing 의 정산관리> 매출내역 메뉴를 이용하시기 바랍니다.`,
   },
   parameters: {
     pathSegmentParameters: [

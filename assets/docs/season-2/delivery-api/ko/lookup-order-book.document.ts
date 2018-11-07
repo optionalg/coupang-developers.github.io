@@ -78,15 +78,7 @@ export const lookupOrderBookDocument = {
     queryStringParameters: false,
     bodyParameters: false
   },
-  errorSpec: [
-    {
-      status: ``,
-      _description: ``,
-      _relation: ``,
-      _referenceInfo: ``,
-      _warning: ``
-    }
-  ],
+  errorSpec: false,
   responseSpec: [
     {
       name: `code`,
