@@ -47,7 +47,7 @@ export const lookupReturnByProductDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests/{receiptId}`,
-    _description: `취소(반품)접수번호를 이용하여 반품 단건 조회를 수행합니다.`,
+    _description: `반품 접수번호를 이용하여 반품 단건 조회를 수행합니다.`,
     _relation: ``,
     _referenceInfo: ``,
     _warning: ``,
@@ -78,7 +78,7 @@ export const lookupReturnByProductDocument = {
   responseSpec: [
     {
       name: `code`,
-      type: `Number`,
+      type: `String`,
       _description: `Http request status code`,
       _relation: ``,
       _referenceInfo: `Example: 200, 400, 500`,
@@ -513,6 +513,52 @@ export const lookupReturnByProductDocument = {
               children: false
             }
           ]
+        },
+        {
+          name: `returnDeliveryDtos`,
+          type: `Array`,
+          _description: `회수 운송장 정보`,
+          _relation: ``,
+          _referenceInfo: `receiptId 별로 복수 개의 회수 운송장정보가 발생할 수 있음`,
+          _warning: ``,
+          children: [
+            {
+              name: `deliveryCompanyCode`,
+              type: ` String`,
+              _description: `회수 택배사코드`,
+              _relation: ``,
+              _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },
+            {
+              name: `deliveryInvoiceNo`,
+              type: `String`,
+              _description: `회수 운송장번호`,
+              _relation: ``,
+              _referenceInfo: `회수 운송장번호 값이 "" 또는 null일 경우 무시`,
+              _warning: ``,
+              children: false
+            }
+          ] 
+         }, 
+        {
+          name: `reasonCode`,
+          type: `String`,
+          _description: `반품사유코드`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false,
+        },
+        {
+          name: `reasonCodeText`,
+          type: `String`,
+          _description: `반품사유설명`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false,
         }
       ]
     }
@@ -550,7 +596,7 @@ export const lookupReturnByProductDocument = {
           "returnDeliveryType": "연동택배",
           "releaseStopStatus": "미처리",
           "enclosePrice": 0,
-          "faultByType": "협력사 과실",
+          "faultByType": "CUSTOMER",
           "preRefund": false,
           "completeConfirmDate": "",
           "completeConfirmType": "미확인",
@@ -566,7 +612,19 @@ export const lookupReturnByProductDocument = {
               "sellerProductId": 130,
               "sellerProductName": "객지/한씨연대기/삼포 가는 길/섬섬옥수/몰개월의 새 1"
             }
-          ]
+          ],
+          "returnDeliveryDtos": [
+            {
+              "deliveryCompanyCode": "DIRECT",
+              "deliveryInvoiceNo": "201807261200"
+            },
+            {
+              "deliveryCompanyCode": "DIRECT",
+              "deliveryInvoiceNo": "201807261200"
+            }
+          ],
+          "reasonCode": "CHANGEMIND",
+          "reasonCodeText": "필요 없어짐 (단순 변심)"
         }
       ]
     },

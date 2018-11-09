@@ -6,7 +6,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
     category: `return-api`,   // input category ex) exchange-service-api
     id: `lookup-return-request-list-per-minute`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `lookup_return_request_list_per_minute`,
-    name: `반품요청 목록 조회(분단위 전체)`,       // use display name, i will change 'translation key'
+    name: `반품요청 목록 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -48,17 +48,19 @@ export const lookupReturnRequestListPerMinuteDocument = {
     httpMethod: `GET`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnRequests`,
-    _description: `분단위로 반품 접수한 주문을 확인하고, 반품 완료 내역을 조회할 수 있습니다.`,
+    _description: `반품 접수된 주문을 확인하고, 반품 완료 내역을 조회할 수 있습니다.<br/>
+                        searchType=timeframe 설정에 따라 분단위 또는 일단위로 반품요청 목록을 조회할 수 있습니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: `최대 31일 까지 조회가 가능하나 데이터가 많을 경우 Timeout 에러가 발생할 수 있으니 1일 이내의 기간으로 조회를 권장합니다`,
+    _warning: `<br/>최대 31일 까지 조회기간 설정이 가능하나 데이터가 많을 경우 조회 시 타임아웃 에러가 발생할 수 있어 되도록 짧은 기간 설정을 권장합니다.
+                    <br/>고객이 출고중지요청 시 RU 또는 UC status 에서 동시에 조회가 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [
       {
         name: `vendorId`,
         require: true,
-        _description: `vendor ID`,
+        _description: `업체코드`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -69,7 +71,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
       {
         name: `searchType`,
         require: true,
-        _description: `반품요청 목록 조회를 분단위로 수행시에는 "searchType=timeFrame"파라메터를 전송하여야 합니다.`,
+        _description: `반품요청 목록 조회를 분단위로 조회 시에는 "searchType=timeFrame"파라메터를 전송하여야 합니다.`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
@@ -78,10 +80,10 @@ export const lookupReturnRequestListPerMinuteDocument = {
       {
         name: `createdAtFrom`,
         require: true,
-        _description: `검색 시작일 (yyyy-MM-ddTHH:mm)`,
+        _description: `검색 시작일 (yyyy-MM-ddTHH:mm) `,
         _relation: ``,
-        _referenceInfo: ``,
-        _warning: ``,
+        _referenceInfo: ` `,
+        _warning: `searchType=timeFrame 아닐 경우: yyyy-MM-dd 형식으로 입력`,
         children: false
       },
       {
@@ -90,7 +92,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
         _description: `검색 종료일 (yyyy-MM-ddTHH:mm)`,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: ``,
+        _warning: `searchType=timeFrame 아닐 경우: yyyy-MM-dd 형식으로 입력`,
         children: false
       },
       {
@@ -594,7 +596,25 @@ export const lookupReturnRequestListPerMinuteDocument = {
               children: false
             }
           ] 
-         },       
+         }, 
+        {
+          name: `reasonCode`,
+          type: `String`,
+          _description: `반품사유코드`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false,
+        },
+        {
+          name: `reasonCodeText`,
+          type: `String`,
+          _description: `반품사유설명`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``,
+          children: false,
+        },         
         {
           name: `nextToken`,
           type: `String`,
@@ -640,7 +660,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
               "returnDeliveryType": "연동택배",
               "releaseStopStatus": "처리(이미출고)",
               "enclosePrice": 0,
-              "faultByType": "VENDOR",
+              "faultByType": "CUSTOMER",
               "preRefund": false,
               "completeConfirmDate": "",
               "completeConfirmType": "UNDEFINED",
@@ -662,7 +682,9 @@ export const lookupReturnRequestListPerMinuteDocument = {
                   "deliveryCompanyCode": "CJGLS",
                   "deliveryInvoiceNo": ""
                 }
-              ]
+              ],
+                "reasonCode": "CHANGEMIND",
+                "reasonCodeText": "필요 없어짐 (단순 변심)"
             },
          
             {
@@ -721,7 +743,9 @@ export const lookupReturnRequestListPerMinuteDocument = {
                   "deliveryCompanyCode": "CJGLS",
                   "deliveryInvoiceNo": null
                 }
-              ]
+              ],
+              "reasonCode": "DEFECT",
+              "reasonCodeText": "상품이 제조/제작 불량임"
             },
             {
               "receiptId": 50201937,
@@ -771,7 +795,9 @@ export const lookupReturnRequestListPerMinuteDocument = {
                   "deliveryCompanyCode": "CJGLS",
                   "deliveryInvoiceNo": "840807127473 "
                 }
-              ]
+              ],
+              "reasonCode": "CHANGEMIND",
+              "reasonCodeText": "필요 없어짐 (단순 변심)"
             }
           ]
     },
