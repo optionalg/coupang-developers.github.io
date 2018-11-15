@@ -80,19 +80,19 @@ export const lookupReturnRequestListPerMinuteDocument = {
       {
         name: `createdAtFrom`,
         require: true,
-        _description: `검색 시작일 (yyyy-MM-ddTHH:mm) `,
+        _description: `검색 시작일 (yyyy-MM-dd) `,
         _relation: ``,
         _referenceInfo: ` `,
-        _warning: `searchType=timeFrame 아닐 경우: yyyy-MM-dd 형식으로 입력`,
+        _warning: `searchType=timeFrame 일 경우: yyyy-MM-ddTHH:mm 형식으로 입력`,
         children: false
       },
       {
         name: `createdAtTo`,
         require: true,
-        _description: `검색 종료일 (yyyy-MM-ddTHH:mm)`,
+        _description: `검색 종료일 (yyyy-MM-dd)`,
         _relation: ``,
         _referenceInfo: ``,
-        _warning: `searchType=timeFrame 아닐 경우: yyyy-MM-dd 형식으로 입력`,
+        _warning: `searchType=timeFrame 일 경우: yyyy-MM-ddTHH:mm 형식으로 입력`,
         children: false
       },
       {
@@ -126,6 +126,35 @@ export const lookupReturnRequestListPerMinuteDocument = {
         _warning: ``,
         children: false
       },
+      {
+        name: `nextToken`,
+        type: `String`,
+        require: false,
+        _description: `다음 페이지 조회를 위한 token값`,
+        _relation: ``,
+        _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.`,
+        _warning: `searchType=timeFrame일 경우 지원하지 않는 파라메터입니다.`,
+        children: false
+      },
+      {
+        name: `maxPerPage`,
+        type: `Number`,
+        require: false,
+        _description: `페이지당 최대 조회 요청 값`,
+        _relation: ``,
+        _referenceInfo: `default = 50`,
+        _warning: `searchType=timeFrame일 경우 지원하지 않는 파라메터입니다.`,
+        children: false
+      },
+      {
+        name: `orderId`,
+        require: false,
+        _description: `Order ID.`,
+        _relation: ``,
+        _referenceInfo: `status 파라메터를 제외하고 조회할 경우에는 orderId가 파라메터에 포함되어야 합니다.`,
+        _warning: `searchType=timeFrame일 경우 지원하지 않는 파라메터입니다.`,
+        children: false
+      }
     ],
     bodyParameters: false
   },
@@ -621,7 +650,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
           _description: `다음 호출시 필요한 토큰값`,
           _relation: ``,
           _referenceInfo: ``,
-          _warning: ``,
+          _warning: `searchType=timeFrame일 경우 지원하지 않는 파라메터입니다.`,
           children: false,
         }
       ]

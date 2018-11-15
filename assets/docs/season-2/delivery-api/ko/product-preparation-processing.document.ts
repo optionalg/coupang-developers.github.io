@@ -34,7 +34,8 @@ export const productPreparationProcessingDocument = {
     _relation: ``,
     _referenceInfo: ``,
     _warning: `<br/>결제완료 단계의 shipmentBoxIds에 대해서만 적용이 가능합니다.<br/>
-                   결제완료 상태에서 고객이 배송지를 변경할 수 있기 때문에 <br/>
+                    shipmentBoxIds 크기가 클 경우 처리시 타임아웃 에러가 발생할 수 있으니 50개 이하로 제한을 권장드립니다.<br/>
+                   <br/>결제완료 상태에서 고객이 배송지를 변경할 수 있기 때문에 <br/>
                    상품준비중 처리 이후에 꼭! 발주서 단건 조회를 통해 배송지 정보가 
                    변경되었는지 확인 및 업데이트를 해 주셔야 합니다.`,
   },
