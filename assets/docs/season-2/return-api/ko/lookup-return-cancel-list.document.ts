@@ -6,7 +6,7 @@ export const lookupReturnCancelListDocument = {
     category: `return-api`,   // input category ex) exchange-service-api
     id: `lookup-return-cancel-list`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `lookup-return-cancel-list`,
-    name: `반품철회 이력 조회`,       // use display name, i will change 'translation key'
+    name: `반품철회 이력 접수번호로 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2018-06-11
@@ -162,7 +162,7 @@ export const lookupReturnCancelListDocument = {
     }
   ],
   sample: {
-    endpoint:'https://api-gateway.coupang.com//v2/providers/openapi/apis/api/v4/vendors/A00001234/returnWithdrawList',
+    endpoint:'https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00001234/returnWithdrawList',
     code: [
       {
         language: `http`,

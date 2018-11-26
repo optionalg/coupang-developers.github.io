@@ -6,10 +6,10 @@ export const lookupReturnCancelListPerDayDocument = {
     category: `return-api`,   // input category ex) exchange-service-api
     id: `lookup-return-cancel-list-per-day`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `lookup-return-cancel-list-per-day`,
-    name: `반품철회 이력 조회(일단위페이징)`,       // use display name, i will change 'translation key'
+    name: `반품철회 이력 목록 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
-    lastUpdateDate: ``, // yyyy-mm-dd  ex> 2018-06-11
+    lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
     reflectionDate: ``,
     documentLegacyInfo: {
       name: ``,
@@ -18,46 +18,88 @@ export const lookupReturnCancelListPerDayDocument = {
 
   },
   apiInfo: {
-    state: `draft`,      // draft, candidate, release, unstable, stable, deprecated
-    lastUpdateDate: `2018-11-16`, // yyyy-mm-dd  ex> 2016-12-23
-    developer: ``,
+    state: `release`,      // draft, candidate, release, unstable, stable, deprecated
+    lastUpdateDate: `2017-11-22`, // yyyy-mm-dd  ex> 2016-12-23
+    developer: `Tracy`,
     domain: `https://api-gateway.coupang.com`,
-    httpMethod: `POST`,
-    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnWithdrawList`,
-    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnWithdrawList`,
-    _description: `취소(반품)접수번호를 이용하여 철회된 반품의 이력을 조회합니다.`,
+    httpMethod: `GET`,
+    path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnWithdrawRequests`,
+    HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/returnWithdrawRequests`,
+    _description: `기간별로 철회된 반품의 이력을 조회합니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `최대 7일까지만 조회가 가능합니다.`,
   },
   parameters: {
     pathSegmentParameters: [
       {
         name: `vendorId`,
         require: true,
-        _description: `업체 ID`,
+        _description: `vendor ID`,
         _relation: ``,
         _referenceInfo: ``,
         _warning: ``,
-      },
-    ],
-    queryStringParameters: false,
-    
-    bodyParameters: [
-      {
-        name: `cancelIds`,
-        type: `Array`,
-        require: true,
-        _description: `철회 이력을 조회할 취소(반품)접수번호 목록`,
-        _relation: ``,
-        _referenceInfo: `한 번에 최대 50개까지 cancelIds 조회가 가능합니다.`,
-        _warning: `cancelIds는 number 타입이어야 합니다.`,
         children: false
       }
-     ]
-    
+    ],
+    queryStringParameters: [
+      {
+        name: `dateFrom`,
+        require: true,
+        _description: `조회 시작일 (yyyy-MM-dd)`,
+        _relation: ``,
+        _referenceInfo: ``,
+        _warning: ``,
+        children: false
+      },
+      {
+        name: `dateTo`,
+        require: true,
+        _description: `조회 종료일 (yyyy-MM-dd)`,
+        _relation: ``,
+        _referenceInfo: ``,
+        _warning: ``,
+        children: false
+      },
+      {
+        name: `pageIndex`,
+        type: `Number`,
+        require: false,
+        _description: `다음 페이지 조회를 위한 인덱스 값`,
+        _relation: ``,
+        _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.`,
+        _warning: `마지막 페이지일 경우 빈 값이 노출됨`,
+        children: false
+      },
+      {
+        name: `sizePerPage`,
+        type: `Number`,
+        require: false,
+        _description: `페이지당 최대 조회 요청 값`,
+        _relation: ``,
+        _referenceInfo: `default = 100`,
+        _warning: ``,
+        children: false
+      }
+    ],
+    bodyParameters: false
   },
-  errorSpec: false,
+   errorSpec: [
+        {
+          status: 400,
+          _description: `vendorItems may not be empty, vendorItems size must be between 1 and 10000`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+        {
+          status: 400,
+          _description: `업체정보의 권한을 확인하세요`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+  ],
   responseSpec: [
     {
       name: `code`,
@@ -88,7 +130,7 @@ export const lookupReturnCancelListPerDayDocument = {
         {
           name: `cancelId`,
           type: `Number`,
-          _description: `취소(반품)접수번호`,
+          _description: `반품 접수번호`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``,
@@ -142,7 +184,7 @@ export const lookupReturnCancelListPerDayDocument = {
         {
           name: `createdAt`,
           type: `String`,
-          _description: `취소(반품) 철회 시각`,
+          _description: `반품철회 시각`,
           _relation: ``,
           _referenceInfo: `yyyy-MM-ddThh:mm:ss`,
           _warning: ``,
@@ -157,22 +199,27 @@ export const lookupReturnCancelListPerDayDocument = {
           _warning: ``,
           children: false
         }
-    
       ]
+    },
+    {
+      name: `nextPageIndex`,
+      type: `String`,
+      _description: `다음 페이지 조회를 위한 인덱스 값`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: `마지막 페이지일 경우 빈 값이 노출됨`,
+      children: false,
     }
   ],
   sample: {
-    endpoint:'https://api-gateway.coupang.com//v2/providers/openapi/apis/api/v4/vendors/A00001234/returnWithdrawList',
+    endpoint: `https://api-gateway.coupang.com:443/v2/providers/openapi/apis/api/v4/vendors/A00001234/returnWithdrawRequests?sizePerPage=50&pageIndex=1&dateFrom=2018-11-16&dateTo=2018-11-17`,
     code: [
       {
         language: `http`,
-        codeblock:{
-           "cancelIds":[87033689]
-           }
       }
     ],
     response: {
-      "code": "200",
+      "code": 200,
       "message": "OK",
       "data": [
         {
@@ -184,8 +231,10 @@ export const lookupReturnCancelListPerDayDocument = {
               "vendorItemIds": [
                 3737624764
               ]
-        }
-      ]
+        },
+
+      ],
+     "nextPageIndex" : "1"
     },
     _description: ``,
     _relation: ``,
