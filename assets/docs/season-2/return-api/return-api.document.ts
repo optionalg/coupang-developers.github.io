@@ -17,6 +17,6 @@ returnApiDocs.ko.push(lookupReturnRequestListPerMinuteDocument);
 returnApiDocs.ko.push(lookupReturnByProductDocument);
 returnApiDocs.ko.push(returnRequestProductReceiptConfirmationProcessingDocument);
 returnApiDocs.ko.push(returnRequestApprovalProcessingDocument);
-//returnApiDocs.ko.push(lookupReturnCancelListPerDayDocument);
+returnApiDocs.ko.push(lookupReturnCancelListPerDayDocument);
 returnApiDocs.ko.push(lookupReturnCancelListDocument);
 returnApiDocs.ko.push(returnInvoiceProcessingDocument);

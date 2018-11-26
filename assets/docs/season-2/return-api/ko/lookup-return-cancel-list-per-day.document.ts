@@ -87,14 +87,42 @@ export const lookupReturnCancelListPerDayDocument = {
    errorSpec: [
         {
           status: 400,
-          _description: `vendorItems may not be empty, vendorItems size must be between 1 and 10000`,
+          _description: `vendorId 값을 입력해 주세요.`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``
         },
         {
           status: 400,
-          _description: `업체정보의 권한을 확인하세요`,
+          _description: `시작일자, 종료일자를 입력해 주세요. (형식:YYYYMMDD)`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+        {
+          status: 400,
+          _description: `종료일자는 시작일자보다 작거나 같아야 합니다.`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+        {
+          status: 400,
+          _description: `최대 조회 기간은 7 일 입니다.`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+        {
+          status: 400,
+          _description: `날짜입력을 확인해 주세요. (형식:YYYYMMDD)`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        },
+        {
+          status: 400,
+          _description: `페이지별 최대 표시 갯수(sizePerPage)는 100 입니다.`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``

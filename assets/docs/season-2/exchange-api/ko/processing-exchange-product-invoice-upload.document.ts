@@ -289,6 +289,34 @@ export const processingExchangeProductInvoiceUploadDocument = {
                   <td>WONDERS</td>
                   <td>원더스퀵</td>
                 </tr>
+               <tr>
+                  <td>YONGMA</td>
+                  <td>용마로지스</td>
+                </tr>
+                <tr>
+                  <td>SEBANG</td>
+                  <td>세방택배</td>
+                </tr>
+                <tr>
+                  <td>NHLOGIS</td>
+                  <td>농협택배</td>
+                </tr>
+                <tr>
+                  <td>LOTTEGLOBAL</td>
+                  <td>롯데글로벌</td>
+                </tr>
+                <tr>
+                  <td>GSIEXPRESS</td>
+                  <td>GSI익스프레스</td>
+                </tr>
+                <tr>
+                  <td>EFS</td>
+                  <td>EFS</td>
+                </tr>
+                <tr>
+                  <td>DHLGLOBALMAIL</td>
+                  <td>DHL GlobalMail</td>
+                </tr>
               </table>
             `,
         _warning: ``,
