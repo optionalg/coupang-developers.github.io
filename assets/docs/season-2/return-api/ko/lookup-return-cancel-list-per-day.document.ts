@@ -6,7 +6,7 @@ export const lookupReturnCancelListPerDayDocument = {
     category: `return-api`,   // input category ex) exchange-service-api
     id: `lookup-return-cancel-list-per-day`,           // use **dash** and *english*  ex) coupang-confirm-request-creation
     anchorId: `lookup-return-cancel-list-per-day`,
-    name: `반품철회 이력 목록 조회`,       // use display name, i will change 'translation key'
+    name: `반품철회 이력 기간별 조회`,       // use display name, i will change 'translation key'
     displayOrderPriority: 999, // use order priority. 1 is high(top),
     documentState: ``, // draft, candidate, release
     lastUpdateDate: ``, // yyyy-mm-dd  ex> 2016-12-23
@@ -67,8 +67,8 @@ export const lookupReturnCancelListPerDayDocument = {
         require: false,
         _description: `다음 페이지 조회를 위한 인덱스 값`,
         _relation: ``,
-        _referenceInfo: `첫번째 페이지 조회시에는 필요하지 않습니다.`,
-        _warning: `마지막 페이지일 경우 빈 값이 노출됨`,
+        _referenceInfo: `default 값 1`,
+        _warning: `마지막 페이지일 경우 빈 값("")이 노출됨`,
         children: false
       },
       {
@@ -77,7 +77,7 @@ export const lookupReturnCancelListPerDayDocument = {
         require: false,
         _description: `페이지당 최대 조회 요청 값`,
         _relation: ``,
-        _referenceInfo: `default = 100`,
+        _referenceInfo: `default 값 10`,
         _warning: ``,
         children: false
       }
@@ -87,18 +87,25 @@ export const lookupReturnCancelListPerDayDocument = {
    errorSpec: [
         {
           status: 400,
-          _description: `vendorId 값을 입력해 주세요.`,
+          _description: `invalid vendorId`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``
         },
         {
           status: 400,
-          _description: `시작일자, 종료일자를 입력해 주세요. (형식:YYYYMMDD)`,
+          _description: `Required String parameter 'dateFrom' is not present`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``
-        },
+        }, 
+        {
+          status: 400,
+          _description: `Required String parameter 'dateTo' is not present`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        }, 
         {
           status: 400,
           _description: `종료일자는 시작일자보다 작거나 같아야 합니다.`,
@@ -108,25 +115,32 @@ export const lookupReturnCancelListPerDayDocument = {
         },
         {
           status: 400,
-          _description: `최대 조회 기간은 7 일 입니다.`,
+          _description: `최대 조회 기간은 7 일 입니다.(The maximum view duration is 7 days)`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``
         },
         {
           status: 400,
-          _description: `날짜입력을 확인해 주세요. (형식:YYYYMMDD)`,
+          _description: `날짜입력을 확인해 주세요. (형식:yyyy-MM-dd) [Please confirm the date input (format:yyyy-MM-dd)]`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``
         },
         {
           status: 400,
-          _description: `페이지별 최대 표시 갯수(sizePerPage)는 100 입니다.`,
+          _description: `페이지별 최대 표시 갯수(sizePerPage)는 100 입니다. (The maximum number of indications per page (sizePerPage) is 100)`,
           _relation: ``,
           _referenceInfo: ``,
           _warning: ``
         },
+        {
+          status: 400,
+          _description: `pageindex 는 음수 또는 0 일 수 없습니다. (pageindex can not be negative or 0)`,
+          _relation: ``,
+          _referenceInfo: ``,
+          _warning: ``
+        }
   ],
   responseSpec: [
     {
@@ -235,34 +249,53 @@ export const lookupReturnCancelListPerDayDocument = {
       _description: `다음 페이지 조회를 위한 인덱스 값`,
       _relation: ``,
       _referenceInfo: ``,
-      _warning: `마지막 페이지일 경우 빈 값이 노출됨`,
+      _warning: `마지막 페이지일 경우 빈 값( "" ) 이 노출됨`,
       children: false,
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com:443/v2/providers/openapi/apis/api/v4/vendors/A00001234/returnWithdrawRequests?sizePerPage=50&pageIndex=1&dateFrom=2018-11-16&dateTo=2018-11-17`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00123456/returnWithdrawRequests?sizePerPage=3&pageIndex=1&dateFrom=2018-11-03&dateTo=2018-11-06`,
     code: [
       {
         language: `http`,
       }
     ],
     response: {
-      "code": 200,
-      "message": "OK",
-      "data": [
-        {
-              "cancelId": 87033689,
-              "orderId": 23000016565020,
-              "vendorId": "A00001234",
+          "code": 200,
+          "message": "OK",
+          "data": [
+            {
+              "cancelId": 116607450,
+              "orderId": 29000024470847,
+              "vendorId": "A00123456",
               "refundDeliveryDuty": "COM",
-              "createdAt": "2018-06-05T13:40:56",
+              "createdAt": "2018-11-06T23:50:39",
               "vendorItemIds": [
-                3737624764
+                3838728011
               ]
-        },
-
-      ],
-     "nextPageIndex" : "1"
+            },
+            {
+              "cancelId": 116600657,
+              "orderId": 7000024098976,
+              "vendorId": "A00123456",
+              "refundDeliveryDuty": "CUS",
+              "createdAt": "2018-11-06T23:03:40",
+              "vendorItemIds": [
+                3930729129
+              ]
+            },
+            {
+              "cancelId": 116590024,
+              "orderId": 27000024100568,
+              "vendorId": "A00123456",
+              "refundDeliveryDuty": "COM",
+              "createdAt": "2018-11-06T21:39:57",
+              "vendorItemIds": [
+                3841979364
+              ]
+            }
+          ],
+          "nextPageIndex": "2"
     },
     _description: ``,
     _relation: ``,
