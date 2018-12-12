@@ -240,7 +240,16 @@ export const lookupOrderListPerMinuteDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }
+            },
+            {
+              name: `ordererNumber`,
+              type: `String`,
+              _description: `주문자 연락처(실전화번호)`,
+              _relation: ``,
+              _referenceInfo: `null`,
+              _warning: ``,
+              children: false
+            },
           ]
         },
         {
@@ -371,15 +380,17 @@ export const lookupOrderListPerMinuteDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }, {
-              name: `receiverNumber`,
+            }, 
+            {
+               name: `receiverNumber`,
               type: `String`,
-              _description: ``,
+              _description: `수취인 연락처(실전화번호)`,
               _relation: ``,
-              _referenceInfo: ``,
-              _warning: `사용하지 않음`,
+              _referenceInfo: `null`,
+              _warning: ``,
               children: false
-            }, {
+            },
+            {
               name: `addr1`,
               type: `String`,
               _description: `수취인 배송지1`,
@@ -763,7 +774,8 @@ export const lookupOrderListPerMinuteDocument = {
 	      "orderer": {
 	        "name": "신*희",
 	        "email": "eu*****@na",
-	        "safeNumber": "0503-**-5464"
+	        "safeNumber": "0503-**-5464",
+            "ordererNumber": null
 	      },
 	      "paidAt": "2017-10-10T10:20:16",
 	      "status": "FINAL_DELIVERY",
@@ -774,12 +786,12 @@ export const lookupOrderListPerMinuteDocument = {
 	      "splitShipping": false,
 	      "ableSplitShipping": false,
 	      "receiver": {
-	        "name": "신*희",
-          "safeNumber": "0502-344-6681",
-          "receiverNumber": null,
-          "addr1": "경기 광명시 하안1동 두산트레지움아파트",
-          "addr2": "107동701호",
-          "postCode": "423-747"
+    	      "name": "신*희",
+              "safeNumber": "0502-344-6681",
+              "receiverNumber": null,
+              "addr1": "경기 광명시 하안1동 두산트레지움아파트",
+              "addr2": "107동701호",
+              "postCode": "423-747"
 	      },
 	      "orderItems": [
 	        {
@@ -833,7 +845,8 @@ export const lookupOrderListPerMinuteDocument = {
 	      "orderer": {
 	        "name": "김*숙",
 	        "email": "hs*****@na",
-	        "safeNumber": "0503-**-5013"
+	        "safeNumber": "0503-**-5013",
+            "ordererNumber": null
 	      },
 	      "paidAt": "2017-10-10T10:35:04",
 	      "status": "FINAL_DELIVERY",
@@ -846,6 +859,7 @@ export const lookupOrderListPerMinuteDocument = {
 	      "receiver": {
 	        "name": "김*숙",
 	        "safeNumber": "0503-**-5013",
+            "receiverNumber": null,
 	        "addr1": "경기도 고양시 일산동구 백석동 **아파트",
 	        "addr2": "303-*",
 	        "postCode": "104-48"

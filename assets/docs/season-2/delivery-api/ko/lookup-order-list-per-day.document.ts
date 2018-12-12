@@ -267,7 +267,16 @@ export const lookupOrderListPerDayDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }
+            },
+            {
+              name: `ordererNumber`,
+              type: `String`,
+              _description: `주문자 연락처(실전화번호)`,
+              _relation: ``,
+              _referenceInfo: `null`,
+              _warning: ``,
+              children: false
+            },
           ]
         },
         {
@@ -398,15 +407,17 @@ export const lookupOrderListPerDayDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }, {
-              name: `receiverNumber`,
+            }, 
+            {
+               name: `receiverNumber`,
               type: `String`,
-              _description: ``,
+              _description: `수취인 연락처(실전화번호)`,
               _relation: ``,
-              _referenceInfo: ``,
-              _warning: `사용하지 않음`,
+              _referenceInfo: `null`,
+              _warning: ``,
               children: false
-            }, {
+            },
+            {
               name: `addr1`,
               type: `String`,
               _description: `수취인 배송지1`,
@@ -790,7 +801,8 @@ export const lookupOrderListPerDayDocument = {
       "orderer": {
         "name": "신*희",
         "email": "eu*****@na",
-        "safeNumber": "0503-**-5464"
+        "safeNumber": "0503-**-5464",
+        "ordererNumber": null
       },
       "paidAt": "2017-10-10T10:20:16",
       "status": "FINAL_DELIVERY",
@@ -803,6 +815,7 @@ export const lookupOrderListPerDayDocument = {
       "receiver": {
         "name": "신*희",
         "safeNumber": "0503-**-5464",
+        "receiverNumber": null,
         "addr1": "경기 오산시 가수동 **아파트",
         "addr2": "109동 *호",
         "postCode": "447-700"
@@ -859,7 +872,8 @@ export const lookupOrderListPerDayDocument = {
       "orderer": {
         "name": "김*숙",
         "email": "hs*****@na",
-        "safeNumber": "0503-**-5013"
+        "safeNumber": "0503-**-5013",
+        "ordererNumber": null
       },
       "paidAt": "2017-10-10T10:35:04",
       "status": "FINAL_DELIVERY",

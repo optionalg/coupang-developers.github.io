@@ -167,7 +167,16 @@ export const lookupOrderBookDocument = {
               _referenceInfo: ``,
               _warning: ``,
               children: false
-            }
+            },
+            {
+              name: `ordererNumber`,
+              type: `String`,
+              _description: `주문자 연락처(실전화번호)`,
+              _relation: ``,
+              _referenceInfo: `null`,
+              _warning: ``,
+              children: false
+            },
           ]
         },
         {
@@ -294,6 +303,15 @@ export const lookupOrderBookDocument = {
               _description: `수취인 연락처(안심번호)`,
               _relation: ``,
               _referenceInfo: ``,
+              _warning: ``,
+              children: false
+            },
+            {
+               name: `receiverNumber`,
+              type: `String`,
+              _description: `수취인 연락처(실전화번호)`,
+              _relation: ``,
+              _referenceInfo: `null`,
               _warning: ``,
               children: false
             },
@@ -687,7 +705,8 @@ export const lookupOrderBookDocument = {
         "orderer": {
           "name": "김문근",
           "email": "mg*****@co",
-          "safeNumber": "0501-111-2222"
+          "safeNumber": "0501-111-2222",
+          "ordererNumber": null
         },
         "paidAt": "2017-10-06T22:59:37",
         "status": "FINAL_DELIVERY",
@@ -700,6 +719,7 @@ export const lookupOrderBookDocument = {
         "receiver": {
           "name": "test",
           "safeNumber": "0501-111-2222",
+          "receiverNumber": null,
           "addr1": "addr1",
           "addr2": "addr2",
           "postCode": "284-60"
