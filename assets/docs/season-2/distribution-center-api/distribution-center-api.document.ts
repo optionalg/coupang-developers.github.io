@@ -6,6 +6,8 @@ import {createOutboundShippingFacilityDocument} from "./ko/create-outbound-shipp
 import {lookupOutboundShippingFacilityListDocument} from "./ko/lookup-outbound-shipping-facility-list.document";
 import {modifyOutboundShippingFacilityDocument} from "./ko/modify-outbound-shipping-facility.document";
 import {lookupReturnShippingCentersCenterCodeDocument} from "./ko/lookup-return-shipping-centers-centercode.document";
+import {lookupDeliveryCodeDocument} from "./ko/lookup-delivery-code.document";
+
 
 export const distributionCenterApiDocs = {
   ko:[],
@@ -21,7 +23,7 @@ distributionCenterApiDocs.ko.push(createReturnShippingFacilityDocument);
 distributionCenterApiDocs.ko.push(lookupReturnShippingFacilityDocument);
 distributionCenterApiDocs.ko.push(modifyReturnShippingFacilityDocument);
 distributionCenterApiDocs.ko.push(lookupReturnShippingCentersCenterCodeDocument);
-
+distributionCenterApiDocs.ko.push(lookupDeliveryCodeDocument);
 // have to check
 // lookup-return-shipping-facility-list.document
 
