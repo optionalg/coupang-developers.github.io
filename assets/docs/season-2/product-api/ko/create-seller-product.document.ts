@@ -1216,13 +1216,62 @@ export const createSellerProductDocument = {
     ]
   },
   errorSpec: [
+      {
+      status: 400,
+      _description: `카테고리의 필수 속성이 존재하지 않습니다. : 속성(attributes) 값 중에서 필수(MANDATORY)로 입력해야할 항목을 누락했을 경우 발생하는 에러, 카테고리메타정보 조회 API를 통해 확인 및 필수 속성 값 입력 필요함.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },
     {
       status: 400,
-      _description: `UNAUTHORIZATION`,
+      _description: `입력값에 오류가 있습니다. line: *** (예:123) : 해당 line 상에 오류 수정 필요.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    }, 
+    {
+      status: 400,
+      _description: `올바른 반품지 센터코드를 입력 하세요. : 출고지, 반품지 조회 API를 이용하여 올바른 출고지, 반품지 코드를 입력필요.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },   
+    {
+      status: 400,
+      _description: ` java.lang.NullPointerException :  요청한 JSON 전문에 오탈자가 있는지 확인 필요.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },   
+    {
+      status: 400,
+      _description: `입력된 상품필수 고지정보[예) 제조자 및 제조판매업자]가 카테고리[예)화장품]에서 제공하는 것과 다릅니다. : 입력한 고시정보에 문제가 있을 경우 발생하는 에러로 카테고리메타정보를 조회하여 입력한 고시정보와 정확히 일치하는지 확인 필요.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },   
+     {
+      status: 400,
+      _description: `배송비 종류가 19800이상 무료배송이면 조건부무료가 19800원, 초도배송비가 0원 입니다. : freeShipOverAmount:19800 로 설정했을 경우 초도배송비(deliveryChargeOnReturn)값이 0인지 확인 필요.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },   
+    {
+      status: 400,
+      _description: `[택배사 코드]를 확인해 주세요. : 도서산간 배송을 설정했을 경우(remoteAreaDeliverable : "Y") 출고지에 등록한 택배사만 입력이 가능함.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },      
+    {
+      status: 400,
+      _description: `UNAUTHORIZATION : 잘못된 인증 정보.`,
       _relation: ``,
       _referenceInfo: `Illegal authentication header.`,
       _warning: ``
-    }
+    },
   ],
   responseSpec: [
     {
