@@ -627,7 +627,7 @@ export const lookupReturnRequestListPerDayDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com:443/v2/providers/openapi/apis/api/v4/vendors/A00127960/returnRequests?maxPerPage=20&createdAtFrom=2017-08-27&createdAtTo=2017-09-03&status=UC`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00127960/returnRequests?maxPerPage=20&createdAtFrom=2017-08-27&createdAtTo=2017-09-03&status=UC`,
     code: [
       {
         language: `http`,

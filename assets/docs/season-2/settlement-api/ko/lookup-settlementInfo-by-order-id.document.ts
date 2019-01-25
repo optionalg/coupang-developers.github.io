@@ -383,7 +383,7 @@ export const lookupSettlementInfoByOrderIdDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/v2/providers/greatwall_api/apis/api/v2/providers/openapi/apis/api/v4/vendors/T00065340/orders/10000003907450/settlementDetails?nextToken=`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/T00065340/orders/10000003907450/settlementDetails?nextToken=`,
     code: [
       {
         language: `http`,

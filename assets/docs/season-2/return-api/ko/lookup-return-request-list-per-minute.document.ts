@@ -657,7 +657,7 @@ export const lookupReturnRequestListPerMinuteDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com:443/v2/providers/openapi/apis/api/v4/vendors/A00127960/returnRequests?searchType=timeFrame&createdAtFrom=2017-08-27T09%3A00&createdAtTo=2017-09-03T08%3A59&status=UC`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00127960/returnRequests?searchType=timeFrame&createdAtFrom=2017-08-27T09%3A00&createdAtTo=2017-09-03T08%3A59&status=UC`,
     code: [
       {
         language: `http`,

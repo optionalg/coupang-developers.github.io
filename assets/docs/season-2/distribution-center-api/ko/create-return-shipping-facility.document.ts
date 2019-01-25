@@ -138,10 +138,6 @@ export const createReturnShippingFacilityDocument = {
                   <td>CJGLS</td>
                   <td>CJ대한통운</td>
                 </tr>
-                <tr>
-                  <td>ILYANG</td>
-                  <td>일양택배</td>
-                </tr>
               </table>
             `,
             _warning: `위 택배사들만 반품지 택배사로 등록가능합니다.`,

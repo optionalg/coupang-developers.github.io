@@ -564,7 +564,7 @@ export const lookupReturnByProductDocument = {
     }
   ],
   sample: {
-    endpoint:'https://api-gateway.coupang.com/v2/providers/greatwall_api/apis/api/vendors/A00012697/returnRequests/363585',
+    endpoint:'https://api-gateway.coupang.com/v2/providers/openapi/apis/api/v4/vendors/A00012697/returnRequests/363585',
     code: [
       {
         language: `http`
