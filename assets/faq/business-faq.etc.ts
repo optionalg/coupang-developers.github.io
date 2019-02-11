@@ -1,5 +1,121 @@
 export const businessFaq = [
-  {
+{
+    epic: `business`,
+    epicViewValue: `Business`,
+    category: `API Key`,
+    categoryViewValue: `API Key`,
+    dataList: [
+      {
+        subcategory: ``,
+        id: `1`,
+        anchorId: ``,
+        question: `쿠팡 오픈 API를 이용할 때 비용이 발생하나요?`,
+        _description: `아니요. 무료입니다.
+쿠팡 오픈 API는 쿠팡 판매자라면 누구나 사용할 수 있도록 공개되어있습니다. 
+<br/>
+● OEPN API 연동 가이드  
+https://developers.coupang.com/guides/getting-started`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      {
+        subcategory: ``,
+        id: `2`,
+        anchorId: ``,
+        question: `AccessKey, SecretKey는 어디서 발급 / 확인 할 수 있나요?`,
+        _description: `
+1. API Key 발급 방법<br/>
+ API Key 발급에 관한 자세한 사항은 아래 URL을 참고 바랍니다.<br/>
+http://developers.coupang.com/guides/getting-started#obtaining_an_openapi_key<br/>
+● WING 로그인 > 우측상단 업체명 (클릭) > 업체정보 변경 (클릭) > 판매 정보 탭 (클릭) > OPEN API 키 발급 약관동의 (클릭) > 발급 (클릭) <br/>
+<br/>
+2. 발급된 Key 확인 방법<br/>
+API KEY 발급을 완료하면, 해당 화면 하단에 ‘업체코드 / Access Key / Secret Key’가 노출됩니다. <br/>
+해당 값이 API 연동에 사용하는 값입니다.`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      {
+        subcategory: ``,
+        id: `3`,
+        anchorId: ``,
+        question: `AccessKey, SecretKey는 어떻게 재발급 / 삭제 할 수 있나요?`,
+        _description: `Access Key, Secret Key의 재 발급 및 삭제는 지원하고 있지 않습니다. 
+<br/>해당 Key 값이 외부로 유출되지 않도록 각별한 주의 부탁드립니다.
+
+<br/>API연동시에는 기존에 발급 받으신 Key를 활용하여 사용부탁드립니다. 
+
+<br/>● 기존에 발급 된 key 확인 방법 
+<br/>WING 로그인 > 우측상단 업체명 (클릭) > 업체정보 변경 (클릭) > 판매 정보 탭 (클릭) > OPEN API 키 확인`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      {
+        subcategory: ``,
+        id: `4`,
+        anchorId: ``,
+        question: `Hmac 생성 가이드가 있나요?`,
+        _description: `아래 링크에서 Hmac 생성 예제를 참고해주세요.
+
+<br/>Java 를 사용하시는 판매자께서는  'Java HMAC Generator SDK'를 다운 받으시면 보다 편하게 
+<br/>개발하실 수 있습니다. (URL 페이지 내에서 다운로드 가능)
+
+<br/>● Hmac가이드 및 샘플 예제
+<br/>https://coupa.ng/bfQRDy`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      {
+        subcategory: ``,
+        id: `5`,
+        anchorId: ``,
+        question: `Specified signature is expired. 401 에러가 리턴됩니다.`,
+        _description: `401 에러는 Hmac Signature 생성이 잘못되었거나, 사용 시간이 만료되었을 때에 발생합니다. 
+
+<br/>Hmac Signature 생성은 쿠팡 API을 호출할때 마다 새롭게 생성하셔야 됩니다.
+<br/>따라서, 일정 시간 이후 동일한 Hmac 값으로 인증을 시도할 경우 401에러가 리턴됩니다. 
+
+<br/>http://developers.coupang.com/guides/getting-started#hmac_signature_generate 에서 예제를 참고하셔서 
+<br/>Hmac 생성을 하실 수 있습니다.`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      {
+        subcategory: ``,
+        id: `6`,
+        anchorId: ``,
+        question: `Invalid signature 에러가 리턴됩니다. (HMAC 오류)`,
+        _description: `해당 에러는 Hmac 생성 에러입니다. 
+<br/>vendorId, accesskey, secretkey 확인과 함께 설정 시간이 정확한지, 서버 Path를 실제 사용이 가능한 경로로 변경하였는지 확인해주세요.
+
+<br/>● Hmac 생성 예제  
+<br/>http://developers.coupang.com/guides/getting-started#hmac_signature_generate 
+
+<br/>● Hmac 생성 String 체크 
+<br/>http://developers.coupang.com/guides/hmac-gen`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      {
+        subcategory: ``,
+        id: `7`,
+        anchorId: ``,
+        question: `vendorID(업체코드)는 어디서 확인할 수 있나요?`,
+        _description: `WING 로그인 후, 오른쪽 상단의 업체 명을 클릭하시면 A또는 C로 시작하는 업체코드를 확인하실 수 있습니다. 
+<br/>예시 ) A000001234`,
+        _referenceInfo: ``,
+        _relationInfo: ``,
+        _warning: ``,
+      },
+      ]
+},
+{
     epic: `business`,
     epicViewValue: `Business`,
     category: `general`,
@@ -84,6 +200,9 @@ export const businessFaq = [
       },
     ]
   },
+      
+      
+      
   {
     epic: `business`,
     category: `delivery`,
