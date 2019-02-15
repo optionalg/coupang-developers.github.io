@@ -49,7 +49,7 @@ export const lookupDeliveryCodeDocument = {
     _description: ``,
     _relation: ``,
     _referenceInfo: `취소선은 합병 또는 폐업한 택배사를 의미합니다.<br/><br/>
-              <table class="table">
+              <table class="table table-responsive">
                <tr>
                   <th>CODE</th>
                   <th>NAME</th>
