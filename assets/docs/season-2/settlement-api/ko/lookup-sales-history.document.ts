@@ -469,7 +469,7 @@ export const lookupSalesHistoryDocument = {
             {
               name: `couranteeFee`,
               type: `Number`,
-              _description: `쿠뤈티 이용료(금액)`,
+              _description: `쿠런티 이용료(금액)`,
               _relation: ``,
               _referenceInfo: ``,
               _warning: ``,
