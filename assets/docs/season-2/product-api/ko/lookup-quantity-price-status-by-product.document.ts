@@ -74,7 +74,7 @@ export const lookupQuantityPriceStatusByProductDocument = {
       _warning: ``,
       children: [
         {
-          name: `vendorItemId`,
+          name: `sellerItemId`,
           type: `Number`,
           _description: `옵션아이디`,
           _relation: ``,
