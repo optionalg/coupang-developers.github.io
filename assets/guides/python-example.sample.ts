@@ -356,12 +356,11 @@ print('\nRESPONSE++++++++++++++++++++++++++++++++++++')
 try:
   resp = urllib.request.urlopen(req, data, context=ctx)
 except urllib.request.HTTPError as e:
-    if e.code == 404:
-        print("404")
-    else:
-        print("NOT 404")
+    print(e.code)
+    print(e.reason)
 except urllib.request.URLError as e:
     print(e.errno)
+    print(e.reason)
 else:
     # 200
     body = resp.read().decode(resp.headers.get_content_charset())
@@ -415,12 +414,11 @@ ctx.verify_mode = ssl.CERT_NONE
 try:
     resp = urllib.request.urlopen(req,context=ctx)
 except urllib.request.HTTPError as e:
-    if e.code == 404:
-        print("404")
-    else:
-        print("NOT 404")
+    print(e.code)
+    print(e.reason)
 except urllib.request.URLError as e:
     print(e.errno)
+    print(e.reason)
 else:
     # 200
     body = resp.read().decode(resp.headers.get_content_charset())
@@ -785,12 +783,11 @@ ctx.verify_mode = ssl.CERT_NONE
 try:
   resp = urllib.request.urlopen(req, data, context=ctx)
 except urllib.request.HTTPError as e:
-    if e.code == 404:
-        print("404")
-    else:
-        print("NOT 404")
+    print(e.code)
+    print(e.reason)
 except urllib.request.URLError as e:
     print(e.errno)
+    print(e.reason)
 else:
     # 200
     body = resp.read().decode(resp.headers.get_content_charset())
@@ -846,12 +843,11 @@ ctx.verify_mode = ssl.CERT_NONE
 try:
   resp = urllib.request.urlopen(req, context=ctx)
 except urllib.request.HTTPError as e:
-    if e.code == 404:
-        print("404")
-    else:
-        print("NOT 404")
+    print(e.code)
+    print(e.reason)
 except urllib.request.URLError as e:
     print(e.errno)
+    print(e.reason)
 else:
     # 200
     body = resp.read().decode(resp.headers.get_content_charset())

@@ -85,6 +85,7 @@ namespace ns_sample_post
             catch(WebException e) 
             {
                     Console.WriteLine("WebException Raised. The following error occured : {0}",e.Status); 
+                    Console.WriteLine(e.Message);
                 }
             catch(Exception e)
             {
@@ -223,6 +224,7 @@ namespace ns_sample_get
             catch(WebException e) 
             {
                     Console.WriteLine("WebException Raised. The following error occured : {0}",e.Status); 
+                    Console.WriteLine(e.Message);
                 }
             catch(Exception e)
             {
@@ -364,6 +366,7 @@ namespace ns_sample_put
             catch(WebException e) 
             {
                     Console.WriteLine("WebException Raised. The following error occured : {0}",e.Status); 
+                    Console.WriteLine(e.Message);
                 }
             catch(Exception e)
             {
@@ -494,7 +497,8 @@ namespace ns_sample_delete
             }
             catch(WebException e) 
             {
-                    Console.WriteLine("WebException Raised. The following error occured : {0}",e.Status); 
+                    Console.WriteLine("WebException Raised. The following error occured : {0}",e.Status);
+                    Console.WriteLine(e.Message); 
                 }
             catch(Exception e)
             {

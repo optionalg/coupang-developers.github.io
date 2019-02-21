@@ -335,7 +335,11 @@ curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type:  application/json;ch
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $strjson);
 $result = curl_exec($curl);
+$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
 curl_close($curl);
+
+echo($httpcode);
 
 echo($result);
 ?>
@@ -370,7 +374,11 @@ curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type:  application/json;charset=UTF-8", "Authorization:".$authorization)); 		
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 $result = curl_exec($curl);
+$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
 curl_close($curl);
+
+echo($httpcode);
 
 echo($result);
 ?>
@@ -714,7 +722,11 @@ curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type:  application/json;ch
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $strjson);
 $result = curl_exec($curl);
+$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
 curl_close($curl);
+
+echo($httpcode);
 
 echo($result);
 ?>
@@ -749,9 +761,13 @@ curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type:  application/json;charset=UTF-8", "Authorization:".$authorization)); 		
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $strjson);
+
 $result = curl_exec($curl);
+$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
 curl_close($curl);
 
+echo($httpcode);
 echo($result);
 ?>
 `
