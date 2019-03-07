@@ -45,7 +45,7 @@ export const lookupSalesHistoryDocument = {
     developer: `Jamin`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `GET`,
-    path: `/v2/providers/openapi/apis//api/v1/revenue-history`,
+    path: `/v2/providers/openapi/apis/api/v1/revenue-history`,
     HMACPath: `/v2/providers/openapi/apis/api/v1/revenue-history`,
     //상품매출, 배송비매출등 상세한 매출내역을 조회할수 있다.
     _description: `매출인식일(구매확정일 or 배송완료 + 7일)을 기준으로 상세한 매출 내역을 조회할 수 있습니다. `,
