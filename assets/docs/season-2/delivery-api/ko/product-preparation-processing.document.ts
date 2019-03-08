@@ -26,15 +26,15 @@ export const productPreparationProcessingDocument = {
     httpMethod: `PATCH`,
     path: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets/acknowledgement`,
     HMACPath: `/v2/providers/openapi/apis/api/v4/vendors/{vendorId}/ordersheets/acknowledgement`,
-    _description: `ordersheet의 상태를 "상품준비중" 상태로 변경한다.
-                   상태변경을 요청한 ordersheet 중 취소건이 있으면 Partial Error를 리턴한다.<br/>
-                   ※ 전체 결제 취소 또는 부분 결제 취소를 통해 환불이 진행중인 주문이 포함되어 있다면 해당 주문에 대해서는
-                   "배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요." 메세지가 반환됩니다.<br>
+    _description: `주문의 상태를 "결제완료" 에서 "상품준비중"으로 변경합니다.
+                   상태변경을 요청한 주문 중 취소 건이 있으면 Partial Error를 리턴합니다. <br/>
+                   ※ 전체 또는 부분 결제 취소를 통해 환불이 진행중인 주문이 포함되어 있다면 해당 주문에 대해서는
+                   "배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요."라는 메세지가 반환됩니다.<br>
                    환불이 완료된 시점에 취소 요청 상품 이외의 상품이 포함된 주문은 상품준비중으로 변경 가능합니다.` ,
     _relation: ``,
     _referenceInfo: ``,
     _warning: `<br/>결제완료 단계의 shipmentBoxIds에 대해서만 적용이 가능합니다.<br/>
-                    shipmentBoxIds 크기가 클 경우 처리시 타임아웃 에러가 발생할 수 있으니 50개 이하로 제한을 권장드립니다.<br/>
+					shipmentBoxIds 리스트 배열의 크기가 클 경우 타임아웃 에러가 발생할 수 있으니 50개 이하 또는 단건으로 요청하시기 바랍니다.<br/>
                    <br/>결제완료 상태에서 고객이 배송지를 변경할 수 있기 때문에 <br/>
                    상품준비중 처리 이후에 꼭! 발주서 단건 조회를 통해 배송지 정보가 
                    변경되었는지 확인 및 업데이트를 해 주셔야 합니다.`,
@@ -99,9 +99,35 @@ export const productPreparationProcessingDocument = {
   errorSpec: [
     {
       status: 200,
-      _description: `responseCode:99, resultMessage:배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요.    
-    	  (전체 결제 취소 또는 부분 결제 취소를 통해 환불이 진행중인 주문이 포함되어 있다면 해당 주문에 대해서는 "배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요." 메세지가 반환됩니다.
-    	  환불이 완료된 시점에 취소 요청 상품 이외의 상품이 포함된 주문은 상품준비중으로 변경 가능합니다.)
+      _description:`"responseCode:99, resultMessage:배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요."   
+    	  => 전체 또는 부분 결제 취소를 통해 환불이 진행 중인 주문이 포함되어 있을 경우 발생하는 메시지입니다. 
+    	  환불이 완료된 시점에 취소 요청 상품 이외의 상품이 포함된 주문은 상품준비중으로 변경 가능합니다.
+    	  `,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },
+	{
+      status: 200,
+      _description:`"responseCode:99, resultMessage:배송상태를 변경할 수 없습니다. 주문내역을 확인해주세요."   
+    	  => 주문 상태가 결제완료 상태가 아닐 경우 발생할 수 있습니다. 이미 상품준비중 또는 배송지시 상태로 변경되었는지 발주서 단건 조회 API로 주문상태를 확인하기 바랍니다.`,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },
+    {
+      status: 504,
+      _description:`"code" : "ERROR", "message" : "Request timed out, if the situation continues consider applying timeout extension."    
+    	  =>내부 시스템 부하 증가로 인한 일시적인 오류입니다. 발주서 단건 조회 API로 상품준비중으로 변경되었는지 확인하고 변경이 안되어 있을 경우 일정시간 이후 재시도를 하기 바랍니다.
+    	  `,
+      _relation: ``,
+      _referenceInfo: ``,
+      _warning: ``
+    },
+    {
+      status: 521,
+      _description:`"code" : "ERROR", "message" : "connection timed out: aws-openapi.coupang.net/10.211.51.172:80"    
+    	  =>내부 시스템 부하 증가로 인한 일시적인 오류입니다. 발주서 단건 조회 API로 상품준비중으로 변경되었는지 확인하고 변경이 안되어 있을 경우 일정시간 이후 재시도를 하기 바랍니다.
     	  `,
       _relation: ``,
       _referenceInfo: ``,
