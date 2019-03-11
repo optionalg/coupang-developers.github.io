@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="510px" height="181px" viewBox="0 0 510 181" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>OpenAPI</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <text id="text-1" font-family="AppleSDGothicNeo-UltraLight, Apple SD Gothic Neo" font-size="128" font-weight="300" line-spacing="154" letter-spacing="-1" fill="#FFFFFF">
+            <tspan x="0.364" y="157">OpenAPI</tspan>
+        </text>
+        <filter x="-13.4%" y="-39.0%" width="126.8%" height="177.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="1">
+        <g id="OpenAPI_col_2" transform="translate(-543.000000, -186.000000)" fill="#FFFFFF">
+            <g id="title" transform="translate(576.000000, 160.000000)">
+                <g id="OpenAPI">
+                    <use filter="url(#filter-2)" xlink:href="#text-1"></use>
+                    <use xlink:href="#text-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

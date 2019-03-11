@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="56px" viewBox="0 0 52 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>ic_ticket</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 52 0 52 24 0 24"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="OpenAPI_col_2" transform="translate(-929.000000, -464.000000)">
+            <g id="Card" transform="translate(525.000000, 396.000000)">
+                <g id="Travel-&amp;-Culture" transform="translate(290.000000, 0.000000)">
+                    <g id="ic" transform="translate(80.000000, 40.000000)">
+                        <g id="ic_ticket" transform="translate(34.000000, 28.000000)">
+                            <g id="front" transform="translate(0.000000, 26.000000)" stroke="#FFFFFF" stroke-width="4">
+                                <path d="M50,21.7101213 C47.1085111,20.8495721 45,18.1710206 45,15 C45,11.8289794 47.1085111,9.15042787 50,8.28987868 L50,2 L2,2 L2,8.28987868 C4.89148895,9.15042787 7,11.8289794 7,15 C7,18.1710206 4.89148895,20.8495721 2,21.7101213 L2,28 L50,28 L50,21.7101213 Z" id="Combined-Shape"></path>
+                                <path d="M34,9 L36,9 L34,7 L34,9 L34,7 L32,9 L34,9 L32,9 L34,11 L34,9 L34,11 L36,9 L34,9 Z M34,15 L36,15 L34,13 L34,15 L34,13 L32,15 L34,15 L32,15 L34,17 L34,15 L34,17 L36,15 L34,15 Z M34,21 L36,21 L34,19 L34,21 L34,19 L32,21 L34,21 L32,21 L34,23 L34,21 L34,23 L36,21 L34,21 Z" id="Combined-Shape"></path>
+                            </g>
+                            <g id="backward">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="Rectangle-10"></g>
+                                <path d="M46.991378,35.7014993 C44.0998891,34.8409502 41.991378,32.1623987 41.991378,28.991378 C41.991378,25.8203574 44.0998891,23.1418059 46.991378,22.2812567 L46.991378,15.991378 L-1.00862197,15.991378 L-1.00862197,22.2812567 C1.88286698,23.1418059 3.99137803,25.8203574 3.99137803,28.991378 C3.99137803,32.1623987 1.88286698,34.8409502 -1.00862197,35.7014993 L-1.00862197,41.991378 L46.991378,41.991378 L46.991378,35.7014993 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="4" mask="url(#mask-2)" transform="translate(22.991378, 28.991378) rotate(-45.000000) translate(-22.991378, -28.991378) "></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
