@@ -251,28 +251,28 @@ export const lookupSellerProductDocument = {
             <th>Status</th>
           </tr>
           <tr>
-            <th>FREE</th>
-            <th>무료배송</th>
+            <td>FREE</td>
+            <td>무료배송</td>
           </tr>
           <tr>
-            <th>FREE_DELIVERY_OVER_9800</th>
-            <th>9,800원이상 무료배송 </th>
+            <td>FREE_DELIVERY_OVER_9800</td>
+            <td>9,800원이상 무료배송 </td>
           </tr>
           <tr>
-            <th>FREE_DELIVERY_OVER_19800</th>
-            <th>19,800원이상 무료배송 </th>
+            <td>FREE_DELIVERY_OVER_19800</td>
+            <td>19,800원이상 무료배송 </td>
           </tr>
           <tr>
-            <th>FREE_DELIVERY_OVER_30000</th>
-            <th>30,000원이상 무료배송 </th>
+            <td>FREE_DELIVERY_OVER_30000</td>
+            <td>30,000원이상 무료배송 </td>
           </tr>
           <tr>
-            <th>NOT_FREE</th>
-            <th>유료배송</th>
+            <td>NOT_FREE</td>
+            <td>유료배송</td>
           </tr>
           <tr>
-            <th>CHARGE_RECEIVED</th>
-            <th>착불배송</th>
+            <td>CHARGE_RECEIVED</td>
+            <td>착불배송</td>
           </tr>
           </table>
         <br>※ 쿠팡 정책으로 예외 카테고리를 제외하면, 묶음 배송을 하려면 9800이상 무료배송 조건을 선택해야함<br>
@@ -281,7 +281,9 @@ export const lookupSellerProductDocument = {
         ● 유료배송 설정 시<br>
         기본배송비[deliveryCharge]와 반품배송비(편도) 금액 설정<br>
         ● 조건부 무료배송 설정 시 <br>
-        기본배송비와 반품배송비(편도) 금액 설정`,
+        기본배송비와 반품배송비(편도) 금액 설정<br/>
+        ● 착불배송 설정 시<br/>
+        착불배송 가능 카테고리는 따로 정리되어 있으며, 판매자 안내를 위해 판매자콜센터에 공유가 되었습니다.`,
           _warning: ``,
           children: false
         }
@@ -332,12 +334,12 @@ export const lookupSellerProductDocument = {
           <th>Status</th>
         </tr>
         <tr>
-          <th>Y</th>
-          <th>도서산간 배송</th>
+          <td>Y</td>
+          <td>도서산간 배송</td>
         </tr>
         <tr>
-          <th>N</th>
-          <th>도서산간 배송안함</th>
+          <td>N</td>
+          <td>도서산간 배송안함</td>
         </tr>
         </table>
         `,
@@ -358,12 +360,12 @@ export const lookupSellerProductDocument = {
           <th>Status</th>
         </tr>
         <tr>
-          <th>UNION_DELIVERY</th>
-          <th>묶음 배송 가능</th>
+          <td>UNION_DELIVERY</td>
+          <td>묶음 배송 가능</td>
         </tr>
         <tr>
-          <th>NOT_UNION_DELIVERY</th>
-          <th>묶음 배송 불가능</th>
+          <td>NOT_UNION_DELIVERY</td>
+          <td>묶음 배송 불가능</td>
         </tr>
         </table>
         <br/>※ 묶음 배송 조건<br/>
@@ -464,12 +466,12 @@ export const lookupSellerProductDocument = {
           <th>Status</th>
         </tr>
         <tr>
-          <th>Y</th>
-          <th>착불</th>
+          <td>Y</td>
+          <td>착불</td>
         </tr>
         <tr>
-          <th>N</th>
-          <th>선불</th>
+          <td>N</td>
+          <td>선불</td>
         </tr>
         </table>
         `,
@@ -652,12 +654,12 @@ export const lookupSellerProductDocument = {
               <th>Status</th>
             </tr>
             <tr>
-              <th>ADULT_ONLY</th>
-              <th>19세이상 구입 가능 상품</th>
+              <td>ADULT_ONLY</td>
+              <td>19세이상 구입 가능 상품</td>
             </tr>
             <tr>
-              <th>EVERYONE</th>
-              <th>전연령 구입 가능 상품 (기본값)</th>
+              <td>EVERYONE</td>
+              <td>전연령 구입 가능 상품 (기본값)</td>
             </tr>
             </table>
             `,
@@ -678,12 +680,12 @@ export const lookupSellerProductDocument = {
               <th>Status</th>
             </tr>
             <tr>
-              <th>TAX</th>
-              <th>과세 (기본값)</th>
+              <td>TAX</td>
+              <td>과세 (기본값)</td>
             </tr>
             <tr>
-              <th>FREE</th>
-              <th>비과세</th>
+              <td>FREE</td>
+              <td>비과세</td>
             </tr>
             </table>
             `,
@@ -704,12 +706,12 @@ export const lookupSellerProductDocument = {
               <th>Status</th>
             </tr>
             <tr>
-              <th>PARALLEL_IMPORTED</th>
-              <th>병행수입</th>
+              <td>PARALLEL_IMPORTED</td>
+              <td>병행수입</td>
             </tr>
             <tr>
-              <th>NOT_PARALLEL_IMPORTED</th>
-              <th>병행수입 아님 (기본값)</th>
+              <td>NOT_PARALLEL_IMPORTED</td>
+              <td>병행수입 아님 (기본값)</td>
             </tr>
             </table>
             `,
@@ -730,12 +732,12 @@ export const lookupSellerProductDocument = {
               <th>Status</th>
             </tr>
             <tr>
-              <th>OVERSEAS_PURCHASED</th>
-              <th>구매대행</th>
+              <td>OVERSEAS_PURCHASED</td>
+              <td>구매대행</td>
             </tr>
             <tr>
-              <th>NOT_OVERSEAS_PURCHASED</th>
-              <th>구매대행 아님 (기본값)</th>
+              <td>NOT_OVERSEAS_PURCHASED</td>
+              <td>구매대행 아님 (기본값)</td>
             </tr>
             </table>
             `,
@@ -1075,39 +1077,39 @@ export const lookupSellerProductDocument = {
                   <th>Status</th>
                 </tr>
                 <tr>
-                  <th>IMAGE</th>
-                  <th>이미지</th>
+                  <td>IMAGE</td>
+                  <td>이미지</td>
                 </tr>
                 <tr>
-                  <th>IMAGE_NO_SPACE</th>
-                  <th>이미지(공백없음)</th>
+                  <td>IMAGE_NO_SPACE</td>
+                  <td>이미지(공백없음)</td>
                 </tr>
                 <tr>
-                  <th>TEXT</th>
-                  <th>텍스트</th>
+                  <td>TEXT</td>
+                  <td>텍스트</td>
                 </tr>
                 <tr>
-                  <th>IMAGE_TEXT</th>
-                  <th>이미지-텍스트</th>
+                  <td>IMAGE_TEXT</td>
+                  <td>이미지-텍스트</td>
                 </tr>
                 <tr>
-                  <th>TEXT_IMAGE</th>
-                  <th>텍스트-이미지</th>
+                  <td>TEXT_IMAGE</td>
+                  <td>텍스트-이미지</td>
                 </tr>
                 <tr>
-                  <th>IMAGE_IMAGE</th>
-                  <th>이미지-이미지</th>
+                  <td>IMAGE_IMAGE</td>
+                  <td>이미지-이미지</td>
                 </tr>
                 <tr>
-                  <th>TEXT_TEXT</th>
-                  <th>텍스트-텍스트</th>
+                  <td>TEXT_TEXT</td>
+                  <td>텍스트-텍스트</td>
                 </tr>
                 <tr>
-                  <th>TITLE</th>
-                  <th>제목</th>
+                  <td>TITLE</td>
+                  <td>제목</td>
                 <tr>
-                  <th>HTML</th>
-                  <th>HTML</th>
+                  <td>HTML</td>
+                  <td>HTML</td>
                 </tr>
                 </tr>
                 </table>
@@ -1149,12 +1151,12 @@ export const lookupSellerProductDocument = {
                       <th>Status</th>
                     </tr>
                     <tr>
-                      <th>IMAGE</th>
-                      <th>이미지</th>
+                      <td>IMAGE</td>
+                      <td>이미지</td>
                     </tr>
                     <tr>
-                      <th>TEXT</th>
-                      <th>텍스트</th>
+                      <td>TEXT</td>
+                      <td>텍스트</td>
                     </tr>
                     </table>
                     `,
