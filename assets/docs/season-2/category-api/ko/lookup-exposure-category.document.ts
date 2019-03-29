@@ -24,8 +24,8 @@ export const lookupExposureCategoryDocument = {
     developer: ``,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `GET`,
-    path: `/targets/wing/seller_api/apis/api/v1/marketplace/meta/display-categories/{displayCategoryCode}`,
-    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/meta/display-categories/{displayCategoryCode}`,
+    path: `/v2/providers/seller_api/apis/api/v1/marketplace/meta/display-categories/{displayCategoryCode}`,
+    HMACPath: `/v2/providers/seller_api/apis/api/v1/marketplace/meta/display-categories/{displayCategoryCode}`,
     _description: `노출 카테고리 정보를 노출 카테고리 코드를 이용하여 조회한다.`,
     _relation: ``,
     _referenceInfo: ``,
@@ -131,7 +131,7 @@ export const lookupExposureCategoryDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/targets/wing/seller_api/apis/api/v1/marketplace/meta/display-categories/0`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/seller_api/apis/api/v1/marketplace/meta/display-categories/0`,
     code: [
       {
         language: `http`,

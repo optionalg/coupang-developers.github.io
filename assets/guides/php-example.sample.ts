@@ -5,7 +5,7 @@ date_default_timezone_set("GMT+0");
 
 $datetime = date("ymd").'T'.date("His").'Z';
 $method = "POST";
-$path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products";
+$path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products";
 
 $message = $datetime.$method.$path;
 
@@ -350,7 +350,7 @@ date_default_timezone_set("GMT+0");
 
 $datetime = date("ymd").'T'.date("His").'Z';
 $method = "GET";
-$path = "/targets/wing/seller_api/apis/api/v1/marketplace/meta/categories";
+$path = "/v2/providers/seller_api/apis/api/v1/marketplace/meta/categories";
 $query = "categoryName=" . urlencode(원피스);
 
 $message = $datetime.$method.$path.$query;
@@ -389,7 +389,7 @@ date_default_timezone_set("GMT+0");
 
 $datetime = date("ymd").'T'.date("His").'Z';
 $method = "PUT";
-$path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products";
+$path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products";
 
 $message = $datetime.$method.$path;
 
@@ -738,7 +738,7 @@ date_default_timezone_set("GMT+0");
 
 $datetime = date("ymd").'T'.date("His").'Z';
 $method = "DELETE";
-$path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/2401";
+$path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products/2401";
 
 $message = $datetime.$method.$path;
 

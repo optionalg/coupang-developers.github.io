@@ -173,11 +173,6 @@ export const processingExchangeProductInvoiceUploadDocument = {
         <td>hdexp</td>
     </tr>
     <tr>
-        <td>DADREAM</td>
-        <td>다드림</td>
-        <td>DADREAM</td>
-    </tr>
-    <tr>
         <td>DHL</td>
         <td>DHL</td>
         <td>DHL</td>
@@ -286,11 +281,6 @@ export const processingExchangeProductInvoiceUploadDocument = {
         <td>LINEEXPRESS</td>
         <td>LineExpress</td>
         <td>lineexp</td>
-    </tr>
-    <tr>
-        <td>SFEXPRESS</td>
-        <td>순풍택배</td>
-        <td>sfexpress</td>
     </tr>
     <tr>
         <td>TWOFASTEXP</td>

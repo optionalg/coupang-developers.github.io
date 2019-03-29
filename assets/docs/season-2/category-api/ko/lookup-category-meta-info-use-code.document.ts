@@ -24,8 +24,8 @@ export const lookupCategoryMetaInfoUseCodeDocument = {
     developer: ``,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `GET`,
-    path: `/targets/wing/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/{displayCategoryCode}`,
-    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/{displayCategoryCode}`,
+    path: `/v2/providers/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/{displayCategoryCode}`,
+    HMACPath: `/v2/providers/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/{displayCategoryCode}`,
     _description: `노출 카테고리코드로 해당 카테고리에 속한 구매옵션(필수정보), 검색옵션, 고시정보, 구비서류, 인증정보 목록을 조회한다.`,
     _relation: ``,
     _referenceInfo: ``,
@@ -476,7 +476,7 @@ OPTIONAL(선택)
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/targets/wing/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/78877`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/78877`,
     code: [
       {
         language: `http`,

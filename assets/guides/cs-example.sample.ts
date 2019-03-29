@@ -20,7 +20,7 @@ namespace ns_sample_post
         private static string schema = "https";
         private static int port = 443;
 
-        private string path="/targets/wing/seller_api/apis/api/v1/marketplace/seller-products";
+        private string path="/v2/providers/seller_api/apis/api/v1/marketplace/seller-products";
         //replace with your own accessKey
         private static string accessKey = "****";
         //replace with your own secretKey
@@ -302,7 +302,7 @@ namespace ns_sample_put
         private static string schema = "https";
         private static int port = 443;
 
-        private string path="/targets/wing/seller_api/apis/api/v1/marketplace/seller-products";
+        private string path="/v2/providers/seller_api/apis/api/v1/marketplace/seller-products";
         //replace with your own accessKey
         private static string accessKey = "****";
         //replace with your own secretKey
@@ -446,7 +446,7 @@ namespace ns_sample_delete
         private static string schema = "https";
         private static int port = 443;
 
-        private string path="/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/48773047";
+        private string path="/v2/providers/seller_api/apis/api/v1/marketplace/seller-products/48773047";
         //replace with your own accessKey
         private static string accessKey = "****";
         //replace with your own secretKey

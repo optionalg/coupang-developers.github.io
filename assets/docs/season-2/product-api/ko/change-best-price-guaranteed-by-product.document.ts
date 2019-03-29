@@ -24,8 +24,8 @@ export const changeBestPriceGuaranteedByProductDocument = {
     developer: ``,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `PUT`,
-    path: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorId}/{vendorItemId}/best-price-guaranteed-3p/{bestPriceGuaranteed3P}`,
-    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorId}/{vendorItemId}/best-price-guaranteed-3p/{bestPriceGuaranteed3P}`,
+    path: `/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/{vendorId}/{vendorItemId}/best-price-guaranteed-3p/{bestPriceGuaranteed3P}`,
+    HMACPath: `/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/{vendorId}/{vendorItemId}/best-price-guaranteed-3p/{bestPriceGuaranteed3P}`,
     _description: `상품 아이템별 최저가 보장 여부를 변경한다.<br>
                    등록 후 승인이 완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있습니다.`,
     _relation: ``,
@@ -118,7 +118,7 @@ export const changeBestPriceGuaranteedByProductDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/A00000001/3361720646/best-price-guaranteed-3p/true`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/A00000001/3361720646/best-price-guaranteed-3p/true`,
     code: [
       {
         language: `http`,

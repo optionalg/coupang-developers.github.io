@@ -24,8 +24,8 @@ export const modifySellerProductDocument = {
     developer: ``,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `PUT`,
-    path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products`,
-    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products`,
+    path: `/v2/providers/seller_api/apis/api/v1/marketplace/seller-products`,
+    HMACPath: `/v2/providers/seller_api/apis/api/v1/marketplace/seller-products`,
     _description: `업체상품 정보를 수정한다. <br/>
     '상품 조회 API'를 이용하여 추출 된 json 전문에 원하는 value만 수정, 전송하여 빠른 수정 가능 <br/>
     상품 생성 시 사용한 request body에, [sellerProductId]와 [sellerProductItemId]를 삽입하여 수정 가능 <br/>

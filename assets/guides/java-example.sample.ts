@@ -29,7 +29,7 @@ public class HmacProductCreation {
     public void test() {
         //params
         String method = "POST";
-        String path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products";
+        String path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products";
         
         //replace with your own product registration json data
         String strjson="{}";
@@ -127,7 +127,7 @@ public class HmacProductCategorymeta {
     public void test() {
         //params
         String method = "GET";
-        String path = "/targets/wing/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/77723";
+        String path = "/v2/providers/seller_api/apis/api/v1/marketplace/meta/category-related-metas/display-category-codes/77723";
 
         CloseableHttpClient client = null;
         try {
@@ -221,7 +221,7 @@ public class HmacProductUpdate {
     public void test() {
         //params
         String method = "PUT";
-        String path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products";
+        String path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products";
         
         //replace with your own product registration json data
         String strjson="{}";
@@ -321,7 +321,7 @@ public class HmacProductDelete {
     public void test() {
         //params
         String method = "DELETE";
-        String path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/2404";
+        String path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products/2404";
         
         CloseableHttpClient client = null;
         try {

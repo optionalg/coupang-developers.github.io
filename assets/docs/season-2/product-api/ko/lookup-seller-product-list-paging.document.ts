@@ -24,8 +24,8 @@ export const lookupSellerProductListPagingDocument = {
     developer: ``,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `GET`,
-    path: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products`,
-    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/seller-products`,
+    path: `/v2/providers/seller_api/apis/api/v1/marketplace/seller-products`,
+    HMACPath: `/v2/providers/seller_api/apis/api/v1/marketplace/seller-products`,
     _description: `업체상품 목록을 페이징 조회한다.`,
     _relation: ``,
     _referenceInfo: ``,
@@ -328,7 +328,7 @@ export const lookupSellerProductListPagingDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/targets/wing/seller_api/apis/api/v1/marketplace/seller-products?vendorId={vendorId}&nextToken={nextToken}&maxPerPage={maxPerSize}&sellerProductId={sellerProductId}&sellerProductName={sellerProductName}&status={status}&manufacture={manufacture}&createdAt={createdAt}`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/seller_api/apis/api/v1/marketplace/seller-products?vendorId={vendorId}&nextToken={nextToken}&maxPerPage={maxPerSize}&sellerProductId={sellerProductId}&sellerProductName={sellerProductName}&status={status}&manufacture={manufacture}&createdAt={createdAt}`,
     code: [
       {
         language: `http`,

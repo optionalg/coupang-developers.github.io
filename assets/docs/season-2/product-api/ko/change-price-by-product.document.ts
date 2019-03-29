@@ -24,8 +24,8 @@ export const changePriceByProductDocument = {
     developer: ``,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `PUT`,
-    path: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorItemId}/prices/{price}`,
-    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorItemId}/prices/{price}`,
+    path: `/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/{vendorItemId}/prices/{price}`,
+    HMACPath: `/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/{vendorItemId}/prices/{price}`,
     _description: `상품 아이템별 가격을 변경한다. 상품 승인이 완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있다.`,
     _relation: ``,
     _referenceInfo: ``,
@@ -94,7 +94,7 @@ false(default 값) or true (가격 변경 비율 제한 없음)<br/> `,
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/3572784698/prices/49000?forceSalePriceUpdate=true`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/3572784698/prices/49000?forceSalePriceUpdate=true`,
     code: [
       {
         language: `http`

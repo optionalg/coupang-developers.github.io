@@ -150,10 +150,6 @@ export const productAlreadyShippedProcessingDocument = {
     <td>합동택배</td>
   </tr>
   <tr>
-    <td>DADREAM</td>
-    <td>다드림</td>
-  </tr>
-  <tr>
     <td>DHL</td>
     <td>DHL</td>
   </tr>
@@ -240,10 +236,6 @@ export const productAlreadyShippedProcessingDocument = {
   <tr>
     <td>LINEEXPRESS</td>
     <td>LineExpress</td>
-  </tr>
-  <tr>
-    <td>SFEXPRESS</td>
-    <td>순풍택배</td>
   </tr>
   <tr>
     <td>TWOFASTEXP</td>

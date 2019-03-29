@@ -13,7 +13,7 @@ os.environ['TZ'] = 'GMT+0'
 datetime=time.strftime('%y%m%d')+'T'+time.strftime('%H%M%S')+'Z'
 method = "POST"
 
-path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products"
+path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products"
 
 message = datetime+method+path
 
@@ -437,7 +437,7 @@ os.environ['TZ'] = 'GMT+0'
 
 datetime=time.strftime('%y%m%d')+'T'+time.strftime('%H%M%S')+'Z'
 method = "PUT"
-path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products"
+path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products"
 
 message = datetime+method+path
 
@@ -807,7 +807,7 @@ os.environ['TZ'] = 'GMT+0'
 
 datetime=time.strftime('%y%m%d')+'T'+time.strftime('%H%M%S')+'Z'
 method = "DELETE"
-path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/83358541"
+path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products/83358541"
 
 message = datetime+method+path
 

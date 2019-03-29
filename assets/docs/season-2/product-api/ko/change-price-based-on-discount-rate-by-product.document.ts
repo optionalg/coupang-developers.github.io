@@ -24,8 +24,8 @@ export const changePriceBasedOnDiscountRateByProductDocument = {
     developer: `Gw`,
     domain: `https://api-gateway.coupang.com`,
     httpMethod: `PUT`,
-    path: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorItemId}/original-prices/{originalPrice}`,
-    HMACPath: `/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/{vendorItemId}/original-prices/{originalPrice}`,
+    path: `/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/{vendorItemId}/original-prices/{originalPrice}`,
+    HMACPath: `/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/{vendorItemId}/original-prices/{originalPrice}`,
     _description: `상품 아이템별 할인율기준가를 변경한다. 이 기능은 업체상품 신청후 승인완료되어 옵션아이디(vendorItemId)가 발급되면 사용할 수 있다.`,
     _relation: ``,
     _referenceInfo: ``,
@@ -74,7 +74,7 @@ export const changePriceBasedOnDiscountRateByProductDocument = {
     }
   ],
   sample: {
-    endpoint: `https://api-gateway.coupang.com/targets/wing/seller_api/apis/api/v1/marketplace/vendor-items/3010120800/original-prices/100000`,
+    endpoint: `https://api-gateway.coupang.com/v2/providers/seller_api/apis/api/v1/marketplace/vendor-items/3010120800/original-prices/100000`,
     code: [
       {
         language: `http`,

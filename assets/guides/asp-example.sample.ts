@@ -106,7 +106,7 @@ export const aspExample = {
             set hash = CreateObject ("Scripting.Dictionary")
             hash.add "categoryName", "원피스"
 
-            path = "/targets/wing/seller_api/apis/api/v1/marketplace/meta/categories"
+            path = "/v2/providers/seller_api/apis/api/v1/marketplace/meta/categories"
             url = "https://api-gateway.coupang.com" & path
             method = "GET"
             httpBuildQuery hash.Keys, hash.Items, hash.Count, params
@@ -243,7 +243,7 @@ export const aspExample = {
             vendorId = "A*******"
             sellerProductId = "5*******4"
 
-            path = "/targets/wing/seller_api/apis/api/v1/marketplace/seller-products/" & sellerProductId
+            path = "/v2/providers/seller_api/apis/api/v1/marketplace/seller-products/" & sellerProductId
             url = "https://api-gateway.coupang.com" & path
             method = "DELETE"
 
