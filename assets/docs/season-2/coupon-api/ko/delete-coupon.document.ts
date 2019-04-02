@@ -29,7 +29,8 @@ export const  deleteCouponDocument = {
 <br/>실제 API 수행 결과값은 응답으로 받은 "requestedId" 값을 가지고 요청상태 확인 API를 통해서 확인 가능합니다.`,
     _relation: ``,
     _referenceInfo: ``,
-    _warning: ``,
+    _warning: `쿠폰 파기 시 쿠폰에 아직 끝나지 않은 다른 요청이 있을 경우 실패가 발생할 수 있습니다. 
+    예를 들어 쿠폰 생성 후 아이템들의 추가를 요청한 경우, 아이템 추가가 모두 완료되기 전에는 쿠폰 파기가 실패처리 됩니다. ("success": false 출력됨)`,
   },
   parameters: {
     pathSegmentParameters: [
